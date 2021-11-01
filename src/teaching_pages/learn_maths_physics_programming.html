@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Nathaniel Curnick's Webpage</title>
+    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Learning Maths, Physics and Programming</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <a href="https://nathanielcurnick.xyz">
+                <li>🏠 Home</li>
+            </a>
+            <a href="https://newpolymath.home.blog/">
+                <li>📚 Blog</li>
+            </a>
+            <a href="https://discord.com/invite/uVK4BJT">
+                <li><img src="../resources/discord.svg" alt="Discord logo"> Discord</li>
+            </a>
+            <a href="https://github.com/NathanielCurnick">
+                <li><img src="../resources/git.svg" alt="Github logo"> Github</li>
+            </a>
+            <a href="https://www.fiverr.com/nat_solutions?up_rollout=true">
+                <li><img src="../resources/fiverr.svg" alt="fiverr logo"> Fiverr</li>
+            </a>
+        </ul>
+    </nav>
+
+    <main>
+        <p>While I did an integrated masters physics course at the University of Sussex, it was, invariably, not that
+            useful. I guess I learned a few tricks, but for the most part, not much of value was taught. Instead,
+            invariably the best way to learn is to self teach. There are a huge number of resources out there these days
+            for self learning, which I use. I hope I can give you a flavour of what's out there.</p>
+
+        <p>Why am I teaching maths, physics and programming all at once? Well, if you want to learn one, you should
+            probably learn the others, at least a little bit. Maybe if you just want to learn programming you can get
+            away with not learning physics, but even then I consider maths to be essential. I work in research with some
+            people who only studied programming and generally they struggle with mathematics, which isn't helpful for
+            such a setting.</p>
+
+        <h2>First Steps</h2>
+
+        <p>First of all things, ditch your Mac. Whoever told you Apple products were good was lying to you. They're
+            bloated and do not respect user privacy. After that, they're almost impossible to actually work with. Don't
+            get smug if you're using Windows either. Switch to a good Linux distro - everything becomes easier after
+            that. By "good Linux distro" I do not mean Ubuntu; actually I specifically rule out Ubuntu (which is
+            bloated). A good beginner distro is Manjaro, but anything ArchLinux based will do just fine.</p>
+
+        <p>Most scienfitic computing is done on Unix machines, and now that you have one, you'll probably need to learn
+            how to use it. Switching from windows everywhere to simpler command line interfaces is a big change, but a
+            very liberating one. https://www.linuxcommand.org/tlcl.php</p>
+
+        <p>You're first steps will focus on a few basics. First, you should familiarise yourself with \(LaTeX\)
+        </p>
+
+        <p>In terms of programming languages you should learn, just learn any Turing complete programming language. It
+            doesn't matter that much. Once you learn one you can learn another pretty quickly actually. It's like
+            learning a languages in real life but even easier again once you know one. The one thing you should look out
+            for is whatever language you learn should be free (ideally open source but at least free). I can not
+            emphasise this enough <em>do not use <code>Matlab</code></em>. No <code>Maple</code> either; just another
+            flavour of junk. I know many scientists use them, but they costs thousands and thousands of pounds to use in
+            a
+            research or commercial setting. Imagine some snot-nosed rapacious lawyer sniffing around because you didn't
+            pay your
+            loicense fee on code on a paper you published. Ridiculous.</p>
+
+        <p>Anyway, for my reccomendations for programming languages: <code>C</code>, <code>C++</code>,
+            <code>Python</code> (used sparringly), <code>R</code>, <code>Fortran</code>, <code>Rust</code>.
+            <code>Python</code> is fine for some uses - I especially use it for making graphs, but I would not suggest
+            it for a first language at all. Good first languages are <code>C++</code> or <code>Rust</code>. If you were
+            temped by <code>Matlab</code>, go for <code>R</code>. I've already mentioned \(LaTeX\), which isn't really a
+            programming language per se, but everyone should learn it.
+        </p>
+
+        <p>Depending on which Linux distro you went with, this could be a little different, but essentially to use any
+            of these programming languages, you need to install them. The package manager for ArchLinux based distros is
+            <code>pacman</code>, but the principles remain the same (<code>apt</code> is the package manager in many
+            other distros)
+        </p>
+
+        <p>Ok, so you've armed yourself with a programming language, now what?</p>
+
+        <h2>Just Beginning</h2>
+        <dl>
+            <dt><a href="http://www.cplusplus.com/forum/articles/12974/">C++ Forum Programs</a></dt>
+            <dd>A very famous C++ forum thread which has some programs that you can solve. While this is a C++ forum,
+                you can go ahead and solve this in any language</dd>
+            <dt>How to Prove It</dt>
+            <dd>by Daniel J. Velleman, (ISBN 13) ‎978-1108439534 </dd>
+            <dd>This is one of the better introductiuon books I've found. It teaches helpful things like logic, which
+                seem to get missed out of most mathematics textbooks. In fact, this is more of a logic book than it is a
+                mathematics book.</dd>
+            <dt>Principles of Physics</dt>
+            <dd>by David Halliday, Robert Resnick, Jearl Walker, (ISBN 13) 978-1118230749</dd>
+            <dd>This was my physics textbook in year one. Frankly, it was the only book needed for the first two years
+                of a degree. It's HUGE. You may find that you can move onto more advanced maths and programming texts
+                until you are done with this one, I think that's ok. The next section will not have a physics textbook
+                in it.</dd>
+        </dl>
+
+        <p>Honestly, these will take you some time to complete, and you'll be more than comfortable with all the basic
+            concepts. Use Git and Github to keep track of your projects. When you do the maths and physics problems,
+            turn them into \(LaTeX\) documents and add them to Github too. What's that? It's a lot and we've barely
+            covered the basics? Yes. Did you expect this to be easy?
+        </p>
+
+        <h2>Next Steps</h2>
+
+        <p>In this section you will continue working from Principles of Physics, which you might not have finished with
+            (that's ok!). The goal in this section is to rapidly expand your knowledge of mathematics and get you
+            independently solving programming problems.</p>
+
+</body>
+
+</html>
