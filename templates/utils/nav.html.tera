@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        <a href="https://nathanielcurnick.xyz">
+            <li>🏠 Home</li>
+        </a>
+        <a href="https://newpolymath.home.blog/">
+            <li>📚 Blog</li>
+        </a>
+        <a href="https://discord.com/invite/uVK4BJT">
+            <li><img src="/images/logos/discord.svg" alt="Discord logo"> Discord</li>
+        </a>
+        <a href="https://github.com/NathanielCurnick">
+            <li><img src="/images/logos/git.svg" alt="Github logo"> Github</li>
+        </a>
+        </a>
+        <a href="https://www.fiverr.com/nat_solutions?up_rollout=true">
+            <li><img src="/images/logos/fiverr.svg" alt="fiverr logo"> Fiverr</li>
+        </a>
+        <a href="portals/portal_main.html">
+            <li>🕳️ Portals</li>
+        </a>
+    </ul>
+</nav>

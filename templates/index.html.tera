@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Nathaniel Curnick's Webpage</title>
-    <link rel="stylesheet" type="text/css" href="resources/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,32 +14,10 @@
         <h1>Nathaniel Curnick's Webpage</h1>
     </header>
 
-    <nav>
-        <ul>
-            <a href="https://nathanielcurnick.xyz">
-                <li>🏠 Home</li>
-            </a>
-            <a href="https://newpolymath.home.blog/">
-                <li>📚 Blog</li>
-            </a>
-            <a href="https://discord.com/invite/uVK4BJT">
-                <li><img src="resources/discord.svg" alt="Discord logo"> Discord</li>
-            </a>
-            <a href="https://github.com/NathanielCurnick">
-                <li><img src="resources/git.svg" alt="Github logo"> Github</li>
-            </a>
-            </a>
-            <a href="https://www.fiverr.com/nat_solutions?up_rollout=true">
-                <li><img src="resources/fiverr.svg" alt="fiverr logo"> Fiverr</li>
-            </a>
-            <a href="portals/portal_main.html">
-                <li>🕳️ Portals</li>
-            </a>
-        </ul>
-    </nav>
+    {% include "utils/nav" %}
 
     <main>
-        <img class="resright" src="resources/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
+        <img class="resright" src="/images/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
 
         <p>Hello, and welcome to my personal website. This page, and the whole website, are currently under
             construction. It will be a bit thin for the moment, but it will grow rapidly with more content. Thank you
@@ -49,17 +27,17 @@
         <dl style="font-size:large">
             <dt><a href="https://newpolymath.home.blog/">📚 New Polymath Blog</a></dt>
             <dd> Personal blog attempting to revive the polymath movement.</dd>
-            <dt><a href="https://discord.com/invite/uVK4BJT"><img src="resources/discord.svg" alt="Discord logo">
+            <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
             <dd> Polymath discord server I run. Come say hi!</a>
             </dd>
-            <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="resources/linkedin.svg"
+            <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
                         alt="LinkedIn Logo"> LinkedIn</a></dt>
             <dd> My LinkedIn profile</dd>
-            <dt><a href="https://github.com/NathanielCurnick"><img src="resources/git.svg" alt="git logo"> Github</a>
+            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo"> Github</a>
             </dt>
             <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
-            <dt><a href="https://www.fiverr.com/nat_solutions?up_rollout=true"><img src="resources/fiverr.svg"
+            <dt><a href="https://www.fiverr.com/nat_solutions?up_rollout=true"><img src="/images/logos/fiverr.svg"
                         alt="fiverr logo"> Fiverr
                 </a></dt>
             <dd>My Fiverr, where you can hire me as a freelancer. Currently, I offer programming freelance projects and
