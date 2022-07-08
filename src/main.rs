@@ -11,6 +11,8 @@ use rocket_dyn_templates::Template;
 
 use rocket::Request;
 
+mod portals;
+
 #[catch(404)]
 async fn not_found(req: &Request<'_>) -> Redirect {
     let mut context = rocket_dyn_templates::tera::Context::new();
@@ -18,7 +20,7 @@ async fn not_found(req: &Request<'_>) -> Redirect {
     Redirect::to(uri!(index))
 }
 
-#[get("/")]
+#[get("/index")]
 async fn index() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("index", context.into_json())
@@ -43,7 +45,19 @@ async fn main() {
         .attach(Template::fairing())
         // .attach(config)
         // TODO! Find a better way to expose this many endpoints.
-        .mount("/", routes![index,])
+        .mount(
+            "/",
+            routes![
+                index,
+                portals::portals::portals,
+                portals::portals::philosophy_portal,
+                portals::portals::economic_portal,
+                portals::portals::history_portal,
+                portals::portals::politics_portal,
+                portals::portals::science_portal,
+                portals::portals::urban_portal
+            ],
+        )
         // .manage(bucket_info)
         .launch()
         .await

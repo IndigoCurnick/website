@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <a href="https://nathanielcurnick.xyz">
+        <a href="/index">
             <li>🏠 Home</li>
         </a>
         <a href="https://newpolymath.home.blog/">
@@ -16,7 +16,7 @@
         <a href="https://www.fiverr.com/nat_solutions?up_rollout=true">
             <li><img src="/images/logos/fiverr.svg" alt="fiverr logo"> Fiverr</li>
         </a>
-        <a href="portals/portal_main.html">
+        <a href="/portals">
             <li>🕳️ Portals</li>
         </a>
     </ul>

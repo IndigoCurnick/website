@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Economics Portal</title>
-    <link rel="stylesheet" type="text/css" href="../resources/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -16,28 +16,7 @@
         <h1>Economics Portal</h1>
     </header>
 
-    <nav>
-        <ul>
-            <a href="https://nathanielcurnick.xyz">
-                <li>🏠 Home</li>
-            </a>
-            <a href="https://newpolymath.home.blog/">
-                <li>📚 Blog</li>
-            </a>
-            <a href="https://discord.com/invite/uVK4BJT">
-                <li><img src="../resources/discord.svg" alt="Discord logo"> Discord</li>
-            </a>
-            <a href="https://github.com/NathanielCurnick">
-                <li><img src="../resources/git.svg" alt="Github logo"> Github</li>
-            </a>
-            <a href="https://www.fiverr.com/nat_solutions?up_rollout=true">
-                <li><img src="../resources/fiverr.svg" alt="fiverr logo"> Fiverr</li>
-            </a>
-            <a href="portal_main.html">
-                <li>🕳️ Portals</li>
-            </a>
-        </ul>
-    </nav>
+    {% include "utils/nav" %}
 
     <main>
         <p>This is the Economic portal. Economics is broadly the study of the distribution of scarce resources with
