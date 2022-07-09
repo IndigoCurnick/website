@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Kinematics</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    
+</head>
+
+<body>
+    <header>
+        <h1>Kinematics</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <h2>Basic Kinematics</h2>
+
+        <p>Kinematics is the study of motion in space that is realised in the course of time. The crucial difference between
+        kinematics and dynamics is that kinematics does not consider the physical laws of motion. This may seem strange at first
+        to consider motion apart from its physical laws, but it makes absolute sense. At any rate, we will proceed with a
+        general overview of kinematics and solve some problems related to it. I will also be producing a repository on GitHub
+        which graphs some solutions to these problems, which can be found here.</p>
+
+        <p>At any rate, let us begin the study of kinematics. The first place to begin is that, from some simple experiments, it is
+        possible to infer a general rule of motion: objects always free fall at the same rate, independent of their shape, size
+        and mass. The effect of air resistance can mask this fundamental truth by producing a different kind of force, but we
+        will not consider that in this part. We will only consider motions made without air resistance. Under such conditions, a
+        body will fall in a special way. If it falls \(c\) distance in the first unit of time, it will fall \(3c\) distance in
+        the second unit of time, \(5c\) distance in the third unit of time and so on. The consequence of this is that if you
+        take the coefficients and add them up, an interesting pattern emerges. \(1\), \(1+3=4\), \(1+3+5=9\). It forms, in other
+        words, the perfect squares! This is an amazing result if you consider it.</p>
+
+        <p>Now, we will definitely want to encode this knowledge into some sort of equation, so if we do that we obtain</p>
+
+        <p>\[s = ct^2\]</p>
+
+        <p>where \(s\) is the total distance travelled and \(t\) is some time.</p>
+
+        <p>The point here is through only elementary experimentation and some simple reasoning, we have been able to identify a physical
+            equation that describes the motion of objects, without us having to worry about the details of how or why gravity causes these 
+            objects to move in the first place. This is the core of kinematics.
+        </p>
+
+        <p>
+            After that little introduction, let's move onto, derive and understand the classic SUVAT equations. Any physicist will use these pretty
+            much for their entire career. Consider the very naive (but true!) equation
+        </p>
+
+        <p>\[v = \frac{d}{t}\]</p>
+
+        <p>where \(v\) is average speed, \(d\) is distance and \(t\) is time. Consider a body moving while accelerating. At time \(t\) 
+            it will have position \(s(t)\), and at some later time it will have position \(s(t + \Delta t)\). If we consider this in our naive equation, 
+            we can see very easily that a more sophisticated equation for average speed is given by
+        </p>
+
+        <p>\[v = \frac{s(t + \Delta t) - s(t)}{\Delta t}\]</p>
+
+        <p>Why don't we try plugging in our equation \(s = ct^2\) into what we just derived?</p>
+
+        <p>\[s(t + \Delta t) - s(t) = c(t + \Delta t)^2 - ct^2 = 2ct \cdot \Delta t + c \Delta t^2\]</p>
+
+        <p>\[v = \frac{2ct \cdot \Delta t + c \Delta t^2}{\Delta t} = 2ct + c \Delta t\]</p>
+
+        <p>Now consider that we have a \(\Delta t\) in this equation. What happens when we make this time step smaller and smaller? 
+            The two points we are considering become closer and closer together. When the time step becomes vanishingly small, the 
+            distance between the two points also becomes vanishingly small. At this point, it no longer makes sense to discuss the "average" 
+            speed over some time, since in effect virtually no time has passed. Thus, we are now discussing the instantaneous speed.
+        </p>
+
+        <p>\[v = 2ct\]</p>
+
+        <p>More formally this is the calculus technique of a limit. </p>
+
+        <p>\[\frac{ds}{dt} = \lim_{\Delta t \to 0} \left( \frac{s(t + \Delta t) - s(t)}{\Delta t} \right) = v(t) = 2ct\]</p>
+
+        <p>You might think that since these equations have been derived by using \(s = ct^2\) from observing the motion of falling bodies,
+            they only apply to falling bodies. However, this is not true. In fact, these equations hold for any system with a constant acceleration.
+            There's a few ways to think about this. One is that although the equations were formulated by us from our intuition of falling bodies,
+            the equations themselves know nothing about gravity. They only know about constant acceleration. Another way is to make an appeal to 
+            symmetry arguments. Although we made reference to objects falling "down", we can rotate the entire universe and have those objects "fall"
+            "left" but nothing would change about the motion of the objects. Less abstractly, objects fall just the same in Britain as they do in 
+            Australia.
+        </p>
+
+        <h2>General SUVAT equations</h2>
+
+        <p>Now we have the foundations of kinematics, let's derive all the generic SUVAT equations.</p>
+
+        <p>An acceleration can be defined as a change in velocity in some change in time, which is</p>
+
+        <p>\[a = \frac{v - u}{\Delta t}\]</p>
+
+        <p>where \(a\) is acceleration, \(v\) is final velocity, \(u\) is initial velocity.</p>
+
+        <p>A simple rearrangement of this gives</p>
+
+        <p>\[v = u + a \Delta t\]</p>
+
+        <p>In the previous section we used the equation \(s = ct^2\), where we were representing the total distance travelled based on
+            an initial unit of distance. We might not always have the first unit of distance travelled though. Can we make this more useful?
+            Yes, of course! First, consider another way to write this equation. We know from a naive equation that distance = speed \(\times\) time.
+            What is that speed though, if the speed is changing in time? Working that out in detail is hard, but we can simplify this a lot by 
+            realising that no matter what complex shape the speed took, the total, final distance will be the <i>average</i> speed \(\times\) time.
+            As an equation
+        </p>
+
+        <p>\[d = \bar{v}t\]</p>
+
+        <p>where \(\bar{v}\) is the average speed</p>
+
+        <p>Since the speed is changing though, what is the average speed? That is a pretty complex question in general, but we can simplify it
+            by limiting the discussion from any arbitrary acceleration to a constant acceleration. In that instance, it is trivial to see that 
+            the average speed is given by \(\frac{1}{2} (u + v) \), where again, \(v\) is the final speed and \(u\) is the initial speed. Now we 
+            can substitute this into our naive equation and get a new equation for distance.
+        </p>
+
+        <p>\[s = \frac{1}{2}(u + v) \Delta t\]</p>    
+
+        <p>Now that we have \(v = u + a \Delta t\) and \(s = \frac{1}{2}(u + v) \Delta t\) we can try to substitute them into one another</p>
+
+        <p>\[\Delta t = \frac{v - u}{a}\]</p>
+
+        <p>\[s = \frac{1}{2}(u+v) \cdot \frac{v-u}{a} = \frac{(u+v)(v-u)}{2a}\]</p>
+
+        <p>\[2as = (u+v)(v-u) = v^2 - u^2\]</p>
+
+        <p>\[v^2 = u^2 + 2as\]</p>
+
+        <p>Now, let's try substituting \(v = u + a \Delta t\) directly into \(s = \frac{1}{2}(u + v) \Delta t\)</p>
+
+        <p>\[s = \frac{1}{2}(u+u+a \Delta t) \Delta t = \frac{1}{2}(2u \Delta t + a \Delta t^2)\]</p>
+        
+        <p>\[s = u \Delta t + \frac{1}{2} a \Delta t^2\]</p>
+
+        <p>Now we can finally reflect on what \(s = ct^2\) really means. Remember, that equation was for a body which was initially at rest.
+            What we just derived describes the same process but in a much more general form. If \(u = 0\) then \(s = \frac{1}{2} a \Delta t\). Compare
+            the equations and we see that \(c = \frac{1}{2} a\)! This is an amazing result. I don't want to dwell on this so much to become 
+            pleonastic, but the distance in unit time we were considering in the first section was exactly equal to half the constant acceleration.
+        </p>
+
+        <p>Finally, let's consider substituting \(u = v - a \Delta t\) into \(s = \frac{1}{2}(u + v) \Delta t\). I won't write all the algebra 
+            out for this one since it proceeds along parallel lines to the previous derivation (give it a go yourself if you are not convinced!)
+        </p>
+
+        <p>\[s = v \Delta t - \frac{1}{2} a \Delta t^2\]</p>
+
+        <h2>Summary</h2>
+
+        <p>We can describe any motion that has linear acceleration with the following equations</p>
+
+        <p>\[v = u + a \Delta t\]</p>
+
+        <p>\[s = \frac{1}{2}(u + v) \Delta t\]</p>
+
+        <p>\[v^2 = u^2 + 2as\]</p>
+
+        <p>\[s = u \Delta t + \frac{1}{2} a \Delta t^2\]</p>
+
+        <p>\[s = v \Delta t - \frac{1}{2} a \Delta t^2\]</p>
+
+    </main>
+
+</body>
+
+</html>

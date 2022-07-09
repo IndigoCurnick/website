@@ -11,7 +11,7 @@ use rocket_dyn_templates::Template;
 
 use rocket::Request;
 
-mod portals;
+mod routes;
 
 #[catch(404)]
 async fn not_found(req: &Request<'_>) -> Redirect {
@@ -49,13 +49,14 @@ async fn main() {
             "/",
             routes![
                 index,
-                portals::portals::portals,
-                portals::portals::philosophy_portal,
-                portals::portals::economic_portal,
-                portals::portals::history_portal,
-                portals::portals::politics_portal,
-                portals::portals::science_portal,
-                portals::portals::urban_portal
+                routes::portals::portals,
+                routes::portals::philosophy_portal,
+                routes::portals::economic_portal,
+                routes::portals::history_portal,
+                routes::portals::politics_portal,
+                routes::portals::science_portal,
+                routes::portals::urban_portal,
+                routes::physics::kinematics
             ],
         )
         // .manage(bucket_info)
