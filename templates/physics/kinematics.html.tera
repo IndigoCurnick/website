@@ -116,6 +116,15 @@
 
         <p>where \(\bar{v}\) is the average speed</p>
 
+        <p>Why does using the average speed work? Consider the following graph. This is a speed by time graph, which means the area under the lines
+            is the distance travelled in each case. Try calculating the area under the "Linear Acceleration" line and the "Constant Velocity" line 
+            to convince yourself the distance travelled is constant.
+        </p>
+
+        <div id="plotlyMap">
+            {{map | safe}}
+        </div>
+
         <p>Since the speed is changing though, what is the average speed? That is a pretty complex question in general, but we can simplify it
             by limiting the discussion from any arbitrary acceleration to a constant acceleration. In that instance, it is trivial to see that 
             the average speed is given by \(\frac{1}{2} (u + v) \), where again, \(v\) is the final speed and \(u\) is the initial speed. Now we 
@@ -142,7 +151,7 @@
 
         <p>Now we can finally reflect on what \(s = ct^2\) really means. Remember, that equation was for a body which was initially at rest.
             What we just derived describes the same process but in a much more general form. If \(u = 0\) then \(s = \frac{1}{2} a \Delta t\). Compare
-            the equations and we see that \(c = \frac{1}{2} a\)! This is an amazing result. I don't want to dwell on this so much to become 
+            the equations and we see that \(c = \frac{1}{2} a\)! This is an amazing result! I don't want to dwell on this so much to become 
             pleonastic, but the distance in unit time we were considering in the first section was exactly equal to half the constant acceleration.
         </p>
 
@@ -165,6 +174,8 @@
         <p>\[s = u \Delta t + \frac{1}{2} a \Delta t^2\]</p>
 
         <p>\[s = v \Delta t - \frac{1}{2} a \Delta t^2\]</p>
+
+        
 
     </main>
 
