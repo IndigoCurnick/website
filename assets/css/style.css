@@ -1,36 +1,60 @@
 :root {
     --genwidth: 850px;
     --navwidth: 175px;
-    --fg: #ddd;
-    --altfg: #ccc;
-    --fgemph: white;
-    --bg: #111;
-    --altbg: #222;
+    --white: white;
     --emph: #333;
     --bordercolor: #555;
     --limish: #0e0;
-    --bg: rgba(0, 0, 0, 0.4);
-    --altbg: rgba(0, 0, 0, 0.4);
+    --jacksonpurple: #1e2f97;
+    --pictonblue: #1aa7ec;
+    --viking: #4adede;
+    --cornflowerblue: #797ef6;
+    --cornflower: #95d2f4;
+    --harvestgold: #d88d0e;
+    --americansilver: #cecece;
+    --spanishgrey: #999999;
+    --gainsboro: #e4d4dc;
+    --pinklavender: #d1b6c4;
+    --silverpink: #c3a1b2;
+    --operamauve: #b68ba0;
+    --mountbattenpink: #a8758e;
+    --twilightlavender: #83526b;
+    --purpletaupe: #573747;
+    --lenurple: #c09adb;
+    --parrotpink: #dba09a;
+    --grannysmithapple: #b5db9a;
+    --palerobineggblue: #9ad6db;
+    --headingone: var(--lenurple);
+    --headingtwo: var(--lenurple);
+    --headingthree: var(--lenurple);
+    --headingfour: var(--lenurple);
+    --links: var(--palerobineggblue);
+    --hoverlink: var(--grannysmithapple);
+    --dropshadow: rgba(0, 0, 0, 0.2);
+    --maintext: #ddd;
+    --mainboxbackground: rgba(0, 0, 0, 0.4);
 }
 
+/* Website background gradient */
 body {
     font-style: sans-serif;
-    background: linear-gradient(#f4c6c8, #c4686e) fixed;
+    background: linear-gradient(var(--white), var(--americansilver)) fixed;
     margin-bottom: 100px;
 }
 
 
-main,
+/* Dropshadow behind boxes */
+/* main,
 nav,
 footer {
-    box-shadow: 5px 5px 5px 5px rgba( 0, 0, 0, 0.3);
-}
+    box-shadow: 5px 5px 5px 5px var(--dropshadow);
+} */
 
 main {
     margin: auto;
-    color: var(--fg);
-    background: var(--bg);
-    border: dashed 1px var(--bordercolor);
+    color: var(--maintext); /* Text colour in main box */
+    background: var(--mainboxbackground); /* Background colour of main box */
+    border: dashed 1px var(--bordercolor); /* Border colour around main box */
     padding: 1em;
     border-radius: 20px;
 }
@@ -61,7 +85,7 @@ footer {
     text-align: center;
     font-variant: small-caps;
     clear: both;
-    background: var(--altbg);
+    background: var(--mainboxbackground); /* Background of nav bar */
     border-radius: 20px;
     margin: auto;
     border: dashed 1px var(--bordercolor);
@@ -69,7 +93,7 @@ footer {
 }
 
 footer {
-    color: var(--altfg);
+    color: red; /* var(--altfg) */
     margin-top: 1em;
 }
 
@@ -85,7 +109,7 @@ nav li,
 footer li {
     display: inline-block;
     list-style: none;
-    background: var(--bg);
+    background: var(--mainboxbackground); /* Sub-box background colour in navbar */
     border-radius: 10px;
     padding: .5em;
     max-width: 7em;
@@ -100,14 +124,9 @@ footer ul,
 
 nav a:hover li,
 footer a:hover li,
-#tagcloud a:hover li {
-    background: steelblue;
-    color: black;
-    box-shadow: 2px 2px cyan;
-}
 
 strong {
-    color: var(--fgemph);
+    color: var(--hoverlink);
 }
 
 a strong {
@@ -135,23 +154,6 @@ code {
     overflow-wrap: break-word;
 }
 
-.cryptocontainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.cryptoinfo {
-    max-width: 350px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.cryptoinfo code {
-    font-size: small;
-    overflow-wrap: break-word;
-}
 
 ul {
     margin-left: 20px;
@@ -170,33 +172,33 @@ h3,
 h4 {
     font-family: "EB Garamond", Garamond, Serif;
     text-align: center;
-    text-shadow: 1px 1px var(--emph);
+    /* text-shadow: 1px 1px var(--emph); */
     font-weight: normal;
 }
 
 h1 {
-    color: #56bcb6;
+    color: var(--headingone);
 }
 
 h2 {
-    color: #87dad4;
+    color: var(--headingtwo);
 }
 
 h3 {
-    color: #c0efec;
+    color: var(--headingthree);
 }
 
 h4 {
-    color: c0deef;
+    color: var(--headingfour);
 }
 
 a {
-    color: turquoise;
+    color: var(--links);
     text-decoration: none;
 }
 
 a:hover {
-    color: greenyellow;
+    color: var(--hoverlink);
 }
 
 dt {
@@ -239,7 +241,7 @@ dt {
         text-align: center;
         display: block;
         font-size: large;
-        color: violet;
+        color: var(--links);
         text-decoration: underline;
         margin-top: .5em;
     }
@@ -315,73 +317,4 @@ figure {
     content: " 🆕";
     /* content: " (New 🎁)" ; */
     color: goldenrod;
-}
-
-
-/* For QR codes for bitcoin and crypto */
-
-.qr {
-    max-width: 150px;
-    padding: 10px
-}
-
-.entryinfo {
-    text-align: center;
-    font-size: x-small;
-    margin: 0;
-}
-
-#tagcloud {
-    font-size: large;
-    padding: 0;
-    font-variant: small-caps;
-    background: var(--altbg);
-    border-radius: 10px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-#tagcloud li {
-    display: inline-block;
-    padding: 5px;
-    margin: 3px;
-    width: auto;
-    background: var(--bg);
-    border-radius: 10px;
-}
-
-#taglist {
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    display: block;
-}
-
-#taglist li {
-    display: inline-block;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
-}
-
-#taglist::before {
-    content: "This article is tagged as:";
-    display: block;
-    font-size: small;
-}
-
-#taglist::after {
-    content: "Click the links above for related articles.";
-    display: block;
-    font-size: small;
-}
-
-aside {
-    font-style: italic;
-    font-size: small;
-    color: lightgray;
-    margin-left: 3em;
-    margin-right: 3em;
-    padding: 0 1em 0 1em;
-    border: 1px solid black;
-    border-radius: 20px;
 }

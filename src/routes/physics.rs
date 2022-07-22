@@ -6,11 +6,18 @@ use plotly::{
 };
 use rocket_dyn_templates::Template;
 
+//https://stackoverflow.com/questions/39867224/plotly-js-only-one-plot-working-when-using-multiple-plots-on-same-page
+//https://stackoverflow.com/questions/56787941/embedding-dash-plotly-graphs-into-html
+//https://stackoverflow.com/questions/59868987/plotly-saving-multiple-plots-into-a-single-html
 #[get("/physics/kinematics")]
 pub async fn kinematics() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
-    let map = average_speed_graph();
-    context.insert("map", &map);
+    let average_speed = average_speed_graph();
+    let projectile = projectile_graph();
+    context.insert("average_speed", &average_speed);
+    context.insert("projectile", &projectile);
+
+    println!("{:?}", context);
     Template::render("physics/kinematics", context.into_json())
 }
 
@@ -46,4 +53,38 @@ pub fn average_speed_graph() -> String {
     let output = plot.render(false, "", 0, 0);
 
     return output;
+}
+
+pub fn projectile_graph() -> String {
+    let ux = 10_f64;
+    let uy = 10_f64;
+    let g = 9.81_f64;
+
+    let t = (2_f64 * uy) / g;
+
+    let t_list: Vec<f64> = linspace::<f64>(0_f64, t, 1000).collect();
+
+    let sy_list: Vec<f64> = t_list.iter().map(|x| displacement(uy, -g, x)).collect();
+    let sx_list: Vec<f64> = t_list.iter().map(|x| displacement(ux, 0_f64, x)).collect();
+
+    let this_layout = Layout::default()
+        .x_axis(Axis::new().matches(false).title(Title::new("x")))
+        .y_axis(Axis::new().matches(false).title(Title::new("y")));
+
+    let trace = Scatter::new(sx_list, sy_list)
+        .name("Projectile Motion")
+        .mode(Mode::Lines);
+
+    let mut plot = Plot::new();
+
+    plot.set_layout(this_layout);
+    plot.add_trace(trace);
+
+    let output = plot.render(false, "", 0, 0);
+
+    return output;
+}
+
+fn displacement(u: f64, a: f64, t: &f64) -> f64 {
+    return u * t + 0.5_f64 * a * t.powf(2_f64);
 }

@@ -26,6 +26,8 @@ async fn index() -> Template {
     Template::render("index", context.into_json())
 }
 
+//https://notryanb.github.io/rust-blog-series-1.html
+
 #[rocket::main]
 async fn main() {
     let port = std::env::var("PORT")
