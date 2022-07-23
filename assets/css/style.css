@@ -3,6 +3,7 @@
     --navwidth: 175px;
     --white: white;
     --emph: #333;
+    --black: black;
     --bordercolor: #555;
     --limish: #0e0;
     --jacksonpurple: #1e2f97;
@@ -24,21 +25,25 @@
     --parrotpink: #dba09a;
     --grannysmithapple: #b5db9a;
     --palerobineggblue: #9ad6db;
-    --headingone: var(--lenurple);
-    --headingtwo: var(--lenurple);
-    --headingthree: var(--lenurple);
-    --headingfour: var(--lenurple);
-    --links: var(--palerobineggblue);
-    --hoverlink: var(--grannysmithapple);
+    --raisinblack: #212121;
+    --darkcarcoal: #303030;
+    --headingone: var(--black);
+    --headingtwo: var(--black);
+    --headingthree: var(--black);
+    --headingfour: var(--black);
+    --links: var(--pictonblue);
+    --hoverlink: var(--cornflowerblue);
     --dropshadow: rgba(0, 0, 0, 0.2);
-    --maintext: #ddd;
-    --mainboxbackground: rgba(0, 0, 0, 0.4);
+    --maintext: Var(--darkcarcoal);
+    --mainboxbackground: var(--americansilver);
+    --subboxnav: var(--americansilver);
 }
+/* https: //www.color-name.com */
 
 /* Website background gradient */
 body {
     font-style: sans-serif;
-    background: linear-gradient(var(--white), var(--americansilver)) fixed;
+    background: var(--white);
     margin-bottom: 100px;
 }
 
@@ -109,7 +114,7 @@ nav li,
 footer li {
     display: inline-block;
     list-style: none;
-    background: var(--mainboxbackground); /* Sub-box background colour in navbar */
+    background: var(--subboxnav); /* Sub-box background colour in navbar */
     border-radius: 10px;
     padding: .5em;
     max-width: 7em;
@@ -174,6 +179,7 @@ h4 {
     text-align: center;
     /* text-shadow: 1px 1px var(--emph); */
     font-weight: normal;
+    
 }
 
 h1 {
@@ -182,14 +188,17 @@ h1 {
 
 h2 {
     color: var(--headingtwo);
+    text-decoration: underline;
 }
 
 h3 {
     color: var(--headingthree);
+    text-decoration: underline;
 }
 
 h4 {
     color: var(--headingfour);
+    font-style: italic;
 }
 
 a {

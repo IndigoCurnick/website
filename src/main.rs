@@ -3,13 +3,14 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket::catchers;
 use rocket::fs::{relative, FileServer};
 use rocket::response::Redirect;
 use rocket::routes;
+use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
+use routes::portals::get_portal_routes;
 
 mod routes;
 
@@ -47,24 +48,21 @@ async fn main() {
         .attach(Template::fairing())
         // .attach(config)
         // TODO! Find a better way to expose this many endpoints.
-        .mount(
-            "/",
-            routes![
-                index,
-                routes::portals::portals,
-                routes::portals::philosophy_portal,
-                routes::portals::economic_portal,
-                routes::portals::history_portal,
-                routes::portals::politics_portal,
-                routes::portals::science_portal,
-                routes::portals::urban_portal,
-                routes::physics::kinematics
-            ],
-        )
+        .mount("/", get_all_routes())
         // .manage(bucket_info)
         .launch()
         .await
     {
         println!("Did not run. Error: {:?}", e)
     }
+}
+
+fn get_all_routes() -> Vec<Route> {
+    let index_route = routes![index];
+    let portals_routes = get_portal_routes();
+
+    let all_routes = vec![index_route, portals_routes];
+
+    let flattened_routes = all_routes.concat();
+    return flattened_routes;
 }
