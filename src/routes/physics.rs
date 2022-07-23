@@ -6,9 +6,6 @@ use plotly::{
 };
 use rocket_dyn_templates::Template;
 
-//https://stackoverflow.com/questions/39867224/plotly-js-only-one-plot-working-when-using-multiple-plots-on-same-page
-//https://stackoverflow.com/questions/56787941/embedding-dash-plotly-graphs-into-html
-//https://stackoverflow.com/questions/59868987/plotly-saving-multiple-plots-into-a-single-html
 #[get("/physics/kinematics")]
 pub async fn kinematics() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
@@ -16,12 +13,10 @@ pub async fn kinematics() -> Template {
     let projectile = projectile_graph();
     context.insert("average_speed", &average_speed);
     context.insert("projectile", &projectile);
-
-    println!("{:?}", context);
     Template::render("physics/kinematics", context.into_json())
 }
 
-pub fn average_speed_graph() -> String {
+fn average_speed_graph() -> String {
     let u = 0.0_f64;
     let v = 10.0_f64;
     let num_points = 100;
@@ -50,12 +45,12 @@ pub fn average_speed_graph() -> String {
     plot.add_trace(accel_trace);
     plot.add_trace(constant_trace);
 
-    let output = plot.render(false, "", 0, 0);
+    let output = plot.to_inline_html("average_speed");
 
     return output;
 }
 
-pub fn projectile_graph() -> String {
+fn projectile_graph() -> String {
     let ux = 10_f64;
     let uy = 10_f64;
     let g = 9.81_f64;
@@ -80,7 +75,7 @@ pub fn projectile_graph() -> String {
     plot.set_layout(this_layout);
     plot.add_trace(trace);
 
-    let output = plot.render(false, "", 0, 0);
+    let output = plot.to_inline_html("projectile_graph");
 
     return output;
 }
