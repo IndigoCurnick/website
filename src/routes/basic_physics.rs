@@ -89,6 +89,15 @@ fn displacement(u: f64, a: f64, t: &f64) -> f64 {
     return u * t + 0.5_f64 * a * t.powf(2_f64);
 }
 
+#[get("/portals/science/basic_physics/dynamics")]
+pub async fn dynamics() -> Template {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "portals/science/basic_physics/dynamics",
+        context.into_json(),
+    )
+}
+
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics];
+    return routes![kinematics, dynamics];
 }

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Dynamics</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Dynamics</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <p style="display:none">
+            \(
+            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+            \)
+
+        </p>
+
+        <h2>Basic Dynamics</h2>
+
+        <p>Let's define a new concept: momentum. The momentum of an object is equal to its mass
+            times its velocity, as an equation this is
+        </p>
+
+        <p>\[\mathbf{p} = m \mathbf{v}\]</p>
+
+        <p>Notice how momentum and velocity are vectors.</p>
+
+        <p>Making another definition, a famous one from Newton, we define the force as the rate
+            of change of momentum
+        </p>
+
+        <p>\[\mathbf{F} = \frac{d}{dt} \mathbf{p}\]</p>
+
+        <p>We can clearly see then that a body can only have a change in momentum if a force is 
+            applied. Imagine a body floating in space. With no friction, gravity or other forces
+            it will continue at that velocity forever. Therefore, we say its <i>state</i> of 
+            motion is constant. When a force is applied, its momentum will by definition change - 
+            by definition changing its velocity. Imagine our body floated near a planet which 
+            applied a gravitational force, it would change direction. Therefore, its momentum
+            and velocity has changed. 
+        </p>
+
+        <p>Imagine three objects moving around in some space. They are able to interact with 
+            each other, but do not interact with anything outside of themselves. Therefore, we have
+        </p>
+
+        <p>\[\mathbf{p}_1 = m_1 \mathbf{v}_1, \mathbf{p}_2 = m_2 \mathbf{v}_2, 
+            \mathbf{p}_3 = m_3 \mathbf{v}_3\]</p>
+
+        <p>Consider object 1. Any changes in momentum it experiences are due to object 2 and 
+            object 3. Therefore
+        </p>
+
+        <p>\[\frac{d}{dt} \mathbf{p}_1 = \mathbf{F}_{12} + \mathbf{F}_{13}\]</p>
+
+        <p>I use \(\mathbf{F}_{ij}\) to represent the force on \(i\) by \(j\)</p>
+
+        <p>We can make similar expressions for object 2 and object 3</p>
+
+        <p>\[\frac{d}{dt} \mathbf{p}_2 = \mathbf{F}_{21} + \mathbf{F}_{23}\]</p>
+        <p>\[\frac{d}{dt} \mathbf{p}_3 = \mathbf{F}_{31} + \mathbf{F}_{32}\]</p>
+
+        <p>Since the system as a whole is not interacting, all of these forces must sum to 0 </p>
+
+        <p>\[\mathbf{F}_{12} + \mathbf{F}_{13} + \mathbf{F}_{21} + \mathbf{F}_{23} + 
+            \mathbf{F}_{31} + \mathbf{F}_{32} = 0\]
+        </p>
+
+        <p>Therefore,</p>
+
+        <p>\[\frac{d}{dt} (\mathbf{p}_1 + \mathbf{p}_2 + \mathbf{p}_3) = 0</p>
+
+        <p>Integrating 0 means we have some constant value, therefore</p>
+
+        <p>\[\mathbf{p}_1 + \mathbf{p}_2 + \mathbf{p}_3 = \mathbf{P}\]</p>
+
+        <p>Where \(\mathbf{P}\) is some constant momentum of the system. 
+        </p>
+
+        <p><i><b>For a closed system, the total momentum is always constant!</b></i></p>
+
+        <p>This is one of the most important concepts in physics, so commit this to memory!</p>
+
+        <p>Let's try an example problem</p>
+
+        <p>a 10kg block is travelling at 5m/s and a 5kg block is travelling at 3m/s in the 
+            same direction. They collide and stick together. What is the velocity of the 
+            object after the collision?</p>
+
+        <p>Start by calculating total momentum before collision</p>
+
+        <p>\[10kg \times 5m/s + 5kg \times 3m/s = 65kg m/s\]</p>
+
+        <p>Since \(\mathbf{p} = m \mathbf{v}\)</p>
+
+        <p>\[15kg \times x = 65kg m/s\]</p>
+        <p>\[x = \frac{65kg m/s}{15kg} = 4.33 m/s\]</p>
+
+        <p>Now, we can define another property: impulse. Impulse is defined as force acting over
+            a time. This would look like
+        </p>
+
+        <p>\[\mathbf{I} = \int_0^t \mathbf{F} dt^\prime\]</p>
+
+        <p>In the much simpler case of a constant force, the impulse becomes</p>
+
+        <p>\[\mathbf{I} = \mathbf{F} \Delta t\]</p>
+
+        <p>Another way to express this is</p>
+
+        <p>\[\mathbf{I} = \int_0^t \mathbf{F} dt^\prime = \int_0^t \frac{d}{dt^\prime} \mathbf{p} 
+            dt^\prime = \mathbf{p}(t) - \mathbf{p}(0)\]</p>
+
+        <p>Let's try an impulse problem</p>
+
+        <p>A sandbag weighing 10kg is dropped from a hot air balloon which is travelling with a 
+            constant upward velocity of 10m/s from 600m. It hits the ground without bouncing.
+            What is the impulse? 
+        </p>
+
+        <p>First, we need the velocity just before hitting the ground. For that, 
+            we need the time. We can use our familiar SUVAT equations to help us here.
+            Using \(s = ut + \frac{1}{2}at^2\) we can solve for the time
+        </p>
+
+        <p>\[-600 = 10t + \frac{1}{2} \times -9.81 t^2\]</p>
+
+        <p>Let me explain these numbers a little. I define the ground as 0m, and up as the 
+            positive direction. This means our sandbag will actually travel -600m, or 600m down.
+        </p>
+
+        <p>\[-4.905t^2 + 10t + 600 = 0\]</p>
+
+        <p>We can use the quadratic formula to solve this</p>
+
+        <p>t = \frac{-10 \pm \sqrt{10^2 - 4 \times -4.905 \times 600}}{-9.81} = 
+            12.126 or -10.088</p>
+
+        <p>Since we are not interested in solutions in the past, we ignore the negative time 
+            solution. Therefore, \(t = 12.126s\).
+        </p>
+
+        <p>Using another SUVAT equation will let us solve for the velocity, \(v = u + at\)</p>
+
+        <p>\[v = 10 + -9.81 \times 12.126 = -108.95606 m/s^2\]</p>
+
+        <p>The impulse is equal to the momentum after some event minus the momentum before
+            some event. The momentum of the sandbag just before hitting the ground is 
+            \(-108.95606 \times 10 = -1089.5606 kg m/s^2\). Therefore, the impulse is 
+        </p>
+
+        <p>\[I = 0 - -1089.5606 = 1089.5606kg m/s^2\]</p>
+
+        <h2>Summary</h2>
+
+        <p>\[\mathbf{p} = m \mathbf{v}\]</p>
+
+        <p>\[\mathbf{I} = \int_0^t \mathbf{F} dt^\prime = \int_0^t \frac{d}{dt^\prime} \mathbf{p}
+            dt^\prime = \mathbf{p}(t) - \mathbf{p}(0)\]</p>
+        
+
+
+    </main>
+
+</body>
+
+</html>
