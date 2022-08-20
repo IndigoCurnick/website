@@ -7,40 +7,43 @@ async fn portals() -> Template {
     Template::render("portals/portal_main", context.into_json())
 }
 
-#[get("/portals/philosophy_portal")]
+#[get("/portals/philosophy/philosophy_portal")]
 async fn philosophy_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/philosophy_portal", context.into_json())
+    Template::render("portals/philosophy/philosophy_portal", context.into_json())
 }
 
-#[get("/portals/economic_portal")]
+#[get("/portals/economics/economic_portal")]
 async fn economic_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/economic_portal", context.into_json())
+    Template::render("portals/economics/economic_portal", context.into_json())
 }
 
-#[get("/portals/history_portal")]
+#[get("/portals/history/history_portal")]
 async fn history_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/history_portal", context.into_json())
+    Template::render("portals/history/history_portal", context.into_json())
 }
 
-#[get("/portals/politics_portal")]
+#[get("/portals/politics/politics_portal")]
 pub async fn politics_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/politics_portal", context.into_json())
+    Template::render("portals/politics/politics_portal", context.into_json())
 }
 
-#[get("/portals/science_portal")]
+#[get("/portals/science/science_portal")]
 async fn science_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/science_portal", context.into_json())
+    Template::render("portals/science/science_portal", context.into_json())
 }
 
-#[get("/portals/urban_portal")]
-async fn urban_portal() -> Template {
+#[get("/portals/programming/programming_portal")]
+async fn programming_portal() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/urban_portal", context.into_json())
+    Template::render(
+        "portals/programming/programming_portal",
+        context.into_json(),
+    )
 }
 
 pub fn get_portal_routes() -> Vec<Route> {
@@ -51,6 +54,6 @@ pub fn get_portal_routes() -> Vec<Route> {
         history_portal,
         politics_portal,
         science_portal,
-        urban_portal
+        programming_portal
     ];
 }

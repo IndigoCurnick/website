@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Science, Maths, Programming and Technology Portal</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Science, Maths, Programming and Technology Portal</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <h2>Basic Physics</h2>
+        <p>Introductory physics material. Will need a basic understanding of calculus for these
+            posts, but nothing beyond a comprehensive school level.
+        </p>
+        <ol>
+            <li><a href="/portals/science/basic_physics/kinematics">Kinematics</a></li>
+        </ol>
+        
+
+    </main>
+
+</body>
+
+</html>

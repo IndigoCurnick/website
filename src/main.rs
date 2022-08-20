@@ -10,7 +10,7 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
-use routes::physics::kinematics;
+use routes::basic_physics::get_physics_routes;
 use routes::portals::get_portal_routes;
 mod routes;
 
@@ -58,8 +58,9 @@ async fn main() {
 fn get_all_routes() -> Vec<Route> {
     let index_route = routes![index];
     let portals_routes = get_portal_routes();
-    let kinematics = routes![kinematics];
-    let all_routes = vec![index_route, portals_routes, kinematics];
+    let physics = get_physics_routes();
+
+    let all_routes = vec![index_route, portals_routes, physics];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;

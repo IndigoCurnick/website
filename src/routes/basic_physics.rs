@@ -1,19 +1,24 @@
+use rocket::Route;
+use rocket_dyn_templates::Template;
+
 use itertools_num::linspace;
 use plotly::{
     common::{Mode, Title},
     layout::Axis,
     Layout, Plot, Scatter,
 };
-use rocket_dyn_templates::Template;
 
-#[get("/physics/kinematics")]
+#[get("/portals/science/basic_physics/kinematics")]
 pub async fn kinematics() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
     let average_speed = average_speed_graph();
     let projectile = projectile_graph();
     context.insert("average_speed", &average_speed);
     context.insert("projectile", &projectile);
-    Template::render("physics/kinematics", context.into_json())
+    Template::render(
+        "portals/science/basic_physics/kinematics",
+        context.into_json(),
+    )
 }
 
 fn average_speed_graph() -> String {
@@ -82,4 +87,8 @@ fn projectile_graph() -> String {
 
 fn displacement(u: f64, a: f64, t: &f64) -> f64 {
     return u * t + 0.5_f64 * a * t.powf(2_f64);
+}
+
+pub fn get_physics_routes() -> Vec<Route> {
+    return routes![kinematics];
 }

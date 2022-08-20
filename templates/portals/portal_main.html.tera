@@ -19,31 +19,43 @@
     {% include "utils/nav" %}
 
     <main>
-        <p>Here is a list of my portals. These portals are homepages or collections of related content that I find
-            interesting</p>
+        <p>Here is a list of my portals. These contain all of my articles, tutorials and 
+            references to works I find of interest
+        </p>
 
-        <dl>
-            <dt><a href="/portals/economic_portal">Economics Portal</a></dt>
-            <dd>Economically, I mostly study the history of economics. Not the history of economic thought but rather
-                the economies of nations in the past. My perspective on economics has been formed mostly by the greatest
-                economist of all time: Ludwig von Mises.</dd>
-            <dt><a href="/portals/history_portal">History Portal</a></dt>
-            <dd>My interests in history are quite varied, but here I mostly focus on historiography rather than any
-                particular historical event as with the Anglo-Dutch portal.</dd>
-            <dt><a href="/portals/philosophy_portal">Philosophy Portal</a></dt>
-            <dd>Philosophically, I have mostly studied epistemology, and considered the capacity for what it is possible
-                to know.</dd>
-            <dt><a href="/portals/politics_portal">Politics Portal</a></dt>
-            <dd>Politically speaking I mostly follow the Machiavellian school of political analysis based on
-                understanding power and its applications.</dd>
-            <dt><a href="/portals/science_portal">Science, Maths, Programming and Technology Portal</a></dt>
-            <dd>I studied a masters in physics at the University of Sussex, specialising in neutrino physics. Since
-                then I have remained interested in all aspects of science </dd>
-            <dt><a href="/portals/urban_portal">Urban Planning Portal</a></dt>
-            <dd>For a long time I have been concerned with urban planning. I firmly believe that the post-war consensus
-                planning of the British state was an abject failure; we should seek alternatives to this drudgery in our
-                cities and towns.</dd>
-        </dl>
+        <h2><a href="/portals/science/science_portal">Science and Maths Portal</a></h2>
+        <p>I studied a masters in physics at the University of Sussex, specialising in neutrino
+            physics. Since then I have remained interested in all aspects of science. I am
+            especially to keep my mathematical skills sharp</p>
+        
+        <h2><a href="/portals/programming/programming_portal">Programming Portal</a></h2>
+        <p>I currently work as a software engineer and researcher in navigation, as such I need
+            to keep my programming skills sharp. I mostly work in <code>Rust</code> these days,
+            but I am experienced in <code>C++</code>, <code>Python</code>, <code>FORTRAN</code>,
+            <code>LaTeX</code> and <code>R</code>.
+        </p>
+
+        <h2><a href="/portals/economics/economic_portal">Economics Portal</a></h2>
+        <p>My perspective on economics has been formed mostly by the greatest
+        economist of all time: Ludwig von Mises. I understand economics as a logical science
+        that studies human action. This is also called praxeology</p>
+
+        <h2><a href="/portals/history/history_portal">History Portal</a></h2>
+        <p>My interests in history are quite varied, but here I mostly focus on historiography 
+            rather than any particular historical event. I like to analyse history with 
+            by informing the view with a logical understanding of economics, and try to draw
+            out general principles.</p>
+
+        <h2><a href="/portals/philosophy/philosophy_portal">Philosophy Portal</a></h2>
+        <p>Philosophically, I have mostly studied epistemology, and considered the capacity for what
+            it is possible to know. A number of philosophers have influenced my views, including
+            Ludwig von Mises, Ayn Rand, Aristotle, St Thomas Aquinas and many others.</p>
+
+        <h2><a href="/portals/politics/politics_portal">Politics Portal</a></h2>
+        <p>Politically speaking I mostly follow the Machiavellian school of political analysis 
+            based on understanding power and its applications. You won't find any rank 
+            punditry on my blog!</p>
+
     </main>
 
 </body>
