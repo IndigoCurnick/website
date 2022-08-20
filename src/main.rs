@@ -10,8 +10,8 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
+use routes::physics::kinematics;
 use routes::portals::get_portal_routes;
-
 mod routes;
 
 #[catch(404)]
@@ -26,8 +26,6 @@ async fn index() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("index", context.into_json())
 }
-
-//https://notryanb.github.io/rust-blog-series-1.html
 
 #[rocket::main]
 async fn main() {
@@ -60,8 +58,8 @@ async fn main() {
 fn get_all_routes() -> Vec<Route> {
     let index_route = routes![index];
     let portals_routes = get_portal_routes();
-
-    let all_routes = vec![index_route, portals_routes];
+    let kinematics = routes![kinematics];
+    let all_routes = vec![index_route, portals_routes, kinematics];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;

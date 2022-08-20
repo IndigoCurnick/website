@@ -15,6 +15,8 @@
     --americansilver: #cecece;
     --spanishgrey: #999999;
     --gainsboro: #e4d4dc;
+    --queenpink: #e5c7d7;
+    --piggypink: #f2dae6;
     --pinklavender: #d1b6c4;
     --silverpink: #c3a1b2;
     --operamauve: #b68ba0;
@@ -24,6 +26,7 @@
     --lenurple: #c09adb;
     --parrotpink: #dba09a;
     --grannysmithapple: #b5db9a;
+    --teagreen: #d1eac0;
     --palerobineggblue: #9ad6db;
     --raisinblack: #212121;
     --darkcarcoal: #303030;
@@ -35,15 +38,16 @@
     --hoverlink: var(--cornflowerblue);
     --dropshadow: rgba(0, 0, 0, 0.2);
     --maintext: Var(--darkcarcoal);
-    --mainboxbackground: var(--americansilver);
-    --subboxnav: var(--americansilver);
+    --mainboxbackground: var(--piggypink);
+    --subboxnav: var(--piggypink);
+    --background: var(--teagreen)
 }
 /* https: //www.color-name.com */
 
 /* Website background gradient */
 body {
     font-style: sans-serif;
-    background: var(--white);
+    background: var(--background);
     margin-bottom: 100px;
 }
 

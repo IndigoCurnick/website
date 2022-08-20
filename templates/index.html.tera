@@ -24,7 +24,6 @@
             for viewing</p>
 
         <h2>In My Network</h2>
-        <h4>Test Delete later</h4>
         <dl style="font-size:large">
             <dt><a href="https://newpolymath.home.blog/">📚 New Polymath Blog</a></dt>
             <dd> Personal blog attempting to revive the polymath movement.</dd>
@@ -41,8 +40,7 @@
             <dt><a href="https://www.fiverr.com/nat_solutions?up_rollout=true"><img src="/images/logos/fiverr.svg"
                         alt="fiverr logo"> Fiverr
                 </a></dt>
-            <dd>My Fiverr, where you can hire me as a freelancer. Currently, I offer programming freelance projects and
-                voiceovers</dd>
+            <dd>My Fiverr, where you can hire me as a freelancer. Currently, I offer programming freelance projects</dd>
             <dt><a href="/portals">🕳️ Portals</a></dt>
             <dd>Main hub for all my portals. There portals are lists of interesting books, topics, and relevant articles
                 I have written</dd>
