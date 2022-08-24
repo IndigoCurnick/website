@@ -98,6 +98,15 @@ pub async fn dynamics() -> Template {
     )
 }
 
+#[get("/portals/science/basic_physics/fields")]
+pub async fn fields() -> Template {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "portals/science/basic_physics/fields",
+        context.into_json(),
+    )
+}
+
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics, dynamics];
+    return routes![kinematics, dynamics, fields];
 }

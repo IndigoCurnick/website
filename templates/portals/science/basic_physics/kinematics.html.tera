@@ -30,8 +30,6 @@
         \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
         \)
     </p>
-        
-        <h2>Basic Kinematics</h2>
 
         <p>Kinematics is the study of motion in space that is realised in the course of time. The crucial difference between
         kinematics and dynamics is that kinematics does not consider the physical laws of motion. This may seem strange at first

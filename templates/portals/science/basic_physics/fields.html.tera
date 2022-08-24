@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Fields</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Fields</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <p style="display:none">
+            \(
+            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+            \)
+        </p>
+
+        <p>Up until now we have discussed how objects move due to forces, 
+            but we have not discussed how forces are generated nor discussed 
+            energy at all. 
+        </p>
+
+        <p>Everyone knows that positive charges attract negative charges and 
+            repel positive ones. However, let's look more into understanding
+            how much force this attraction and repulsion generates. What we
+            won't be covering here is the specifics of what a field actually is.
+            For our purposes a field is anything which affects a space and 
+            generates forces on other objects in that space. 
+        </p>
+
+        <p>The formula of the magnitude of a force in an electrostatic field 
+            is given by
+        </p>
+
+        <p>\[F = \frac{Qq}{4 \pi \epsilon d^2} \]</p>
+
+        <p>Where \(F\) is the force, \(Q\) is the charge of on particle,
+            \(q\) is the charge of the other particle, \(\epsilon\) is the 
+            permittivity of the medium and \(d\) is the distance between the 
+            charges
+        </p>
+
+        <p>We can abstract this by defining an electric field strength</p>
+
+        <p>\[E = \frac{Q}{4 \pi \epsilon d^2}\]</p>
+
+        <p>Thus a small test charge \(q\) placed inside this field will 
+            experience force 
+        </p>
+
+        <p>\[F = qE\]</p>
+
+        <p>However, this analysis is a little thin. It has the flaw of not
+            working for non-uniform fields. It also isn't a vector, and really
+            we should try and put all relationships into 3 dimensional space.
+            Therefore, let's bring this equation into the third dimension.
+        </p>
+
+        <p>\[\mathbf{F}(\mathbf{r}) = q \mathbf{E}(\mathbf{r})\]</p>
+
+        <p>The equation has been given an upgrade! Now force and electric
+            field are vectors, and we introduce \(r\), a vector for the position
+            of the test charge within the electric field.
+        </p>
+        
+        <p>We can actually do a very similar thing for gravity</p>
+
+        <p>\[\mathbf{F}(\mathbf{r}) = m \mathbf{g}(\mathbf{r})\]</p>
+
+        <p>The fields behave more or less the same. The only difference of 
+            course being that gravity acts upon mass rather than charge.
+        </p>
+
+        <p>We are also now prepared to make a definition of a new concept:
+            energy. We define the work done as the distance travelled when a 
+            force is applied. As an equation we can simply write this as
+        </p>
+
+        <p>\[W = F \times s\]</p>
+
+        <p>But this form has some flaws. For one, it is only a scalar, and we
+            prefer vectors where possible. Also, it doesn't allow us to work
+            with non-uniform fields. To fix this, as usual, we introduce an 
+            integral.
+        </p>
+
+        <p>\[\Delta W = \int \mathbf{F} d\mathbf{s}\]</p>
+
+        
+
+    </main>
+
+</body>
+
+</html>
