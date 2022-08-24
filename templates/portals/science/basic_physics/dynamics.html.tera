@@ -148,8 +148,8 @@
 
         <p>We can use the quadratic formula to solve this</p>
 
-        <p>t = \frac{-10 \pm \sqrt{10^2 - 4 \times -4.905 \times 600}}{-9.81} = 
-            12.126 or -10.088</p>
+        <p>\[t = \frac{-10 \pm \sqrt{10^2 - 4 \times -4.905 \times 600}}{-9.81} = 
+            12.126 or -10.088\]</p>
 
         <p>Since we are not interested in solutions in the past, we ignore the negative time 
             solution. Therefore, \(t = 12.126s\).
