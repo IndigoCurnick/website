@@ -1,2 +1,9 @@
 pub mod basic_physics;
+pub mod economics;
+pub mod history;
+pub mod philosophy;
+pub mod politics;
+pub mod polymath;
 pub mod portals;
+pub mod programming;
+pub mod science;

@@ -235,16 +235,22 @@
 
         <h2>Projectiles and Vectors</h2>
 
-        <p>Up until now we have considered motion only in one direction. What about two dimension motion?
-            Let's consider a person throwing a ball at an angle. As you probably know, balls thrown like this form arcs in the air.
-            They also travel up and down and also forward. Let's first consider a totally generalised problem.
+        <p>Up until now we have considered motion only in one direction. 
+            What about two dimension motion?
+            Let's consider a person throwing a ball at an angle. 
+            As you probably know, balls thrown like this form arcs in the air.
+            They also travel up and down and also forward. Let's first consider 
+            a totally generalised problem.
         </p>
 
-        <p>A ball is thrown with some velocity. How far will it travel, how high will it get, how long will it be in the air, and what
+        <p>A ball is thrown with some velocity. How far will it travel, how high
+            will it get, how long will it be in the air, and what
             is its final velocity?
         </p>
 
-        <p>Since we want to keep this totally general, let's use vectors and write out what we know</p>
+        <p>Since we want to keep this totally general, let's use vectors and 
+            write out what we know
+        </p>
 
         <p>\[\vec{u} = \colvec{u_x\\u_y}\]</p>
 

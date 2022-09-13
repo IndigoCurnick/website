@@ -46,6 +46,12 @@ async fn programming_portal() -> Template {
     )
 }
 
+#[get("/portals/polymath/polymath_portal")]
+async fn polymath_portal() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/polymath/polymath_portal", context.into_json())
+}
+
 pub fn get_portal_routes() -> Vec<Route> {
     return routes![
         portals,
@@ -54,6 +60,7 @@ pub fn get_portal_routes() -> Vec<Route> {
         history_portal,
         politics_portal,
         science_portal,
-        programming_portal
+        programming_portal,
+        polymath_portal
     ];
 }
