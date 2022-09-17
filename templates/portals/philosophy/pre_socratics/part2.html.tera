@@ -114,10 +114,10 @@
         <!-- wp:quote -->
         <blockquote class="wp-block-quote">
             <!-- wp:paragraph -->
-            <p>The head is the location of intellect, the heart of the soul and sensation, the navel of the taking root and
+            <p><em>The head is the location of intellect, the heart of the soul and sensation, the navel of the taking root and
                 growth of the first part, the genital organs of the depositing of seed and of generation. The brain contains the
                 principle of man, the heart contains the principle of animals, the naval that of plants, and the genital organs
-                that of them all. For they all both flourish and grow from seed.</p>
+                that of them all. For they all both flourish and grow from seed.</em></p>
             <!-- /wp:paragraph -->
         </blockquote>
         <!-- /wp:quote -->
@@ -139,11 +139,11 @@
         <!-- wp:quote -->
         <blockquote class="wp-block-quote">
             <!-- wp:paragraph -->
-            <p>there was no difference between an arbitrator and an altar, for the wronged betakes itself to one or the other.
+            <p><em>there was no difference between an arbitrator and an altar, for the wronged betakes itself to one or the other.
                 Similarly, if one were to say that an anchor and a pot-hook hung up were identical; for both are the same sort
                 of thing, but they differ in this—that one is hung up above and the other below. And if one were to say “the
                 cities have been reduced to the same level,” this amounts to the same in the case of things far apart—the
-                equality of “levelling” in regard to superficialities and resources.</p>
+                equality of “levelling” in regard to superficialities and resources.</em></p>
             <!-- /wp:paragraph -->
         </blockquote>
         <!-- /wp:quote -->
@@ -160,7 +160,7 @@
         <!-- wp:quote -->
         <blockquote class="wp-block-quote">
             <!-- wp:paragraph -->
-            <p>You would not have got off without punishment after such misconduct, had I not lost my temper</p>
+            <p><em>You would not have got off without punishment after such misconduct, had I not lost my temper</em></p>
             <!-- /wp:paragraph -->
         </blockquote>
         <!-- /wp:quote -->
@@ -194,39 +194,35 @@
         <!-- /wp:heading -->
         
         <!-- wp:paragraph -->
-        <p>Lives of Eminent Philosophers by Diogenes Laertius</p>
+        <p><em>Lives of Eminent Philosophers</em> by Diogenes Laertius</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Divination by Tullius Cicero </p>
+        <p><em>Divination</em> by Tullius Cicero </p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>The History of Philosophy by A C Grayling</p>
+        <p><em>The History of Philosophy</em> by A C Grayling</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Library by Diodorus Siculus</p>
+        <p><em>Library</em> by Diodorus Siculus</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Philosophy Before Socrates by Richard D. McKirahan</p>
+        <p><em>Philosophy Before Socrates</em> by Richard D. McKirahan</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Life of Pythagoras by Porphyry</p>
+        <p><em>Life of Pythagoras</em> by Porphyry</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Rhetoric by Aristotle</p>
+        <p><em>Rhetoric</em> by Aristotle</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->
-        <p>Library by Diodorus Siculus</p>
-        <!-- /wp:paragraph -->
-        
-        <!-- wp:paragraph -->
-        <p>De Musica by Pseudo-Plutarch</p>
+        <p><em>De Musica</em> by Pseudo-Plutarch</p>
         <!-- /wp:paragraph -->
 
     </main>

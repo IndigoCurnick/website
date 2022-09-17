@@ -8,6 +8,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
 </head>
 
 <body>
@@ -84,8 +87,8 @@
         <p>Looking at these two tables we see they have the constituent statements on the left, and the logical statement itself
             on the right. We fill in the values true and false for all of the statements so that all combinations are present.
             It's very important all possible combinations are made. To check you have done it right, the total number of
-            combinations will be 2 to the power of the number of statements. So if there is one statements we have 2^1=2
-            combinations, with 2 statements we have 2^2=4 combinations, with three statements we have 2^3=8 combinations and so
+            combinations will be 2 to the power of the number of statements. So if there is one statements we have \(2^1=2\)
+            combinations, with 2 statements we have \(2^2=4\) combinations, with three statements we have \(2^3=8\) combinations and so
             on. </p>
         <!-- /wp:paragraph -->
         
