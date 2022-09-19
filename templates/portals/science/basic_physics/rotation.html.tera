@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Rotation</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Rotation</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <p style="display:none">
+            \(
+            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+            \)
+        </p>
+
+        
+
+
+        <p>Many students struggle with rotation in physics, but the concepts
+            are actually quite simple. I hope to describe them to you in a
+            helpful way in this article.
+        </p>
+
+        <p>Consider some vector \(\mathbf{r}(t)\). Its magnitude does not change
+            but its direction does change, and varies with time. For a uniformly
+            rotating vector we can define an angular frequency \(\omega\) which is
+            the <i>radians swept</i> per unit time.
+        </p>
+
+        <p>\[\omega = \frac{2 \pi}{T} = 2 \pi f\]</p>
+
+        <p>where \(T\) is the time for one full rotation (called the period)
+            and \(f\) is the frequency, or number of full rotations per second.
+            The \(2 \pi\) arises from the fact that there are \(2 \pi\) radians
+            in a circle. Therefore, the angle swept by \(\mathbf{r}(t)\) in 
+            time \(t\) is \(\omega t \).
+        </p>
+
+        <p>Now, consider how fast the rotating vector has to be going.
+            Since it has to track out one rotation in time \(T\), and the 
+            distance that has to be traversed is \(2 \pi r\) (the circumference
+            is \(2 \pi) times the radius), then the speed is given by
+        </p>
+
+        <p>\[v = \frac{2 \pi r}{T} = \omega r \]</p>
+
+        <p>Now consider this velocity itself. We have the magnitude for constant
+            \(\omega\), but velocity is also itself a vector. \(\mathbf{v}(t)\)
+            is also a rotating vector. It always forms a tangent to the arc of
+            rotation. This makes sense - if the object suddenly stops rotating
+            would shoot out in a straight line tangent to the current arc. Think
+            about hammer throwers in the olympics - they rotate rapidly on the 
+            spot and when they let go of the hammer it flies out straight over
+            the field rather than continue in a circle.
+        </p>
+
+        <p>If \(\omega\) is constant, then \(v\) will also be constant.
+            Consider a sort of unusual concept but think about the "position" of
+            the velocity vector in velocity space. In velocity space, one
+            rotation will mean that \(\mathbf{v}(t)\) traces out a circle of 
+            circumference \(2 \pi v\). What causes \(\mathbf{v}(t)\) to change 
+            direction?
+        </p>
+
+        <p>Some acceleration, of course. Consider the same analysis we just did
+            with velocity. We now have to track out a "distance" \(2 \pi v\) in 
+            time \(T\).
+        </p>
+
+        <p>\[a = \frac{2 \pi v}{T} = \omega v = \omega^2 r\]</p>
+
+        <p>Consider the hammer thrower again. The acceleration is provided by
+            the hammer thrower - and that acceleration is always <i>towards</i>
+            the hammer thrower. This is again a tangent, but this time to the
+            velocity vector. We can see that the acceleration vector for
+            rotation is given by
+        </p>
+
+        <p>\[\mathbf{a}(t) = -\omega^2 \mathbf{r}(t)\]</p>
+
+        <p>The negative sign is there because it points in the opposite
+            direction to \(\mathbf{r}(t)\).
+        </p>
+
+        <p>Let's introduce the concept of reference frames that rotate with
+            respect to one another. The following diagram shows two reference 
+            frames that have a rotation around the z axis. In other words, they
+            have the same z axis but x and y are rotated with respect to one 
+            another.
+        </p>
+
+        {# TODO a diagram of rotation here, maybe look up this textbook on
+            zlibrary and see if you can yoink it out #}
+
+        <p>If you consider the geometry, then it's quite easy to show the 
+            following results
+        </p>
+
+        <p>\[a = x \cos(\theta), b = y \sin(\theta), c = y \cos(\theta), 
+            d = x \sin(\theta)\]</p>
+
+        <p>Therefore, we can write</p>
+
+        <p>\[x^\prime = a + b, y^\prime = c - d\]</p>
+
+        <p>Substituting we find</p>
+
+        <p>\[x^\prime = x \cos(\theta) + y \sin(\theta)\]</p>
+
+        <p>\[y^\prime = -x \sin(\theta) + y \cos(\theta)\]</p>
+
+        <p>What is really useful in rotating reference frames is a rotation 
+            matrix. Therefore, in matrix form we would write
+        </p>
+
+        <p>\[\colvec{x^\prime\\y^\prime\\z^\prime} = 
+            \begin{pmatrix} 
+            \cos(\theta) & \sin(\theta) & 0\\
+            -\sin(\theta) & \cos(\theta) & 0\\
+            0 & 0 & 1
+            \end{pmatrix}
+            \colvec{x\\y\\z} \]</p>
+
+        <p>That allows us to convert between reference frames that are 
+            statically rotated with respect to one another. Now let us also 
+            consider if they are continually rotating with time. First, define
+            some rotation matricies.
+        </p>
+
+        <p>\[\colvec{x\\y\\z} =
+
+            \begin{pmatrix}
+            \cos(\omega t) & -\sin(\omega t) & 0\\
+            \sin(\omega t) & \cos(\omega t) & 0\\
+            0 & 0 & 1
+            \end{pmatrix}
+
+            \colvec{x^\prime\\y^\prime\\z^\prime} \]</p>
+
+        <p>Which is just the transpose of the rotation matrix we derived.
+            If you have a rotation matrix \(C\) that rotates from \(A\) to 
+            \(B\) then the rotation matrix from \(B\) to \(A\) is \(C^T\).
+            Rotation matricies are also always orthogonal, meaning the transpose
+            is the same as the inverse i.e. \(C^T = C^{-1}\). The other 
+            difference of course being we have replaced \(\theta\) with 
+            \(\omega t\).
+        </p>
+
+        <p>Let's try differentiating this matrix. We will need to recall the
+            product rule for differentiation which is
+        </p>
+
+        <p>\[f(x) = u(x) v(x)\]</p>
+        <p>\[\dot{f}(x) = \dot{u}(x) v(x) + u(x) \dot{v}(x)\]</p>
+
+        <p>To differentiate it is easier to expand out of the matrix form and 
+            then repackage it at the end, so
+        </p>
+
+        <p>\[x = x^\prime \cos(\omega t) - y^\prime \sin(\omega t)\]</p>
+        <p>\[y = x^\prime \sin(\omega t) + y^\prime \cos(\omega t)\]</p>
+
+        <p>\[
+            \frac{dx}{dt} = 
+            \dot{x^\prime} \cos(\omega t) 
+            - x^\prime \omega \sin(\omega t)
+            - \dot{y^\prime} \sin(\omega t)
+            - y^\prime \omega \cos(\omega t)
+            \]
+        </p>
+
+        <p>\[
+            \frac{dy}{dt} =
+            \dot{x^\prime} \sin(\omega t)
+            + x^\prime \omega \cos(\omega t)
+            + \dot{y^\prime} \cos(\omega t)
+            - y^\prime \omega \sin(\omega t)
+            \]</p>
+
+        <p>I won't explicitly do \(z\) since it is trivial</p>
+
+        <p>Collecting like terms into matrix form we get</p>
+
+        <p>\[
+            \frac{d}{dt} \colvec{x\\y\\z} =
+
+            \begin{pmatrix}
+            -\sin(\omega t) & -\cos(\omega t) & 0\\
+            \cos(\omega t) & -\sin(\omega t) & 0\\
+            0 & 0 & 1
+            \end{pmatrix}
+
+            \colvec{x^\prime\\y^\prime\\z^\prime}
+
+            + 
+
+            \begin{pmatrix}
+            \cos(\omega t) & -\sin(\omega t) & 0\\
+            \sin(\omega t) & \cos(\omega t) & 0\\
+            0 & 0 & 1
+            \end{pmatrix}
+
+            \colvec{\dot{x^\prime}\\\dot{y^\prime}\\\dot{z^\prime}}
+            \]</p>
+
+            <p>The second term is the velocity vector in the primed coordinate
+                frame as seen from the unprimed coordinate frame. The first term
+                has some interesting properties though. Let's explore those.
+            </p>
+
+            <p>\[\mathbf{\omega} =  \omega \mathbf{\hat{z}}, 
+                \mathbf{r} = x \mathbf{\hat{x}} +
+                y \mathbf{\hat{y}} + z \mathbf{\hat{z}}\]</p>
+
+            
+            <p>\(\mathbf{\omega}\) is called the angular velocity, which in This
+                case is the rate of rotation about the z axis. 
+            </p>
+
+            <p>Consider now the cross product of them both</p>
+
+            <p>\[\mathbf{\omega} \times \mathbf{r} =
+                \omega \mathbf{\hat{z}} \times 
+                (\mathbf{\hat{x}} +
+                y \mathbf{\hat{y}} + 
+                z \mathbf{\hat{z}})
+                =
+                -\omega y \mathbf{\hat{x}} + \omega x \mathbf{\hat{y}}
+                \]</p>
+
+            <p>Written in matrix form this would be</p>
+
+            <p>\[\mathbf{\omega} \times \mathbf{r} = 
+                \omega \colvec{-y\\x\\0}\]</p>
+
+            <p>Let's look at the first term again, and see if we can't make it 
+                match this result. In other words, let's try and prove that
+            </p>
+
+            <p>\[
+                \omega 
+
+                \begin{pmatrix}
+                -\sin(\omega t) & -\cos(\omega t) & 0\\
+                \cos(\omega t) & -\sin(\omega t) & 0\\
+                0 & 0 & 1
+                \end{pmatrix}
+
+                \colvec{x^\prime\\y^\prime\\z^\prime}
+
+                = \omega \colvec{-y\\x\\0}
+
+                \]
+            </p>
+
+            <p>Let's write this out in the non-matrix form, again I will 
+                ignore the trivial z component
+            </p>
+
+            <p>\[-x^\prime \sin(\omega t) - y^\prime \cos(\omega t) = -y\]</p>
+            <p>\[x^\prime \cos(\omega t) - y^\prime \sin(\omega t) = x\]</p>
+
+            <p>And now if we refer back to the original definition of this 
+                rotating reference frame and expand it we find
+            </p>
+
+            <p>\[x = x^\prime \cos(\omega t) - y^\prime \sin(\omega t)\]</p>
+            <p>\[y = x^\prime \sin(\omega t) + y^\prime \cos(\omega t)\]</p>
+
+            <p>Which are a match, so we have proven it. Now using all of these
+                results we can see that
+            </p>
+
+            <p>\frac{d_a \mathbf{r}}{dt} = \frac{d_r \mathbf{r}}{dt} 
+                + \mathbf{\omega} \times \mathbf{r}
+            </p>
+
+            <p>where \(\frac{d_a \mathbf{r}}{dt}\) is the velocity of some point
+                in the unprimed reference frame and 
+                \(\frac{d_r \mathbf{r}}{dt}\) is the velocity of the same point 
+                in the primed reference frame.
+            </p>
+
+            <p>This is a very important result, and helps answer a question I
+                struggled with during my undergraduate degree. Let's make a 
+                point rotate with the primed velocity frame, such that it's 
+                velocity in that frame is 0, we would have
+            </p>
+
+            <p>\[\frac{d_a \mathbf{r}}{dt} = \mathbf{\omega} \times \mathbf{r}\]
+            </p>
+
+            <p>Which way, then, should \(\mathbf{\omega}\) point? Imagine a 
+                clock on the wall, where the tip of the minute hand is the point
+                we are considering in the rotating reference frame. Should 
+                \(\mathbf{\omega}\) point to 6 o'clock or 5 o'clock? All of the 
+                radial directions are totally not helpful because the hand 
+                usually doesn't point to any of them (although it will point at
+                one of them). The only way to define this is perpendicular - 
+                in this case going into the clock to keep a right hand rule.
+                I always wondered what was "pointing" perpendicular to the
+                rotation when it came to angular velocity.
+            </p>
+
+            <p>The velocity of a rotating point can be described as</p>
+
+            <p>\[\omega r \sin(\theta) = v\]</p>
+
+            <p>dealing with only the magnitudes, but in a more useful vector 
+                form we might write
+            </p>
+
+            <p>\[|\mathbf{\omega}| |\mathbf{r}| \sin(\theta) \mathbf{\hat{n}} 
+                = \mathbf{v}\]
+            </p>
+
+            <p>Where this \(\mathbf{\hat{n}}\) is a vector pointing in the 
+                direction of \(\mathbf{v}\) which is itself perpendicular to the
+                plane made by \(\mathbf{\omega}\) and \(\mathbf{r}\). In other 
+                words
+            </p>
+
+            <p>\[\mathbf{\omega} \times \mathbf{r} = 
+                |\mathbf{\omega}| |\mathbf{r}| \sin(\theta) \mathbf{\hat{n}}
+            = \mathbf{v}\]</p>
+
+
+
+
+            
+
+    </main>
+
+</body>
+
+</html>

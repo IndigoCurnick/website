@@ -91,7 +91,7 @@ fn displacement(u: f64, a: f64, t: &f64) -> f64 {
 
 #[get("/portals/science/basic_physics/dynamics")]
 pub async fn dynamics() -> Template {
-    let mut context = rocket_dyn_templates::tera::Context::new();
+    let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/science/basic_physics/dynamics",
         context.into_json(),
@@ -100,13 +100,19 @@ pub async fn dynamics() -> Template {
 
 #[get("/portals/science/basic_physics/fields")]
 pub async fn fields() -> Template {
-    let mut context = rocket_dyn_templates::tera::Context::new();
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/science/basic_physics/fields", context.into_json())
+}
+
+#[get("/portals/science/basic_physics/rotation")]
+pub async fn rotation() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "portals/science/basic_physics/fields",
+        "portals/science/basic_physics/rotation",
         context.into_json(),
     )
 }
 
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics, dynamics, fields];
+    return routes![kinematics, dynamics, fields, rotation];
 }
