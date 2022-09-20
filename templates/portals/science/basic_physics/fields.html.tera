@@ -240,7 +240,50 @@
             with them.
         </p>
 
-        <p></p>
+        <p>Consider the following field</p>
+
+        <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{yz\\xz\\xy}\]</p>
+
+        <p>Let's evaluate the line integral to find the change in potential when
+            moving from the point (0,0,0) to (1,1,1) in a straight line in two 
+            ways. First we will use a substitution \(\mathbf{s}\), and then we 
+            will do it in three stages.
+        </p>
+
+        <p>Using a substitution, since \(x=y=z\) at all points along the line,
+            we can rewrite this field as
+        </p>
+
+        <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{x^2\\x^2\\x^2}\]</p>
+
+        <p>So, the line integral is</p>
+
+        <p>\[\Delta \phi = - \int \mathbf{E} ds 
+            =
+            -\int^1_0 E_x dx 
+            -\int^1_0 E_y dy
+            -\int^1_0 E_z dz
+            \]
+        </p>
+
+        <p>But since \(E_x = E_y = E_z\) at all points, we can write</p>
+
+        <p>\[\Delta \phi = -3 \int^1_0 \frac{F}{a^2} x^2 dx = -\frac{F}{a^2}\]
+        </p>
+
+        <p>Now, let's try in stages. First from (0,0,0) to (1,0,0)</p>
+
+        <p>\[\Delta \phi_1 = -\int^1_0 \frac{F}{a^2} yz dx = 0\]</p>
+
+        <p>Since \(y=z=0\). Now from (1,0,0) to (1,1,0)</p>
+
+        <p>\[\Delta \phi_2 = -\int^1_0 \frac{F}{a^2} xz dy = 0\]</p>
+
+        <p>Since \(z=0\). Now from (1,1,0) to (1,1,1)</p>
+
+        <p>\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz = -\frac{F}{a^2}</p>
+
+        
 
 
     </main>

@@ -289,8 +289,8 @@
                 results we can see that
             </p>
 
-            <p>\frac{d_a \mathbf{r}}{dt} = \frac{d_r \mathbf{r}}{dt} 
-                + \mathbf{\omega} \times \mathbf{r}
+            <p>\[\frac{d_a \mathbf{r}}{dt} = \frac{d_r \mathbf{r}}{dt} 
+                + \mathbf{\omega} \times \mathbf{r}\]
             </p>
 
             <p>where \(\frac{d_a \mathbf{r}}{dt}\) is the velocity of some point
@@ -342,10 +342,137 @@
                 |\mathbf{\omega}| |\mathbf{r}| \sin(\theta) \mathbf{\hat{n}}
             = \mathbf{v}\]</p>
 
-
-
+            <p>Let's now turn our attention to acceleration vectors in rotating
+                frames. Just a reminder, the relationship between a velocity
+                vector in one frame to another when the frames are rotated with
+                respect to one another (but not rotating) is given by
+            </p>
 
             
+
+            <p>\[
+
+                \colvec{\dot{x}\\\dot{y}\\\dot{z}}
+
+                =
+
+                \begin{pmatrix} 
+                \cos(\theta) & -\sin(\theta) & 0\\
+                \sin(\theta) & \cos(\theta) & 0\\
+                0 & 0 & 1
+
+                \end{pmatrix}
+
+                \colvec{\dot{x}^\prime\\\dot{y}^\prime\\\dot{z}^\prime}
+                
+                \]
+            </p>
+
+            <p>This carries obvious parallels with the transformation that we 
+                have already differentiated. Therefore, we can think of
+                differentiating a vector in a rotated reference frame 
+                as applying the following operation
+            </p>
+
+            <p>\[\frac{d_a}{dt} = \frac{d_r}{dt} + \mathbf{\omega} \times\]</p>
+
+            <p>So applied to vector \(\mathbf{K}\)</p>
+
+            <p>\[\frac{d_a \mathbf{K}}{dt} = \frac{d_r \mathbf{K}}{dt} 
+                + \mathbf{\omega} \times \mathbf{K}\]
+            </p>
+
+            <p>So applying this to a velocity vector \(\mathbf{v}\)</p>
+
+            <p>\[\frac{d_a \mathbf{v}}{dt} = \frac{d_r \mathbf{v}}{dt}
+                + \mathbf{\omega} \times \mathbf{v}\]
+            </p>
+
+            <p>But we have already have an alternative expression for 
+                \(\mathbf{v}\) 
+            </p>
+
+            <p>\[\mathbf{v} = \frac{d_a \mathbf{r}}{dt} = 
+                \frac{d_r \mathbf{r}}{dt} + \mathbf{\omega} \times \mathbf{r}\]
+            </p>
+
+            <p>Therefore, we can derive</p>
+
+            <p>\[\frac{d_a \mathbf{v}}{dt} =
+                \frac{d_r}{dt} \left( \frac{d_r}{dt} \mathbf{r} +
+                \mathbf{\omega} \times \mathbf{r} \right)
+                + \mathbf{\omega} \times \left(\frac{d_r}{dt} \mathbf{r} 
+                + \mathbf{\omega} \times \mathbf{r}
+                \right)
+                \]
+            </p>
+
+            <p>Getting this into a more useful form will require the use of some
+                vector relationships. The first is 
+            </p>
+
+            <p>\[\frac{d}{dx}(\mathbf{A} \times \mathbf{B}) =
+                \frac{d \mathbf{A}}{dx} \times \mathbf{B} +
+                \mathbf{A} \times \frac{d \mathbf{B}}{dx}
+                \]</p>
+
+            <p>Which allows us to rearrange the expression into</p>
+
+            <p>\[\frac{d_a}{dt} \mathbf{v} =
+                \frac{d_r^2 \mathbf{r}}{dt^2} +
+                \frac{d_r \mathbf{\omega}}{dt} \times \mathbf{r} +
+                2 \mathbf{\omega} \times \frac{d_r \mathbf{r}}{dt} +
+                \mathbf{\omega} \times (\mathbf{\omega} \times \mathbf{r})\]
+            </p>
+
+            <p>We can also rewrite the last part of this expression like this 
+            </p>
+
+            <p>\[\mathbf{\omega} \times (\mathbf{\omega} \times \mathbf{r}) =
+                (\mathbf{\omega} \cdot \mathbf{r}) \mathbf{\omega} - 
+                (\mathbf{\omega} \cdot \mathbf{\omega}) \mathbf{r}
+                \]</p>
+            
+            <p>Let's consider now some astronauts living in space. They live 
+                in a space station that has "artificial gravity" due to its 
+                rotation. The coordinate system attached to this space station 
+                is the primed reference frame. The rate of rotation is not 
+                changing, so \(\frac{d_r \mathbf{\omega}}{dt} = 0\), therefore
+                in this circumstance our expression becomes
+            </p>
+
+            <p>\[\frac{d_a}{dt} \mathbf{v} =
+            \frac{d_r^2 \mathbf{r}}{dt^2} +
+            2 \mathbf{\omega} \times \frac{d_r \mathbf{r}}{dt} +
+            \mathbf{\omega} \times (\mathbf{\omega} \times \mathbf{r})\]
+            </p>
+
+            <p>If we rearrange for the acceleration we find</p>
+
+            <p>\[\frac{d_r^2 \mathbf{r}}{dt^2} = 
+                \frac{d_a \mathbf{v}}{dt} - 
+                2 \mathbf{\omega} \times \frac{d_r \mathbf{r}}{dt}
+                - \mathbf{\omega} \times (\mathbf{\omega} \times \mathbf{r})
+                \]
+            </p>
+
+            <p>The austonaut is in equalibrium and static in the primed 
+                reference frame, therefore \(\frac{d_r \mathbf{r}}{dt} = 0\)
+                and he experiences no resultant force.
+            </p>
+
+            <p>\[0 = \mathbf{F} - m \mathbf{\omega} \times 
+                (\mathbf{\omega} \times \mathbf{r})\]
+            </p>
+
+            <p>We can see that \(\mathbf{F}\) must be directed towards the earth
+                which is the <i>centripetal force</i> in the unprimed frame. The
+                force \(- m \mathbf{\omega} \times (\mathbf{\omega} \times \mathbf{r})\)
+                is the <i>centrifugal</i> force. The centrifugal force is 
+                sometimes said to "not exist" but that is only true in the 
+                unprimed reference frame. This force is very real to the 
+                astronaut in the primed reference frame.
+            </p>
 
     </main>
 
