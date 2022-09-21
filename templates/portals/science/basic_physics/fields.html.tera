@@ -281,7 +281,7 @@
 
         <p>Since \(z=0\). Now from (1,1,0) to (1,1,1)</p>
 
-        <p>\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz = -\frac{F}{a^2}</p>
+        <p>\[\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz = -\frac{F}{a^2}\]</p>
 
         
 

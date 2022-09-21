@@ -1,3 +1,5 @@
+use std::f64::consts::PI;
+
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
@@ -113,6 +115,42 @@ pub async fn rotation() -> Template {
     )
 }
 
+#[get("/portals/science/basic_physics/oscillations")]
+pub async fn oscillations() -> Template {
+    let wave_graph = basic_wave();
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("basic_wave", &wave_graph);
+    Template::render(
+        "portals/science/basic_physics/oscillations",
+        context.into_json(),
+    )
+}
+
+fn basic_wave() -> String {
+    let x0 = 0.0_f64;
+    let x1 = 2.0_f64;
+    let num_points = 1000;
+
+    let this_layout = Layout::default()
+        .x_axis(Axis::new().matches(false).title(Title::new("Time")))
+        .y_axis(Axis::new().matches(false).title(Title::new("Amplitude")));
+
+    let time: Vec<f64> = linspace::<f64>(x0, x1, num_points).collect();
+    let amplitude: Vec<f64> = time.iter().map(|x| (4.0 * PI * x).sin()).collect();
+    let trace = Scatter::new(time, amplitude)
+        .name("Linear Acceleration")
+        .mode(Mode::Lines);
+
+    let mut plot = Plot::new();
+
+    plot.set_layout(this_layout);
+    plot.add_trace(trace);
+
+    let output = plot.to_inline_html("average_speed");
+
+    return output;
+}
+
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics, dynamics, fields, rotation];
+    return routes![kinematics, dynamics, fields, rotation, oscillations];
 }

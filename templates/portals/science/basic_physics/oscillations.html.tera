@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Oscillations and Waves</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Oscillations and Waves</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <p style="display:none">
+            \(
+            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+            \)
+        </p>
+
+        <p>Some objects in nature exhibit a repetitive nature. A pendulum swings
+            back and forth. A spinning top rotates over and over. Watch hands
+            rotate too, but at a much slower pace. Planets orbit stars, and 
+            stars orbit in galaxies. Technically speaking, we need no new 
+            concepts to describe and understand this phenomena. We already have
+            kinematics, dynamics, rotation and fields from the previous four
+            articles. However, physicists are particularly lazy people and would
+            like a more elegant and shorter form to describe repetitive motion.
+            Two particularly helpful schemes will be covered here
+        </p>
+
+        <div>{{basic_wave | safe}}</div>
+
+        <p>The oscillation in the above graph repeats twice every second. 
+            Therefore we say its <i>frequency</i> is 2Hz and its <i>period</i>
+            0.5s. The frequency and period are the inverse of each other. 
+            The angular frequency is related to the frequency and period by
+        </p>
+
+        <p>\[\omega = 2 \pi f = \frac{2 \pi}{T}\]</p>
+
+        <p>And the wave above can be described by the following sin equation</p>
+
+        <p>\[y = A \sin(\omega t)\]</p>
+
+        <p>Where \(A\) is the amplitude, or largest peak. Here the amplitude is
+            1. Since the frequency is 2Hz, \(4 \pi\). Thus this wave is 
+            perfectly described by \(y = \sin(4 \pi t)\)
+        </p>
+
+        <p>However, consider that sin and cosine are related to one another.
+            Specifically they are just shifted with respect to one another.
+            Therefore, a more general solution to the wave shown in the graph
+            could be given by
+        </p>
+
+        <p>\[y = A \cos(\omega t + \phi)\]</p>
+        
+        <p>Which, using trig relations, is the same as</p>
+
+        <p>\[y = A \cos(\omega t) \cos(\phi) - A \sin(\omega t) \sin(\phi)\]</p>
+
+        <p>If you have a free choice of \(A\) and \(\phi\) you can always find
+            a solution of the following form (remember that \(\phi\) is just a 
+            constant)
+        </p>
+
+        <p>\[y = C \cos(\omega t) + D \sin(\omega t)\]</p>
+
+        <p>This the following equations relate \(A\), \(C\), \(D\) and \(\phi\)
+        </p>
+
+        <p>\[C = A \cos(\phi)\]</p>
+        <p>\[D = -A \sin(\phi)\]</p>
+        <p>\[A = \sqrt{C^2 + D^2}\]</p>
+        <p>\[\phi = \tan^{-1}\left(\frac{-D}{C}\right)\]</p>
+
+        <p>Now that we know the position of an object let us calculate the 
+            velocity and acceleration.
+        </p>
+
+        <p>\[u = \frac{dy}{dt} = - \omega A \sin(\omega t + \phi)\]</p>
+        <p>\[a = \frac{d^2y}{dt^2} = -\omega^2 A \cos(\omega t + \phi) = - 
+            \omega^2 y\]</p>
+
+        <p>Notice how the acceleration is proportional to the displacement but in
+            the opposite direction? This could be said to be <i>the</i> defining 
+            feature of an oscillation.
+        </p>
+
+        <p>Also consider then that this means</p>
+
+        <p>\[u^2 + \omega^2 y^2 = \omega^2 A^2\]</p>
+
+        <p>If we multiplied this through by \(\frac{1}{2}m\) the first term 
+            would be the kinetic energy, the second term the potential energy 
+            and the final term the total energy. The total energy of an oscillation
+            related to its angular frequency and amplitude. This makes sense 
+            intuitively. Imagine a rotating watch hand again. The faster it 
+            rotates the more energy we expect it to have. The heavier it is, the
+            more energy we expect it to have.
+        </p>
+
+        <p>Let's suppose that some object of mass 0.2kg is free to move in one 
+            direction and that movement is given by \(y(t)\). If the force on 
+            this object is in the same direction as the movement, it will 
+            continue to accelerate away from the start location and never be 
+            seen again. However, if the force always points towards some 
+            equilibrium point it will oscillate. Let's suppose this force is 
+            given by \(F = -ky\) and that \(k = 1.2 \frac{N}{m}\).
+        </p>
+
+        <p>Let's do some analysis of this. First, let's look at the momentum</p>
+
+        <p>\[\mathbf{F} = \frac{d \mathbf{p}}{dt} = \frac{d (mu)}{dt} = 
+            m \frac{d^2 y}{dt^2}\]</p>
+
+        <p>\[m \frac{d^2 y}{dt^2} = -ky\]</p>
+        <p>\[\frac{d^2 y}{dt^2} = -\frac{k}{m}y\]</p>
+
+        <p>Compare this with \(\frac{d^2 y}{dt^2} = -\omega^2 y\), therefore</p>
+
+        <p>\[\omega^2 = \frac{k}{m}\]</p>
+
+        <p>\[\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{1.2}{0.3}} = 2Hz\]</p>
+
+        <p>Let's do a unit analysis. If you have never seen this notation before
+            , square brackets are used to mean "units of". So \([\omega]\) means
+            "units of \(\omega\)". By convention, \([M]\) is mass units,
+            \([L]\) is length units and \([T]\) is time units. Thus, these units
+            could be anything, obviously we would prefer they be in SI! Newtons,
+            \(N\), has units \([N] = [M][L][T]^{-2}\)
+        </p>
+
+        <p>\[[k] = \frac{[M][L][T]^{-2}}{[L]} = [M][T]^{-2}\]</p>
+
+        <p>\[\left[ \frac{k}{m} \right] = \frac{[M]}{[M][T]^{2}} = [\omega^2] = \frac{1}{[T]^2}
+            \]           
+        </p>
+
+        <p>So, the units of angular frequency are "per second", which we call
+            a Hertz or Hz. Since \(a = - \omega^2 y\)
+        </p>
+
+        <p>\[[a] = [T]^{-2}[L]\]</p>
+
+        <p>Which length per time squared, the correct units of acceleration. 
+            Consider frequently doing unit analysis on your answers, it will 
+            help you know you have got the right answer. I can't count how many
+            times a unit analysis helped me spot a mistake in a long derivation!
+        </p>
+
+        <p>Let's assume that this object is at \(y=2m\) at time \(t=0s\) and 
+            stationary. Let's calculate the \(C\) and \(D\) coefficients as 
+            well as the amplitude.
+            We can use \(u^2 + \omega^2 y^2 = \omega^2 A^2\) but use \(u=0\)
+            so \(y=A\), \(A = 2m\). Now, we can use 
+            \(y = C \cos(\omega t) + D \sin(\omega t)\) but our boundary
+            conditions means it becomes \(2 = C\). Finally, 
+            \(A = \sqrt{C^2 + D^2}\), so \(D=0\).
+        </p>
+
+        <p>We've so far covered the trigonometric representation of an 
+            oscillation. Let's cover the other form now: the complex number.
+            \(y = A \cos(\omega t + \phi)\) is exactly equal to
+        </p>
+
+        <p>\[y = \Re A e^{i(\omega t + \phi)} \]</p>
+
+        <p>Where \(\Re\) means "the real part of"</p>
+
+        <p>Let's suppose we have some oscillator that is described by the 
+            differential equation
+        </p>
+
+        <p>\[m \ddot{x} + r \dot{x} + kx = 0\]</p>
+
+        <p>Let's assume a solution to this equation takes the form 
+            \(x = \Re (z)\), where \(z\) is some complex number \(Ae^{\alpha t}\)
+            and \(A\) and \(\alpha\) are complex constants. Let's show that this
+            solution holds if 
+        </p>
+
+        <p>\[(m \alpha^2 + r \alpha + k)z = 0\]</p>
+
+        <p>We start with derivatives</p>
+
+
+
+
+
+
+
+    </main>
+
+</body>
+
+</html>
