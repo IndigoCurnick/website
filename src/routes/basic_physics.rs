@@ -126,6 +126,15 @@ pub async fn oscillations() -> Template {
     )
 }
 
+#[get("/portals/science/basic_physics/circuits")]
+pub async fn circuits() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "portals/science/basic_physics/circuits",
+        context.into_json(),
+    )
+}
+
 fn basic_wave() -> String {
     let x0 = 0.0_f64;
     let x1 = 2.0_f64;
@@ -152,5 +161,5 @@ fn basic_wave() -> String {
 }
 
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics, dynamics, fields, rotation, oscillations];
+    return routes![kinematics, dynamics, fields, rotation, oscillations, circuits];
 }
