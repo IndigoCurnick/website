@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+  db:
+    image: "postgres:latest"
+    container_name: postgres-database
+    ports:
+      - "5433:5432"
+    env_file:
+      - .postgres.env
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: "pg_isready"
+      timeout: 10s
+      retries: 20
+  core:
+    depends_on:
+      db:
+        condition: service_healthy
+    image: website
+    container_name: website
+    ports:
+      - "8080:8080"
+    env_file:
+      - .website.env

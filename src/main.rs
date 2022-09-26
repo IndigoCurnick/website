@@ -3,6 +3,7 @@
 #[macro_use]
 extern crate rocket;
 
+use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
 use rocket::response::Redirect;
 use rocket::routes;
@@ -10,6 +11,7 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
+use routes::basic_mathematics::get_basic_mathematics_routes;
 use routes::basic_physics::get_physics_routes;
 use routes::economics::get_econ_routes;
 use routes::history::get_history_routes;
@@ -19,7 +21,10 @@ use routes::polymath::get_polymath_routes;
 use routes::portals::get_portal_routes;
 use routes::programming::get_programming_routes;
 use routes::science::get_science_routes;
+mod database;
 mod routes;
+
+pub static DOMAIN: &str = "nathanielcurnick.xyz";
 
 #[catch(404)]
 async fn not_found(req: &Request<'_>) -> Redirect {
@@ -30,12 +35,22 @@ async fn not_found(req: &Request<'_>) -> Redirect {
 
 #[get("/index")]
 async fn index() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(DOMAIN.to_string(), "/index".to_string()).await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("index", context.into_json())
 }
 
 #[rocket::main]
 async fn main() {
+    if !cfg!(debug_assertions) {
+        match pg_init().await {
+            Ok(()) => {}
+            Err(()) => panic!("Could not connect to the database"),
+        };
+    }
+
     let port = std::env::var("PORT")
         .ok()
         .map(|val| val.parse::<u16>())
@@ -74,6 +89,7 @@ fn get_all_routes() -> Vec<Route> {
     let history = get_history_routes();
     let science = get_science_routes();
     let programming = get_programming_routes();
+    let basic_maths = get_basic_mathematics_routes();
 
     let all_routes = vec![
         index_route,
@@ -87,6 +103,7 @@ fn get_all_routes() -> Vec<Route> {
         history,
         science,
         programming,
+        basic_maths,
     ];
 
     let flattened_routes = all_routes.concat();
