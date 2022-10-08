@@ -23,6 +23,7 @@ use routes::programming::get_programming_routes;
 use routes::science::get_science_routes;
 mod database;
 mod routes;
+mod utils;
 
 pub static DOMAIN: &str = "nathanielcurnick.xyz";
 

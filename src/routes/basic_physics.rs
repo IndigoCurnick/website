@@ -10,7 +10,7 @@ use plotly::{
     Layout, Plot, Scatter,
 };
 
-#[get("/portals/science/basic_physics/kinematics")]
+#[get("/portals/science/basic-physics/kinematics")]
 pub async fn kinematics() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
     let average_speed = average_speed_graph();
@@ -91,7 +91,7 @@ fn displacement(u: f64, a: f64, t: &f64) -> f64 {
     return u * t + 0.5_f64 * a * t.powf(2_f64);
 }
 
-#[get("/portals/science/basic_physics/dynamics")]
+#[get("/portals/science/basic-physics/dynamics")]
 pub async fn dynamics() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
@@ -100,13 +100,13 @@ pub async fn dynamics() -> Template {
     )
 }
 
-#[get("/portals/science/basic_physics/fields")]
+#[get("/portals/science/basic-physics/fields")]
 pub async fn fields() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("portals/science/basic_physics/fields", context.into_json())
 }
 
-#[get("/portals/science/basic_physics/rotation")]
+#[get("/portals/science/basic-physics/rotation")]
 pub async fn rotation() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
@@ -115,7 +115,7 @@ pub async fn rotation() -> Template {
     )
 }
 
-#[get("/portals/science/basic_physics/oscillations")]
+#[get("/portals/science/basic-physics/oscillations")]
 pub async fn oscillations() -> Template {
     let wave_graph = basic_wave();
     let mut context = rocket_dyn_templates::tera::Context::new();
@@ -126,7 +126,7 @@ pub async fn oscillations() -> Template {
     )
 }
 
-#[get("/portals/science/basic_physics/circuits")]
+#[get("/portals/science/basic-physics/circuits")]
 pub async fn circuits() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
@@ -161,5 +161,12 @@ fn basic_wave() -> String {
 }
 
 pub fn get_physics_routes() -> Vec<Route> {
-    return routes![kinematics, dynamics, fields, rotation, oscillations, circuits];
+    return routes![
+        kinematics,
+        dynamics,
+        fields,
+        rotation,
+        oscillations,
+        circuits
+    ];
 }

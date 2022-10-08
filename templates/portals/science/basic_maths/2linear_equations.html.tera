@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Linear Equations</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Linear Equations</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        
+        <p>Up until now, when solving algebra equations, we've mostly worked
+            with equations that only have one unknown. Therefore, we were able
+            to find that unknown value. Equations have more than one unknown,
+            and can not necessarily be solved for a particular value. Instead
+            we need to think of them visually. Let's consider the following
+            equation with two unknowns
+        </p>
+        
+        <p>\[y = 3x + 2\]</p>
+        
+        <div>{{y3x2 | safe}}</div>
+        
+        <p>Looking at this graph, we can see this defines a straight line.
+            This is what we mean by a linear equation. Linear equations have the
+            following general form
+        </p>
+        
+        <p>\[y = mx + c\]</p>
+        
+        <p>The \(c\) can be thought of as the <i>intersect</i>. This is the
+            point where the line crosses the y-axis. In our example \(c=2\) and
+            the line does cross the y-axis at 2. If \(c\) was negative it would
+            cross the y-axis below the x-axis.
+        </p>
+        
+        <p>\(m\) is often called the <i>gradient</i> or <i>slope</i>. This is
+            the steepness of the line. A larger slope means a steeper line. A
+            negative slope means the line points in the opposite direction. A
+            slope of 0 is a flat, horizontal line. A slop of infinity is a
+            vertical line.
+        </p>
+        
+        <p>Let's say that you are given the following two pieces of information.
+            A line has value \(y=-10\) when \(x=1\) and \(y=-2\) when \(x=-1\).
+            Can we make the straight line equation for this line?
+        </p>
+        
+        <p>First, let's find the slope. Slope can be thought of the change in
+            height over the change in length. So in our case, the height goes
+            from -2 to -10, when the length goes from -1 to 1.
+        </p>
+        
+        <p>\[\frac{-10 - - 2}{1 - - 1} = \frac{-8}{2} = -4\]</p>
+        
+        <p>So, we already have \(y = -4x + c\). Now to find the \(c\) we simply
+            use what we've already been given. At \(x=1, y=-10\)
+        </p>
+        
+        <p>\[-10 = -4 + c\]</p>
+        <p>\[c = - 6\]</p>
+        
+        <p>So the full line equation is \(y = -4x - 6\), which is graphed as
+        </p>
+        
+        <div>{{ym4xm6 | safe}}</div>
+
+        <h3>Questions</h3>
+        <p>Find the equation of the straight line that passes through the 
+            following sets of points. (We often write a point as \((x,y)\))
+        </p>
+
+        <ol id="two-columns">
+            <li>\((1,3), (2,9)\)</li>
+            <li>\((-1, 6), (4, 4)\)</li>
+            <li>\((2, 2), (12, 12)\)</li>
+            <li>\((-13, 1), (25, 1)\)</li>
+        </ol>
+
+        <details style="text-decoration:none;">
+            <summary>Solutions</summary>
+            <ol id="two-columns">
+                <li>\(y = 6x - 3\)</li>
+                <li>\(y = -2x + 4\)</li>
+                <li>\(y = x\)</li>
+                <li>\(y = 1\)</li>
+            </ol>
+        </details>
+        
+        <h2>Simultaneous Equations</h2>
+        
+        <p>We already looked at linear equations. Remember how with one unknown,
+            we could find its value? And with two unknowns and one equation, we
+            couldn't find a unique value, but could graph a range of possible
+            solutions? What about when we have two unkowns and two equations?
+            Imagine we have the following two equations.
+        </p>
+        
+        <p>\[y = 2x + 2, y = -2x + 3\]</p>
+        
+        <p>Visually this is</p>
+        
+        <div>{{basic_simul | safe}}</div>
+        
+        <p>We can think of this as trying to find the values of the point
+            where they cross. Simultaneous equations can only have a real
+            solution if the lines do in fact cross.
+        </p>
+        
+        <p>We can solve these equations like this.</p>
+        
+        <p>\[2x + 2 = -2x + 3\]</p>
+        <p>\[4x = 1\]</p>
+        <p>\[x = \frac{1}{4}\]</p>
+        
+        <p>\[y = 2 \frac{1}{4} + 2 = 2.5\]</p>
+        
+        <p>There are many ways to solve simultaneous equations. The two most
+            common is elimination and substitution.
+        </p>
+
+        <p>Consider the equations</p>
+
+        <p>\[2x + y = 1, 3x - 2y = 4\]</p>
+
+        <p>Notice how one has \(y\) and the other has \(-2y\)? What if we 
+            multiplied the first equation through by 2 to give</p>
+
+        <p>\[4x + 2y = 2\]</p>
+
+        <p>and now we add this to the second equation</p>
+
+        <p>\[3x - 2y + 4x + 2y = 2 + 4\]</p>
+        <p>\[7x = 6\]</p>
+        <p>\[x = \frac{6}{7}</p>
+
+        <p>Now, we can plug this into any equation we like</p>
+
+        <p>\[2 \frac{6}{7} + y = 1\]</p>
+        <p>\[y = \frac{-5}{7}\]</p>
+
+        <p>Let's try this again but with a substitution. If we rearrange the
+            first equation into.
+        </p>
+
+        <p>\[y = 1 - 2x\]</p>
+
+        <p>And substitute it into the other equation</p>
+
+        <p>\[3x - 2(1 - 2x) = 4\]</p>
+        <p>\[3x - 2 + 4x = 4\]</p>
+        <p>\[7x = 6\]</p>
+        <p>\[x = \frac{6}{7}\]</p>
+        <p>\[y = 1 - 2 \frac{6}{7} = \frac{-5}{7}\]</p>
+
+        <p>There is no one way to solve a simultaneous equation, and you might
+            need to use a few different techniques to coerce a solution out.
+        </p>
+
+        <h3>Questions</h3>
+        <p>Find the solutions to the following pairs of simultaneous equations
+        </p>
+        
+        <ol id="two-columns">
+            <li>\(5x + 3y = 41, 2x + 3y = 20\)</li>
+            <li>\(5x + y = 11, 3x - y = 9\)</li>
+            <li>\(x + 7y = 64, x + 3y = 28\)</li>
+            <li>\(4x - 4y = 24, x - 4y = 3\)</li>
+        </ol>
+        
+        <details style="text-decoration:none;">
+            <summary>Solutions</summary>
+            <ol id="two-columns">
+                <li>\(x=7, y=2\)</li>
+                <li>\(x = 2.5, y = -1.5\)</li>
+                <li>\(x=1, y = 9\)</li>
+                <li>\(x = 7, y = 1\)</li>
+            </ol>
+        </details>
+
+        <p>Let's take what you have learned and solve a very challenging set 
+            of simultaneous equations. Solve this set of four equations
+        </p>
+
+        <p>\[p + q + r = 0\]</p>
+        <p>\[s = 2 - 200p\]</p>
+        <p>\[s = 4 - 300q\]</p>
+        <p>\[s = -100r\]</p>
+
+        <details style="text-decoration:none;">
+            <summary>Solution</summary>
+            <p>\[p = -q - r\]</p>
+            <p>\[s = 3 = 200(-q-r)\]</p>
+            <p>\[s = 3 + 200q + 200r\]</p>
+            <p>\[-100r = 3 + 200q + 200r\]</p>
+            <p>\[3 + 200q + 300r = 0\]</p>
+            <p>\[q = - \frac{3 + 300r}{200}\]</p>
+            <p>\[s = 4 + 300 \left( \frac{3 + 300r}{200} \right)\]</p>
+            <p>\[s = 8.5 + 450r\]</p>
+            <p>\[8.5 + 450r = -100r\]</p>
+            <p>\[-550r = 8.5\]</p>
+            <p>\[r = -0.01545\]</p>
+            <p>\[q = - \frac{3 + 300 \cdot -0.01545}{200} = 0.00817\]</p>
+            <p>\[s = 8.5 + 450 \cdot -0.01545 = 1.548\]</p>
+            <p>\[p = -0.00817 + 0.01545 = 0.00728\]</p>
+        </details>
+    </main>
+
+</body>
+
+</html>

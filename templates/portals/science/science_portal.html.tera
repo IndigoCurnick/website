@@ -25,12 +25,12 @@
             posts, but nothing beyond a comprehensive school level.
         </p>
         <ol>
-            <li><a href="/portals/science/basic_physics/kinematics">Kinematics</a></li>
-            <li><a href="/portals/science/basic_physics/dynamics">Dynamics</a></li>
-            <li><a href="/portals/science/basic_physics/fields">Fields</a></li>
-            <li><a href="/portals/science/basic_physics/rotation">Rotation</a></li>
-            <li><a href="/portals/science/basic_physics/oscillations">Oscillations and Waves</a></li>
-            <li><a href="/portals/science/basic_physics/circuits">Circuits</a></li>
+            <li><a href="/portals/science/basic-physics/kinematics">Kinematics</a></li>
+            <li><a href="/portals/science/basic-physics/dynamics">Dynamics</a></li>
+            <li><a href="/portals/science/basic-physics/fields">Fields</a></li>
+            <li><a href="/portals/science/basic-physics/rotation">Rotation</a></li>
+            <li><a href="/portals/science/basic-physics/oscillations">Oscillations and Waves</a></li>
+            <li><a href="/portals/science/basic-physics/circuits">Circuits</a></li>
         </ol>
 
         <hr>
@@ -39,7 +39,9 @@
         <p>Introductory mathematics course, for absolute beginners</p>
 
         <ol>
-            <li><a href="/portals/science/basic_maths/algebra">Algebra</a></li>
+            <li><a href="/portals/science/basic-maths/numbers">Numbers</a></li>
+            <li><a href="/portals/science/basic-maths/linear-equations">Linear Equations</a></li>
+            <li><a href="/portals/science/basic-maths/quadratic-equations">Quadratic Equations</a></li>
         </ol>
         
         <hr>
