@@ -5,7 +5,7 @@ use rocket_dyn_templates::Template;
 async fn after_the_welfare_state() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "portals/economics/after_the_welfare_state",
+        "portals/humanities/economics/after_the_welfare_state",
         context.into_json(),
     )
 }
@@ -14,7 +14,7 @@ async fn after_the_welfare_state() -> Template {
 async fn british_welfare_state() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "portals/economics/british_welfare_state",
+        "portals/humanities/economics/british_welfare_state",
         context.into_json(),
     )
 }
@@ -22,7 +22,10 @@ async fn british_welfare_state() -> Template {
 #[get("/portals/economics/bourgeois-virtues")]
 async fn bourgeois_virtues() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/economics/bourgeois_virtues", context.into_json())
+    Template::render(
+        "portals/humanities/economics/bourgeois_virtues",
+        context.into_json(),
+    )
 }
 
 pub fn get_econ_routes() -> Vec<Route> {

@@ -160,7 +160,7 @@ fn basic_wave() -> String {
     return output;
 }
 
-pub fn get_physics_routes() -> Vec<Route> {
+pub fn get_basic_physics_routes() -> Vec<Route> {
     return routes![
         kinematics,
         dynamics,

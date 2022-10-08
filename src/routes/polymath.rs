@@ -40,12 +40,19 @@ async fn towards_a_polymath_education() -> Template {
     )
 }
 
+#[get("/portals/polymath/polymath-portal")]
+async fn polymath_portal() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/polymath/polymath_portal", context.into_json())
+}
+
 pub fn get_polymath_routes() -> Vec<Route> {
     routes![
         how_to_present,
         how_to_become_a_polymath,
         how_to_read_a_book,
         lost_arts,
-        towards_a_polymath_education
+        towards_a_polymath_education,
+        polymath_portal
     ]
 }

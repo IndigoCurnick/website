@@ -11,16 +11,11 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
-use routes::basic_mathematics::get_basic_mathematics_routes;
-use routes::basic_physics::get_physics_routes;
-use routes::economics::get_econ_routes;
-use routes::history::get_history_routes;
-use routes::philosophy::{get_philo_routes, get_presocratic_routes};
-use routes::politics::get_politics_routes;
+use routes::humanities::humanities::get_humanities_routes;
 use routes::polymath::get_polymath_routes;
-use routes::portals::get_portal_routes;
 use routes::programming::get_programming_routes;
-use routes::science::get_science_routes;
+use routes::science::science::get_science_routes;
+
 mod database;
 mod routes;
 mod utils;
@@ -41,6 +36,12 @@ async fn index() -> Template {
     });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("index", context.into_json())
+}
+
+#[get("/portals/hub")]
+async fn portal_hub() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/portal_main", context.into_json())
 }
 
 #[rocket::main]
@@ -80,31 +81,18 @@ async fn main() {
 
 fn get_all_routes() -> Vec<Route> {
     let index_route = routes![index];
-    let portals_routes = get_portal_routes();
-    let physics = get_physics_routes();
-    let presocratics = get_presocratic_routes();
-    let philo = get_philo_routes();
-    let econ = get_econ_routes();
-    let politics = get_politics_routes();
-    let polymath = get_polymath_routes();
-    let history = get_history_routes();
     let science = get_science_routes();
+    let polymath = get_polymath_routes();
+    let humanities = get_humanities_routes();
     let programming = get_programming_routes();
-    let basic_maths = get_basic_mathematics_routes();
-
+    let portal_hub = routes![portal_hub];
     let all_routes = vec![
         index_route,
-        portals_routes,
-        physics,
-        presocratics,
-        philo,
-        econ,
-        politics,
-        polymath,
-        history,
+        portal_hub,
         science,
+        polymath,
+        humanities,
         programming,
-        basic_maths,
     ];
 
     let flattened_routes = all_routes.concat();

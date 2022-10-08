@@ -16,13 +16,19 @@ async fn refactor() -> Template {
 #[get("/portals/programming/joy-of-programming")]
 async fn joy() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/programming/joy_of_programming", context.into_json())
+    Template::render(
+        "portals/programming/joy_of_programming",
+        context.into_json(),
+    )
 }
 
 #[get("/portals/programming/lifetime-ownership-rust")]
 async fn lifetimes() -> Template {
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/programming/lifetime_ownership", context.into_json())
+    Template::render(
+        "portals/programming/lifetime_ownership",
+        context.into_json(),
+    )
 }
 
 #[get("/portals/programming/i-hate-oo")]
@@ -31,6 +37,22 @@ async fn i_hate_oo() -> Template {
     Template::render("portals/programming/i_hate_oo", context.into_json())
 }
 
+#[get("/portals/programming/programming-portal")]
+async fn programming_portal() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "portals/programming/programming_portal",
+        context.into_json(),
+    )
+}
+
 pub fn get_programming_routes() -> Vec<Route> {
-    routes![handling_errors, refactor, joy, lifetimes, i_hate_oo]
+    routes![
+        handling_errors,
+        refactor,
+        joy,
+        lifetimes,
+        i_hate_oo,
+        programming_portal
+    ]
 }

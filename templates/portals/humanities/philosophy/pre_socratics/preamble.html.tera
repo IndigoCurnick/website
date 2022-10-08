@@ -18,7 +18,7 @@
     {% include "utils/nav" %}
 
     <main>
-        {% include "portals/philosophy/pre_socratics/presocratic_nav"%}
+        {% include "portals/humanities/philosophy/pre_socratics/presocratic_nav"%}
 
         
         
