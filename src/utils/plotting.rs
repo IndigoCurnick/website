@@ -6,9 +6,12 @@ use plotly::{
 };
 
 pub struct LayoutOptions {
-    custom_x: Option<String>,
-    custom_y: Option<String>,
-    matches: bool,
+    pub custom_x: Option<String>,
+    pub custom_y: Option<String>,
+    pub matches: bool,
+    pub y_range: Option<Vec<f64>>,
+    pub x_range: Option<Vec<f64>>,
+    pub title: Option<String>,
 }
 
 impl LayoutOptions {
@@ -17,24 +20,52 @@ impl LayoutOptions {
             custom_x: None,
             custom_y: None,
             matches: false,
+            y_range: None,
+            x_range: None,
+            title: None,
         };
     }
 }
 
 pub fn create_layout(options: LayoutOptions) -> Plot {
+    fn make_axis(
+        matches: bool,
+        title: Option<String>,
+        range: Option<Vec<f64>>,
+        axis: String,
+    ) -> Axis {
+        if range.is_some() {
+            let unwrapped_range = range.unwrap();
+            assert!(
+                unwrapped_range.len() == 2,
+                "Range must have only two elements"
+            );
+            return Axis::new()
+                .matches(matches)
+                .title(Title::new(&title.unwrap_or(axis)))
+                .range(unwrapped_range);
+        } else {
+            return Axis::new()
+                .matches(matches)
+                .title(Title::new(&title.unwrap_or(axis)));
+        }
+    }
     let matches = options.matches;
 
-    let this_layout = Layout::default()
-        .x_axis(
-            Axis::new()
-                .matches(matches)
-                .title(Title::new(&options.custom_x.unwrap_or("x".to_string()))),
-        )
-        .y_axis(
-            Axis::new()
-                .matches(matches)
-                .title(Title::new(&options.custom_y.unwrap_or("y".to_string()))),
-        );
+    let this_layout = Layout::new()
+        .x_axis(make_axis(
+            matches,
+            options.custom_x,
+            options.x_range,
+            "x".to_string(),
+        ))
+        .y_axis(make_axis(
+            matches,
+            options.custom_y,
+            options.y_range,
+            "y".to_string(),
+        ))
+        .title(Title::new(&options.title.unwrap_or("".to_string())));
 
     let mut plot = Plot::new();
     plot.set_layout(this_layout);

@@ -43,6 +43,21 @@ async fn quadratic_equations() -> Template {
     )
 }
 
+#[get("/portals/science/basic-maths/distances-and-angles")]
+async fn distance_angles() -> Template {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("sin", &sing());
+    context.insert("cos", &cosg());
+    context.insert("tan", &tang());
+    context.insert("asin", &asing());
+    context.insert("acos", &acosg());
+    context.insert("atan", &atang());
+    Template::render(
+        "portals/science/basic_maths/4distance_angles",
+        context.into_json(),
+    )
+}
+
 fn basic_quadratic() -> String {
     fn func(x: &f64) -> f64 {
         return x.powf(2_f64);
@@ -303,6 +318,181 @@ fn basic_simul() -> String {
     return output;
 }
 
+fn sing() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().sin();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 1000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: None,
+        title: Some("sin(x)".to_string()),
+    });
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("sin(x)".to_string()),
+    );
+
+    return plot.to_inline_html("sin");
+}
+
+fn cosg() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().cos();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 1000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: None,
+        title: Some("cos(x)".to_string()),
+    });
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("cos(x)".to_string()),
+    );
+
+    return plot.to_inline_html("cos");
+}
+
+fn tang() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().tan();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 10000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: Some(vec![-10.0, 10.0]),
+        title: Some("tan(x)".to_string()),
+    });
+
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("tan(x)".to_string()),
+    );
+
+    return plot.to_inline_html("tan");
+}
+
+fn asing() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().asin();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 1000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: None,
+        title: Some("asin(x)".to_string()),
+    });
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("asin(x)".to_string()),
+    );
+
+    return plot.to_inline_html("asin");
+}
+
+fn acosg() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().acos();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 1000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: None,
+        title: Some("acos(x)".to_string()),
+    });
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("acos(x)".to_string()),
+    );
+
+    return plot.to_inline_html("acos");
+}
+
+fn atang() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.to_radians().atan();
+    }
+    let x0 = -360_f64;
+    let x1 = 360_f64;
+    let num_points = 10000;
+
+    let mut plot = create_layout(LayoutOptions {
+        custom_x: Some("Degrees".to_string()),
+        custom_y: None,
+        matches: false,
+        x_range: None,
+        y_range: Some(vec![-10.0, 10.0]),
+        title: Some("atan(x)".to_string()),
+    });
+
+    add_trace(
+        &mut plot,
+        x0,
+        x1,
+        num_points,
+        &func,
+        Some("atan(x)".to_string()),
+    );
+
+    return plot.to_inline_html("atan");
+}
+
 pub fn get_basic_mathematics_routes() -> Vec<Route> {
-    routes![numbers, linear_equations, quadratic_equations]
+    routes![
+        numbers,
+        linear_equations,
+        quadratic_equations,
+        distance_angles
+    ]
 }

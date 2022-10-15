@@ -221,6 +221,13 @@
             gravitational field is equal to the change in kinetic energy.
         </p>
 
+        <p>In short, uniform fields in three dimensions pose little difficulty.
+            For symmetry reasons, we can always rotate our coordinate system,
+            and the laws of physics hold. In other words, we can replace all of 
+            the variables in our equations with vectors and follow the maths 
+            through without much difficulty.
+        </p>
+
         <h2>Non-uniform Fields</h2>
 
         <p>As you might have guessed, moving from uniform to non-uniform 

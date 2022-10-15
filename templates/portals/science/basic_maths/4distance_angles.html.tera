@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Distance and Angles</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Distance and Angles</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <p>Distances are a foundational concept in geometry. It concerns the 
+            separation of two points in space, and we usually consider these 
+            points to have no expanse themselves. Let's begin with a few basic
+            facts about distances.
+        </p>
+
+        <p>We will denote the distance between points \(P, Q\) as \(d(P, Q)\)</p>
+
+        <p>For any points \(P, Q\) we have \(d(P, Q) \geq 0\). \(d(P, Q) = 0\)
+            if and only if \(P = Q\).    
+        </p>
+
+        <p>For any points \(P, Q\) we have \(d(P, Q) = d(Q, P)\)</p>
+
+        <p>For points \(P, Q, M\) we have \(d(P, M) \leq d(P, Q) + d(Q, M)\)</p>
+
+        <p>Expanding on the last one a little, we can introduce the concept of a
+            segment. A segment can be thought of as the straight line connecting 
+            any two points. Therefore, if \(Q\) sits on the segment between 
+            \(P\) and \(M\) i.e. it is somewhere in between them, then
+            \(d(P, M) = d(P, Q) + d(Q, M)\)
+        </p>
+
+        <p>We can now think about some shapes. The simplest shape is perhaps the 
+            circle. For point \(P\) the circle is a line where every point on
+            the line is distance \(r\) from \(P\). \(r\) is often called the
+            radius.
+        </p>
+
+        <p>As a quick remark here, in order to talk about distances we need 
+            some kind of measurement system. In the real world, this will 
+            usually be something like metres. In geometry, the neat thing is 
+            that absolute distances often don't matter much but the 
+            <i>ratios</i> between them. It's common to see one distance defined
+            as "unit one", which can be taken to have length 1, with arbitrary 
+            distance units as such.
+        </p>
+
+        <p>We can now define one of the most important concepts in geometry -
+            the angle. An angle forms when two lines meet. Angles are usually 
+            measured in degrees. If two lines make a perfectly square cross that 
+            is a \(90^{\circ}\) angle. Four \(90^{\circ}\) angles make up a 
+            full circle, or \(360^{\circ}\).
+        </p>
+
+        <div class="aligncenter">
+            <img src="/images/circle.png" alt="Circle" title="Circle">
+        </div>
+
+        <p>The favourite shape of most mathematicians though is the triangle.
+            A triangle is a three sided shape. The sum of the internal angles 
+            where the three lines meet is always \(180^\circ\). To begin with,
+            we will look at a particular subclass of triangles called
+            right-angled triangles. These are triangles which have one of
+            their angles be \(90^\circ).
+        </p>
+
+        <div class="aligncenter">
+            <img src="/images/basic_right_angle.png" alt="Right angle triangle" 
+            title="Right angle triangle">
+        </div>
+
+        <p>In this triangle, the two other internal angles are each \(45^\circ\)
+            since \(45^\circ + 45^\circ + 90^\circ = 180^\circ\).
+        </p>
+
+        <p>In this triangle, sides \(A\) and \(B\) are the same length. Let's 
+            call them length 1. What is the length of side \(C\)? This 
+            introduces the most important formula in all of geometry - the 
+            Pythagorean theorem 
+        </p>
+
+        <p>\[A^2 + B^2 = C^2\]</p>
+
+        <p>Where \(C\) is always referring to the hypotenuse of a right angle 
+            triangle. The hypotenuse is the longest side (which is also never
+            the side that helps form the right-angle itself). Please burn this 
+            formula into your memory - it will be one of the most used formulas 
+            going forward.
+        </p>
+
+        <p>So, using this formula to find the length of \(C\) is quite easy</p>
+
+        <p>\[\sqrt{1^2 + 1^2} = C = \sqrt{2}\]</p>
+
+        <p>We also want to find a way to work out angles systematically. There
+            is a little mnemonic that you should remember - SOHCAHTOA. This
+            helps us form the relevant equations. We'll get into exactly how to 
+            use this in just a second.
+        </p>
+
+        <p>We need to introduce three equations here: \(\sin(x)\), \(\cos(x)\) 
+            and \(\tan(z)\). The graphs are below.
+        </p>
+
+        <div>{{sin | safe}}</div>
+
+        <div>{{cos | safe}}</div>
+
+        <div>{{tan | safe}}</div>
+
+        <p>Notice how \(\sin(x)\) and \(\cos(x)\) are the same, only shifted by 
+            \(90^\circ\) with respect to one another? Also notice that 
+            \(\tan(x) = \frac{\sin(x)}{\cos(x)}\). This explains why there are 
+            asymptotic values in the \(\tan(x)\) graph.
+        </p>
+        
+        <p>How can we use these functions to work out the angles in a right 
+            angle triangle? Let's look at our triangle again and try and work 
+            out the values of the angles \(a, b\).
+        </p>
+
+        <p>The phrase SOHCAHTOA comes into play now. This mnemonic helps you 
+            remember the following three equations.
+        </p>
+
+        <p>\[\sin(x) = \frac{\text{opposite}}{\text{hypotenuse}}\]</p>
+        <p>\[\cos(x) = \frac{\text{adjacent}}{\text{hypotenuse}}\]</p>
+        <p>\[\tan(x) = \frac{\text{opposite}}{\text{adjacent}}\]</p>
+
+        <p>So, looking at angle \(a\), The hypotenuse is line \(C\).
+            The opposite of angle \(a\) is line \(B\).
+            The adjacent to angle \(a\) is line \(A\). 
+            Always work out the hypotenuse first - technically two lines are 
+            "adjacent" to each angle as such, but only one of them will be the
+            hypotenuse - the other must be the adjacent line!
+        </p>
+
+        <p>I will use \(\sin(x)\) to work out this angle. We know the lengths 
+            of the hypotenuse and opposite so we can simply plug this in.
+        </p>
+
+        <p>\[\sin(a) = \frac{1}{\sqrt{2}}\]</p>
+        <p>\[a = \sin^{-1}(\frac{1}{\sqrt{2}}) = 45^\circ\]</p>
+
+        <p>What is that \(\sin^{-1}\)? That is the inverse \(\sin\) function. 
+            There is an inverse function for each of the trig identities i.e. 
+            \(\cos^{-1}\), \(\tan^{-1}\). Sometimes these are called asin, acos 
+            anf atan, or even sometimes arcsin, arccos, arctan. All of them mean
+            the same thing. The graphs of these inverse functions are below.
+        </p>
+
+        <div>{{asin | safe}}</div>
+        
+        <div>{{acos | safe}}</div>
+        
+        <div>{{atan | safe}}</div>
+
+        <p>Have a go at finding all the lengths and angles in the following 
+            triangles yourself (tip: make sure your calculator is set to 
+            degrees! Also, the little square in the corner of these triangles 
+            means right angle. These triangles are not necessarily to scale so
+            don't try and measure them!).
+        </p>
+
+        <div class="aligncenter">
+            <img src="/images/triangle1.png" alt="Right angle triangle" title="Right angle triangle">
+        </div>
+
+        <div class="aligncenter">
+            <img src="/images/triangle2.png" alt="Right angle triangle" title="Right angle triangle">
+        </div>
+
+        <div class="aligncenter">
+            <img src="/images/triangle3.png" alt="Right angle triangle" title="Right angle triangle">
+        </div>
+
+        <details>
+            <summary>Answers</summary>
+            <ol>
+                <li>
+                    \(D = 3\),\(E = 3 \sqrt{5} \approx 6.7\),\(F = 26.57^\circ\)
+                </li>
+                <li>
+                    \(G = 2\sqrt{12} \approx 8.24\),\(H = 14.04^\circ\),\(I = 75.96^\circ\)
+                </li>
+                <li>
+                    \(J = 2\),\(K = 45^\circ\),\(L = 2 \sqrt{2} \approx 2.82\)
+                </li>
+            </ol>
+        </details>
+    </main>
+
+</body>
+
+</html>
