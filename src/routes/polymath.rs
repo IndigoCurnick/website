@@ -46,6 +46,12 @@ async fn polymath_portal() -> Template {
     Template::render("portals/polymath/polymath_portal", context.into_json())
 }
 
+#[get("/portals/polymath/slip-box")]
+async fn slip_box() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/polymath/slip_box", context.into_json())
+}
+
 pub fn get_polymath_routes() -> Vec<Route> {
     routes![
         how_to_present,
@@ -53,6 +59,7 @@ pub fn get_polymath_routes() -> Vec<Route> {
         how_to_read_a_book,
         lost_arts,
         towards_a_polymath_education,
-        polymath_portal
+        polymath_portal,
+        slip_box
     ]
 }
