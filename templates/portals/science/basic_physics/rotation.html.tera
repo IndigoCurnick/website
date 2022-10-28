@@ -456,7 +456,7 @@
                 \]
             </p>
 
-            <p>The austonaut is in equalibrium and static in the primed 
+            <p>The astronaut is in equilibrium and static in the primed 
                 reference frame, therefore \(\frac{d_r \mathbf{r}}{dt} = 0\)
                 and he experiences no resultant force.
             </p>
@@ -472,6 +472,243 @@
                 sometimes said to "not exist" but that is only true in the 
                 unprimed reference frame. This force is very real to the 
                 astronaut in the primed reference frame.
+            </p>
+
+            <h2>Kepler Laws</h2>
+
+            <p>We will now take a look at the Kepler laws of motion. These laws 
+                describe, but don't explain, the motion of planets. Kepler was 
+                working with the precise measurements of objects in the solar 
+                system taken by Brahe, and wanted to fit them to some equation.
+                At the time it was assumed that the planets orbited in perfect 
+                circles (it was, incidentally, also thought that planets were 
+                perfect spheres), but Kepler found that the data collected by 
+                Brahe couldn't fit circular orbits. Rather than assuming the 
+                data was wrong, Kepler assumed the orbits could fit some other 
+                shape than a circle - and eventually he found excellent 
+                agreement between the data and elliptical orbits. 
+            </p>
+
+            <p>Kepler "derived" the first law of elliptical orbits from data
+                matching i.e. an empirical model. We shall look at the first law 
+                in light of Newton's later laws of gravitation, and observe some 
+                properties. Then you will derive the second and third laws.
+            </p>
+
+            <div class="aligncenter">
+                <img src="/images/ellipse.png" alt="Ellipse" title="Ellipse">
+            </div>
+
+            <p>First, look at the above ellipse. The origin is \(O\), the centre 
+                of the ellipse. \(F_1\) and \(F_2\) are the two focal points. 
+                The line \(OP\) is the semi-major axis and usually given the 
+                letter \(a\). The line \(OQ\) is the semi-minor axis and given 
+                the letter \(b\). The line \(F_1 R F_2\) is always the same
+                length, no matter where \(R\) is on the perimeter of the 
+                ellipse, and has total length \(2a\). The length from each of
+                the focal points to the centre is the same, and often 
+                represented as a fraction of the semi-major axis i.e.
+                \(F_1 O = F_2 O = ea\). This \(e\) is the eccentricity. An
+                eccentricity of 1 is a perfect circle. Lower eccentricites are 
+                more extreme ellipses. The semi-major and semi-minor axis are 
+                related by the expression
+            </p>
+
+            <p>\[a = \frac{b}{\sqrt{1-e^2}}\]</p>
+
+            <div class="aligncenter">
+                <img src="/images/ellipse2.png" alt="Ellipse" title="Ellipse">
+            </div>
+
+            <p>Take a look at the above ellipse. We call the distance from \(F\)
+                to line \(D\), \(d\). We can see that 
+                \(d = r \cos(\theta) + r/e\). This gives us an equation for 
+                \(r\) as it depends on \(\theta\)
+            </p>
+
+            <p>\[r(\theta) = \frac{ed}{1+ e \cos(\theta)}\]</p>
+
+            <p>We've already introduced the idea of a gravitational field in the 
+                past. The field vector is given by
+            </p>
+
+            <p>\[\mathbf{g} = -G \frac{m}{r^3} \mathbf{r}\]</p>
+
+            <p>Consider a gravitational field produced by mass \(m_1\). We now
+                place \(m_2\) inside that field. The force experienced by 
+                \(m_2\) caused by \(m_1\) is given by
+            </p>
+
+            <p>\[\mathbf{W} = m_2 \mathbf{g_1} 
+                = -G \frac{m_2 m_1}{r^3} \mathbf{r}\]
+            </p>
+
+            <div class="aligncenter">
+                <img src="/images/r.png" alt="r vectors" title="r vectors">
+            </div>
+
+            <p>Consider what is meant by \(\mathbf{r}\). If we look at the above
+                diagram, we can see that \(r = r_2 - r_1\). This is important so 
+                that we can get our minus signs in the right places. Therefore,  
+            </p>
+
+            <p>\[\mathbf{W}_1 = G \frac{m_1 m_2}{r^3} \mathbf{r}\]</p>
+            <p>\[\mathbf{W}_2 = -G \frac{m_1 m_2}{r^3} \mathbf{r}\]</p>
+
+            <p>Where \(\mathbf{W}_1\) is the wight of \(m_1\) in the field of 
+                \(m_2\), and vice versa.
+            </p>
+
+            <p>Since these weights are resultant forces, we can also use 
+                Newton's second law to give us
+            </p>
+
+            <p>\[m_1 \frac{d^2}{dt^2} \mathbf{r}_1 = \mathbf{W}_1 =
+                G \frac{m_1 m_2}{r^3} \mathbf{r}\]
+            </p>
+
+            <p>\[m_2 \frac{d^2}{dt^2} \mathbf{r}_2 = \mathbf{W}_2 =
+                -G \frac{m_1 m_2}{r^3} \mathbf{r}\]
+            </p>
+
+            <p>These two expressions sum to 0, so</p>
+
+            <p>\[m_1 \frac{d^2}{dt^2} \mathbf{r}_1 +
+                m_2 \frac{d^2}{dt^2} \mathbf{r}_2 = 0\]
+            </p>
+
+            <p>Now we want to integrate this to give us the following 
+                expressions
+            </p>
+
+            <p>\[m_1 \frac{d}{dt} \mathbf{r}_1 + 
+                m_2 \frac{d}{dt} \mathbf{r}_2 = \mathbf{p}\]
+            </p>
+
+            <p>\[m_1 \mathbf{r}_1 + m_2 \mathbf{r}_2 = 
+                \mathbf{p} t + \mathbf{q}\]
+            </p>
+
+            <p>Where \(\mathbf{p}\) is a constant momentum vector and 
+                \(\mathbf{q}\) is some constant displacement vector.</p>
+
+            <p>If we subtract \(\frac{d^2}{dt^2} \mathbf{r}_1\) from 
+                \(\frac{d^2}{dt^2} \mathbf{r}_2\), we arrive at
+            </p>
+
+            <p>\[\frac{d^2}{dt^2} \mathbf{r} = 
+                -G \frac{(m_1 + m_2)}{r^3} \mathbf{r}\]
+            </p>
+
+            <p>Now we can observe some properties of this equation. For 
+                shorthand let's call the acceleration \(\mathbf{a}\) and 
+                velocity \(\mathbf{v}\) such that
+            </p>
+
+            <p>\[\frac{d^2}{dt^2} \mathbf{r} = \mathbf{a}\]</p>
+            <p>\[\frac{d}{dt} \mathbf{r} = \mathbf{v}\]</p>
+
+            <p>Then</p>
+
+            <p>\[\mathbf{r} \times \mathbf{a} = 
+                -G \frac{m_1 + m_2}{r^3} \mathbf{r} \times \mathbf{r} = 0\]
+            </p>
+
+            <p>We can also write</p>
+
+            <p>\[\frac{d}{dt} (\mathbf{r} \times \mathbf{v}) = 0\]</p>
+
+            <p>Which shows that</p>
+
+            <p>\[\mathbf{r} \times \mathbf{v} = \text{some constant vector}\]</p>
+
+            <p>We call this conserved quantity \(\mathbf{h}\), and it will be 
+                essential for you when you derive the second and third Kepler 
+                laws
+            </p>
+
+            <p>Now consider the scalar product</p>
+
+            <p>\[\mathbf{v} \cdot \mathbf{a} = -G \frac{m_1 + m_2}{r^3} 
+                \mathbf{v} \cdot \mathbf{r}\]</p>
+
+            <p>The left hand side might be familiar to you from product rule 
+                work, but if not then
+            </p>
+
+            <p>\[
+                \frac{d}{dt} \frac{v^2}{2} = 
+                \frac{1}{2} \frac{d}{dt} \mathbf{v} \cdot \mathbf{v} + 
+                \frac{1}{2} \mathbf{v} \cdot \frac{d}{dt} \mathbf{v}
+                = \mathbf{v} \cdot \mathbf{a}
+                \]
+            </p>
+
+            <p>The right hand side can also be manipulated, but it is more 
+                complex
+            </p>
+
+            <p>\[
+                \frac{d}{dt} \left( \frac{G (m_1 + m_2)}{r} \right) = 
+                \frac{d}{dt} \left( \frac{G(m_1 + m_2)}{\sqrt{x^2 + y^2 + z^2}} 
+                \right)
+                \]
+            </p>
+
+            <p>Since \(r = \sqrt{x^2 + y^2 + z^2}\)</p>
+
+            <p>
+                \[
+                \frac{d}{dt} \left( \frac{G(m_1 + m_2)}{\sqrt{x^2 + y^2 + z^2}}
+                \right)
+                = 
+                G (m_1 + m_2) \left( \frac{1}{2} 
+                \frac{1}{(x^2 + y^2 + z^2)^{\frac{3}{2}}} 2x \frac{dx}{dt} + \dots
+                \right)
+                \]
+            </p>
+
+            <p>Where the extra expressions for each of the three dimensions of 
+                space are omitted, but the same logic applies. We can simplify 
+                all of this by
+            </p>
+
+            <p>
+                \[
+                \frac{d}{dt} \left( \frac{G(m_1 + m_2)}{\sqrt{x^2 + y^2 + z^2}}
+                \right) 
+                =
+                - \frac{G (m_1 + m_2)}{r^3} 
+                \left( 
+                    x \frac{dx}{dt} + y \frac{dy}{dt} + z \frac{dz}{dt}
+                \right)
+                =
+                - \frac{G (m_1 + m_2)}{r^3} \mathbf{r} \cdot \mathbf{v}
+                \]
+            </p>
+
+            <p>So, we can write</p>
+
+            <p>
+                \[\frac{d}{dt} \left( \frac{v^2}{2} 
+                - \frac{G(m_1 + m_2)}{r} \right) = 0\]
+            </p>
+
+            <p>And we have yet another conserved quantity</p>
+
+            <p>Finally, let's take the vector product of \(\mathbf{a}\) with 
+                \(\mathbf{h}\). First,
+            </p>
+
+            <p>
+                \[
+                \mathbf{h} = \mathbf{r} \times \mathbf{v} =
+                \mathbf{r} \times \left( \frac{d_r}{dt} \mathbf{r} +
+                \mathbf{\omega} \times \mathbf{r} \right) = 
+                \mathbf{r} \times \left( \frac{dr}{dt} \hat{\mathbf{x}}^\prime
+                + \omega r \hat{\mathbf{y}}^\prime \right) =
+                \omega r^2 \hat{\mathbf{z}}
+                \]
             </p>
 
     </main>

@@ -114,10 +114,10 @@ async fn get_pg_client(
     };
 
     let pg_connection_str = format!(
-        "host={} user={} password={} dbname={}",
-        pg_uri.to_str().unwrap(),
+        "postgresql://{}:{}@{}/{}",
         pg_username.to_str().unwrap(),
         pg_password.to_str().unwrap(),
+        pg_uri.to_str().unwrap(),
         pg_db.to_str().unwrap()
     );
 

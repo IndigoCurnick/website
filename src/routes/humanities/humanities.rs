@@ -1,6 +1,8 @@
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
+use crate::{database::insert_to_database, DOMAIN};
+
 use super::{
     economics::get_econ_routes, history::get_history_routes, philosophy::get_philo_routes,
     politics::get_politics_routes, psychology::get_psychology_routes,
@@ -8,6 +10,13 @@ use super::{
 
 #[get("/portals/humanities/humanities-portal")]
 async fn humanities_portal() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/humanities/humanities-portal".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("portals/humanities/humanities_portal", context.into_json())
 }

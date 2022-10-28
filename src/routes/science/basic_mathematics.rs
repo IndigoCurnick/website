@@ -7,16 +7,34 @@ use plotly::{
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
-use crate::utils::plotting::{add_trace, create_layout, LayoutOptions};
+use crate::{
+    database::insert_to_database,
+    utils::plotting::{add_trace, create_layout, LayoutOptions},
+    DOMAIN,
+};
 
 #[get("/portals/science/basic-maths/numbers")]
 async fn numbers() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/numbers".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("portals/science/basic_maths/1numbers", context.into_json())
 }
 
 #[get("/portals/science/basic-maths/linear-equations")]
 async fn linear_equations() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/linear-equations".to_string(),
+        )
+        .await;
+    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("y3x2", &y3x2());
     context.insert("ym4xm6", &ym4xm6());
@@ -29,6 +47,13 @@ async fn linear_equations() -> Template {
 
 #[get("/portals/science/basic-maths/quadratic-equations")]
 async fn quadratic_equations() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/quadratic-equations".to_string(),
+        )
+        .await;
+    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("basic_quadratic", &basic_quadratic());
     context.insert("negative_quadratic", &negative_quadratic());
@@ -45,6 +70,13 @@ async fn quadratic_equations() -> Template {
 
 #[get("/portals/science/basic-maths/distances-and-angles")]
 async fn distance_angles() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/distances-and-angles".to_string(),
+        )
+        .await;
+    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("sin", &sing());
     context.insert("cos", &cosg());

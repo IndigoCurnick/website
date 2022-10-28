@@ -10,7 +10,7 @@ def local_docker_compose():
 
         match choice:
             case "y":
-                os.system("docker rmi website")
+                # os.system("docker rmi website")
                 os.system("DOCKER_BUILDKIT=1 docker build -t website .")
                 chosen = True
             case "n":

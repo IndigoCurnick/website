@@ -3,6 +3,8 @@
 #[macro_use]
 extern crate rocket;
 
+use std::env;
+
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
 use rocket::response::Redirect;
@@ -40,12 +42,21 @@ async fn index() -> Template {
 
 #[get("/portals/hub")]
 async fn portal_hub() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(DOMAIN.to_string(), "/portals/hub".to_string()).await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("portals/portal_main", context.into_json())
 }
 
 #[rocket::main]
 async fn main() {
+    // env::set_var("PG_URI", "0.0.0.0:5432");
+    // env::set_var("PG_DB", "prod");
+    // env::set_var("PG_PASSWORD", "KFUfDF2w7AkVEsg3");
+    // env::set_var("PG_USERNAME", "postgress");
+
+    println!("Booting up");
     if !cfg!(debug_assertions) {
         match pg_init().await {
             Ok(()) => {}
@@ -69,7 +80,6 @@ async fn main() {
         .register("/", catchers![not_found])
         .attach(Template::fairing())
         // .attach(config)
-        // TODO! Find a better way to expose this many endpoints.
         .mount("/", get_all_routes())
         // .manage(bucket_info)
         .launch()

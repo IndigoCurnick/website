@@ -1,12 +1,21 @@
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
+use crate::{database::insert_to_database, DOMAIN};
+
 use super::{
     basic_mathematics::get_basic_mathematics_routes, basic_physics::get_basic_physics_routes,
 };
 
 #[get("/portals/science/introduction-to-truth-tables")]
 async fn truth_tables() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/introduction-to-truth-tables".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/science/introduction_to_truth_tables",
@@ -16,6 +25,13 @@ async fn truth_tables() -> Template {
 
 #[get("/portals/science/introduction-to-variables")]
 async fn variables() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/introduction-to-variables".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/science/introduction_to_variables",
@@ -25,6 +41,13 @@ async fn variables() -> Template {
 
 #[get("/portals/science/science-portal")]
 async fn science_portal() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/science-portal".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("portals/science/science_portal", context.into_json())
 }

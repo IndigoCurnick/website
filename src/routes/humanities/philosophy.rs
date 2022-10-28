@@ -1,11 +1,20 @@
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
+use crate::{database::insert_to_database, DOMAIN};
+
 // =============================================================================
 // Presocratics
 // =============================================================================
 #[get("/portals/philosophy/pre-socratics/preamble")]
 async fn preamble() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/preamble".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/preamble",
@@ -15,6 +24,13 @@ async fn preamble() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part1")]
 async fn part1() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part1".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part1",
@@ -24,6 +40,13 @@ async fn part1() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part2")]
 async fn part2() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part2".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part2",
@@ -33,6 +56,13 @@ async fn part2() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part3")]
 async fn part3() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part3".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part3",
@@ -42,6 +72,13 @@ async fn part3() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part4")]
 async fn part4() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part4".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part4",
@@ -51,6 +88,13 @@ async fn part4() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part5")]
 async fn part5() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part5".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part5",
@@ -60,6 +104,13 @@ async fn part5() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part6")]
 async fn part6() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part6".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part6",
@@ -69,6 +120,13 @@ async fn part6() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/part7")]
 async fn part7() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/part7".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/part7",
@@ -78,6 +136,13 @@ async fn part7() -> Template {
 
 #[get("/portals/philosophy/pre-socratics/socrates")]
 async fn socrates() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/pre-socratics/socrates".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/pre_socratics/socrates",
@@ -95,6 +160,13 @@ fn get_presocratic_routes() -> Vec<Route> {
 
 #[get("/portals/philosophy/very-short-intro-logic")]
 async fn very_short_intro_logic() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/very-short-intro-logic".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/very_short_intro_logic",
@@ -104,6 +176,13 @@ async fn very_short_intro_logic() -> Template {
 
 #[get("/portals/philosophy/definition-of-art")]
 async fn definition_of_art() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/definition-of-art".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/definition_of_art",
@@ -113,6 +192,13 @@ async fn definition_of_art() -> Template {
 
 #[get("/portals/philosophy/social-contract")]
 async fn social_contract() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/social-contract".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/social_contract",
@@ -122,6 +208,13 @@ async fn social_contract() -> Template {
 
 #[get("/portals/philosophy/what-can-we-know")]
 async fn what_can_we_know() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/philosophy/what-can-we-know".to_string(),
+        )
+        .await;
+    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "portals/humanities/philosophy/what_can_we_know",
