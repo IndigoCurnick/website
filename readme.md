@@ -31,3 +31,6 @@ Then the website will be hosted at
 `minikube ip`
 
 With port 30100
+
+To clean up use
+`kubectl delete all --all`

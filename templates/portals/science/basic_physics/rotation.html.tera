@@ -711,6 +711,293 @@
                 \]
             </p>
 
+            <p>Where we now align the rotating \(x^\prime\) axis with 
+                \(\mathbf{r}\), with the x and y axis perpendicular but in the 
+                same plane. So,
+            </p>
+
+            <p>
+                \[
+                \mathbf{a} \times \mathbf{h} 
+                =
+                -G \frac{m_1 + m_2}{r^3} \mathbf{r} 
+                \times \omega r^2 \hat{\mathbf{z}}
+                =
+                -G \frac{m_1 + m_2}{r^3} r^3 \omega \hat{\mathbf{x}}^\prime 
+                \times \hat{\mathbf{z}}
+                \]
+            </p>
+
+            <p>Which becomes</p>
+
+            <p>\[\mathbf{a} \times \mathbf{h} = 
+                G(m_1 + m_2) \omega \hat{\mathbf{y}}^\prime\]
+            </p>
+
+            <p>But</p>
+
+            <p>\[\omega \hat{\mathbf{y}}^\prime = 
+                \frac{d \hat{\mathbf{x}}^\prime}{dt}\]
+            </p>
+
+            <p>So, rewriting our expression as a time derivative</p>
+
+            <p>\[
+                \frac{d}{dt} (\mathbf{v} \times \mathbf{h}) =
+                \frac{d}{dt} (G (m_1 + m_2) \hat{\mathbf{x}}^\prime)    
+                \]
+            </p>
+
+            <p>So,</p>
+
+            <p>
+                \[
+                \mathbf{v} \times \mathbf{h} - 
+                G (m_1 + m_2) \hat{\mathbf{x}}^\prime
+                =
+                \text{some constant vector}
+                \]
+            </p>
+
+            <p>So, taking the integral, we see</p>
+
+            <p>
+                \[
+                \mathbf{v} \times \mathbf{h} = G(m_1 + m_2)
+                (\hat{\mathbf{x}}^\prime + \mathbf{e})    
+                \]
+            </p>
+
+            <p>Where \(\mathbf{e}\) is a vector whose magnitude determines the 
+                kind of orbit we are dealing with. 0 for a circular orbit, above 
+                0 and below one for an elliptical orbit, 1 for a parabolic orbit
+                and above 1 for a hyperbolic orbit.
+            </p>
+
+            <p>In other words, this whole derivation was to arrive back at the 
+                eccentricity of an orbit!
+            </p>
+
+            <p>So, the final thing to do is</p>
+
+            <p>
+                \[
+                \mathbf{r} \cdot (\mathbf{v} \times \mathbf{h}) 
+                =
+                G(m_1 + m_2)(r + er \cos(\theta))
+                \]
+            </p>
+
+            <p>Where \(\theta\) is the angle between \(\mathbf{r}\) and 
+                \(\mathbf{e}\)
+            </p>
+
+            <p>Since</p>
+
+            <p>
+                \[
+                \mathbf{r} \cdot (\mathbf{v} \times \mathbf{h}) 
+                =
+                (\mathbf{r} \times \mathbf{v}) \cdot \mathbf{h}
+                =
+                \mathbf{h} \cdot \mathbf{h}
+                = 
+                h^2    
+                \]
+            </p>
+            
+            <p>Then</p>
+
+            <p>
+                \[
+                r(\theta) = \frac{h^2 / G(m_1 + m_2)}{(1 + e \cos(\theta))}    
+                \]
+            </p>
+
+            <h3>Workshop: Kepler's Second Law</h3>
+
+            <div class="aligncenter">
+                <img src="/images/parallelogram.png" alt="r vectors" title="r vectors">
+            </div>
+
+            <p>Consider the above image. \(m_2\) starts at \(B\) but orbits to 
+                \(C\). The vector product 
+                \(\mathbf{r} \times \Delta \mathbf{r}\) is
+            </p>
+
+            <p>
+                \[
+                |\mathbf{r}| |\Delta \mathbf{r} | \sin(\phi) \hat{\mathbf{z}}    
+                \]
+            </p>
+
+            <p>Where \(\phi\) is the angle made by \(CBE\)</p>
+
+            <p>a) show that \(r \Delta r \sin(\phi)\) is the area of the 
+                parallelogram \(ABCD\)
+            </p>
+
+            <p>b) Hence, show that the area swept, \(\Delta \mathbf{A}\) by 
+                \(\mathbf{r}\) in time \(\Delta t\) is 
+            </p>
+
+            <p>
+                \[\Delta \mathbf{A} = 
+                \frac{1}{2} \mathbf{r} \times \Delta \mathbf{r}\]
+            </p>
+
+            <p>c) Hence show that</p>
+
+            <p>\[\frac{d}{dt} \mathbf{A} = \frac{1}{2} h \hat{z}\]</p>
+
+            <details style="text-decoration:none;">
+                <summary>Solutions</summary>
+                <p>a) Parallelogram areas are given by base length, in this case 
+                    \(r\) and height, which is unknown. But the height can be 
+                    found by simple trig - \(h = \sin(\phi) \Delta r\).
+                    Therefore 
+                </p>
+
+                <p>\[A_p = r \Delta r \sin(\phi)\]</p>
+
+                <p>b) First notice that the area of the whole parallelogram is 
+                    twice the area of the swept section i.e. \(A_p = 2A\).
+                </p>
+
+                <p>\(2A = r \Delta r \sin(\phi)\), which is close, but we use
+                    \(\mathbf{r} \times \Delta \mathbf{r} =
+                    |\mathbf{r}| |\Delta \mathbf{r} | 
+                    \sin(\phi) \hat{\mathbf{z}} \)
+                    to convert the area into a vector as such
+                </p>
+
+                <p>\[\Delta \mathbf{A} = \frac{1}{2} 
+                    \mathbf{r} \times \Delta \mathbf{r}\]
+                </p>
+
+                <p>c) On a very short timescale the equation we just derived 
+                    becomes
+                </p>
+
+                <p>
+                    \[\frac{d}{dt} \mathbf{A} = \frac{1}{2} \mathbf{r} \times 
+                    \frac{d}{dt} \mathbf{r}\]
+                </p>
+
+                <p>Remember that</p>
+
+                <p>\[\frac{d}{dt} \mathbf{r} = \mathbf{v}\]</p>
+
+                <p>So</p>
+
+                <p>\[\frac{d}{dt} \mathbf{A} = \frac{1}{2} \mathbf{r} \times 
+                    \mathbf{v}\]</p>
+
+                <p>Remember that</p>
+
+                <p>\[\mathbf{r} \times \mathbf{v} = h \hat{z}\]</p>
+
+                <p>Therefore</p>
+
+                <p>\[\frac{d}{dt} \mathbf{A} = \frac{1}{2} h \hat{z}\]</p>
+            </details>
+
+            <h3>Workshop: Kepler's Third Law</h3>
+
+            <p>We now want to derive Kepler's third law</p>
+
+            <p>a) Show that</p>
+
+            <p>
+                \[
+                \frac{\pi a b}{T} = \frac{1}{2} \sqrt{p G(m_1 + m_2)}   
+                \]
+            </p>
+
+            <p>Where</p>
+
+            <p>\[p = a (1 - e^2)\]</p>
+
+            <p>And remember that the area of a circle or ellipse is given by
+                \(A = \pi a b\)
+            </p>
+
+            <p>b) Show that</p>
+
+            <p>
+                \[
+                T^2 = \frac{4 \pi^2}{G(m_1 + m_2)} a^3    
+                \]
+            </p>
+
+            <details style="text-decoration:none;">
+                <summary>Solutions</summary>
+                <p>a) The orbit must sweep out area \(A\) in time \(T\)</p>
+
+                <p>\[\frac{\pi a b}{T} = \frac{1}{2} h\]</p>
+
+                <p>But</p>
+
+                <p>
+                    \[
+                    h = \sqrt{r (1 + e \cos(\theta)) G (m_1 + m_2)}
+                    \]
+                </p>
+
+                <p>So,</p>
+
+                <p>
+                    \[
+                    \frac{\pi a b}{T} = \frac{1}{2} 
+                    \sqrt{r (1 + e \cos(\theta)) G (m_1 + m_2)}
+                    \]
+                </p>
+
+                <p>So,</p>
+
+                <p>
+                    \[
+                    \frac{\pi a b}{T} = \frac{1}{2}
+                    \sqrt{p G (m_1 + m_2)}
+                    \]
+                </p>
+
+                <p>b) Let's start by squaring both sides</p>
+
+                <p>
+                    \[
+                    \frac{\pi^2 a^2 b^2}{T^2} = \frac{1}{4} p G (m_1 + m_2)    
+                    \]
+                </p>
+
+                <p>Substituting for \(p\)</p>
+
+                <p>
+                    \[
+                    \frac{\pi^2 a^2 b^2}{T^2} = \frac{1}{4}a(1-e^2)G(m_1 + m_2)
+                    \]
+                </p>
+
+                <p>Rearrange to give</p>
+
+                <p>
+                    \[
+                    T^2 = \frac{4 \pi^2 b^2 a}{(1-e^2) G (m_1 + m_2)}    
+                    \]
+                </p>
+
+                <p>But</p>
+
+                <p>\[\frac{b}{\sqrt{1-e^2}} = a\]</p>
+
+                <p>So,</p>
+
+                <p>\[\frac{b^2}{1-e^2} = a^2\]</p>
+
+                <p>So,</p>
+
+                <p>\[T^2 = \frac{4 \pi^2 a^3}{G(m_1 + m_2)}\]</p>
+            </details>
     </main>
 
 </body>
