@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>My Portals</title>
+    <title>Blog</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,35 +13,35 @@
 
 <body>
     <header>
-        <h1>Portal Main Page</h1>
+        <h1>Blog Main Page</h1>
     </header>
 
     {% include "utils/nav" %}
 
     <main>
-        <p>Here is a list of my portals. These contain all of my articles, tutorials and 
+        <p>Here is a list of my blog. These contain all of my articles, tutorials and 
             references to works I find of interest
         </p>
 
-        <h2><a href="/portals/science/science-portal">Science and Maths Portal</a></h2>
+        <h2><a href="/blog/science/science-blog">Science and Maths</a></h2>
         <p>I studied a masters in physics at the University of Sussex, specialising in neutrino
             physics. Since then I have remained interested in all aspects of science. I am
             especially to keep my mathematical skills sharp</p>
         
-        <h2><a href="/portals/programming/programming-portal">Programming Portal</a></h2>
+        <h2><a href="/blog/programming/programming-blog">Programming</a></h2>
         <p>I currently work as a software engineer and researcher in navigation, as such I need
             to keep my programming skills sharp. I mostly work in <code>Rust</code> these days,
             but I am experienced in <code>C++</code>, <code>Python</code>, <code>FORTRAN</code>,
             <code>LaTeX</code> and <code>R</code>.
         </p>
 
-        <h2><a href="/portals/humanities/humanities-portal">Humanities Portal</a></h2>
+        <h2><a href="/blog/humanities/humanities-blog">Humanities</a></h2>
         <p>All collection of all humanities topics like history, psychology, 
             philosophy, politics and economics. Truly there will be something in 
             here for everyone!
         </p>
         
-        <h2><a href="/portals/polymath/polymath-portal">Polymath Portal</a></h2>
+        <h2><a href="/blog/polymath/polymath-blog">Polymath</a></h2>
         <p>I joined the Polymath Society in my first year at Sussex University.
             I became deeply ingrained in the society, going to every event,
             and eventually became President. I want to continue to carry forward 

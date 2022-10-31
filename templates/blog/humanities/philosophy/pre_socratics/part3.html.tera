@@ -18,7 +18,7 @@
     {% include "utils/nav" %}
 
     <main>
-        {% include "portals/humanities/philosophy/pre_socratics/presocratic_nav"%}
+        {% include "blog/humanities/philosophy/pre_socratics/presocratic_nav"%}
 
 
 
@@ -83,8 +83,8 @@
             impossible. Our experience is an illusion. He is perhaps the most influential of the pre-Socratics. Part of the
             reason for this significance is how he proved his points: he appears to be the first to use deductive arguments to
             prove his points. Avid readers of the blog will know what a <a
-                href="/portals/philosophy/what-can-we-know">fan I am</a> of <a
-                href="/portals/philosophy/very-short-intro-logic">deductive logic</a>.</p>
+                href="/blog/philosophy/what-can-we-know">fan I am</a> of <a
+                href="/blog/philosophy/very-short-intro-logic">deductive logic</a>.</p>
         <!-- /wp:paragraph -->
         
         <!-- wp:paragraph -->

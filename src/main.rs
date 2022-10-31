@@ -40,13 +40,13 @@ async fn index() -> Template {
     Template::render("index", context.into_json())
 }
 
-#[get("/portals/hub")]
-async fn portal_hub() -> Template {
+#[get("/blog/hub")]
+async fn blog_hub() -> Template {
     tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), "/portals/hub".to_string()).await;
+        insert_to_database(DOMAIN.to_string(), "/blog/hub".to_string()).await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/portal_main", context.into_json())
+    Template::render("blog/blog_main", context.into_json())
 }
 
 #[rocket::main]
@@ -95,10 +95,10 @@ fn get_all_routes() -> Vec<Route> {
     let polymath = get_polymath_routes();
     let humanities = get_humanities_routes();
     let programming = get_programming_routes();
-    let portal_hub = routes![portal_hub];
+    let blog_hub = routes![blog_hub];
     let all_routes = vec![
         index_route,
-        portal_hub,
+        blog_hub,
         science,
         polymath,
         humanities,

@@ -8,17 +8,17 @@ use super::{
     politics::get_politics_routes, psychology::get_psychology_routes,
 };
 
-#[get("/portals/humanities/humanities-portal")]
-async fn humanities_portal() -> Template {
+#[get("/blog/humanities/humanities-blog")]
+async fn humanities_blog() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/humanities/humanities-portal".to_string(),
+            "/blog/humanities/humanities-blog".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/humanities/humanities_portal", context.into_json())
+    Template::render("blog/humanities/humanities_blog", context.into_json())
 }
 
 pub fn get_humanities_routes() -> Vec<Route> {
@@ -27,7 +27,7 @@ pub fn get_humanities_routes() -> Vec<Route> {
     let philosophy_routes = get_philo_routes();
     let politics_routes = get_politics_routes();
     let psychology_routes = get_psychology_routes();
-    let humanities_routes = routes![humanities_portal];
+    let humanities_routes = routes![humanities_blog];
 
     return vec![
         econ_routes,

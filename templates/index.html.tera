@@ -19,61 +19,51 @@
     <main>
         <img class="resright" src="/images/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
 
-        <p>Hello, and welcome to my personal website. This page, and the whole website, are currently under
-            construction. It will be a bit thin for the moment, but it will grow rapidly with more content. Thank you
-            for viewing</p>
+        <p>Personal website for Nathaniel Curnick - software developer, 
+            physicist, and polymath
+        </p>
 
         <h2>In My Network</h2>
         <dl style="font-size:large">
-            <dt><a href="https://newpolymath.home.blog/">📚 New Polymath Blog</a></dt>
-            <dd> Personal blog attempting to revive the polymath movement.</dd>
+            <dt><a href="/blog/hub">📜 Blog</a></dt>
+            <dd>My blog, with everything I have written (so far)</dd>
             <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
-            <dd> Polymath discord server I run. Come say hi!</a>
-            </dd>
+            <dd> Polymath discord server I run. Come say hi!</a></dd>
+            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo"> Github</a></dt>
+            <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
             <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
                         alt="LinkedIn Logo"> LinkedIn</a></dt>
             <dd> My LinkedIn profile</dd>
-            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo"> Github</a>
-            </dt>
-            <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
-            <dt><a href="https://www.fiverr.com/nat_solutions?up_rollout=true"><img src="/images/logos/fiverr.svg"
-                        alt="fiverr logo"> Fiverr
-                </a></dt>
-            <dd>My Fiverr, where you can hire me as a freelancer. Currently, I offer programming freelance projects</dd>
-            <dt><a href="/portals/hub">🕳️ Portals</a></dt>
-            <dd>Main hub for all my portals. There portals are lists of interesting books, topics, and relevant articles
-                I have written</dd>
+            
+            
         </dl>
 
         <h2 style="clear:both;">Writings</h2>
 
-        <div class="column">
-            <h3>Recent Articles</h3>
-            <ul style="padding:0">
-                <!--BLOG-->
-                <li>23 Jan – <a href="https://newpolymath.home.blog/2022/01/23/a-very-short-introduction-to-logic/">A Very Short Introduction to Logic</a></li>
-                <li>16 Jan – <a href="https://newpolymath.home.blog/2022/01/16/the-joy-of-programming/">The Joy of Programming</a></li>
-                <li>9 Jan – <a href="https://newpolymath.home.blog/2022/01/09/what-makes-suspiria-so-effective/">What Makes Susperia so Effective?</a></li>
-                <li>2 Jan – <a href="https://newpolymath.home.blog/2022/01/02/rousseau-and-the-social-contract-theory/">Rousseau and the Social Contract Theory</a></li>
-                <li>
-                    <strong><a href="https://newpolymath.home.blog/">See all other blog posts...</a></strong>
-                </li>
-            </ul>
+        <div class="row">
+            <div class="column">
+                <h3>Recent Articles</h3>
+                <ul style="padding:0">
+                    <li><a href="/blog/polymath/slip-box">AThe Slip-Box</a></li>
+                    <li><a href="/blog/philosophy/social-contract">Rousseau and the Social Contract</a></li>
+                    <li><a href="/blog/programming/lifetime-ownership-rust">Lifetimes and Ownership in Rust</a></li>
+                    <li><a href="/blog/science/basic-physics/kinematics">Kinematics</a></li>
+                    <li>
+                        <strong><a href="/blog/hub">See all other blog posts...</a></strong>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h3>Public Repositories</h3>
+                <ul style="padding:0">
+                    <li><a href="https://github.com/NathanielCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
+                    <li><a href="https://github.com/NathanielCurnick/TLAP_solutions">Think Like a Programmer Solutions</a></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="column">
-            <h3>Textbook Solutions</h3>
-            <ul style="padding:0">
-                <!--BLOG-->
-                <li><a href="https://github.com/NathanielCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
-            </ul>
-        </div>
-
-
-
-
-        <p style="font-size:large;text-align:center">Thank you for viewing my page. Currently under development</p>
+        
     </main>
 
 </body>

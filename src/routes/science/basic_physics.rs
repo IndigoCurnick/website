@@ -12,12 +12,12 @@ use plotly::{
 
 use crate::{database::insert_to_database, DOMAIN};
 
-#[get("/portals/science/basic-physics/kinematics")]
+#[get("/blog/science/basic-physics/kinematics")]
 pub async fn kinematics() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/kinematics".to_string(),
+            "/blog/science/basic-physics/kinematics".to_string(),
         )
         .await;
     });
@@ -26,10 +26,7 @@ pub async fn kinematics() -> Template {
     let projectile = projectile_graph();
     context.insert("average_speed", &average_speed);
     context.insert("projectile", &projectile);
-    Template::render(
-        "portals/science/basic_physics/kinematics",
-        context.into_json(),
-    )
+    Template::render("blog/science/basic_physics/kinematics", context.into_json())
 }
 
 fn average_speed_graph() -> String {
@@ -100,57 +97,51 @@ fn displacement(u: f64, a: f64, t: &f64) -> f64 {
     return u * t + 0.5_f64 * a * t.powf(2_f64);
 }
 
-#[get("/portals/science/basic-physics/dynamics")]
+#[get("/blog/science/basic-physics/dynamics")]
 pub async fn dynamics() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/dynamics".to_string(),
+            "/blog/science/basic-physics/dynamics".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render(
-        "portals/science/basic_physics/dynamics",
-        context.into_json(),
-    )
+    Template::render("blog/science/basic_physics/dynamics", context.into_json())
 }
 
-#[get("/portals/science/basic-physics/fields")]
+#[get("/blog/science/basic-physics/fields")]
 pub async fn fields() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/fields".to_string(),
+            "/blog/science/basic-physics/fields".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/science/basic_physics/fields", context.into_json())
+    Template::render("blog/science/basic_physics/fields", context.into_json())
 }
 
-#[get("/portals/science/basic-physics/rotation")]
+#[get("/blog/science/basic-physics/rotation")]
 pub async fn rotation() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/rotation".to_string(),
+            "/blog/science/basic-physics/rotation".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render(
-        "portals/science/basic_physics/rotation",
-        context.into_json(),
-    )
+    Template::render("blog/science/basic_physics/rotation", context.into_json())
 }
 
-#[get("/portals/science/basic-physics/oscillations")]
+#[get("/blog/science/basic-physics/oscillations")]
 pub async fn oscillations() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/oscillations".to_string(),
+            "/blog/science/basic-physics/oscillations".to_string(),
         )
         .await;
     });
@@ -158,25 +149,22 @@ pub async fn oscillations() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("basic_wave", &wave_graph);
     Template::render(
-        "portals/science/basic_physics/oscillations",
+        "blog/science/basic_physics/oscillations",
         context.into_json(),
     )
 }
 
-#[get("/portals/science/basic-physics/circuits")]
+#[get("/blog/science/basic-physics/circuits")]
 pub async fn circuits() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-physics/circuits".to_string(),
+            "/blog/science/basic-physics/circuits".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render(
-        "portals/science/basic_physics/circuits",
-        context.into_json(),
-    )
+    Template::render("blog/science/basic_physics/circuits", context.into_json())
 }
 
 fn basic_wave() -> String {

@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Humanities Portal</title>
+    <title>Humanities</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1>Humanities Portal</h1>
+        <h1>Humanities</h1>
     </header>
 
     {% include "utils/nav" %}
@@ -29,9 +29,9 @@
         </p>
 
         <ul>
-            <li><a href="/portals/politics/a-defence-of-machiavelli">A Defence of Machiavelli</a></li>
-            <li><a href="/portals/politics/war-that-will-end-war">Comments on the War That Will End War</a></li>
-            <li><a href="/portals/politics/beyond-left-right">Beyond Left and Right</a></li>
+            <li><a href="/blog/politics/a-defence-of-machiavelli">A Defence of Machiavelli</a></li>
+            <li><a href="/blog/politics/war-that-will-end-war">Comments on the War That Will End War</a></li>
+            <li><a href="/blog/politics/beyond-left-right">Beyond Left and Right</a></li>
         </ul>
 
         <h2>History</h2>
@@ -45,7 +45,7 @@
         </p>
         
         <ul>
-            <li><a href="/portals/history/commando">Commando: A Boer History of the Boer War</a></li>
+            <li><a href="/blog/history/commando">Commando: A Boer History of the Boer War</a></li>
         </ul>
 
         <h2>Economics</h2>
@@ -57,9 +57,9 @@
         </p>
         
         <ul>
-            <li><a href="/portals/economics/bourgeois-virtues">What are the Bourgeois Virtues?</a></li>
-            <li><a href="/portals/economics/british-welfare-state">On the British Welfare State</a></li>
-            <li><a href="/portals/economics/after-the-welfare-state">After the Welfare State</a></li>
+            <li><a href="/blog/economics/bourgeois-virtues">What are the Bourgeois Virtues?</a></li>
+            <li><a href="/blog/economics/british-welfare-state">On the British Welfare State</a></li>
+            <li><a href="/blog/economics/after-the-welfare-state">After the Welfare State</a></li>
         </ul>
 
         <h2>Philosophy</h2>
@@ -68,10 +68,10 @@
             I am also interested, though, in a broad range of philosophical concepts.</p>
         
         <ul>
-            <li><a href="/portals/philosophy/very-short-intro-logic">A Very Short Introduction to Logic</a></li>
-            <li><a href="/portals/philosophy/definition-of-art">Towards a Definition of Art</a></li>
-            <li><a href="/portals/philosophy/social-contract">Rousseau and the Social Contract</a></li>
-            <li><a href="/portals/philosophy/what-can-we-know">What Can we Know?</a></li>
+            <li><a href="/blog/philosophy/very-short-intro-logic">A Very Short Introduction to Logic</a></li>
+            <li><a href="/blog/philosophy/definition-of-art">Towards a Definition of Art</a></li>
+            <li><a href="/blog/philosophy/social-contract">Rousseau and the Social Contract</a></li>
+            <li><a href="/blog/philosophy/what-can-we-know">What Can we Know?</a></li>
         </ul>
 
 
@@ -84,30 +84,30 @@
         </p>
         
         <ol>
-            <li><a href="/portals/philosophy/pre-socratics/preamble">
+            <li><a href="/blog/philosophy/pre-socratics/preamble">
                     Preamble</a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part1">Part 1:
+            <li><a href="/blog/philosophy/pre-socratics/part1">Part 1:
                     The Milesian School
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part2">Part 2:
+            <li><a href="/blog/philosophy/pre-socratics/part2">Part 2:
                     The Pythagorean School
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part3">Part 3:
+            <li><a href="/blog/philosophy/pre-socratics/part3">Part 3:
                     The Eleatic School
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part4">Part 4:
+            <li><a href="/blog/philosophy/pre-socratics/part4">Part 4:
                     The Pluralists
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part5">Part 5:
+            <li><a href="/blog/philosophy/pre-socratics/part5">Part 5:
                     Loose Ends
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part6">Part 6:
+            <li><a href="/blog/philosophy/pre-socratics/part6">Part 6:
                     The Atomist Pluralists
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/part7">Part 7:
+            <li><a href="/blog/philosophy/pre-socratics/part7">Part 7:
                     The Sophists
                 </a></li>
-            <li><a href="/portals/philosophy/pre-socratics/socrates">Introduction
+            <li><a href="/blog/philosophy/pre-socratics/socrates">Introduction
                     to Socrates
                 </a></li>
         </ol>

@@ -175,7 +175,7 @@
         <!-- wp:paragraph -->
         <p>I'll note that Fowler's list is much longer than mine, but he is writing his book for object orientated software
             which just tends to be more problematic than functional. <a
-                href="/portals/programming/i-hate-oo">Read
+                href="/blog/programming/i-hate-oo">Read
                 more here about that</a>. If you start to notice any of these things, it's a really good sign you need to do a
             general refactor.</p>
         <!-- /wp:paragraph -->

@@ -18,7 +18,7 @@
     {% include "utils/nav" %}
 
     <main>
-        {% include "portals/humanities/philosophy/pre_socratics/presocratic_nav"%}
+        {% include "blog/humanities/philosophy/pre_socratics/presocratic_nav"%}
 
 
 
@@ -34,14 +34,14 @@
         
         <!-- wp:paragraph -->
         <p>Heraclitus can be seen as a natural foil to Parmenides and the whole <a
-                href="/portals/philosophy/pre-socratics/part3">Eleatic school</a>.
+                href="/blog/philosophy/pre-socratics/part3">Eleatic school</a>.
             Heraclitus was born around 540BC and seemed to live for 60 years, these dates are consistent with what other
             philosophers from the time have written, but as always, these dates are not too well known. However, Heraclitus was
             relatively isolated a philosopher, and during his lifetime did not interact with other philosophers much if at all,
             meaning he is generally not considered part of a school. He was influenced by Thales and Anaximander of the <a
-                href="/portals/philosophy/pre-socratics/part1">Milesian
+                href="/blog/philosophy/pre-socratics/part1">Milesian
                 school</a> and <a
-                href="/portals/philosophy/pre-socratics/part2">Pythagoras</a>.
+                href="/blog/philosophy/pre-socratics/part2">Pythagoras</a>.
             Fortunately for us, quite a large amount of his fragments have been preserved, so we can understand him in his own
             words.</p>
         <!-- /wp:paragraph -->

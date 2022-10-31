@@ -345,3 +345,11 @@ ol#two-columns {
     column-count: 2;
     column-gap: 20px;
 }
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}

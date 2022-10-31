@@ -18,7 +18,7 @@
     {% include "utils/nav" %}
 
     <main>
-        {% include "portals/humanities/philosophy/pre_socratics/presocratic_nav"%}
+        {% include "blog/humanities/philosophy/pre_socratics/presocratic_nav"%}
 
 
         <p>The Pythagorean school begins our break from the Ionaian school and the first foray into the Italian school. This is
@@ -39,7 +39,7 @@
         <p>There is also an Alcamaeon of Croton that I won't be covering in this article. He just doesn't have enough
             information available for me to write a section on him. Although he did certainly exist. I will note that in general
             much fewer sources for these philosophers than those in the <a
-                href="/portals/philosophy/pre-socratics/part1">Milesian
+                href="/blog/philosophy/pre-socratics/part1">Milesian
                 school that we covered recently</a>.</p>
         <!-- /wp:paragraph -->
         
@@ -54,7 +54,7 @@
             readers might be quick to jump to this being some sort of proto-communist living arrangement, but please dear
             reader, refrain from this temptation. Many religious orders to this day engage in such practices voluntarily and not
             for any of the same foundational reasons as communists might. As we <a
-                href="/portals/politics/beyond-left-right">discussed recently</a>, communism is
+                href="/blog/politics/beyond-left-right">discussed recently</a>, communism is
             really a product of the Enlightenment and French Revolution. Livy in his <em>The History of Rome</em> tells us that
             Pythagoras founded this order in Crotona, a city in Southern Italy. Pythagoras was a big influence on Plato, and by
             extension, all Western thought</p>

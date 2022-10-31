@@ -18,7 +18,7 @@
     {% include "utils/nav" %}
 
     <main>
-        {% include "portals/humanities/philosophy/pre_socratics/presocratic_nav"%}
+        {% include "blog/humanities/philosophy/pre_socratics/presocratic_nav"%}
 
 
 
@@ -231,7 +231,7 @@
         <!-- wp:paragraph -->
         <p>The fundamental point of this dialogue is asking if it is right to defy the state. They argue for some time but the
             final argument that Socrates makes is that of the social contract. I have written at length about <a
-                href="/portals/philosophy/social-contract">social contract theory
+                href="/blog/philosophy/social-contract">social contract theory
                 here</a>. Socrates describes a nanny state:</p>
         <!-- /wp:paragraph -->
         

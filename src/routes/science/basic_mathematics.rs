@@ -13,25 +13,25 @@ use crate::{
     DOMAIN,
 };
 
-#[get("/portals/science/basic-maths/numbers")]
+#[get("/blog/science/basic-maths/numbers")]
 async fn numbers() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/numbers".to_string(),
+            "/blog/science/basic-maths/numbers".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/science/basic_maths/1numbers", context.into_json())
+    Template::render("blog/science/basic_maths/1numbers", context.into_json())
 }
 
-#[get("/portals/science/basic-maths/linear-equations")]
+#[get("/blog/science/basic-maths/linear-equations")]
 async fn linear_equations() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/linear-equations".to_string(),
+            "/blog/science/basic-maths/linear-equations".to_string(),
         )
         .await;
     });
@@ -40,17 +40,17 @@ async fn linear_equations() -> Template {
     context.insert("ym4xm6", &ym4xm6());
     context.insert("basic_simul", &basic_simul());
     Template::render(
-        "portals/science/basic_maths/2linear_equations",
+        "blog/science/basic_maths/2linear_equations",
         context.into_json(),
     )
 }
 
-#[get("/portals/science/basic-maths/quadratic-equations")]
+#[get("/blog/science/basic-maths/quadratic-equations")]
 async fn quadratic_equations() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/quadratic-equations".to_string(),
+            "/blog/science/basic-maths/quadratic-equations".to_string(),
         )
         .await;
     });
@@ -63,17 +63,17 @@ async fn quadratic_equations() -> Template {
     context.insert("quadratic_formula", &quadratic_formula());
     context.insert("no_roots", &no_roots());
     Template::render(
-        "portals/science/basic_maths/3quadratic_equations",
+        "blog/science/basic_maths/3quadratic_equations",
         context.into_json(),
     )
 }
 
-#[get("/portals/science/basic-maths/distances-and-angles")]
+#[get("/blog/science/basic-maths/distances-and-angles")]
 async fn distance_angles() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/distances-and-angles".to_string(),
+            "/blog/science/basic-maths/distances-and-angles".to_string(),
         )
         .await;
     });
@@ -85,39 +85,39 @@ async fn distance_angles() -> Template {
     context.insert("acos", &acosg());
     context.insert("atan", &atang());
     Template::render(
-        "portals/science/basic_maths/4distance_angles",
+        "blog/science/basic_maths/4distance_angles",
         context.into_json(),
     )
 }
 
-#[get("/portals/science/basic-maths/angles-parallel")]
+#[get("/blog/science/basic-maths/angles-parallel")]
 async fn angles_parallel() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/angles-parallel".to_string(),
+            "/blog/science/basic-maths/angles-parallel".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
 
     Template::render(
-        "portals/science/basic_maths/5angles_on_lines",
+        "blog/science/basic_maths/5angles_on_lines",
         context.into_json(),
     )
 }
 
-#[get("/portals/science/basic-maths/area")]
+#[get("/blog/science/basic-maths/area")]
 async fn area() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/portals/science/basic-maths/area".to_string(),
+            "/blog/science/basic-maths/area".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("portals/science/basic_maths/6area", context.into_json())
+    Template::render("blog/science/basic_maths/6area", context.into_json())
 }
 
 fn basic_quadratic() -> String {
