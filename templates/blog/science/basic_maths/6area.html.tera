@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Area</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Area</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <p>In two dimensional space, shapes can be considered to have an area.
+            This is like a two dimensional analogy to length in one dimension.
+            Let's cover the formulas for the areas of a few common shapes.
+        </p>
+
+        <p>The circle is one of the most basic shapes, and it has a simple 
+            formula for the area given by 
+        </p>
+
+        <p>\[A = \pi r^2\]</p>
+
+        <p>A disc's area can be calculated very easily, by simply removing 
+            the smaller discs area
+        </p>
+
+        <p>\[A = \pi R^2 - \pi r^2\]</p>
+
+        <p>An ellipse is a squashed circle, which has a semi-major axis \(a\)
+            and semi-minor axis \(b\). The area is easily given by 
+        </p>
+
+        <p>\[A = \pi a \cdot b\]</p>
+
+        <p>This, hopefully, should be quite familiar to the circle.</p>
+
+        <p>The square has are given by</p>
+
+        <p>\[A = a^2\]</p>
+
+        <p>In general, rectangles have area length times width, so</p>
+
+        <p>\[A = a \cdot b\]</p>
+
+        <p>A parallelogram has area base times height. Imagine taking the
+            triangle "extra" from one side and sticking it on the other to make 
+            a rectangle!
+        </p>
+
+        <p>\[A = b \cdot h\]</p>
+
+        <p>Triangles are always half the area of the rectangle that would 
+            contain them. This makes their formula very easy despite the complex 
+            shapes they may form!
+        </p>
+
+        <p>\[A = \frac{1}{2} b \cdot h\]</p>
+
+        <p>The trapezoid has area given by</p>
+
+        <p>\[A = \frac{1}{2} (a + b) h\]</p>
+
+        <p>What I want you to notice about all these formulas is they involve 
+            multiplying some length by some other length. Therefore, they all 
+            have units of length squared.
+        </p>
+
+
+    </main>
+
+</body>
+
+</html>

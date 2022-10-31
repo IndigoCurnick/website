@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Numbers</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Numbers</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <h2>Basic Ideas</h2>
+        
+        <p>This course isn't the place to deeply probe the philosophy of numbers,
+            so we will take it as a given that they
+            exist<sup><a href="#foot1">1</a></sup> and we can use them. Most people
+            are familiar with numbers, but let's go over a few basics
+        </p>
+        
+        <p><i>Integers</i> are whole numbers, which can be positive, negative
+            or 0. Examples of integers include 0, 1, 3, 5, -9, -4. Let's look
+            over a few rules with these numbers
+        </p>
+        
+        <p>\[a + 0 = 0 + a = a - 0 = -0 + a = a\]</p>
+        
+        <p>The above statement in English more or less means "adding or
+            subtracting 0 doesn't have any affect on the value of the other
+            number".
+        </p>
+        
+        <p>However</p>
+        
+        <p>\[a \times 0 = 0\]</p>
+        
+        <p>Zero times any number is 0.</p>
+        
+        <p>\[1 \times a = a\]</p>
+        
+        <p>One, like 0, can be defined by its behaviour. One is the number that
+            when it multiples any other number, you get the other number back.
+            We now have two fixed reference points: a number that makes no
+            difference when adding and a number that makes no difference
+            when multiplying. The difference between these numbers is 1. Once
+            0 and 1 are fixed, you can continue to add, or take away, this same
+            value to get all the integers.
+        </p>
+        
+        <h2>Negative Numbers</h2>
+        
+        <p>Negative numbers have some interesting properties, let's explore
+            those
+        </p>
+        
+        <p>\[-a + a = 0\]</p>
+        
+        <p>In English this roughly translates to "taking a number away from
+            itself gives 0", which is another equally valid definition of 0.
+        </p>
+        
+        <p>\[- (-a) = a\]</p>
+        
+        <p>In English the above more or less means "a double negative is a
+            positive". The way to think about this is that you are taking away
+            negative stuff. Imagine a room with hot (positive) and cold
+            (negative) air. If you took away the cold air, it would get hotter.
+        </p>
+        
+        <h2>Addition</h2>
+        
+        <p>There are a few standard addition rules you should keep in mind.</p>
+        
+        <p>\[a + b = b + a\]</p>
+        
+        <p>This is <i>commutativity</i>, which means flipping the order doesn't
+            matter.
+        </p>
+        
+        <p>\[(a + b) + c = a + (b + c)\]</p>
+        
+        <p>Now we introduce brackets. Brackets are a way of telling in what
+            order to do things. So, on the left hand side (LHS) of the above,
+            this is like saying "do a plus b first, then add c". The
+            right hand side (RHS) is like saying "do b plus c first, then add a".
+            Due to the <i>associative</i> law, these two are the same
+        </p>
+        
+        <p>With these laws, be very careful with negative numbers. A classic
+            mistake is to do this
+        </p>
+        
+        <p>\[a - b = b - a \text{ <- FALSE!!}\] </p>
+        
+        <p>This is not true!! The LHS is saying "a add minus b", so we need to
+            bring the minus sign with us
+        </p>
+
+        <p>\[a - b = -b + a\]</p>
+
+        <p>which is correct.</p>
+
+        <h2>Multiplication</h2>
+
+        <p>Moving onto multiplication now, it also has commutative and
+            associative laws.
+        </p>
+
+        <p>\[ab = ba\]</p>
+        <p>\[(ab)c = a(bc)\]</p>
+
+        <p>You notice that these rules are analogous to addition rules. Also
+            notice here I dropped the \(\times\) sign. This is very common when
+            working with only variables. You will also often see a dot like this
+            \(a \cdot b = b \cdot a\).
+        </p>
+
+        <p>There is another multiplication rule too, called <i>distribution</i>
+        </p>
+
+        <p>\[a (b + c) = ab + ac\]</p>
+
+        <h2>Workshop: Solving Equations</h2>
+
+        <p>The goal of algebra is to solve for unknown values. If we can set 
+            two expressions equal to one another, if there is only one unknown,
+            we can often find that value. For example
+        </p>
+
+        <p>\[x + 3 = 2\]</p>
+
+        <p>Can we find the value of \(x\)? Yes, and the most important idea in 
+            algebra needs to be understood in order to do that. So long as we do 
+            <i>exactly</i> the same thing to both sides of an equation, we can
+            freely manipulate it however we like. So consider taking away 3 from 
+            both sides
+        </p>
+
+        <p>\[x + 3 - 3 = 2 - 3\]</p>
+
+        <p>\[x = -1\]</p>
+
+        <p>For all of these workshop problems, find the value of \(x\)</p>
+        <p>(a) \(3x = 6\)</p>
+        <p>(b) \(5(x - 1) = 10\)</p>
+        <p>(c) \(2x + 3 = 4x - 5\)</p>
+
+        <p>For all of these workshop problems, isolate \(x\) onto the LHS of the
+            equal sign (i.e. make them of the form \(x = ...\))
+        </p>
+
+        <p>(d) \(2x + u = 3(x - u) + 4\)</p>
+        <p>(e) \(4(5x) + 6z = 6z - u\)</p>
+
+        <details style="text-decoration:none;">
+            <summary>
+                Solutions
+            </summary>
+            <p>(a) Diving both sides by 3 will isolate x and give the solution</p>
+            <p>\[3x \div 3 = 6 \div 3\]</p>
+            <p>\[x = 2\]</p>
+
+            <p>(b) We need to use the distributive rules</p>
+            <p>\[5x - 5 = 10\]</p>
+            <p>\[5x - 5 + 5 = 10 + 5\]</p>
+            <p>\[5x = 15\]</p>
+            <p>\[5x \div 5 = 15 \div 5\]</p>
+            <p>\[x = 3\]</p>
+
+            <p>(c) We need to get all the \(x\) and all the constants on opposite 
+                sides first
+            </p>
+
+            <p>\[2x + 3 + 5 - 2x = 4x - 5 + 5 - 2x\]</p>
+            <p>\[8 = 2x\]</p>
+            <p>\[2x \div 2 = 8 \div 2\]</p>
+            <p>\[x = 4\]</p>
+
+            <p>(d) It's common to see "skipping" steps in algebra. Compare your
+                solution against this one and see which parts were skipped.
+            </p>
+            <p>\[2x + u = 3(x - u) + 4\]</p>
+            <p>\[2x + u = 3x - 3u + 4\]</p>
+            <p>\[x = -4u + 4\]</p>
+
+            <p>Skipping basic algebra steps like this is so common from now on
+                I will do it. You can carry on writing it out verbosely for as
+                long as you need, but eventually you'll find that you won't need 
+                to.
+            </p>
+
+            <p>(e) Notice how we can just "cancel" out the \(z\) terms?</p>
+            <p>\[20x = -u\]</p>
+            <p>\[x = -u \div 20\]</p>
+        
+        </details>
+        
+        <h2>Fractions</h2>
+        
+        <p>So far we've only really explicitly considered whole numbers, namely
+            integers. We can also have bits of numbers, which we call the
+            <i>rational</i> numbers. Rational numbers have the following form
+        </p>
+        
+        <p>\[\frac{m}{n}\]</p>
+        
+        <p>where \(m\) can be any integer and \(n\) can be any integer
+            <i>except</i> 0.
+        </p>
+        
+        <p>An important fraction property is the following</p>
+        
+        <p>\[\frac{a}{a} = 1\]</p>
+        
+        <p>Fractions have their own rules too, the most important one is
+            <i>cancellation</i>
+        </p>
+        
+        <p>\[\frac{am}{an} = \frac{m}{n}\]</p>
+        
+        <p>The most common mistake here is the following, so don't fall into it!
+        </p>
+        
+        <p>\[\frac{a + m}{an} = \frac{m}{n} \text{<- FALSE!!}\]</p>
+        
+        <p>You can only cancel when the part you want to cancel is multiplying
+            everything on the top and the bottom.
+        </p>
+
+        <p>One more convenience with fractions comes when dealing with negative
+            numbers. We can put the minus sign in different places
+        </p>
+
+        <p>\[\frac{-m}{n} = \frac{m}{-n} = - \frac{m}{n}\]</p>
+
+        <p>Multiplying fractions is easy</p>
+
+        <p>\[\frac{m}{n} \frac{a}{b} = \frac{am}{bn}\]</p>
+
+        <p>Powers with fractions is also very easy</p>
+
+        <p>\[\left( \frac{m}{n} \right)^a = \frac{m^a}{n^a}\]</p>
+
+        <p>Adding fractions is not so easy however, and they can only be added
+            if the denominator is the same
+        </p>
+
+        <p>\[\frac{m}{a} + \frac{n}{a} = \frac{n + m}{a}\]</p>
+
+        <p>What do we do if the bottoms are not the same? A very common
+            technique is to make the bottoms the same by multiplying the
+            fractions by 1 in a very unusual way.
+        </p>
+
+        <p>\[\frac{m}{n} + \frac{r}{s} =
+            \frac{s}{s} \frac{m}{n} + \frac{n}{n} \frac{r}{s} =
+            \frac{sm}{ns} + \frac{nr}{ns} = \frac{sm + nr}{ns}\]
+        </p>
+
+        <p>Remember that if the top and bottom of a fraction are the same the
+            value is 1, and multiplying by 1 makes no difference. We are not
+            changing the values of the fractions, so we're free to do this. It
+            does help us get the fractions into an easier form to deal with.
+            Hold onto this idea of getting things into an easier form - it's
+            a really core idea for a lot of mathematics.
+        </p>
+
+        <h2>Exponents</h2>
+
+        <p>When multiplying a thing by itself many times, it might be helpful
+            to have some kind of short hand.
+        </p>
+
+        <p>\[aa = a^2\]</p>
+        <p>\[aaa = a^3\]</p>
+        <p>\[aaaa = a^4\]</p>
+
+        <p>This superscript is called an <i>exponent</i> or <i>power</i>. Powers
+            have their own rules too, like this one
+        </p>
+
+        <p>\[(a^m)^n = a^{mn}\]</p>
+
+        <p>There is also additions of exponents</p>
+
+        <p>\[a^{x+y} = a^x a^y\]</p>
+
+        <p>And a distributive property</p>
+
+        <p>\[(ab)^x = a^x b^x\]</p>
+
+        <p>Negative powers also have a special property</p>
+
+        <p>\[a^{-x} = \frac{1}{a^x}\]</p>
+
+        <p>Until now, we've worked only with numbers that are rational. That is,
+            they can be written down fully as a fraction or a decimal. However,
+            not all numbers are like this. Many useful numbers can not be ever
+            fully represented as a fraction or a decimal. Some examples include
+        </p>
+        
+        <p>\[\sqrt{2}, \sqrt{5}, \pi\]</p>
+        
+        <p>Looking more at those square root terms, they have some interesting
+            algebraic properties. The most important of these to remember is
+            a root can also be written as an exponent
+        </p>
+        
+        <p>\[\sqrt{a} = a^{\frac{1}{2}}\]</p>
+        
+        <p>In general</p>
+        
+        <p>\[\sqrt[n]{a} = a^{\frac{1}{n}}\]</p>
+
+        <h2>Workshop: More Advanced Algebra</h2>
+
+        <p>Now we have all the basic elements of algebra, we can start exploring
+            some of the more complex equations.
+        </p>
+        <p>In these problems solve for \(x\)</p>
+        <p>(a) \(x^2 - 14 = 0\)</p>
+        <p>(b) \(x^5 = 9x^3\)</p>
+        <p>(c) \((x -2)^2 - 36 = 0\)</p>
+        <p>(d) \(\frac{5x + 1}{3(x + 2)} = 6\)</p>
+
+        <details style="text-decoration:none;">
+            <summary>Solutions</summary>
+            <p>(a) Remember the laws of square roots! Did you get both answers?
+            </p>
+            <p>\[x^2 = 14\]</p>
+            <p>\[x = 7, -7\]</p>
+
+            <p>(b)</p>
+            <p>\[\frac{x^5}{x^3} = x^2 = 9\]</p>
+            <p>\[x = 3, -3\]</p>
+
+            <p>(c)</p>
+            <p>\[(x-2) = \pm 6\]</p>
+            <p>\[x = 8, -4\]</p>
+
+            <p>(d)</p>
+            <p>\[\frac{5x + 1}{3x + 6} = 6\]</p>
+            <p>\[5x + 1 = 6(3x + 6) = 18x + 36\]</p>
+            <p>\[13x = -35\]</p>
+            <p>\[x = - \frac{35}{13}\]</p>
+        </details>
+
+        <h2>Further questions</h2>
+        <p>Some questions with answers but no worked solutions for you to mull 
+            over. Find \(x\)
+        </p>
+
+        <ol id="two-columns">
+            <li>\(\frac{x}{15} + \frac{2x}{3} = 7\)</li>
+            <li>\(\frac{7}{2x} - \frac{6x}{3} = \sqrt{2}\)</li>
+            <li>\(\left( \frac{x}{4} \right)^2 + 6(x^2 - 2) = 0\)</li>
+            <li>\(\frac{2}{\sqrt{x}} + \frac{\sqrt{x}}{7} = \frac{2}{7 \sqrt{x}}\)</li>
+        </ol>
+
+        <details style="text-decoration:none;">
+            <summary>Solutions</summary>
+            <ol id="two-columns">
+                <li>\(x = \frac{105}{11}\)</li>
+                <li>\(x = \frac{7}{2(\sqrt{2} + 2)}\)</li>
+                <li>\(x = \pm \sqrt{\frac{192}{97}}\)</li>
+                <li>\(x = -12\)</li>
+            </ol>
+        </details>
+
+        <h2>Footnotes</h2>
+        
+        <p id="foot1">1. Don't worry about what "exists" means in this context</p>
+
+    </main>
+
+</body>
+
+</html>

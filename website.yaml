@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website-deployment
+  labels:
+    app: website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: website
+  template:
+    metadata:
+      labels:
+        app: website
+    spec:
+      containers:
+        - name: website
+          image: nathanielcurnick/website:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PG_URI
+              value: "postgres-service"
+            - name: PG_DB
+              value: "prod"
+            - name: PG_PASSWORD
+              value: "KFUfDF2w7AkVEsg3"
+            - name: PG_USERNAME
+              value: "postgress"
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: website-service
+spec:
+  type: NodePort
+  selector:
+    app: website
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30100

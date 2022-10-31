@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Nathaniel Curnick's Webpage</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <h1>Nathaniel Curnick's Webpage</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <img class="resright" src="/images/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
+
+        <p>Personal website for Nathaniel Curnick - software developer, 
+            physicist, and polymath
+        </p>
+
+        <h2>In My Network</h2>
+        <dl style="font-size:large">
+            <dt><a href="/blog/hub">📜 Blog</a></dt>
+            <dd>My blog, with everything I have written (so far)</dd>
+            <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
+                    Polymath Discord Server</a></dt>
+            <dd> Polymath discord server I run. Come say hi!</a></dd>
+            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo"> Github</a></dt>
+            <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
+            <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
+                        alt="LinkedIn Logo"> LinkedIn</a></dt>
+            <dd> My LinkedIn profile</dd>
+            
+            
+        </dl>
+
+        <h2 style="clear:both;">Writings</h2>
+
+        <div class="row">
+            <div class="column">
+                <h3>Recent Articles</h3>
+                <ul style="padding:0">
+                    <li><a href="/blog/polymath/slip-box">AThe Slip-Box</a></li>
+                    <li><a href="/blog/philosophy/social-contract">Rousseau and the Social Contract</a></li>
+                    <li><a href="/blog/programming/lifetime-ownership-rust">Lifetimes and Ownership in Rust</a></li>
+                    <li><a href="/blog/science/basic-physics/kinematics">Kinematics</a></li>
+                    <li>
+                        <strong><a href="/blog/hub">See all other blog posts...</a></strong>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h3>Public Repositories</h3>
+                <ul style="padding:0">
+                    <li><a href="https://github.com/NathanielCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
+                    <li><a href="https://github.com/NathanielCurnick/TLAP_solutions">Think Like a Programmer Solutions</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </main>
+
+</body>
+
+</html>
