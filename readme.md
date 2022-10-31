@@ -34,3 +34,8 @@ With port 30100
 
 To clean up use
 `kubectl delete all --all`
+
+Ingress
+`mikikube addons enable ingress`
+
+You can add hosts in /etc/hosts to simulate the ingress on the internet

@@ -290,8 +290,93 @@
 
         <p>\[\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz = -\frac{F}{a^2}\]</p>
 
-        
+        <p>Field Due to a Ring</p>
 
+        <p>Consider a thin ring of radius \(R\). It has an even linear charge 
+            density of \(\lambda C/m\) (Coulombs per metre). We want to
+            calculate the electric field at a particular point \(P\) along the z
+            axis.
+        </p>
+
+        <p>The first step is to split the ring into many small parts, such that 
+            for each of the smaller parts any curvature is irrelevant. This 
+            straight length of ring will be \(ds\), so that the small amount of 
+            charge on that ring segment is 
+        </p>
+
+        <p>\[dq = \lambda ds\]</p>
+
+        <p>Now, let's consider the electric field from this one element. The 
+            vector from \(ds\) to \(P\) we will call \(\mathbf{r}\), so the 
+            magnitude of the small electric field is given by
+        </p>
+
+        <p>\[
+            dE = 
+            \frac{1}{4 \pi \epsilon_0} \frac{dq}{r^2} = 
+            \frac{1}{4 \pi \epsilon_0 \frac{\lambda ds}{r^2}}
+            \]
+        </p>
+
+        <p>\(r\) is the hypotenuse of a triangle between \(P\), \(ds\) and the
+            centre of the ring though, so we can rewrite this as
+        </p>
+
+        <p>\[dE = \frac{1}{4 \pi \epsilon_0} \frac{\lambda ds}{z^2 + R^2}\]</p>
+
+        <p>Since every \(ds\) is the same \(r\) (but different \(\mathbf{r}\))
+            from \(P\), consider breaking the electric field strength into two 
+            components. There will be one component pointing up, and each 
+            of these vertical components from all the \(ds\) will point in the 
+            same direction i.e. sum. However, the horizontal components will not 
+            sum up. In fact, for each \(ds\) there is another component 
+            exactly \(180^\circ\) away which has an equal magnitude and opposite 
+            direction horizontal component. In other words, before any kind of 
+            integration is done, a symmetry argument is used to eliminate the 
+            horizontal components. 
+        </p>
+
+        <p>So, each component \(ds\) can be thought of as contributing a scalar 
+            electric field of strength \(dE \cos(\theta)\) in the z direction. 
+            \(\theta\) is the angle made by \(ds P O\) (\(O\) being the centre).
+        </p>
+
+        <p>\(\theta\) can be rewritten in terms of symbols we already have 
+            though, like so
+        </p>
+
+        <p>
+            \[
+            \cos(\theta)
+            =
+            \frac{z}{r}
+            = 
+            \frac{z}{\sqrt{z^2 + R^2}}    
+            \]
+        </p>
+
+        <p>Now we need to sum up each of these \(ds\) to get the total electric 
+            field. We already have an expression for \(dE\), and we have 
+            reasoned that the sum of all \(dE \cos(\theta)\) is \(E\). There's
+            nothing left to do now but integrate.
+        </p>
+
+        <p>
+            \[
+            E = \int dE \cos(\theta) 
+            =
+            \frac{z \lambda}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}} 
+            \int_0^{2 \pi R} ds
+            =
+            \frac{z \lambda (2 \pi R)}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}
+            \]
+        </p>
+
+        <p>Optionally, we can replace the charge per unit length with the total 
+            charge \(q = \lambda 2 \pi R\)
+        </p>
+
+        <p>\[E = \frac{qz}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}\]</p>
 
     </main>
 

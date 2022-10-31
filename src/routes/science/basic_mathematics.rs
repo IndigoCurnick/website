@@ -90,6 +90,36 @@ async fn distance_angles() -> Template {
     )
 }
 
+#[get("/portals/science/basic-maths/angles-parallel")]
+async fn angles_parallel() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/angles-parallel".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+
+    Template::render(
+        "portals/science/basic_maths/5angles_on_lines",
+        context.into_json(),
+    )
+}
+
+#[get("/portals/science/basic-maths/area")]
+async fn area() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/portals/science/basic-maths/area".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("portals/science/basic_maths/6area", context.into_json())
+}
+
 fn basic_quadratic() -> String {
     fn func(x: &f64) -> f64 {
         return x.powf(2_f64);
@@ -525,6 +555,8 @@ pub fn get_basic_mathematics_routes() -> Vec<Route> {
         numbers,
         linear_equations,
         quadratic_equations,
-        distance_angles
+        distance_angles,
+        angles_parallel,
+        area
     ]
 }

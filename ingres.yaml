@@ -1,0 +1,12 @@
+apiVersion: networking.k82.io/v1beta1
+kind: Ingress
+metadata:
+  name: website-ingress
+spec:
+  rules:
+    - host: nathanielcurnick.xyz
+      http:
+        paths:
+          - backend:
+            serviceName: website-service
+            servicePort: 8080
