@@ -11,6 +11,9 @@ Then create the persistent volume
 The create the deployment and service
 `kubectl apply -f postgres-deployment.yaml`
 
+In the Pi run
+`kubectl apply -f postgres-deployment-arm.yaml`
+
 From ~ run
 
 ```
@@ -36,6 +39,6 @@ To clean up use
 `kubectl delete all --all`
 
 Ingress
-`mikikube addons enable ingress`
+`minikube addons enable ingress`
 
 You can add hosts in /etc/hosts to simulate the ingress on the internet
