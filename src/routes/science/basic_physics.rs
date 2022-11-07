@@ -192,6 +192,19 @@ fn basic_wave() -> String {
     return output;
 }
 
+#[get("/blog/science/basic-physics/thermal")]
+pub async fn thermal() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/blog/science/basic-physics/thermal".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("blog/science/basic_physics/thermal", context.into_json())
+}
+
 pub fn get_basic_physics_routes() -> Vec<Route> {
     return routes![
         kinematics,
@@ -199,6 +212,7 @@ pub fn get_basic_physics_routes() -> Vec<Route> {
         fields,
         rotation,
         oscillations,
-        circuits
+        circuits,
+        thermal
     ];
 }
