@@ -120,6 +120,22 @@ async fn area() -> Template {
     Template::render("blog/science/basic_maths/6area", context.into_json())
 }
 
+#[get("/blog/science/basic-maths/coordinates")]
+async fn coordinates() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/blog/science/basic-maths/coordinates".to_string(),
+        )
+        .await;
+    });
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("circle_graph", &cirlce_graph());
+    context.insert("x_cubed", &x_cube_coord());
+    context.insert("multiply_points", &point_graph());
+    Template::render("blog/science/basic_maths/7coordinates", context.into_json())
+}
+
 fn basic_quadratic() -> String {
     fn func(x: &f64) -> f64 {
         return x.powf(2_f64);
@@ -550,6 +566,146 @@ fn atang() -> String {
     return plot.to_inline_html("atan");
 }
 
+fn x_cube_coord() -> String {
+    fn func(x: &f64) -> f64 {
+        return x.powf(3_f64) + 2.0 * x.powf(2_f64) - x + 4.0;
+    }
+
+    let mut plot = create_layout(LayoutOptions::default());
+    add_trace(&mut plot, -10.0, 10.0, 1000, &func, None);
+
+    return plot.render_inline("x_cubed");
+}
+
+fn point_graph() -> String {
+    let x = 1.0;
+    let y = 1.0;
+
+    let mut plot = create_layout(LayoutOptions::default());
+
+    let trace0 = Scatter::new(vec![x], vec![y])
+        .mode(Mode::Markers)
+        .name("Original");
+    let trace1 = Scatter::new(vec![2.0 * x], vec![2.0 * y])
+        .mode(Mode::Markers)
+        .name("2");
+    let trace2 = Scatter::new(vec![-1.0 * x], vec![-1.0 * y])
+        .mode(Mode::Markers)
+        .name("-1");
+    let trace3 = Scatter::new(vec![0.5 * x], vec![0.5 * y])
+        .mode(Mode::Markers)
+        .name("0.5");
+    let trace4 = Scatter::new(vec![-0.5 * x], vec![-0.5 * y])
+        .mode(Mode::Markers)
+        .name("-0.5");
+    let trace5 = Scatter::new(vec![-2.0 * x], vec![-2.0 * y])
+        .mode(Mode::Markers)
+        .name("-2");
+
+    plot.add_traces(vec![trace0, trace1, trace2, trace3, trace4, trace5]);
+    return plot.render_inline("multiply_points");
+}
+
+fn cirlce_graph() -> String {
+    let points = get_circle_points(&circle_eqaution, (-2.0, 2.0), (-2.0, 2.0), 50);
+    let mut layout = LayoutOptions::default();
+    layout.matches = true;
+    let mut plot = create_layout(layout);
+
+    let outside = Scatter::new(points.outside.x, points.outside.y)
+        .mode(Mode::Markers)
+        .name("Outside");
+    let perimeter = Scatter::new(points.perimeter.x, points.perimeter.y)
+        .mode(Mode::Markers)
+        .name("Perimeter");
+    let inside = Scatter::new(points.inside.x, points.inside.y)
+        .mode(Mode::Markers)
+        .name("Inside");
+
+    plot.add_traces(vec![outside, perimeter, inside]);
+
+    return plot.to_inline_html("circle-plot");
+}
+
+struct Coordinates {
+    pub x: Vec<f64>,
+    pub y: Vec<f64>,
+}
+
+impl Coordinates {
+    fn default() -> Coordinates {
+        return Coordinates {
+            x: vec![],
+            y: vec![],
+        };
+    }
+
+    fn new_point(&mut self, x: &f64, y: &f64) {
+        self.x.push(x.clone());
+        self.y.push(y.clone());
+    }
+}
+
+struct CirclePoints {
+    pub outside: Coordinates,
+    pub inside: Coordinates,
+    pub perimeter: Coordinates,
+}
+
+impl CirclePoints {
+    fn default() -> CirclePoints {
+        return CirclePoints {
+            outside: Coordinates::default(),
+            inside: Coordinates::default(),
+            perimeter: Coordinates::default(),
+        };
+    }
+}
+
+enum CircleCondition {
+    Inside,
+    Outside,
+    Perimeter,
+}
+
+fn circle_eqaution(x: &f64, y: &f64) -> CircleCondition {
+    fn equation(x: &f64, y: &f64) -> f64 {
+        return (x.powf(2_f64) + y.powf(2_f64)).sqrt();
+    }
+    let radius = 1.0;
+    let result = equation(x, y);
+    if result > radius {
+        return CircleCondition::Outside;
+    } else if result == radius {
+        return CircleCondition::Perimeter;
+    } else {
+        return CircleCondition::Inside;
+    }
+}
+
+fn get_circle_points(
+    circle_eqaution: &dyn Fn(&f64, &f64) -> CircleCondition,
+    x_lim: (f64, f64),
+    y_lim: (f64, f64),
+    resolution: usize,
+) -> CirclePoints {
+    let mut coords = CirclePoints::default();
+    let x_points: Vec<f64> = linspace(x_lim.0, x_lim.1, resolution).collect();
+    let y_points: Vec<f64> = linspace(y_lim.0, y_lim.1, resolution).collect();
+
+    for x in &x_points {
+        for y in &y_points {
+            match circle_eqaution(x, y) {
+                CircleCondition::Inside => coords.inside.new_point(x, y),
+                CircleCondition::Outside => coords.outside.new_point(x, y),
+                CircleCondition::Perimeter => coords.perimeter.new_point(x, y),
+            };
+        }
+    }
+
+    return coords;
+}
+
 pub fn get_basic_mathematics_routes() -> Vec<Route> {
     routes![
         numbers,
@@ -557,6 +713,7 @@ pub fn get_basic_mathematics_routes() -> Vec<Route> {
         quadratic_equations,
         distance_angles,
         angles_parallel,
-        area
+        area,
+        coordinates
     ]
 }
