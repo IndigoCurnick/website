@@ -136,6 +136,43 @@ async fn coordinates() -> Template {
     Template::render("blog/science/basic_maths/7coordinates", context.into_json())
 }
 
+#[get("/blog/science/basic-maths/trigonometry")]
+async fn trigonometry() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/blog/science/basic-maths/trigonometry".to_string(),
+        )
+        .await;
+    });
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("sin", &sing());
+    context.insert("cos", &cosg());
+    context.insert("asin", &asing());
+    context.insert("acos", &acosg());
+    context.insert("atan", &atang());
+    Template::render(
+        "blog/science/basic_maths/8trigonometry",
+        context.into_json(),
+    )
+}
+
+#[get("/blog/science/basic-maths/complex-numbers")]
+async fn complex_numbers() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/blog/science/basic-maths/complex-numbers".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "blog/science/basic_maths/9complex_numbers",
+        context.into_json(),
+    )
+}
+
 fn basic_quadratic() -> String {
     fn func(x: &f64) -> f64 {
         return x.powf(2_f64);
@@ -714,6 +751,8 @@ pub fn get_basic_mathematics_routes() -> Vec<Route> {
         distance_angles,
         angles_parallel,
         area,
-        coordinates
+        coordinates,
+        trigonometry,
+        complex_numbers,
     ]
 }
