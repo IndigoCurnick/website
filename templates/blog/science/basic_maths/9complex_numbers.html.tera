@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Complex Numbers</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Complex Numbers</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+        <p>Consider the following quadratic equation</p>
+
+        <p>\[x^2 + 3 = 0\]</p>
+
+        <p>It seems pretty simple, but if you put this into the quadratic formula 
+            and type it into your calculator, it will give you an error. Up to 
+            now, we have simply disregarded these non-real solutions. Now, we 
+            want to make some progress on solving these kinds of equations. So,
+            we define a new "imaginary" number
+        </p>
+
+        <p>\[\sqrt{-1} = i\]</p>
+
+        <p>\(i\) is our "imaginary" number. So, if we solve the above equation</p>
+
+        <p>\[x = \frac{\pm \sqrt{-12}}{2} = \pm \frac{\sqrt{12}}{2}i\]</p>
+
+        <p>A complex number is one with both a real and imaginary part. They are 
+            written in the form \(a + bi\). Just like real numbers, complex
+            numbers have some properties that we can explore
+        </p>
+
+        <p>First, adding complex numbers</p>
+
+        <p>\[(x + ui) + (y + vi) = (x + y) + (u + v)i\]</p>
+
+        <p>For example, </p>
+
+        <p>\[2 + 3i + 5 - i = 7 + 2i\]</p>
+
+        <p>Let's try multiplying complex numbers</p>
+
+        <p>\[(x + ui)(y + vi)\]</p>
+
+        <p>\[xy + yui + xvi + uvi^2\]</p>
+        <p>\[xy - uv + (yu + xv)i\]</p>
+
+        <p>We define a new concept - the conjugate. If we have</p>
+
+        <p>\[z = a + bi\]</p>
+
+        <p>The its conjugate is</p>
+
+        <p>\[\bar{z} = a - bi\]</p>
+
+        <p>What is the motivation to do this? Try </p>
+
+        <p>\[z \bar{z} = (a + bi)(a - bi)\]</p>
+
+        <p>\[z \bar{z} = a^2 + abi - abi + b^2\]</p>
+        <p>\[z \bar{z} = = a^2 + b^2\]</p>
+
+        <p>This is sort of "extracting" the real terms.</p>
+
+        <p>We can also define an inverse of a complex number, for example</p>
+
+        <p>\[(1 + i)(i - i) = 2\]</p>
+        <p>\[(1 + i)^{-1} = \frac{1 - i}{2}\]</p>
+
+    </main>
+
+</body>
+
+</html>

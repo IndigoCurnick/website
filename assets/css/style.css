@@ -55,7 +55,9 @@ body {
     text-align: center;
 }
 
-
+img {
+    max-width: 100%;
+}
 
 /* Dropshadow behind boxes */
 /* main,
