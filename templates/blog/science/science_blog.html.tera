@@ -22,7 +22,8 @@
 
         <h2>Basic Physics</h2>
         <p>Introductory physics material. Will need a basic understanding of calculus for these
-            posts, but nothing beyond a comprehensive school level.
+            posts, but nothing beyond a comprehensive school level. This course
+            is still under development, and is subject to change
         </p>
         <ol>
             <li><a href="/blog/science/basic-physics/kinematics">Kinematics</a></li>
@@ -37,7 +38,9 @@
         <hr>
 
         <h2>Basic Mathematics</h2>
-        <p>Introductory mathematics course, for absolute beginners</p>
+        <p>Introductory mathematics course, for absolute beginners. This course
+            is still under development, and is subject to change 
+        </p>
 
         <ol>
             <li><a href="/blog/science/basic-maths/numbers">Numbers</a></li>
@@ -49,7 +52,6 @@
             <li><a href="/blog/science/basic-maths/coordinates">Coordinates</a></li>
             <li><a href="/blog/science/basic-maths/trigonometry">Trigonometry</a></li>
             <li><a href="/blog/science/basic-maths/complex-numbers">Complex Numbers</a></li>
-            <li><a href="/blog/science/basic-maths/matrices">Matrices</a></li>
         </ol>
         
         <hr>

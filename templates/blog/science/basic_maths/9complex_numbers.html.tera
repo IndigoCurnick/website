@@ -79,7 +79,7 @@
         <p>We can also define an inverse of a complex number, for example</p>
 
         <p>\[(1 + i)(i - i) = 2\]</p>
-        <p>(1 + i)^{-1} = \frac{1 - i}{2}</p>
+        <p>\[(1 + i)^{-1} = \frac{1 - i}{2}\]</p>
 
     </main>
 
