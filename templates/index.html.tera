@@ -45,7 +45,7 @@
             <div class="column">
                 <h3>Recent Articles</h3>
                 <ul style="padding:0">
-                    <li><a href="/blog/polymath/slip-box">AThe Slip-Box</a></li>
+                    <li><a href="/blog/polymath/slip-box">The Slip-Box</a></li>
                     <li><a href="/blog/philosophy/social-contract">Rousseau and the Social Contract</a></li>
                     <li><a href="/blog/programming/lifetime-ownership-rust">Lifetimes and Ownership in Rust</a></li>
                     <li><a href="/blog/science/basic-physics/kinematics">Kinematics</a></li>

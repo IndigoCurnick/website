@@ -61,6 +61,26 @@ pub async fn pg_init() -> Result<(), ()> {
             return Err(());
         }
 
+        // Init the data
+        let pg_client = match POSTGRES_CLIENT.get() {
+            Some(x) => x,
+            None => panic!("Could not access the database I just made"),
+        };
+
+        let insert_text = "CREATE TABLE if not exists visits(
+                                    id SERIAL NOT NULL PRIMARY KEY,
+                                    domain TEXT NOT NULL,
+                                    webpage TEXT NOT NULL,
+                                    date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+                                );
+                                "
+        .to_string();
+
+        match pg_client.execute(&insert_text, &[]).await {
+            Ok(x) => println!("Has gone into database"),
+            Err(y) => return Err(()),
+        };
+
         return Ok(());
     } else {
         return Ok(());
