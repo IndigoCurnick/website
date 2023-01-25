@@ -4,7 +4,10 @@
 extern crate rocket;
 
 use std::env;
+use std::path::PathBuf;
 
+use blog::{get_blog_entries, Blog};
+use context::{BLOG_ROOT, STATIC_BLOG_ENTRIES};
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
 use rocket::response::Redirect;
@@ -21,6 +24,12 @@ use routes::science::science::get_science_routes;
 mod database;
 mod routes;
 mod utils;
+
+mod blog;
+mod context;
+
+#[cfg(test)]
+mod tests;
 
 pub static DOMAIN: &str = "nathanielcurnick.xyz";
 
@@ -47,6 +56,17 @@ async fn blog_hub() -> Template {
     });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("blog/blog_main", context.into_json())
+}
+
+#[get("/blogtemp")]
+async fn blog_temp() -> Template {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("blog", get_blog_context());
+    Template::render("blog", context.into_json())
+}
+
+fn get_blog_context() -> &'static Blog {
+    return &STATIC_BLOG_ENTRIES;
 }
 
 #[rocket::main]
@@ -90,7 +110,7 @@ async fn main() {
 }
 
 fn get_all_routes() -> Vec<Route> {
-    let index_route = routes![index];
+    let index_route = routes![index, blog_temp];
     let science = get_science_routes();
     let polymath = get_polymath_routes();
     let humanities = get_humanities_routes();

@@ -6,6 +6,9 @@
         <a href="/blog/hub">
             <li>📜 Blog</li>
         </a>
+        <a href="/blogtemp">
+            <li>📜 New Blog</li>
+        </a>
         <a href="https://discord.com/invite/uVK4BJT">
             <li><img src="/images/logos/discord.svg" alt="Discord logo"> Discord</li>
         </a>
