@@ -40,6 +40,13 @@ async fn not_found(req: &Request<'_>) -> Redirect {
     Redirect::to(uri!(index))
 }
 
+#[catch(500)]
+async fn error(req: &Request<'_>) -> Redirect {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    context.insert("url", req.uri());
+    Redirect::to(uri!(index))
+}
+
 #[get("/index")]
 async fn index() -> Template {
     tokio::spawn(async move {
@@ -67,6 +74,21 @@ async fn blog_temp() -> Template {
 
 fn get_blog_context() -> &'static Blog {
     return &STATIC_BLOG_ENTRIES;
+}
+
+#[get("/blog/<slug>")]
+fn blog_article(slug: String) -> Option<Template> {
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    let all_blogs = get_blog_context();
+    let this_blog = match all_blogs.hash.get(&slug) {
+        Some(x) => x,
+        None => return None,
+    };
+    context.insert("blog", this_blog);
+    Some(Template::render(
+        format!("/blog/{}", slug),
+        context.into_json(),
+    ))
 }
 
 #[rocket::main]
@@ -97,7 +119,7 @@ async fn main() {
 
     if let Err(e) = rocket::custom(figment)
         .mount("/", FileServer::from(relative!("assets/")))
-        .register("/", catchers![not_found])
+        .register("/", catchers![not_found, error])
         .attach(Template::fairing())
         // .attach(config)
         .mount("/", get_all_routes())
@@ -110,7 +132,7 @@ async fn main() {
 }
 
 fn get_all_routes() -> Vec<Route> {
-    let index_route = routes![index, blog_temp];
+    let index_route = routes![index, blog_temp, blog_article];
     let science = get_science_routes();
     let polymath = get_polymath_routes();
     let humanities = get_humanities_routes();
