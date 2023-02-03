@@ -78,6 +78,7 @@ fn get_blog_context() -> &'static Blog {
 
 #[get("/blog/<slug>")]
 fn blog_article(slug: String) -> Option<Template> {
+    println!("Slug {}", slug);
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
     let this_blog = match all_blogs.hash.get(&slug) {
@@ -130,18 +131,18 @@ async fn main() {
 
 fn get_all_routes() -> Vec<Route> {
     let index_route = routes![index, blog_temp, blog_article];
-    let science = get_science_routes();
-    let polymath = get_polymath_routes();
-    let humanities = get_humanities_routes();
-    let programming = get_programming_routes();
-    let blog_hub = routes![blog_hub];
+    // let science = get_science_routes();
+    // let polymath = get_polymath_routes();
+    // let humanities = get_humanities_routes();
+    // let programming = get_programming_routes();
+    // let blog_hub = routes![blog_hub];
     let all_routes = vec![
         index_route,
-        blog_hub,
-        science,
-        polymath,
-        humanities,
-        programming,
+        // blog_hub,
+        // science,
+        // polymath,
+        // humanities,
+        // programming,
     ];
 
     let flattened_routes = all_routes.concat();

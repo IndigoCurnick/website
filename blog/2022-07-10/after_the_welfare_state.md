@@ -2,7 +2,7 @@
 
 *After the Welfare State* is a small little collection of essays from various authors that takes a look at
 some of the failings of the welfare state, its history, what came before and what can come after. I became
-interested in this book after [I critiqued *The Nanny State Made Me* by Stuart Maconie]("/blog/economics/british-welfare-state"). 
+interested in this book after [I critiqued *The Nanny State Made Me* by Stuart Maconie](/blog/on-the-british-welfare-state). 
 In there I offered some fundamental economic
 and moral reasons as to why Maconie's arguments fell flat. 
 I wanted to begin a deeper dive into the history and

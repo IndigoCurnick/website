@@ -92,7 +92,10 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
         json_path.push(name);
         println!("json path is {}", json_path.display());
-        let json_text = fs::read_to_string(json_path).unwrap();
+        let json_text = match fs::read_to_string(json_path) {
+            Ok(x) => x,
+            Err(_y) => continue,
+        };
 
         let json_data: BlogJson = serde_json::from_str(&json_text).unwrap();
 

@@ -21,7 +21,7 @@
             {% for blog in blog.entries %}
                 <p>{{ blog.date }} <a href="/blog/{{blog.slug}}">{{ blog.title }}</a> </p>
                 <ul>
-                    <li>{{blog.desc}}</li>
+                    <li>{{ blog.desc | safe}}</li>
                 </ul>
             {% endfor %}
         {% else %}
