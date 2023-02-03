@@ -1,12 +1,9 @@
-use std::{
-    collections::HashMap,
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{collections::HashMap, ffi::OsStr, fs, path::PathBuf};
 
-use chrono::{DateTime, NaiveDate, NaiveDateTime, Utc};
-use glob::glob;
+use chrono::NaiveDate;
+use markdown::to_html;
 use serde::{Deserialize, Serialize};
+use std::io;
 
 type Slug = String;
 
@@ -48,25 +45,31 @@ pub struct BlogJson {
     pub tags: Vec<String>,
 }
 
-fn get_blog_paths(base: PathBuf) -> Result<Vec<PathBuf>, String> {
+fn get_blog_paths(base: PathBuf) -> Result<Vec<PathBuf>, io::Error> {
+    let base = PathBuf::from(base);
     if !base.is_dir() {
-        panic!("Blog base is not dir");
+        panic!("BLOG_ROOT is not a directory!")
     }
+    let mut markdown_files: Vec<PathBuf> = Vec::new();
 
-    let mut html_files: Vec<PathBuf> = vec![];
-
-    let base_str = base.to_str().unwrap();
-    let glob_str = format!("{}/**/*.html.tera", base_str);
-    for entry in glob(&glob_str).expect("Failed to read glob string") {
-        match entry {
-            Ok(path) => {
-                let pathbuf = PathBuf::from(path);
-                html_files.push(pathbuf);
+    for entry in fs::read_dir(base)? {
+        let entry = entry?;
+        let path = entry.path();
+        if !path.is_dir() {
+            continue;
+        }
+        for file in fs::read_dir(path)? {
+            let file = file?;
+            let path = file.path();
+            if path.is_dir() {
+                continue;
             }
-            Err(y) => panic!("{}", y),
+            if path.extension().and_then(OsStr::to_str).unwrap_or("") == "md" {
+                markdown_files.push(path);
+            }
         }
     }
-    return Ok(html_files);
+    Ok(markdown_files)
 }
 
 pub fn get_blog_entries(base: PathBuf) -> Blog {
@@ -93,7 +96,9 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
         let json_data: BlogJson = serde_json::from_str(&json_text).unwrap();
 
-        let html = fs::read_to_string(blog).unwrap();
+        let markdown = fs::read_to_string(blog).unwrap();
+
+        let html = to_html(&markdown);
 
         let blog_entry = BlogEntry::new(json_data, html);
 

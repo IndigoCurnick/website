@@ -69,7 +69,7 @@ async fn blog_hub() -> Template {
 async fn blog_temp() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("blog", get_blog_context());
-    Template::render("blog", context.into_json())
+    Template::render("blog_index", context.into_json())
 }
 
 fn get_blog_context() -> &'static Blog {
@@ -85,10 +85,7 @@ fn blog_article(slug: String) -> Option<Template> {
         None => return None,
     };
     context.insert("blog", this_blog);
-    Some(Template::render(
-        format!("/blog/{}", slug),
-        context.into_json(),
-    ))
+    Some(Template::render("blog", context.into_json()))
 }
 
 #[rocket::main]
