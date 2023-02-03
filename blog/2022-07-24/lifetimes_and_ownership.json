@@ -1,0 +1,7 @@
+{
+    "title": "Lifetimes and Ownership in Rust",
+    "date": "2022-07-24",
+    "desc": "A quick look at the concepts of lifetimes and ownership in Rust. Why they are so powerful, but also force us to think hard about our code",
+    "slug": "lifetimes-ownership-rust",
+    "tags": ["programming", "rustlang"]
+}

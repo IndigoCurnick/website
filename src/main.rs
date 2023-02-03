@@ -16,10 +16,6 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
-use routes::humanities::humanities::get_humanities_routes;
-use routes::polymath::get_polymath_routes;
-use routes::programming::get_programming_routes;
-use routes::science::science::get_science_routes;
 
 mod database;
 mod routes;
@@ -56,15 +52,6 @@ async fn index() -> Template {
     Template::render("index", context.into_json())
 }
 
-#[get("/blog/hub")]
-async fn blog_hub() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), "/blog/hub".to_string()).await;
-    });
-    let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("blog/blog_main", context.into_json())
-}
-
 #[get("/blogtemp")]
 async fn blog_temp() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
@@ -78,6 +65,7 @@ fn get_blog_context() -> &'static Blog {
 
 #[get("/blog/<slug>")]
 fn blog_article(slug: String) -> Option<Template> {
+    // TODO: database entries in here
     println!("Slug {}", slug);
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();

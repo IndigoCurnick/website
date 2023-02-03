@@ -10,13 +10,8 @@
 </head>
 
 <body>
-    <header>
-        <h1>{{ blog.title }}</h1>
-    </header>
     {% include "utils/nav" %}
     <main>
-    
-    {{ blog.date }}
 
     {{ blog.html | safe }}
 
