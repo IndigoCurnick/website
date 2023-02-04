@@ -63,6 +63,19 @@
                 </ul>
             </div>
         </div>
+
+        <div class="row">
+            <div class="column">
+                <h3>Tags</h3>
+                <ul class="two-columns">
+                    {% if tags %}
+                        {% for tag in tags %}
+                            <li><a href="/blog/tag/{{ tag }}">#{{ tag }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
         
     </main>
 

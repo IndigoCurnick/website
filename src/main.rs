@@ -6,7 +6,7 @@ extern crate rocket;
 use std::env;
 use std::path::PathBuf;
 
-use blog::{get_blog_entries, Blog};
+use blog::{get_blog_entries, Blog, BlogEntry};
 use context::{BLOG_ROOT, STATIC_BLOG_ENTRIES};
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
@@ -48,7 +48,10 @@ async fn index() -> Template {
     tokio::spawn(async move {
         insert_to_database(DOMAIN.to_string(), "/index".to_string()).await;
     });
-    let context = rocket_dyn_templates::tera::Context::new();
+    let mut context = rocket_dyn_templates::tera::Context::new();
+
+    let blog_context = get_blog_context();
+    context.insert("tags", &blog_context.tags);
     Template::render("index", context.into_json())
 }
 
@@ -75,6 +78,26 @@ fn blog_article(slug: String) -> Option<Template> {
     };
     context.insert("blog", this_blog);
     Some(Template::render("blog", context.into_json()))
+}
+
+#[get("/blog/tag/<slug>")]
+fn tag_page(slug: String) -> Option<Template> {
+    println!("Tag slug {}", slug);
+
+    let mut context = rocket_dyn_templates::tera::Context::new();
+    let all_blogs = get_blog_context();
+
+    let mut these_blogs: Vec<&BlogEntry> = vec![];
+
+    for blog in &all_blogs.entries {
+        if blog.tags.contains(&slug) {
+            these_blogs.push(&blog);
+        }
+    }
+
+    context.insert("blogs", &these_blogs);
+    context.insert("tag", &slug);
+    Some(Template::render("tags", context.into_json()))
 }
 
 #[rocket::main]
@@ -118,7 +141,7 @@ async fn main() {
 }
 
 fn get_all_routes() -> Vec<Route> {
-    let index_route = routes![index, blog_temp, blog_article];
+    let index_route = routes![index, blog_temp, blog_article, tag_page];
     // let science = get_science_routes();
     // let polymath = get_polymath_routes();
     // let humanities = get_humanities_routes();

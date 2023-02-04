@@ -11,6 +11,7 @@ type Slug = String;
 pub struct Blog {
     pub hash: HashMap<Slug, BlogEntry>,
     pub entries: Vec<BlogEntry>,
+    pub tags: Vec<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -78,6 +79,7 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
     let mut hashes: HashMap<Slug, BlogEntry> = HashMap::new();
     let mut entires: Vec<BlogEntry> = vec![];
+    let mut tags: Vec<String> = vec![];
 
     for blog in blog_paths {
         let mut json_path = blog.parent().unwrap().to_path_buf();
@@ -99,6 +101,8 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
         let json_data: BlogJson = serde_json::from_str(&json_text).unwrap();
 
+        let these_tags = json_data.tags.clone();
+
         let markdown = fs::read_to_string(blog).unwrap();
 
         let html = to_html(&markdown);
@@ -107,11 +111,18 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
         hashes.insert(blog_entry.slug.clone(), blog_entry.clone());
         entires.push(blog_entry);
+
+        for tag in these_tags {
+            if !tags.contains(&tag) {
+                tags.push(tag);
+            }
+        }
     }
 
     return Blog {
         hash: hashes,
         entries: entires,
+        tags: tags,
     };
 }
 

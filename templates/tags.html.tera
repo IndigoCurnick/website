@@ -11,14 +11,14 @@
 
 <body>
     <header>
-        <h1>Blog</h1>
+        <h1>#{{ tag }}</h1>
     </header>
     {% include "utils/nav" %}
     <main>
         
 
-        {% if blog.entries %}
-            {% for blog in blog.entries %}
+        {% if blogs %}
+            {% for blog in blogs %}
                 <p>{{ blog.date }} <a href="/blog/{{blog.slug}}">{{ blog.title }}</a> </p>
                 <ul>
                     <li>
@@ -34,7 +34,4 @@
     
         {% endif %}
     </main>
-
-
 </body>
-
