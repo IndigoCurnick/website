@@ -3,11 +3,11 @@
         <a href="/index">
             <li>🏠 Home</li>
         </a>
-        <a href="/blog/hub">
+        <a href="/blog">
             <li>📜 Blog</li>
         </a>
-        <a href="/blogtemp">
-            <li>📜 New Blog</li>
+        <a href="/courses">
+            <li>📔 Courses</li>
         </a>
         <a href="https://discord.com/invite/uVK4BJT">
             <li><img src="/images/logos/discord.svg" alt="Discord logo"> Discord</li>

@@ -16,6 +16,8 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
+use routes::courses::mathematics::get_mathematics_courses_routes;
+use routes::courses::science::get_science_courses;
 
 mod database;
 mod routes;
@@ -55,11 +57,17 @@ async fn index() -> Template {
     Template::render("index", context.into_json())
 }
 
-#[get("/blogtemp")]
-async fn blog_temp() -> Template {
+#[get("/blog")]
+async fn blog_index() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("blog", get_blog_context());
     Template::render("blog_index", context.into_json())
+}
+
+#[get("/courses")]
+async fn courses_hub() -> Template {
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("courses/courses", context.into_json())
 }
 
 fn get_blog_context() -> &'static Blog {
@@ -141,20 +149,10 @@ async fn main() {
 }
 
 fn get_all_routes() -> Vec<Route> {
-    let index_route = routes![index, blog_temp, blog_article, tag_page];
-    // let science = get_science_routes();
-    // let polymath = get_polymath_routes();
-    // let humanities = get_humanities_routes();
-    // let programming = get_programming_routes();
-    // let blog_hub = routes![blog_hub];
-    let all_routes = vec![
-        index_route,
-        // blog_hub,
-        // science,
-        // polymath,
-        // humanities,
-        // programming,
-    ];
+    let index_route = routes![index, blog_index, blog_article, tag_page, courses_hub];
+    let maths_courses = get_mathematics_courses_routes();
+    let science_courses = get_science_courses();
+    let all_routes = vec![index_route, maths_courses, science_courses];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;

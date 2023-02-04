@@ -30,17 +30,20 @@
     --palerobineggblue: #9ad6db;
     --raisinblack: #212121;
     --darkcarcoal: #303030;
+    --vividpurple: #6a0fe8;
+    --countrycream: #f3eed8;
+    --bonecream: #e7dccd;
     --headingone: var(--black);
     --headingtwo: var(--black);
     --headingthree: var(--black);
     --headingfour: var(--black);
     --links: var(--pictonblue);
-    --hoverlink: var(--cornflowerblue);
+    --hoverlink: var(--vividpurple);
     --dropshadow: rgba(0, 0, 0, 0.2);
     --maintext: Var(--darkcarcoal);
-    --mainboxbackground: var(--piggypink);
-    --subboxnav: var(--piggypink);
-    --background: var(--teagreen)
+    --mainboxbackground: var(--countrycream);
+    --subboxnav: var(--countrycream);
+    --background: var(--bonecream)
 }
 /* https: //www.color-name.com */
 

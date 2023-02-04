@@ -13,25 +13,28 @@ use crate::{
     DOMAIN,
 };
 
-#[get("/blog/science/basic-maths/numbers")]
+#[get("/courses/mathematics/basic-maths/numbers")]
 async fn numbers() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/numbers".to_string(),
+            "/courses/mathematics/basic-maths/numbers".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("blog/science/basic_maths/1numbers", context.into_json())
+    Template::render(
+        "courses/mathematics/basic_maths/1numbers",
+        context.into_json(),
+    )
 }
 
-#[get("/blog/science/basic-maths/linear-equations")]
+#[get("/courses/mathematics/basic-maths/linear-equations")]
 async fn linear_equations() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/linear-equations".to_string(),
+            "/courses/mathematics/basic-maths/linear-equations".to_string(),
         )
         .await;
     });
@@ -40,17 +43,17 @@ async fn linear_equations() -> Template {
     context.insert("ym4xm6", &ym4xm6());
     context.insert("basic_simul", &basic_simul());
     Template::render(
-        "blog/science/basic_maths/2linear_equations",
+        "courses/mathematics/basic_maths/2linear_equations",
         context.into_json(),
     )
 }
 
-#[get("/blog/science/basic-maths/quadratic-equations")]
+#[get("/courses/mathematics/basic-maths/quadratic-equations")]
 async fn quadratic_equations() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/quadratic-equations".to_string(),
+            "/courses/mathematics/basic-maths/quadratic-equations".to_string(),
         )
         .await;
     });
@@ -63,17 +66,17 @@ async fn quadratic_equations() -> Template {
     context.insert("quadratic_formula", &quadratic_formula());
     context.insert("no_roots", &no_roots());
     Template::render(
-        "blog/science/basic_maths/3quadratic_equations",
+        "courses/mathematics/basic_maths/3quadratic_equations",
         context.into_json(),
     )
 }
 
-#[get("/blog/science/basic-maths/distances-and-angles")]
+#[get("/courses/mathematics/basic-maths/distances-and-angles")]
 async fn distance_angles() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/distances-and-angles".to_string(),
+            "/courses/mathematics/basic-maths/distances-and-angles".to_string(),
         )
         .await;
     });
@@ -85,47 +88,47 @@ async fn distance_angles() -> Template {
     context.insert("acos", &acosg());
     context.insert("atan", &atang());
     Template::render(
-        "blog/science/basic_maths/4distance_angles",
+        "courses/mathematics/basic_maths/4distance_angles",
         context.into_json(),
     )
 }
 
-#[get("/blog/science/basic-maths/angles-parallel")]
+#[get("/courses/mathematics/basic-maths/angles-parallel")]
 async fn angles_parallel() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/angles-parallel".to_string(),
+            "/courses/mathematics/basic-maths/angles-parallel".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
 
     Template::render(
-        "blog/science/basic_maths/5angles_on_lines",
+        "courses/mathematics/basic_maths/5angles_on_lines",
         context.into_json(),
     )
 }
 
-#[get("/blog/science/basic-maths/area")]
+#[get("/courses/mathematics/basic-maths/area")]
 async fn area() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/area".to_string(),
+            "/courses/mathematics/basic-maths/area".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("blog/science/basic_maths/6area", context.into_json())
+    Template::render("courses/mathematics/basic_maths/6area", context.into_json())
 }
 
-#[get("/blog/science/basic-maths/coordinates")]
+#[get("/courses/mathematics/basic-maths/coordinates")]
 async fn coordinates() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/coordinates".to_string(),
+            "/courses/mathematics/basic-maths/coordinates".to_string(),
         )
         .await;
     });
@@ -133,15 +136,18 @@ async fn coordinates() -> Template {
     context.insert("circle_graph", &cirlce_graph());
     context.insert("x_cubed", &x_cube_coord());
     context.insert("multiply_points", &point_graph());
-    Template::render("blog/science/basic_maths/7coordinates", context.into_json())
+    Template::render(
+        "courses/mathematics/basic_maths/7coordinates",
+        context.into_json(),
+    )
 }
 
-#[get("/blog/science/basic-maths/trigonometry")]
+#[get("/courses/mathematics/basic-maths/trigonometry")]
 async fn trigonometry() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/trigonometry".to_string(),
+            "/courses/mathematics/basic-maths/trigonometry".to_string(),
         )
         .await;
     });
@@ -152,23 +158,23 @@ async fn trigonometry() -> Template {
     context.insert("acos", &acosg());
     context.insert("atan", &atang());
     Template::render(
-        "blog/science/basic_maths/8trigonometry",
+        "courses/mathematics/basic_maths/8trigonometry",
         context.into_json(),
     )
 }
 
-#[get("/blog/science/basic-maths/complex-numbers")]
+#[get("/courses/mathematics/basic-maths/complex-numbers")]
 async fn complex_numbers() -> Template {
     tokio::spawn(async move {
         insert_to_database(
             DOMAIN.to_string(),
-            "/blog/science/basic-maths/complex-numbers".to_string(),
+            "/courses/mathematics/basic-maths/complex-numbers".to_string(),
         )
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "blog/science/basic_maths/9complex_numbers",
+        "courses/mathematics/basic_maths/9complex_numbers",
         context.into_json(),
     )
 }

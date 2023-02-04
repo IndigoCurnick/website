@@ -1,1 +1,1 @@
-pub mod science;
+pub mod courses;
