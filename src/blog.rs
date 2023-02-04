@@ -1,9 +1,15 @@
-use std::{collections::HashMap, ffi::OsStr, fs, path::PathBuf};
+use std::{
+    collections::HashMap,
+    ffi::OsStr,
+    fs::{self, FileType},
+    path::PathBuf,
+};
 
 use chrono::NaiveDate;
 use markdown::to_html;
 use serde::{Deserialize, Serialize};
 use std::io;
+use walkdir::WalkDir;
 
 type Slug = String;
 
@@ -53,23 +59,26 @@ fn get_blog_paths(base: PathBuf) -> Result<Vec<PathBuf>, io::Error> {
     }
     let mut markdown_files: Vec<PathBuf> = Vec::new();
 
-    for entry in fs::read_dir(base)? {
+    for entry in WalkDir::new(base.clone()) {
         let entry = entry?;
-        let path = entry.path();
-        if !path.is_dir() {
+
+        let name = match entry.file_name().to_str() {
+            Some(x) => x,
+            None => continue,
+        };
+
+        if name.contains(".json") {
             continue;
         }
-        for file in fs::read_dir(path)? {
-            let file = file?;
-            let path = file.path();
-            if path.is_dir() {
-                continue;
-            }
-            if path.extension().and_then(OsStr::to_str).unwrap_or("") == "md" {
-                markdown_files.push(path);
-            }
+
+        if !name.contains(".md") {
+            continue;
         }
+
+        markdown_files.push(PathBuf::from(entry.path()));
     }
+    markdown_files.sort();
+    markdown_files.reverse();
     Ok(markdown_files)
 }
 
