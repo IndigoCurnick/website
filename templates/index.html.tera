@@ -25,7 +25,7 @@
 
         <h2>In My Network</h2>
         <dl style="font-size:large">
-            <dt><a href="/blog/hub">📜 Blog</a></dt>
+            <dt><a href="/blog">📜 Blog</a></dt>
             <dd>My blog, with everything I have written (so far)</dd>
             <dt><a href="/courses">📔 Courses</a></dt>
             <dd>Follow along courses</dd>

@@ -48,3 +48,30 @@ Ingress
 `minikube addons enable ingress`
 
 You can add hosts in /etc/hosts to simulate the ingress on the internet
+
+## Instructions for setting up dev env
+
+These steps are for an Arch-based distro
+
+You first need to install the following things
+
+```
+sudo pacman -S python-pipenv postgresql minikube docker
+```
+
+## Instructions for setting up production environment
+
+## How to push docker images
+
+```
+docker tag website nathanielcurnick/website:dev
+docker push nathanielcurnick/website:dev
+```
+
+## Private Docker Images
+
+```
+kubectl create secret generic regcred \
+    --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+    --type=kubernetes.io/dockerconfigjson
+```

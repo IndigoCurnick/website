@@ -1,4 +1,5 @@
 import os
+import psycopg2
 
 
 def local_docker_compose():
@@ -23,7 +24,37 @@ def local_docker_compose():
     os.system("docker-compose up")
 
 
+def local_minikube():
+    # TODO: Docker pushing would be awesome here
+    print("Ensure that you have first pushed the right version to docker")
+
+    os.system("minikube start")
+
+    # Postgres
+    os.system("kubectl apply -f postgres-configmap.yaml")
+    os.system("kubectl apply -f postgres-storage.yaml")
+    os.system("kubectl apply -f postgres-deployment.yaml")
+
+    # TODO: Synchronise these with what's in the deployment files
+    conn = psycopg2.connect(host="", database="prod",
+                            user="postgress", password="")
+
+
+def running_as_root() -> bool:
+    return os.getuid() == 0
+
+
 def main():
+
+    RUNNING_AS_ROOT = running_as_root()
+
+    if RUNNING_AS_ROOT:
+        print("You are running as the root user")
+        print("Therefore, I will attempt to start the necessary services")
+
+    else:
+        print("You are running as a non root user")
+        print("I am unable to start the necessary services for you, therefore, please ensure Docker and other necessary services are running")
 
     chosen = False
 
@@ -31,7 +62,8 @@ def main():
         print("Welcome to the website builder!")
         print("Please select your desired build style")
         print("1 - Local with docker-compose")
-        print("2 - Local with kubernetes (not supported yet)")
+        print("2 - Local with minikube (not supported yet)")
+        print("3 - Local with kubeadm (not supported yet)")
         selection = input("Please enter your selection")
 
         match selection:
