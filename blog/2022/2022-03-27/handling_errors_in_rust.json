@@ -1,0 +1,7 @@
+{
+    "title": "Handling Errors in Rust",
+    "date": "2022-03-27",
+    "desc": "How do you deal with errors without <code>try-catch</code>?",
+    "slug": "handling-errors-in-rust",
+    "tags": ["programming", "rustlang"]
+}

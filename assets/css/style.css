@@ -30,17 +30,20 @@
     --palerobineggblue: #9ad6db;
     --raisinblack: #212121;
     --darkcarcoal: #303030;
+    --vividpurple: #6a0fe8;
+    --countrycream: #f3eed8;
+    --bonecream: #e7dccd;
     --headingone: var(--black);
     --headingtwo: var(--black);
     --headingthree: var(--black);
     --headingfour: var(--black);
     --links: var(--pictonblue);
-    --hoverlink: var(--cornflowerblue);
+    --hoverlink: var(--vividpurple);
     --dropshadow: rgba(0, 0, 0, 0.2);
     --maintext: Var(--darkcarcoal);
-    --mainboxbackground: var(--piggypink);
-    --subboxnav: var(--piggypink);
-    --background: var(--teagreen)
+    --mainboxbackground: var(--countrycream);
+    --subboxnav: var(--countrycream);
+    --background: var(--bonecream)
 }
 /* https: //www.color-name.com */
 
@@ -162,6 +165,24 @@ pre {
     margin: 1em;
     white-space: pre-wrap;
 }
+
+/* pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+} */
+
 
 code {
     background: #222;

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Blog</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <header>
+        <h1>#{{ tag }}</h1>
+    </header>
+    {% include "utils/nav" %}
+    <main>
+        
+
+        {% if blogs %}
+            {% for blog in blogs %}
+                <p>{{ blog.date }} <a href="/blog/{{blog.slug}}">{{ blog.title }}</a> </p>
+                <ul>
+                    <li>
+                        {% for tag in blog.tags %}
+                            <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
+                        {% endfor %}
+                    </li>
+                    <li>{{ blog.desc | safe}}</li>
+                </ul>
+            {% endfor %}
+        {% else %}
+            <p>No blog found</p>
+    
+        {% endif %}
+    </main>
+</body>

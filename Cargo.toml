@@ -19,6 +19,10 @@ itertools = "0.10.3"
 itertools-num = "0.1.3"
 once_cell = "1.15.0"
 tokio-postgres = "0.7.7"
+chrono = { version = "0.4.23", features = ["serde"] }
+lazy_static = "1.4.0"
+markdown = { git = "https://github.com/NathanielCurnick/markdown.rs", rev = "83a9c180f95fbfd7a688ad142263a8453d11c502" }
+walkdir = "2.3.2"
 
 [profile.release]
 lto = true

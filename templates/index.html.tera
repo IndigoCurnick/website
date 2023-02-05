@@ -25,8 +25,10 @@
 
         <h2>In My Network</h2>
         <dl style="font-size:large">
-            <dt><a href="/blog/hub">📜 Blog</a></dt>
+            <dt><a href="/blog">📜 Blog</a></dt>
             <dd>My blog, with everything I have written (so far)</dd>
+            <dt><a href="/courses">📔 Courses</a></dt>
+            <dd>Follow along courses</dd>
             <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
             <dd> Polymath discord server I run. Come say hi!</a></dd>
@@ -43,14 +45,14 @@
 
         <div class="row">
             <div class="column">
-                <h3>Recent Articles</h3>
+                <h3>My picks</h3>
                 <ul style="padding:0">
-                    <li><a href="/blog/polymath/slip-box">The Slip-Box</a></li>
-                    <li><a href="/blog/philosophy/social-contract">Rousseau and the Social Contract</a></li>
-                    <li><a href="/blog/programming/lifetime-ownership-rust">Lifetimes and Ownership in Rust</a></li>
-                    <li><a href="/blog/science/basic-physics/kinematics">Kinematics</a></li>
+                    <li><a href="/blog/transactional-analysis">Transactional Analysis</a></li>
+                    <li><a href="/blog/how-to-read-a-book">How to Read a Book</a></li>
+                    <li><a href="/blog/on-the-british-welfare-state">On the British Welfare State</a></li>
+                    <li><a href="/blog/handling-errors-in-rust">Handling Errors in Rust</a></li>
                     <li>
-                        <strong><a href="/blog/hub">See all other blog posts...</a></strong>
+                        <strong><a href="/blog">See all other blog posts...</a></strong>
                     </li>
                 </ul>
             </div>
@@ -63,6 +65,17 @@
                 </ul>
             </div>
         </div>
+
+        
+            <h3>Tags</h3>
+            <p align="center"></p>
+                {% if tags %}
+                    {% for tag in tags %}
+                        <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
+                    {% endfor %}
+                {% endif %}
+            </p>
+        
         
     </main>
 
