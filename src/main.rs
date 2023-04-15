@@ -53,6 +53,7 @@ async fn index() -> Template {
 
     let blog_context = get_blog_context();
     context.insert("tags", &blog_context.tags);
+    context.insert("blog", get_blog_context());
     Template::render("index", context.into_json())
 }
 

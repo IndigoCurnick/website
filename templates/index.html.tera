@@ -19,7 +19,7 @@
     <main>
         <img class="resright" src="/images/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
 
-        <p>Personal website for Nathaniel Curnick - software developer, 
+        <p>Personal website for Nathaniel Curnick - software developer,
             physicist, and polymath
         </p>
 
@@ -32,51 +32,61 @@
             <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
             <dd> Polymath discord server I run. Come say hi!</a></dd>
-            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo"> Github</a></dt>
+            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo">
+                    Github</a></dt>
             <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
             <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
                         alt="LinkedIn Logo"> LinkedIn</a></dt>
             <dd> My LinkedIn profile</dd>
-            
-            
+
+
         </dl>
 
         <h2 style="clear:both;">Writings</h2>
 
         <div class="row">
             <div class="column">
-                <h3>My picks</h3>
+                <h3>Recents</h3>
                 <ul style="padding:0">
-                    <li><a href="/blog/transactional-analysis">Transactional Analysis</a></li>
-                    <li><a href="/blog/how-to-read-a-book">How to Read a Book</a></li>
-                    <li><a href="/blog/on-the-british-welfare-state">On the British Welfare State</a></li>
-                    <li><a href="/blog/handling-errors-in-rust">Handling Errors in Rust</a></li>
+                    {% if blog.entries %}
+                    {% for i in [0,1,2,3] %}
+                    <li>{{ blog.entries[i].date }} <a href="/blog/{{blog.entries[i].slug}}">{{ blog.entries[i].title
+                            }}</a> </li>
+                    {% endfor %}
+                    {% else %}
+                    <li>No blog found</li>
+                    {% endif %}
                     <li>
                         <strong><a href="/blog">See all other blog posts...</a></strong>
                     </li>
                 </ul>
             </div>
-            
+
             <div class="column">
                 <h3>Public Repositories</h3>
                 <ul style="padding:0">
+                    <li><a href="https://github.com/NathanielCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
+                    <li><a href="https://github.com/NathanielCurnick/geodesic_coordinates_rs">Navigating on or close to
+                            the earth?</a></li>
                     <li><a href="https://github.com/NathanielCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
-                    <li><a href="https://github.com/NathanielCurnick/TLAP_solutions">Think Like a Programmer Solutions</a></li>
+                    <li><a href="https://github.com/NathanielCurnick/TLAP_solutions">Think Like a Programmer
+                            Solutions</a></li>
+
                 </ul>
             </div>
         </div>
 
-        
-            <h3>Tags</h3>
-            <p align="center"></p>
-                {% if tags %}
-                    {% for tag in tags %}
-                        <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
-                    {% endfor %}
-                {% endif %}
-            </p>
-        
-        
+
+        <h3>Tags</h3>
+        <p align="center"></p>
+        {% if tags %}
+        {% for tag in tags %}
+        <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
+        {% endfor %}
+        {% endif %}
+        </p>
+
+
     </main>
 
     <script src="/js/highlight/highlight.min.js"></script>
