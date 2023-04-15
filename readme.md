@@ -61,6 +61,12 @@ sudo pacman -S python-pipenv postgresql minikube docker
 
 ## Instructions for setting up production environment
 
+## How to build docker image
+
+```
+DOCKER_BUILDKIT=1 docker image build -t website .
+```
+
 ## How to push docker images
 
 ```
