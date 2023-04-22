@@ -1,0 +1,9 @@
+{
+    "title": "Making a Rust blog",
+    "date": "2023-04-22",
+    "desc": "Using Rocket and Tera",
+    "slug": "making-a-rust-blog",
+    "tags": [
+        "rustlang"
+    ]
+}
