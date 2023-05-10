@@ -39,7 +39,7 @@
 
         <h2>Basic Mathematics</h2>
         <p>Introductory mathematics course, for absolute beginners. This course
-            is still under development, and is subject to change 
+            is still under development, and is subject to change
         </p>
 
         <ol>
@@ -53,6 +53,16 @@
             <li><a href="/courses/mathematics/basic-maths/trigonometry">Trigonometry</a></li>
             <li><a href="/courses/mathematics/basic-maths/complex-numbers">Complex Numbers</a></li>
         </ol>
+
+        <hr>
+
+        <h2>Kalman Filters</h2>
+        <p>Assorted Kalman filter course</p>
+
+        <ol>
+            <li><a href="/courses/kalman-filters/notation">Unravelling Kalman Filter Notation</a></li>
+        </ol>
+
 
     </main>
 

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Kalman Filter Notation</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Unravelling Kalman Filter Notation</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <p><strong>This article is a WIP - expect lots of changes in future</strong></p>
+
+        <p>Kalman filtering notation is terrible. Every author uses a different,
+            confusing, notation. I am not able to standardise it, but at least I can
+            provide some of the key references and explain what notation they use.</p>
+
+        <h2>Welch and Bishop</h2>
+
+        <p>Greg Welch and Gary Bishop published the very popular
+            <i>An Introduction to the Kalman Filter</i> that many people would
+            have seen. The equations are
+        </p>
+
+        <h3>Predict</h3>
+        \[ \hat{x}^-_k = A \hat{x}_{k-1} + Bu_{k-1} \]
+        \[ P^-_k = AP_{k-1}A^T + Q \]
+
+        <h3>Update</h3>
+        \[ K_k = P^-_k H^T (H P^-_k H^T + R)^{-1} \]
+        \[ \hat{x}_k = \hat{x}^-_k + K_k(z_k - H \hat{x}^-_k) \]
+        \[ P_k = (I - K_k H)P^-_k \]
+
+        <h2>Wikipedia</h2>
+
+        <p>Wikipedia uses a more complicated notation</p>
+
+        <h3>Predict</h3>
+        \[ \hat{\mathbf{x}}_{k\mid k-1} = \mathbf{F}_k \mathbf{x}_{k-1\mid k-1} + \mathbf{B}_k \mathbf{u}_{k} \]
+        \[ \hat{\mathbf{P}}_{k\mid k-1} = \mathbf{F}_k \mathbf{P}_{k-1 \mid k-1} \mathbf{F}_k^\textsf{T} + \mathbf{Q}_k
+        \]
+
+        <h3>Update</h3>
+
+        \[ \tilde{\mathbf{y}}_k = \mathbf{z}_k - \mathbf{H}_k\hat{\mathbf{x}}_{k\mid k-1} \]
+        \[ \mathbf{S}_k = \mathbf{H}_k \hat{\mathbf{P}}_{k\mid k-1} \mathbf{H}_k^\textsf{T} + \mathbf{R}_k \]
+        \[ \mathbf{K}_k = \hat{\mathbf{P}}_{k\mid k-1}\mathbf{H}_k^\textsf{T} \mathbf{S}_k^{-1} \]
+        \[ \mathbf{x}_{k\mid k} = \hat{\mathbf{x}}_{k\mid k-1} + \mathbf{K}_k\tilde{\mathbf{y}}_k \]
+        \[ \mathbf{P}_{k|k} = \left(\mathbf{I} - \mathbf{K}_k \mathbf{H}_k\right) \hat{\mathbf{P}}_{k|k-1} \]
+        \[ \tilde{\mathbf{y}}_{k\mid k} = \mathbf{z}_k - \mathbf{H}_k\mathbf{x}_{k\mid k} \]
+
+        <h2>Labbe</h2>
+
+        <p>More recently, Roger Labbe's GitHub textbook
+            <i>Kalman and Bayesian Filters in Python</i> has become one of the
+            go to texts. He uses a very simple notation
+        </p>
+
+        <h3>Predict</h3>
+        \[ \mathbf{\bar{x}} = \mathbf{Fx} + \mathbf{Bu} \]
+        \[ \mathbf{\bar{P}} = \mathbf{FPF^T} + Q \]
+
+        <h3>Update</h3>
+        \[ \mathbf{y} = \mathbf{z} - \mathbf{H \bar{x}} \]
+        \[ \mathbf{S} = \mathbf{H \bar{P}} \mathbf{H}^T + R \]
+        \[ \mathbf{K} = \mathbf{\bar{P}} \mathbf{H}^T \mathbf{S}^{-1} \]
+        \[ \mathbf{x} = \mathbf{\bar{x}} + \mathbf{Ky} \]
+        \[ \mathbf{P} = (\mathbf{I} - \mathbf{KH}) \mathbf{\bar{P}} \]
+
+        <h2>Brookner</h2>
+
+        <p>Eli Brookner in his <i>Tracking and Kalman Filtering Made Easy</i>
+            presents an interesting notation
+        </p>
+
+        \[ X^*_{n+1,n} = \Phi X^*_{n,n} \]
+        \[ X^*_{n,n} = X^*_{n,n-1} + H_n (Y_n - MX^*_{n,n-1}) \]
+        \[ H_n = S^*_{n,n-1} M^T [R_n + MS^*_{n,n-1} M^T]^{-1} \]
+        \[ S^*_{n,n-1} = \Phi S^*_{n-1,n-1} \Phi^T + Q_n \]
+        \[ S^*_{n-1,n-1} = (I - H_{n-1} M) S^*_{n-1,n-2} \]
+
+        <h2>Gelb</h2>
+
+        <p>Arthur Gelb et al in <i>Applied Optimal Estimation</i> present
+            another system for notation
+        </p>
+
+        \[ \hat{\underline{x}}_k(-) = \Phi_{k-1} \hat{\underline{x}}_{k-1}(+) \]
+        \[ \hat{\underline{x}}_k(+) = \hat{\underline{x}}_k(-) + K_k[Z_k - H_k ] \hat{\underline{x}}_k(-) \]
+        \[ K_k = P_k(-) H_k^T [H_k P_k(-) H_k^T + R_k]^{-1} \]
+        \[ P_k(+) = \Phi_{k-1} P_{k-1}(+) \Phi^T_{k-1} + Q_{k-1} \]
+        \[ P_k(-) = (I - K_k H_k) P_k(-) \]
+
+        <h2>Brown and Hwang</h2>
+
+        <p>Robert Grover Brown and Patrick Y.C. Hwang in
+            <i>Introduction to Random Signals and Applied Kalman Filtering</i>
+            present
+        </p>
+
+        \[ \hat{\mathbf{x}}^-_{k+1} = \phi_k \hat{\mathbf{x}}_k \]
+        \[ \hat{\mathbf{x}}_k = \hat{\mathbf{x}}^-_k + \mathbf{K}_k [\mathbf{z}_k - \mathbf{H}_k \hat{\mathbf{x}}_k] \]
+        \[ \mathbf{K}_k = \mathbf{P}^-_k \mathbf{H}^T_k [\mathbf{H}_k \mathbf{P}^-_k \mathbf{H}_k^T + \mathbf{R}_k]^{-1}
+        \]
+        \[ \mathbf{P}^-_{k+1} = \phi \mathbf{P}_k \phi^T_k + \mathbf{Q}_k \]
+        \[ \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \mathbf{H}_k) \mathbf{P}^-_k \]
+
+        <h2>Zarchan and Musoff</h2>
+
+        <p>Paul Zarchan and Howard Musoff in
+            <i>Fundamnetals of Kalman Filtering: A Practical Approach</i> present
+            an unusual notation. I have mixed feelings about this textbook, since
+            it comes with great examples of actually using the filter and an
+            exploration of how the filter behaves. But, I hate this notation.
+            I think it's overly complex and it doesn't make a clear, distinct
+            separation between predictions and updates.
+        </p>
+
+        \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
+        \[ M_k = \Phi_k P_{k-1} \Phi^T_k + Q_k \]
+        \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
+        \[ P_k = (I - K_k H) M_k \]
+
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
