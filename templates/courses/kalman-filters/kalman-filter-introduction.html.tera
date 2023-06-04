@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Kalman Filter Introduction</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Introduction to Kalman Filters</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <p><strong>This article is a WIP - expect lots of changes in future</strong></p>
+
+        <p>
+            This will serve as a brief Introduction to the Kalman filter course.
+            The aim of this course is Kalman filters in practice, and there are
+            a few points I want to make in advance to prepare a reader.
+        </p>
+
+        <p>
+            I will not be covering Kalman filter "basics" like the motivations
+            behind a Kalman filter, what it is, how it works and so on. There
+            are a large number of materials available which cover this.
+            I recommend Roger Labbe's
+            <a
+                href="https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python">Kalman-and-Bayesian-Filters-in-Python</a>
+            book, which is freely available online. Another fantastic resource
+            is <i>Fundamnetals of Kalman Filtering: A Practical Approach</i>
+            by Paul Zarchan and Howard Musoff.
+        </p>
+
+        <p>
+            So, instead of covering these basics, I'll be looking at just the
+            practice of actually programming Kalman filters. The number one
+            largest issue with Kalman filter literature by far is that there is
+            usually not enough information given to actually reproduce the filter,
+            nor is there any regard given to how one would program the theoretical
+            filter desgined. When simulations are run, they are often meaningless.
+            For instance, take a look at the following figures from
+            <i>Improving GPS Positioning Accuracy Using Weighted Kalman Filter
+                and Variance Estimation Methods
+            </i> by Sh. Shokri, N. Rahemi and M. R. Mosavi, published in CEAS
+            Aeronautical Journal in 2019. Keep in mind this is a peer reviewed
+            article.
+        </p>
+
+
+        <img src="/images/bad_kalman_graphs/fig9.png">
+        <img src="/images/bad_kalman_graphs/fig10.png">
+        <img src="/images/bad_kalman_graphs/fig11.png">
+
+        <p>Errr... what? This is no simulation, no result. It's just a line
+            on a plot. This doesn't tell us anything at all. Here's an example
+            of one of the simulations we will be making in our course.
+        </p>
+
+        <img src="/images/bad_kalman_graphs/better.png">
+
+        <p>I consider this to be a kind of bare minimum - a true value,
+            noisy measurements, and then the filter results. This shows you
+            instantly how the filter is doing on real data that you might get
+            (actually, the noise on these measurements is <b>huge</b>). Many
+            poor filters could have been squashed quickly if this kind of
+            simple simulation and plot was made.
+        </p>
+
+        <p>Another thing I want to note is the code in this course will be in
+            <code>Rust</code>. This is because I like <code>Rust</code>. Most Kalman filter
+            books are either written in <code>Matlab</code> or
+            <code>Fortran</code>. <code>Matlab</code> is obviously
+            unacceptable since it is a closed source and proprietary language
+            that requires a license to run. This alienates those who don't want
+            to spend thousands per year on the most bottom tier language ever made.
+            <code>Fortran</code> is totally fine, but most Kalman filtering
+            code written in <code>Fortran</code> is almost impossible to
+            understand unless you know what's going on already. This is just a
+            little counterproductive since the code is often a good way to
+            understand exactly what is going on.
+        </p>
+
+        <p>My programming style for this course is going to be aimed at
+            clarity. I will code in such a way that it makes everything
+            very obvious what is going on, at the expense of performance. A lot
+            of Kalman filtering code is highly optimised (which, is not a bad
+            thing at all! It is usually intended to be run several times a
+            second on embedded hardware with very little resources), but this
+            makes it hard for a beginner. This course won't be about optimising
+            Kalman filter performance on embedded hardware. For instance, I will
+            be using the <code>Peroxide</code> crate for linear algebra, which
+            is very easy to use and makes the matrix operations very clear. On
+            the other hand, you probably don't want to use it in production since
+            it makes use of <code>Vec</code> under the hood, leading to all sorts
+            of runtime overheads. This could be avoided by using something like
+            <code>ndarray</code> in production. In other words, the goal of this
+            course is education, not production.
+        </p>
+
+        <p>Now, I just want to quickly go over my notation for the course.
+            Every single person invents their own notation when they write a
+            Kalman filter book, and I intend to fully continue with this
+            tradition. I think that Welch, Labbe and Zarchan all
+            present the Kalman filter in some helpful way.
+        </p>
+
+        <p>The notation I will use will be</p>
+
+        <h3>Predict</h3>
+        \[ \hat{x}^-_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} \]
+        \[ P_k^- = \Phi_k P_{k-1} \Phi_k^T + Q_k \]
+
+        <h3>Update</h3>
+        \[ K_k = P^-_k H_k^T (H_k P^-_k H_k^T + R)^{-1} \]
+        \[ \hat{x}_k = \hat{x}^-_k + K_k (z_k - H_k \hat{x}^-_k) \]
+        \[ P_k = (I - K_k H) P^-_k \]
+
+        <p>Without further ado, let's get onto our first simulation -
+            tracking a falling object.
+        </p>
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>

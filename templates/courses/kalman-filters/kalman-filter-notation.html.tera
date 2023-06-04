@@ -79,6 +79,30 @@
         \[ \mathbf{x} = \mathbf{\bar{x}} + \mathbf{Ky} \]
         \[ \mathbf{P} = (\mathbf{I} - \mathbf{KH}) \mathbf{\bar{P}} \]
 
+        <h2>Zarchan and Musoff</h2>
+
+        <p>Paul Zarchan and Howard Musoff in
+            <i>Fundamnetals of Kalman Filtering: A Practical Approach</i> present
+            an unusual notation. I have mixed feelings about this textbook, since
+            it comes with great examples of actually using the filter and an
+            exploration of how the filter behaves. But, I hate this notation.
+            I think it's overly complex and it doesn't make a clear, distinct
+            separation between predictions and updates.
+        </p>
+
+        <p>
+            On the other hand, Zarchan is one of few authors who actually
+            provides enough information to reproduce his Kalman filters.
+            Not only that, but the methods he describes to create an
+            extended Kalman filter seem to be the only reliable way to produce
+            one.
+        </p>
+
+        \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
+        \[ M_k = \Phi_k P_{k-1} \Phi^T_k + Q_k \]
+        \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
+        \[ P_k = (I - K_k H) M_k \]
+
         <h2>Brookner</h2>
 
         <p>Eli Brookner in his <i>Tracking and Kalman Filtering Made Easy</i>
@@ -116,22 +140,6 @@
         \]
         \[ \mathbf{P}^-_{k+1} = \phi \mathbf{P}_k \phi^T_k + \mathbf{Q}_k \]
         \[ \mathbf{P}_k = (\mathbf{I} - \mathbf{K}_k \mathbf{H}_k) \mathbf{P}^-_k \]
-
-        <h2>Zarchan and Musoff</h2>
-
-        <p>Paul Zarchan and Howard Musoff in
-            <i>Fundamnetals of Kalman Filtering: A Practical Approach</i> present
-            an unusual notation. I have mixed feelings about this textbook, since
-            it comes with great examples of actually using the filter and an
-            exploration of how the filter behaves. But, I hate this notation.
-            I think it's overly complex and it doesn't make a clear, distinct
-            separation between predictions and updates.
-        </p>
-
-        \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
-        \[ M_k = \Phi_k P_{k-1} \Phi^T_k + Q_k \]
-        \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
-        \[ P_k = (I - K_k H) M_k \]
 
 
     </main>
