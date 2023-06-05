@@ -65,6 +65,8 @@
             <div class="column">
                 <h3>Public Repositories</h3>
                 <ul style="padding:0">
+                    <li><a href="https://github.com/NathanielCurnick/kalman-filtering-rs">Kalman Filtering in Rust</a>
+                    </li>
                     <li><a href="https://github.com/NathanielCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
                     <li><a href="https://github.com/NathanielCurnick/geodesic_coordinates_rs">Navigating on or close to
                             the earth?</a></li>

@@ -71,7 +71,7 @@ fn get_blog_paths(base: PathBuf) -> Result<Vec<PathBuf>, io::Error> {
             continue;
         }
 
-        if !name.contains(".md") {
+        if !(name.contains(".md") || name.contains(".html")) {
             continue;
         }
 
@@ -112,9 +112,12 @@ pub fn get_blog_entries(base: PathBuf) -> Blog {
 
         let these_tags = json_data.tags.clone();
 
-        let markdown = fs::read_to_string(blog).unwrap();
-
-        let html = to_html(&markdown);
+        let html = if name_split[1] == ".html" {
+            fs::read_to_string(blog).unwrap()
+        } else {
+            let markdown = fs::read_to_string(blog).unwrap();
+            to_html(&markdown)
+        };
 
         let blog_entry = BlogEntry::new(json_data, html);
 

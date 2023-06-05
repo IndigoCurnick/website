@@ -15,6 +15,8 @@ use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
+
+use routes::courses::kalman::kalman::get_kalman_courses;
 use routes::courses::mathematics::get_mathematics_courses_routes;
 use routes::courses::science::get_science_courses;
 
@@ -164,7 +166,8 @@ fn get_all_routes() -> Vec<Route> {
     let index_route = routes![index, blog_index, blog_article, tag_page, courses_hub];
     let maths_courses = get_mathematics_courses_routes();
     let science_courses = get_science_courses();
-    let all_routes = vec![index_route, maths_courses, science_courses];
+    let kalman_courses = get_kalman_courses();
+    let all_routes = vec![index_route, maths_courses, science_courses, kalman_courses];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;
