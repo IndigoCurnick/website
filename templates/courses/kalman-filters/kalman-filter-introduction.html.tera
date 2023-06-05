@@ -29,6 +29,16 @@
             a few points I want to make in advance to prepare a reader.
         </p>
 
+        <h2>Summary</h2>
+        <ul>
+            <li>Check out the <a href="https://github.com/NathanielCurnick/kalman-filtering-rs">companion repository</a>
+            </li>
+            <li>The course is focused on practical Kalman filter use</li>
+            <li>The course is not focused on explaining Kalman filter basics</li>
+            <li>The course will not cover optimising Kalman filters</li>
+            <li>I introduce my own Kalman filter notation which you should check out first</li>
+        </ul>
+
         <p>
             I will not be covering Kalman filter "basics" like the motivations
             behind a Kalman filter, what it is, how it works and so on. There
@@ -107,26 +117,17 @@
             course is education, not production.
         </p>
 
-        <p>Now, I just want to quickly go over my notation for the course.
+        <p>
+            Now, I just want to quickly go over my notation for the course.
             Every single person invents their own notation when they write a
-            Kalman filter book, and I intend to fully continue with this
-            tradition. I think that Welch, Labbe and Zarchan all
-            present the Kalman filter in some helpful way.
+            Kalman filter book, and I intend to fully break with this
+            tradition. I will be using the same notation as Zarchan.
         </p>
 
-        <p>The notation I will use will be</p>
 
-        <h3>Predict</h3>
-        \[ \hat{x}^-_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} \]
-        \[ P_k^- = \Phi_k P_{k-1} \Phi_k^T + Q_k \]
-
-        <h3>Update</h3>
-        \[ K_k = P^-_k H_k^T (H_k P^-_k H_k^T + R)^{-1} \]
-        \[ \hat{x}_k = \hat{x}^-_k + K_k (z_k - H_k \hat{x}^-_k) \]
-        \[ P_k = (I - K_k H) P^-_k \]
 
         <p>Without further ado, let's get onto our first simulation -
-            tracking a falling object.
+            <a href="/courses/kalman-filters/falling">tracking a falling object</a>.
         </p>
 
     </main>

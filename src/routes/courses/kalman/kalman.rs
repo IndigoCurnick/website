@@ -35,6 +35,19 @@ pub async fn intro() -> Template {
     )
 }
 
+#[get("/courses/kalman-filters/falling")]
+pub async fn falling() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/courses/kalman-filters/falling".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("courses/kalman-filters/falling", context.into_json())
+}
+
 pub fn get_kalman_courses() -> Vec<Route> {
-    return routes![notation, intro];
+    return routes![notation, intro, falling];
 }

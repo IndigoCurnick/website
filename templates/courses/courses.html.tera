@@ -60,6 +60,8 @@
         <p>Assorted Kalman filter course</p>
 
         <ol>
+            <li><a href="/courses/kalman-filters/introduction">Introduction to the Course</a></li>
+            <li><a href="/courses/kalman-filters/falling">Kalman Filtering a Falling Object</a></li>
             <li><a href="/courses/kalman-filters/notation">Unravelling Kalman Filter Notation</a></li>
         </ol>
 
