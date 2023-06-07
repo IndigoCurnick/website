@@ -48,6 +48,22 @@ pub async fn falling() -> Template {
     Template::render("courses/kalman-filters/falling", context.into_json())
 }
 
+#[get("/courses/kalman-filters/constant-velocity")]
+pub async fn constant_velocity() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/courses/kalman-filters/constant-velocity".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "courses/kalman-filters/constant_velocity",
+        context.into_json(),
+    )
+}
+
 pub fn get_kalman_courses() -> Vec<Route> {
-    return routes![notation, intro, falling];
+    return routes![notation, intro, falling, constant_velocity];
 }
