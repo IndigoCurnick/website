@@ -1,4 +1,4 @@
-FROM rust:1.62-slim-buster as builder
+FROM rust:1.70-slim-buster as builder
 
 RUN apt-get update
 RUN apt-get install openssl -y
