@@ -62,6 +62,7 @@
         <ol>
             <li><a href="/courses/kalman-filters/introduction">Introduction to the Course</a></li>
             <li><a href="/courses/kalman-filters/falling">Kalman Filtering a Falling Object</a></li>
+            <li><a href="/courses/kalman-filters/constant-velocity">Tracking an Object with Constant Velocity</a></li>
             <li><a href="/courses/kalman-filters/notation">Unravelling Kalman Filter Notation</a></li>
         </ol>
 
