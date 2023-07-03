@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: website
-          image: nathanielcurnick/website:v1.0.3
+          image: nathanielcurnick/website:v1.0.5
           ports:
             - containerPort: 8080
           env:
