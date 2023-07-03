@@ -45,6 +45,7 @@
     --subboxnav: var(--countrycream);
     --background: var(--bonecream)
 }
+
 /* https: //www.color-name.com */
 
 /* Website background gradient */
@@ -71,9 +72,12 @@ footer {
 
 main {
     margin: auto;
-    color: var(--maintext); /* Text colour in main box */
-    background: var(--mainboxbackground); /* Background colour of main box */
-    border: dashed 1px var(--bordercolor); /* Border colour around main box */
+    color: var(--maintext);
+    /* Text colour in main box */
+    background: var(--mainboxbackground);
+    /* Background colour of main box */
+    border: dashed 1px var(--bordercolor);
+    /* Border colour around main box */
     padding: 1em;
     border-radius: 20px;
 }
@@ -104,7 +108,8 @@ footer {
     text-align: center;
     font-variant: small-caps;
     clear: both;
-    background: var(--mainboxbackground); /* Background of nav bar */
+    background: var(--mainboxbackground);
+    /* Background of nav bar */
     border-radius: 20px;
     margin: auto;
     border: dashed 1px var(--bordercolor);
@@ -112,7 +117,8 @@ footer {
 }
 
 footer {
-    color: red; /* var(--altfg) */
+    color: red;
+    /* var(--altfg) */
     margin-top: 1em;
 }
 
@@ -128,7 +134,8 @@ nav li,
 footer li {
     display: inline-block;
     list-style: none;
-    background: var(--subboxnav); /* Sub-box background colour in navbar */
+    background: var(--subboxnav);
+    /* Sub-box background colour in navbar */
     border-radius: 10px;
     padding: .5em;
     max-width: 7em;
@@ -183,13 +190,80 @@ details {
     word-wrap: break-word;
 } */
 
-pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#3e5915;background:#f6f5b2}.hljs-keyword,.hljs-literal,.hljs-selector-tag{color:#059}.hljs-subst{color:#3e5915}.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-link,.hljs-section,.hljs-string,.hljs-symbol,.hljs-template-tag,.hljs-template-variable,.hljs-title,.hljs-type,.hljs-variable{color:#2c009f}.hljs-comment,.hljs-deletion,.hljs-meta,.hljs-quote{color:#e60415}.hljs-doctag,.hljs-keyword,.hljs-literal,.hljs-name,.hljs-section,.hljs-selector-id,.hljs-selector-tag,.hljs-strong,.hljs-title,.hljs-type{font-weight:700}.hljs-emphasis{font-style:italic}
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+code.hljs {
+    padding: 3px 5px
+}
+
+.hljs {
+    color: #3e5915;
+    background: #f6f5b2
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-selector-tag {
+    color: #059
+}
+
+.hljs-subst {
+    color: #3e5915
+}
+
+.hljs-addition,
+.hljs-attribute,
+.hljs-built_in,
+.hljs-bullet,
+.hljs-link,
+.hljs-section,
+.hljs-string,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-title,
+.hljs-type,
+.hljs-variable {
+    color: #2c009f
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta,
+.hljs-quote {
+    color: #e60415
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-literal,
+.hljs-name,
+.hljs-section,
+.hljs-selector-id,
+.hljs-selector-tag,
+.hljs-strong,
+.hljs-title,
+.hljs-type {
+    font-weight: 700
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
 
 code {
     background: #f6f5b2;
     color: #2c009f;
     border-radius: 5px;
     overflow-wrap: break-word;
+}
+
+blockquote {
+    font-style: italic;
 }
 
 
@@ -212,7 +286,7 @@ h4 {
     text-align: center;
     /* text-shadow: 1px 1px var(--emph); */
     font-weight: normal;
-    
+
 }
 
 h1 {
@@ -278,6 +352,7 @@ dt {
         text-align: left;
         font-size: large;
     }
+
     nav::before {
         content: "Links";
         text-align: center;
@@ -287,6 +362,7 @@ dt {
         text-decoration: underline;
         margin-top: .5em;
     }
+
     nav li {
         display: block;
         text-align: center;
@@ -295,6 +371,7 @@ dt {
 }
 
 @media (min-width: 55em) {
+
     .resright,
     .disappear {
         display: block;
@@ -304,13 +381,16 @@ dt {
         max-height: 300px;
         max-width: 300px;
     }
+
     .resmid {
         max-height: 300px;
         max-width: 300px;
     }
+
     main {
         max-width: var(--genwidth);
     }
+
     .column {
         float: left;
         width: 50%;

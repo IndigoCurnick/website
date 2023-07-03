@@ -124,10 +124,13 @@ fn tag_page(slug: String) -> Option<Template> {
 
 #[rocket::main]
 async fn main() {
-    // env::set_var("PG_URI", "0.0.0.0:5432");
-    // env::set_var("PG_DB", "prod");
-    // env::set_var("PG_PASSWORD", "KFUfDF2w7AkVEsg3");
-    // env::set_var("PG_USERNAME", "postgress");
+    // env::set_var(
+    //     "PG_URI",
+    //     "websitedb.cbhbusqrck0t.eu-west-2.rds.amazonaws.com",
+    // );
+    // env::set_var("PG_DB", "postgres");
+    // env::set_var("PG_PASSWORD", "iduEH5Ry");
+    // env::set_var("PG_USERNAME", "postgres");
 
     println!("Booting up");
     if !cfg!(debug_assertions) {
