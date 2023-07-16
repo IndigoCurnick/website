@@ -9,7 +9,7 @@ use blog::{Blog, BlogEntry};
 use context::STATIC_BLOG_ENTRIES;
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
-use rocket::response::Redirect;
+use rocket::response::{status, Redirect};
 use rocket::routes;
 use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
@@ -122,6 +122,15 @@ fn tag_page(slug: String) -> Option<Template> {
     Some(Template::render("tags", context.into_json()))
 }
 
+#[derive(Responder)]
+#[response(status = 200, content_type = "text")]
+struct RawOkText(&'static str);
+
+#[get("/ping")]
+fn ping() -> RawOkText {
+    return RawOkText("pong");
+}
+
 #[rocket::main]
 async fn main() {
     // env::set_var(
@@ -170,7 +179,15 @@ fn get_all_routes() -> Vec<Route> {
     let maths_courses = get_mathematics_courses_routes();
     let science_courses = get_science_courses();
     let kalman_courses = get_kalman_courses();
-    let all_routes = vec![index_route, maths_courses, science_courses, kalman_courses];
+    let util_routes = routes![ping];
+
+    let all_routes = vec![
+        index_route,
+        maths_courses,
+        science_courses,
+        kalman_courses,
+        util_routes,
+    ];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;

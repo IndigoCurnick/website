@@ -30,7 +30,7 @@ pub async fn intro() -> Template {
     });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "courses/kalman-filters/kalman-filter-introduction",
+        "courses/kalman-filters/01-introduction",
         context.into_json(),
     )
 }
@@ -45,7 +45,7 @@ pub async fn falling() -> Template {
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("courses/kalman-filters/falling", context.into_json())
+    Template::render("courses/kalman-filters/02-falling", context.into_json())
 }
 
 #[get("/courses/kalman-filters/constant-velocity")]
@@ -59,11 +59,40 @@ pub async fn constant_velocity() -> Template {
     });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
-        "courses/kalman-filters/constant_velocity",
+        "courses/kalman-filters/03-constant_velocity",
         context.into_json(),
     )
 }
 
+#[get("/courses/kalman-filters/falling-control")]
+pub async fn falling_control() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/courses/kalman-filters/falling-control".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render(
+        "courses/kalman-filters/04-falling-control",
+        context.into_json(),
+    )
+}
+
+#[get("/courses/kalman-filters/sin-wave")]
+pub async fn sin_wave() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/courses/kalman-filters/sin-wave".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("courses/kalman-filters/04-sin-wave", context.into_json())
+}
+
 pub fn get_kalman_courses() -> Vec<Route> {
-    return routes![notation, intro, falling, constant_velocity];
+    return routes![notation, intro, falling, constant_velocity, falling_control];
 }
