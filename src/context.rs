@@ -1,8 +1,7 @@
 use std::path::PathBuf;
 
+use blog_tools::{get_blog_entries, Blog};
 use lazy_static::lazy_static;
-
-use crate::blog::{get_blog_entries, Blog};
 
 pub static BLOG_ROOT: &str = "blog";
 
