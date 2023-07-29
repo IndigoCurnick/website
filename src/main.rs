@@ -5,7 +5,7 @@ extern crate rocket;
 
 use std::env;
 
-use blog::{Blog, BlogEntry};
+use blog_tools::{Blog, BlogEntry};
 use context::STATIC_BLOG_ENTRIES;
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
@@ -20,15 +20,10 @@ use routes::courses::kalman::kalman::get_kalman_courses;
 use routes::courses::mathematics::get_mathematics_courses_routes;
 use routes::courses::science::get_science_courses;
 
+mod context;
 mod database;
 mod routes;
 mod utils;
-
-mod blog;
-mod context;
-
-#[cfg(test)]
-mod tests;
 
 pub static DOMAIN: &str = "nathanielcurnick.xyz";
 
@@ -122,6 +117,15 @@ fn tag_page(slug: String) -> Option<Template> {
     Some(Template::render("tags", context.into_json()))
 }
 
+#[derive(Responder)]
+#[response(status = 200, content_type = "text")]
+struct RawOkText(&'static str);
+
+#[get("/ping")]
+fn ping() -> RawOkText {
+    return RawOkText("pong");
+}
+
 #[rocket::main]
 async fn main() {
     // env::set_var(
@@ -170,7 +174,15 @@ fn get_all_routes() -> Vec<Route> {
     let maths_courses = get_mathematics_courses_routes();
     let science_courses = get_science_courses();
     let kalman_courses = get_kalman_courses();
-    let all_routes = vec![index_route, maths_courses, science_courses, kalman_courses];
+    let util_routes = routes![ping];
+
+    let all_routes = vec![
+        index_route,
+        maths_courses,
+        science_courses,
+        kalman_courses,
+        util_routes,
+    ];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;

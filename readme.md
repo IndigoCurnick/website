@@ -3,7 +3,7 @@ sudo systemctl start docker
 systemctl daemon-reload
 systemctl enable cri-docker.service
 systemctl enable --now cri-docker.socket
-kubdadm init
+kubeadm init
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 kubectl apply -f calico.yaml
 ```
