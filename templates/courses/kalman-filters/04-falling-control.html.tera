@@ -23,11 +23,122 @@
     <main>
 
         <p>In the previous articles, we looked at objects falling under gravity.
-            In those articles we asked the Kalman filter. To try and estimate
+            In those articles we asked the Kalman filter to try and estimate
             the position, velocity and acceleration from the readings. However,
-            we know in advance
+            we know in advance what gravity is doing. So, why don't we instead
+            tell the Kalman filter that the object is accelerating? That way,
+            we can get an even more accurate filter.
         </p>
 
+        <p>
+            We can actually use the exact same code to generate the data that
+            we've been using so far.
+        </p>
+
+        <p>Remember that the full state propagation equation is given by</p>
+
+        \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
+
+        <p>So far, we've been ignoring \(G\), but this is our control term now.
+            So, let's construct the state-space equation for falling with a
+            control term.
+        </p>
+
+        \[
+        \begin{bmatrix}
+        \dot{x} \\
+        \ddot{x}
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        x \\
+        \dot{x}
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 \\
+        -1
+        \end{bmatrix}
+        g
+        \]
+
+        <p>We've already calculated for this system before that</p>
+
+        \[\Phi_k =
+        \begin{bmatrix}
+        1 & t \\
+        0 & 1
+        \end{bmatrix}
+        \]
+
+        <p>Now, it's trivial to see that \(u_{k-1}=g\) and that</p>
+
+        \[
+        G = \begin{bmatrix}
+        0 \\
+        -1
+        \end{bmatrix}
+        \]
+
+        <p>But, we need \(G_k\), which is given by</p>
+
+        \[
+        G_k =
+
+        \int^t_0 \Phi(\tau) G d \tau =
+
+        \int^t_0
+
+        \begin{bmatrix}
+        1 & \tau \\
+        0 & 1
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        0 \\
+        -1
+        \end{bmatrix}
+
+        d \tau =
+
+        \begin{bmatrix}
+        -0.5 t^2 \\
+        -t
+        \end{bmatrix}
+
+        \]
+
+        <p>If you think about that term, you might have been able to derive it
+            from intuition alone - it is, after all, just SUVAT written out in a
+            funny way.
+        </p>
+
+        <p>So, solving the equations is now really quite easy. For convenience,
+            we define
+        </p>
+
+        \[ \tilde{x} = x^*_k - \hat{x}_{k-1} - \hat{\dot{x}}_{k-1} t + 0.5 g t^2 \]
+
+        <p>And so we have the solutions</p>
+
+        \[\hat{x}_k = \hat{x}_{k-1} + \hat{\dot{x}}_{k-1} t - 0.5g t^2 + K_1 \tilde{x} \]
+
+        \[ \hat{\dot{x}}_k = \hat{\dot{x}}_{k-1} - g t + K_2 \tilde{x} \]
+
+        <p>And this produces the following results - which look great!
+            Don't forget to look at the
+            <a href="https://github.com/NathanielCurnick/kalman-filtering-rs">companion repository</a>
+            for the full code!
+        </p>
 
         {% include "courses/kalman-filters/falling_control/position-plot" %}
 
