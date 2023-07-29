@@ -5,11 +5,11 @@ extern crate rocket;
 
 use std::env;
 
-use blog::{Blog, BlogEntry};
+use blog_tools::{Blog, BlogEntry};
 use context::STATIC_BLOG_ENTRIES;
 use database::{insert_to_database, pg_init};
 use rocket::fs::{relative, FileServer};
-use rocket::response::{status, Redirect};
+use rocket::response::Redirect;
 use rocket::routes;
 use rocket::{catchers, Route};
 use rocket_dyn_templates::Template;
@@ -20,15 +20,10 @@ use routes::courses::kalman::kalman::get_kalman_courses;
 use routes::courses::mathematics::get_mathematics_courses_routes;
 use routes::courses::science::get_science_courses;
 
+mod context;
 mod database;
 mod routes;
 mod utils;
-
-mod blog;
-mod context;
-
-#[cfg(test)]
-mod tests;
 
 pub static DOMAIN: &str = "nathanielcurnick.xyz";
 
