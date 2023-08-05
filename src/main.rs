@@ -128,14 +128,6 @@ fn ping() -> RawOkText {
 
 #[rocket::main]
 async fn main() {
-    // env::set_var(
-    //     "PG_URI",
-    //     "websitedb.cbhbusqrck0t.eu-west-2.rds.amazonaws.com",
-    // );
-    // env::set_var("PG_DB", "postgres");
-    // env::set_var("PG_PASSWORD", "iduEH5Ry");
-    // env::set_var("PG_USERNAME", "postgres");
-
     println!("Booting up");
     if !cfg!(debug_assertions) {
         match pg_init().await {
