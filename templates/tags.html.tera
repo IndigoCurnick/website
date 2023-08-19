@@ -18,17 +18,33 @@
 
 
         {% if blogs %}
-        {% for blog in blogs %}
-        <p>{{ blog.date }} <a href="/blog/{{blog.slug}}">{{ blog.title }}</a> </p>
-        <ul>
-            <li>
-                {% for tag in blog.tags %}
-                <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
-                {% endfor %}
-            </li>
-            <li>{{ blog.desc | safe}}</li>
-        </ul>
-        {% endfor %}
+
+        <div class="blog-container">
+            {% for entry in blogs %}
+
+            <div class="blog-card">
+                <a href="/blog/{{ entry.slug }}" class="no-underline">
+                    <div class="card-body">
+                        <h5>
+                            <span>{{ entry.date }}</span>
+                        </h5>
+                        <div>
+                            {{entry.preview | safe}}
+                        </div>
+                    </div>
+                </a>
+
+                <div class="blog-tag-container">
+                    {% for tag in entry.tags %}
+                    <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag }}</a>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            {% endfor %}
+        </div>
+
         {% else %}
         <p>No blog found</p>
 

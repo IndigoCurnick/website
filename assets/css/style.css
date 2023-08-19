@@ -80,7 +80,9 @@ main {
     /* Border colour around main box */
     padding: 1em;
     border-radius: 20px;
+    overflow: visible;
 }
+
 
 header h1 {
     font-size: xxx-large;
@@ -96,11 +98,6 @@ dt img {
     max-height: 1em;
     max-width: 1em;
     vertical-align: middle;
-}
-
-sup {
-    vertical-align: top;
-    font-size: 0.6em;
 }
 
 nav,
@@ -148,47 +145,9 @@ footer ul,
     margin: .5em;
 }
 
-nav a:hover li,
-footer a:hover li,
-
 strong {
     color: var(--hoverlink);
 }
-
-a strong {
-    color: var(--limish);
-}
-
-details {
-    padding-left: 20px;
-    text-decoration: underline;
-}
-
-/* pre {
-    background: #222;
-    border: 1px solid var(--limish);
-    border-radius: 20px;
-    padding: 1em;
-    margin: 1em;
-    white-space: pre-wrap;
-} */
-
-/* pre {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 3px solid #f36d33;
-    color: #666;
-    page-break-inside: avoid;
-    font-family: monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1em 1.5em;
-    display: block;
-    word-wrap: break-word;
-} */
 
 pre code.hljs {
     display: block;
@@ -450,10 +409,45 @@ ol#two-columns {
     column-gap: 20px;
 }
 
-.row {
+.blog-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 1200px;
 }
 
-.column {
-    flex: 50%;
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, calc(20rem + 2vw), 22rem);
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background: #f4f4f4;
+    overflow: hidden;
+    flex-grow: 1;
+    padding: .25em .75em;
+    border-radius: 1em;
+    border: dashed 1px var(--bordercolor);
+}
+
+.blog-card:hover {
+    background: var(--gainsboro);
+}
+
+.blog-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-tag {
+    padding: .25em .75em;
+    border-radius: 1em;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #ff6ec4, #7873f5);
+    color: #ffffff;
+}
+
+.no-underline {
+    text-decoration: none;
 }

@@ -1,6 +1,6 @@
 # What Makes Suspiria So Effective?
 
-*WARNING: CONTAINS SPOILERS*
+**WARNING: CONTAINS SPOILERS**
 
 Suspiria is a film by Italian director Dario Argento. It is hailed as one of the great masterpiece films of the horror genre, and today we will try and dig into why that is. What makes this such an effective horror film?
 
