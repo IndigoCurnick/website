@@ -411,6 +411,7 @@ ol#two-columns {
 
 .blog-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 2rem;
@@ -428,7 +429,7 @@ ol#two-columns {
     flex-grow: 1;
     padding: .25em .75em;
     border-radius: 1em;
-    border: dashed 1px var(--bordercolor);
+    border: solid 1px var(--bordercolor);
 }
 
 .blog-card:hover {
@@ -444,10 +445,14 @@ ol#two-columns {
     padding: .25em .75em;
     border-radius: 1em;
     font-size: 1rem;
-    background: linear-gradient(135deg, #ff6ec4, #7873f5);
+    background: linear-gradient(135deg, var(--americansilver), var(--spanishgrey));
     color: #ffffff;
 }
 
 .no-underline {
     text-decoration: none;
+}
+
+.black-links {
+    color: black;
 }
