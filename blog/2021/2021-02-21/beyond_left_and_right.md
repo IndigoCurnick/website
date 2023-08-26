@@ -14,6 +14,19 @@ Why do we have this seemingly outdated left/right system in place? It goes back 
 
 I've seen some whacky political charts in my time. Some of the most egregious ones have "conservative" as being mildly right wing, then "libertarian" as more right wing, then "Nazism" and finally "fascism" as the zenith of the right wing. How this makes any sense is quite beyond me. So, we go from conservatism, a mostly free but somewhat restricted political ideology, to an ideology based on freedom, to an ideology based on xenophobia and finishing on an ideology based on spiritual collectivism? Even worst, some place anarchism solely as a property of the left and label it as slavery!? I think the Mises institute would like a word. What is going on here? Can we begin to make any sense of this at all?
 
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped">
+    <figure class="wp-block-image size-large"><img
+            src="/images/bad_compass/terrible1.webp" alt="" class="wp-image-523" />
+    </figure>
+    <figure class="wp-block-image size-large"><img
+            src="/images/bad_compass/terrible2.webp" alt="" class="wp-image-524" />
+    </figure>
+    <figure class="wp-block-image size-large"><img
+            src="/images/bad_compass/terrible3.webp" alt=""
+            class="wp-image-525" /></figure>
+    <figcaption class="blocks-gallery-caption wp-element-caption">A few barmy political charts. I get the feeling the
+        creators knew nothing about politics</figcaption>
+</figure>
 
 One of the most common ways to do this is to introduce a liberal/authority axis. This creates a two dimensional chart where each point represents a position on the left/right axis and the liberal/authoritarian axis. However, as we will begin to see, even this begins to be a problem when we start to classify politics.
 
