@@ -22,6 +22,11 @@
 
     <main>
 
+        <p>
+            Let's try something a little more difficult - what about Kalman filtering
+            a sin wave? The sin wave introduces unique challenges for us, but given
+            everything we know so far, we can solve them!
+        </p>
 
 
 

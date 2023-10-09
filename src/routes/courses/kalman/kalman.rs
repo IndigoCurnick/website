@@ -80,6 +80,19 @@ pub async fn falling_control() -> Template {
     )
 }
 
+#[get("/courses/kalman-filters/cannon-ball")]
+pub async fn cannon_ball() -> Template {
+    tokio::spawn(async move {
+        insert_to_database(
+            DOMAIN.to_string(),
+            "/courses/kalman-filters/cannon-ball".to_string(),
+        )
+        .await;
+    });
+    let context = rocket_dyn_templates::tera::Context::new();
+    Template::render("courses/kalman-filters/05-cannon-ball", context.into_json())
+}
+
 #[get("/courses/kalman-filters/sin-wave")]
 pub async fn sin_wave() -> Template {
     tokio::spawn(async move {
@@ -94,5 +107,12 @@ pub async fn sin_wave() -> Template {
 }
 
 pub fn get_kalman_courses() -> Vec<Route> {
-    return routes![notation, intro, falling, constant_velocity, falling_control];
+    return routes![
+        notation,
+        intro,
+        falling,
+        constant_velocity,
+        falling_control,
+        cannon_ball
+    ];
 }
