@@ -544,9 +544,27 @@ fn get_data() -> Data {
         \[ \hat{y} = \bar{y} + K_{31} \tilde{x} + K_{32} \tilde{y} \]
         \[ \hat{\dot{y}} = \bar{\dot{y}} + K_{41} \tilde{x} + K_{42} \tilde{y} \]
 
+        <p>
+            Now that we have all the necessary components, we can look at some
+            results.
+        </p>
 
+        {% include "courses/kalman-filters/cannon-ball/full-plot-ekf" %}
 
+        {% include "courses/kalman-filters/cannon-ball/r-residual-ekf" %}
 
+        {% include "courses/kalman-filters/cannon-ball/theta-residual-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/x-residual-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/y-residual-ekf" %}
+
+        <p>
+            We can see that the Kalman filter handles the situation extremely
+            well - the errors are very impressive. What's more impressive is
+            the residuals are tiny in \(x\) and \(y\) - in some instances down
+            from \(600m\) to \(10m\)!
+        </p>
 
     </main>
 
