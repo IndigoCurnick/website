@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Kalman Filter of Cannon Ball</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tracking a Cannon Ball with a Kalman Filter</h1>
+    </header>
+
+    {% include "utils/nav" %}
+
+    <main>
+
+        <p>
+            So far, we have been using linear Kalman filters to track reasonably
+            simple problems. However, more complex problems require more complex
+            Kalman filters. One of the primary limitations of the Kalman filter
+            is that it is not capable of handling non-linear situations very well.
+            In this example, we will be tracking a cannon ball.
+        </p>
+
+        <p>
+            In this problem we will be firing a cannon ball, and tracking the
+            projectile as it travels through the air. We will assume no air
+            resistance. The measurements will be coming from a radar 30,480m
+            downrange of the cannon. The radar will measure a distance
+            \(r\) to the cannon ball, as well as an angle \(\theta\).
+        </p>
+
+        <p>
+            The relationship between \(r\), \(\theta\), the position of the
+            radar and the position of the cannon ball are given by
+        </p>
+
+        \[ \theta = \tan^{-1}(\frac{y_T - y_R}{x_T - x_R}) \]
+
+        \[ r = \sqrt{(x_t - x_r)^2 + (y_T - y_R)^2} \]
+
+        <p>
+            Where \(y_T\) is the vertical position of the cannon ball,
+            \(x_T\) is the horizontal position of the cannon ball,
+            \(y_T\) is the vertical position of the radar and
+            \(x_R\) is the horizontal position of the radar.
+        </p>
+
+        <p>Therefore, we also have</p>
+
+        \[ x_T = r \cos(\theta) + x_R \]
+
+        \[ r \sin(\theta) + y_R \]
+
+        <p>The state we will use will be</p>
+
+        \[
+        \mathbf{x} =
+
+        \begin{bmatrix}
+        x_T \\
+        \dot{x}_T \\
+        y_T \\
+        \dot{y}_T
+        \end{bmatrix}
+        \]
+
+        <p>And the measurements will be</p>
+
+        \[
+        \mathbf{z} =
+
+        \begin{bmatrix}
+        \theta^* \\
+        r^*
+        \end{bmatrix}
+        \]
+
+        <p>
+            Let's go ahead and code up the system that will be simulating the
+            cannon ball. Since we want the linear Kalman filter and the non-linear
+            Kalman filter to be on equal footing, let's use the exact same
+            function, and just add the functionality we need now. We'll start
+            with a struct to hold the data we need.
+        </p>
+
+        <pre>
+            <code>
+struct Data {
+    pub time: Vec&lt;f64>,
+    pub x: Vec&lt;f64>,
+    pub vx: Vec&lt;f64>,
+    pub y: Vec&lt;f64>,
+    pub vy: Vec&lt;f64>,
+    pub r_measurements: Vec&lt;f64>,
+    pub theta_measurements: Vec&lt;f64>,
+}
+            </code>
+        </pre>
+
+        <p>
+            The <code>Data</code> struct is pretty self explanatory - it contains
+            everything we need as a result of the cannon ball simulation.
+        </p>
+
+        <p>
+            Now, we need to actually produce the data. The big idea here is we
+            will be working out the cannon ball's position "objectively" using
+            SUVAT and then converting into the measurements \(r\) and \(\theta\).
+            We will assume the cannon ball's starting position is at
+            \(x=y=0\). Remember that the radar station is downrange - in other
+            words, the cannon ball is shot in the direction of the radar
+            station. At some point, the cannon ball will be above the radar
+            station.
+        </p>
+
+        <p>
+            We make the following <code>get_data()</code> function to
+            perform the simulation.
+        </p>
+
+        <pre>
+            <code>
+fn get_data() -> Data {
+    let mut t = 0.0;
+    let mut x = 0.0;
+    let mut y = 0.0;
+    let vx = INIT_VELOCITY * INIT_ANGLE.to_radians().sin();
+    let mut vy = INIT_VELOCITY * INIT_ANGLE.to_radians().cos();
+
+    let mut t_history = vec![];
+    let mut x_history = vec![];
+    let mut y_history = vec![];
+    let mut vx_history = vec![];
+    let mut vy_history = vec![];
+    let mut theta_measurements = vec![];
+    let mut r_measurements = vec![];
+
+    let theta_normal = Normal::new(0.0, THETA_ERROR).unwrap();
+    let r_normal = Normal::new(0.0, R_ERROR).unwrap();
+    let mut rng = rand::thread_rng();
+
+    while y >= 0.0 {
+        t_history.push(t);
+        x_history.push(x);
+        y_history.push(y);
+        vx_history.push(vx);
+        vy_history.push(vy);
+
+        theta_measurements.push(theta(x, y) + theta_normal.sample(&mut rng));
+        r_measurements.push(r(x, y) + r_normal.sample(&mut rng));
+
+        // y direction
+        let tmp_vy = vy - G * TS;
+
+        y = y + 0.5 * (vy + tmp_vy) * TS;
+
+        vy = tmp_vy;
+
+        // x direction
+        x = x + vx * TS;
+
+        // t
+        t += TS;
+    }
+
+    return Data {
+        time: t_history,
+        x: x_history,
+        vx: vx_history,
+        y: y_history,
+        vy: vy_history,
+        r_measurements: r_measurements,
+        theta_measurements: theta_measurements,
+    };
+}
+            </code>
+        </pre>
+
+        <p>
+            There's a few constants in there, while you can change them
+            as much as you like, I'll give the values that we will use for the
+            rest of this article.
+        </p>
+
+        <ul>
+            <li><code>INIT_VELOCITY: f64 = 915.0</code> (m/s))</li>
+            <li><code>INIT_ANGLE: f64 = 45.0</code> (degrees)</li>
+            <li><code>THETA_ERROR: f64 = 0.01</code> (radians)</li>
+            <li><code>R_ERROR: f64 = 30_500.0</code> (m)</li>
+            <li><code>TS: f64 = 0.1</code> (s)</li>
+        </ul>
+
+        <p>
+            Let's start now solving the equations needed to derive the Kalman
+            filter that we will be using. We start with the state-space equations.
+        </p>
+
+        \[
+
+        \begin{bmatrix}
+        \dot{x}_T \\
+        \ddot{x}_T \\
+        \dot{y}_T \\
+        \ddot{y}_T
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        x_T \\
+        \dot{x}_T \\
+        y_T \\
+        \dot{y}_T
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 \\
+        0 \\
+        0 \\
+        -g
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 \\
+        u_s \\
+        0 \\
+        u_s
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            So we know the dynamics matrix
+        </p>
+
+        \[
+
+        \mathbf{F} =
+
+        \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Under normal circumstances we would derive the fundamental matrix
+            like so
+        </p>
+
+        \[
+        \mathbf{\Phi}(t) = \mathcal{L} ((\mathbf{s} \mathbf{I} - \mathbf{F})^{-1})
+        \]
+
+        <p>
+            However, in this case we're lucky since
+        </p>
+
+        \[
+
+        \mathbf{F}^2 =
+
+        \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            So the approximation
+        </p>
+
+        \[
+
+        \mathbf{\Phi}(t) =
+        \mathbf{I} + \mathbf{F} + \frac{\mathbf{F}^2 t^2}{2!} + \frac{\mathbf{F}^3 t^3}{3!} + \dots
+
+        \]
+
+        <p>
+            Therefore, we can get an exact solution by
+        </p>
+
+        \[
+
+        \mathbf{\Phi}(t) = \mathbf{I} + \mathbf{F} t =
+
+        \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{bmatrix}
+
+        t
+
+        =
+
+        \begin{bmatrix}
+        1 & t & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & t \\
+        0 & 0 & 0 & 1
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            The continuous process noise matrix is given by
+        </p>
+
+        \[
+
+        \mathbf{Q}(t) =
+
+        \begin{bmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & \Phi_s & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & \Phi_s
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Where \(\Phi_s\) is the spectral density of white noise. As always
+            we can derive the discrete process noise via
+        </p>
+
+
+        \[\mathbf{Q}_k = \int_0^t \mathbf{\Phi}(\tau) \mathbf{Q} \mathbf{\Phi}^T(\tau) dt\]
+
+        <p>
+            So we can simply solve like so
+        </p>
+
+        \[
+
+        \mathbf{Q}_k = \int^t_0
+
+        \begin{bmatrix}
+        1 & \tau & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & \tau \\
+        0 & 0 & 0 & 1
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        0 & 0 & 0 & 0 \\
+        0 & \Phi_s & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & \Phi_s
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        1 & 0 & 0 & 0 \\
+        \tau & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & \tau & 1
+        \end{bmatrix}
+
+        d \tau
+
+        \]
+
+        \[
+        \mathbf{Q}_k = \int^t_0
+
+        \Phi_s
+
+        \begin{bmatrix}
+        \tau^2 & \tau & 0 & 0 \\
+        \tau * 1 & 0 & 0 \\
+        0 & 0 & \tau^2 & \tau \\
+        0 & 0 & \tau & 1
+        \end{bmatrix}
+
+        d \tau
+        \]
+
+        \[
+        \mathbf{Q}_k = \Phi_s
+
+        \begin{bmatrix}
+        (dt)^3 / 3 & (dt)^2 / 2 & 0 & 0 \\
+        (dt)^2 / 2 & dt & 0 & 0 \\
+        0 & 0 & (dt)^3 / 3 & (dt)^2 / 2 \\
+        0 & 0 & (dt)^2 / 2 & dt
+        \end{bmatrix}
+        \]
+
+        <p>
+            Notice how \(\mathbf{Q}_k\) is \(\mathbf{Q}_k\) from the constant
+            velocity example, but it appears twice in the matrix? That's not a
+            coincidence - here we have two independent constant velocity problems!
+        </p>
+
+        <p>
+            Now for the linearisation of the problem. Doing this is actually much
+            easier than you might expect - we simply use a Jacobian matrix as
+            \(\mathbf{H}\). The linearised measurement equation is given by
+        </p>
+
+        \[
+        \mathbf{H} =
+
+        \begin{bmatrix}
+        \frac{\partial \theta}{\partial x_T} &
+        \frac{\partial \theta}{\partial \dot{x}_T} &
+        \frac{\partial \theta}{\partial y_T} &
+        \frac{\partial \theta}{\partial \dot{y}_T} \\
+        \frac{\partial r}{\partial x_T} &
+        \frac{\partial r}{\partial \dot{x}_T} &
+        \frac{\partial r}{\partial y_T} &
+        \frac{\partial r}{\partial \dot{y}_T}
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Using the fact that
+        </p>
+
+        \[ \theta = \tan^{-1}(\frac{y_T - y_R}{x_T - x_R}) \]
+
+        <p>
+            We can derive
+        </p>
+
+        \[ \frac{\partial \theta}{\partial \dot{x}_T} = \frac{-(y_T - y_R)}{r^2} \]
+
+        \[ \frac{\partial \theta}{\partial \dot{x}_T} = 0 \]
+
+        \[ \frac{\partial \theta}{\partial y_T} = \frac{x_T - x_R}{r^2} \]
+
+        \[ \frac{\partial \theta}{\partial \dot{y}_T} = 0 \]
+
+        <p>
+            And using the fact that
+        </p>
+
+        \[ r = \sqrt{(x_t - x_r)^2 + (y_T - y_R)^2} \]
+
+        <p>
+            We can derive
+        </p>
+
+        \[ \frac{\partial r}{\partial x_T} = \frac{x_T - x_R}{r} \]
+
+        \[ \frac{\partial r}{\partial \dot{x}_T} = 0 \]
+
+        \[ \frac{\partial r}{\partial y_T} = \frac{y_T - y_R}{r} \]
+
+        \[ \frac{\partial r}{\partial \dot{y}_T} = 0 \]
+
+        <p>
+            So, \(\mathbf{H}\) becomes
+        </p>
+
+        \[
+        \mathbf{H} =
+
+        \begin{bmatrix}
+        \frac{y_T - y_R}{r^2} & 0 & \frac{x_T - x_R}{r^2} & 0 \\
+        \frac{x_T - x_R}{r} & 0 & \frac{y_T - y_R}{r} & 0
+        \end{bmatrix}
+        \]
+
+        <p>
+            So, we now have everything to actually perform
+            the filtering by solving the Riccati equations.
+        </p>
+
+        \[ \bar{\dot{x}} = \hat{\dot{x}}_{k-1} \]
+        \[ \bar{x} = \hat{x}_{k-1} + dt \bar{\dot{x}} \]
+        \[ \bar{\dot{y}} = \hat{\dot{y}}_{k-1} - g dt \]
+        \[ \bar{y} = \hat{y}_{k-1} + dt \hat{\dot{y}}_{k-1} - 0.5 g (dt)^2 \]
+
+        <p>Recall that</p>
+
+        \[ M_k = \Phi_k P_{k-1} \Phi^T_k + \mathbf{Q}_k \]
+        \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
+
+        <p>We also define</p>
+
+        \[ \tilde{x} = x^* - \bar{x} \]
+        \[ \tilde{y} = y^* - \bar{y} \]
+
+        <p>And so</p>
+
+        \[ \hat{x}_k = \bar{x} + K_{11} \tilde{x} + K_{12} \tilde{y} \]
+        \[ \hat{\dot{x}}_k = \bar{\dot{x}} + K_{21} \tilde{x} + K_{22} \tilde{y} \]
+        \[ \hat{y} = \bar{y} + K_{31} \tilde{x} + K_{32} \tilde{y} \]
+        \[ \hat{\dot{y}} = \bar{\dot{y}} + K_{41} \tilde{x} + K_{42} \tilde{y} \]
+
+        <p>
+            Now that we have all the necessary components, we can look at some
+            results.
+        </p>
+
+        {% include "courses/kalman-filters/cannon-ball/full-plot-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/r-residual-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/theta-residual-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/x-residual-ekf" %}
+
+        {% include "courses/kalman-filters/cannon-ball/y-residual-ekf" %}
+
+        <p>
+            We can see that the Kalman filter handles the situation extremely
+            well - the errors are very impressive. What's more impressive is
+            the residuals are tiny in \(x\) and \(y\) - in some instances down
+            from \(600m\) to \(10m\)!
+        </p>
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
