@@ -151,8 +151,15 @@ pub struct Data {
         \[ \hat{\dot{x}} = \hat{\dot{x}}_{k-1} + K_2 \tilde{x}_k \]
 
         <p>
-            And we get the following results which...
+            And we get the following results which does show the Kalman filter is
+            able to somewhat track the wave. It's able to remove quite a lot of
+            the jaggedness and smooth the data, but the residuals show that it
+            isn't a major improvement in the actual accuracy. Specifically, it has
+            a significant lag.
         </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-linear-first-order" %}
+        {% include "courses/kalman-filters/sin_wave/residual-linear-first-order" %}
 
         <h2>Linear Second Order</h2>
 
@@ -214,8 +221,14 @@ pub struct Data {
         \[ \hat{\ddot{x}} = \hat{\ddot{x}}_{k-1} + K_3 \tilde{x} \]
 
         <p>
-            Which gives the following results, which are...
+            Which gives the following results, which are actually slightly worse.
+            You might be able to tune some of the spectral density parameters on
+            \(\mathbf{Q}_k\) to get slightly better results, but the filter is
+            overshooting by a lot.
         </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-linear-second-order" %}
+        {% include "courses/kalman-filters/sin_wave/residual-linear-second-order" %}
 
         <h2>Linear Filter with A Priori Information</h2>
 
@@ -366,8 +379,12 @@ pub struct Data {
         \]
 
         <p>
-            We get the following results for this solution which are...
+            We get the following results for this solution which are really quite
+            good. The data is smooth and the residuals are consistently small!
         </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-linear-a-priori" %}
+        {% include "courses/kalman-filters/sin_wave/residual-linear-a-priori" %}
 
         <h2>Extended Kalman Filter Solution</h2>
 
@@ -651,8 +668,470 @@ pub struct Data {
         \[ \hat{A}_k = \bar{A}_k + K_3 \tilde{x} \]
 
         <p>
-            Here's the results from this simulation which show that...
+            Here's the results from this simulation which show that the extended
+            Kalman filter is not necessarily better. The linear with a priori
+            information did much better. In this case, mathematically, there are
+            two different ways to calculate \(x\) from the state - either from
+            \(\phi\) or \(\omega\). I added both but you can clearly see that
+            \(\phi\) is better (try clicking on the \(\omega\) line in the
+            legend to hide it!).
         </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-non-linear" %}
+        {% include "courses/kalman-filters/sin_wave/residual-non-linear" %}
+
+        <h2>Extended Kalman Filter With A Priori Information</h2>
+
+        <p>
+            In this implementation of the filter we will inform it of the correct
+            value of \(A\). Now, our state-space equation is
+        </p>
+
+        \[
+
+        \begin{bmatrix}
+        \dot{\theta} \\
+        \dot{\omega}
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        0 & 1 \\
+        0 & 0
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        \theta \\
+        \omega
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 \\
+        u_s
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            We've already derived \(\mathbf{\Phi}_k\) for this situation before,
+            and it is given by
+        </p>
+
+        \[
+
+        \mathbf{\Phi}_k =
+
+        \begin{bmatrix}
+        1 & dt \\
+        0 & 1
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            \(\mathbf{Q}\) is clearly given by
+        </p>
+
+        \[
+
+        \mathbf{Q} =
+
+        \begin{bmatrix}
+        0 & 0 \\
+        0 & u_s
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            So we can derive \(\mathbf{Q}_k\) by
+        </p>
+
+        \[
+
+        \mathbf{Q}_k = \int^{T_s}_0
+
+        \begin{bmatrix}
+        1 & \tau \\
+        0 & 1
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        0 & 0 \\
+        0 & \Phi_s
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        1 & 0 \\
+        \tau & 1
+        \end{bmatrix}
+
+        d \tau
+        \]
+
+        \[
+
+        \mathbf{Q}_k = \int^{T_s}_0
+
+        \Phi_s
+
+        \begin{bmatrix}
+        \tau^2 & \tau \\
+        \tau & 1
+        \end{bmatrix}
+
+        \]
+
+        \[
+
+        \mathbf{Q}_k =
+
+        \Phi_s
+
+        \begin{bmatrix}
+        \frac{dt^3}{3} & \frac{dt^2}{2} \\
+        \frac{dt^2}{2} & dt
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Again, our measurements are non-linear so
+        </p>
+
+        \[
+
+        \Delta x^* =
+
+        \begin{bmatrix}
+        \frac{\partial x}{\partial \theta} & \frac{\partial x}{\partial \omega}
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        \Delta \theta \\
+        \Delta \omega
+        \end{bmatrix}
+
+        + \nu
+        \]
+
+        <p>
+            Performing the partial derivatives gives us
+        </p>
+
+        \[ \frac{\partial x}{\partial \theta} = A \cos(\theta) \]
+
+        \[ \frac{\partial x}{\partial \omega} = 0 \]
+
+        <p>
+            And so we have \(\mathbf{H}\)
+        </p>
+
+        \[ \mathbf{H} = \begin{bmatrix} A \cos(\theta) & 0 \end{bmatrix} \]
+
+        <p>
+            And so we have all the elements needed to solve the Riccati equations.
+            We begin by defining the predictions
+        </p>
+
+        \[
+
+        \begin{bmatrix}
+        \bar{\theta}_k \\
+        \bar{\omega}_k
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        1 & dt \\
+        0 & 1
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        \hat{\theta}_{k-1} \\
+        \hat{\omega}_{k-1}
+        \end{bmatrix}
+
+        \]
+
+        \[ \bar{\theta}_k = \hat{\theta}_{k-1} + \hat{\omega}_{k-1} dt \]
+
+        \[ \bar{\omega}_k = \hat{\omega}_{k-1} \]
+
+        <p>
+            We define a residual as
+        </p>
+
+        \[ \tilde{x} = x^*_k - A \sin(\bar{\theta}_k) \]
+
+        <p>
+            Finally, we can give the solutions to the Riccati equations as
+        </p>
+
+        \[ \hat{\theta}_k = \bar{\theta}_k + K_1 \tilde{x} \]
+
+        \[ \hat{\omega}_k = \bar{\omega}_k + K_2 \tilde{x} \]
+
+        <p>
+            Here's the results from this filter which clearly shows that even
+            with a priori information, the EKF struggles to be as smooth as the
+            linear filter. Again, I included \(x\) calculated from both \(\phi\)
+            and \(\omega\) - \(\phi\) is obviously better. (You can hide the
+            \(\omega\) line to see the good results better)
+        </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-non-linear-a-priori" %}
+        {% include "courses/kalman-filters/sin_wave/residual-non-linear-a-priori" %}
+
+        <h2>Alternative EKF</h2>
+
+        <p>
+            In this Kalman filter we will use a very different state and
+            state-space equation. This time, the state-space equation will
+            itself be non-linear as the state will appear within it. Therefore,
+            we won't be able to read \(\mathbf{F}\) directly from the state-space
+            equation like we have been doing so far! Let's once more start with
+            our basic equations
+        </p>
+
+        \[ x = A \sin(\omega t) \]
+
+        \[ \dot{x} = A \omega \cos(\omega t) \]
+
+        \[ \ddot{x} = -A \omega^2 \sin(\omega t) \]
+
+        \[ \ddot{x} = -\omega^2 x \]
+
+        <p>
+            And in this example, let's place the model noise in the derivative of
+            the frequency.
+        </p>
+
+        \[ \dot{\omega} = u_s \]
+
+        <p>
+            Thus the state-space equation is
+        </p>
+
+        \[
+
+        \begin{bmatrix}
+        \dot{x} \\
+        \ddot{x} \\
+        \dot{omega}
+        \end{bmatrix}
+
+        =
+
+        \begin{bmatrix}
+        0 & 1 & 0 \\
+        -\omega^2 & 0 & 0 \\
+        0 & 0 & 0
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        x \\
+        \dot{x} \\
+        \omega
+        \end{bmatrix}
+
+        +
+
+        \begin{bmatrix}
+        0 \\
+        0 \\
+        u_s
+        \end{bmatrix}
+        \]
+
+        <p>
+            As I mentioned, notice how \(\omega\) appears within the state-space
+            matrix? \(\omega\) is also a part of our state, so this state-space
+            matrix is non-linear. As such, \(\mathbf{F}\) is not simply equal
+            to the state-space matrix.
+        </p>
+
+        \[
+
+        \mathbf{F} = \frac{\partial f(\mathbf{x})}{\partial \mathbf{x}} =
+
+        \begin{bmatrix}
+        \frac{\partial \dot{x}}{\partial x} & \frac{\partial \dot{x}}{\partial \dot{x}} & \frac{\partial
+        \dot{x}}{\partial \omega} \\
+        \frac{\partial \ddot{x}}{\partial x} & \frac{\partial \ddot{x}}{\partial \dot{x}} & \frac{\partial
+        \ddot{x}}{\partial \omega} \\
+        \frac{\partial \dot{\omega}}{\partial x} & \frac{\partial \dot{\omega}}{\partial \dot{x}} & \frac{\partial
+        \dot{\omega}}{\partial \omega}
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Which can be easily evaluated to
+        </p>
+
+        \[
+
+        \mathbf{F} =
+
+        \begin{bmatrix}
+        0 & 1 & 0 \\
+        -\hat{\omega}^2 & 0 & -2 \hat{\omega} \hat{x} \\
+        0 & 0 & 0
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Sadly, in this case an exact solution to \(\mathbf{\Phi}_k\) is
+            impossible, so we will have to accept an approximation with the
+            Taylor expansion.
+        </p>
+
+        \[
+
+        \mathbf{\Phi}_k \approx
+
+        \mathbf{I} + \mathbf{F} t
+
+        =
+
+        \begin{bmatrix}
+        1 & dt & 0 \\
+        -\hat{\omega}^2 dt & 1 & -2 \hat{\omega} \hat{x} dt \\
+        0 & 0 & 1
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            To derive \(\mathbf{Q}\) we can again use that
+        </p>
+
+        \[
+
+        \mathbf{Q}_k = \int^{T_s}_0
+
+        \mathbf{\Phi} (\tau) \mathbf{Q} \mathbf{\Phi}^T (\tau) d \tau
+
+        \]
+
+        \[
+
+        \mathbf{Q}_k = \int^{T_s}_0
+
+        \begin{bmatrix}
+        1 & dt & 0 \\
+        -\hat{\omega}^2 dt & 1 & -2 \hat{\omega} \hat{x} dt \\
+        0 & 0 & 1
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & 0 & 0 \\
+        0 & 0 & \Phi_s
+        \end{bmatrix}
+
+        \begin{bmatrix}
+        1 & -\hat{\omega} \tau & 0 \\
+        \tau & 1 & 0 \\
+        0 & -2 \hat{\omega} \hat{x} \tau & 1
+        \end{bmatrix}
+
+        d \tau
+
+        \]
+
+        \[
+
+        \mathbf{Q}_k = \int^{T_s}_0
+
+        \Phi_s
+        \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & 4 \hat{\omega}^2 \hat{x}^2 \tau^2 & -2 \hat{\omega} \hat{x} \tau \\
+        0 & -2 \hat{\omega} \hat{x} \tau & 1
+        \end{bmatrix}
+
+        \]
+
+        \[
+
+        \mathbf{Q}_k =
+
+        \Phi_s
+        \begin{bmatrix}
+        0 & 0 & 0 \\
+        0 & \frac{4}{3} \hat{\omega}^2 \hat{x}^2 T^3_s & -\hat{\omega} \hat{x} T_s^2 \\
+        0 & -\hat{\omega} \hat{x} T^2_s & T_s
+        \end{bmatrix}
+
+        \]
+
+        <p>
+            Surprisingly, our measurements are actually linear! So
+        </p>
+
+        \[\mathbf{H} = \begin{bmatrix} 1 & 0 & 0 \end{bmatrix} \]
+
+        <p>
+            An unfortunate complexity is that in order to derive the prediction
+            states we have no closed form solution! We could use the
+            \(\mathbf{\Phi}_k\) like we normally do, but it's only an approximation.
+            For use in the Kalman filter equations for \(m\) and \(k\) it is good
+            enough, but to actually propagate the state it will introduce just
+            far too much error into the system. Therefore, we will need to
+            numerically integrate to do the predictions.
+        </p>
+
+        <pre>
+            <code>
+fn project(x: f64, x_dot: f64, omega: f64, step: f64) -> (f64, f64) {
+    let mut x_bar = x;
+    let mut x_dot_bar = x_dot;
+    let mut t = 0.0;
+    while t <= TS {
+        let x_dot_dot = -omega.powf(2.0) * x_bar;
+        x_dot_bar = x_dot_bar + step * x_dot_dot;
+        x_bar = x_bar + step * x_dot_bar;
+        t = t + step;
+    }
+
+    return (x_bar, x_dot_bar);
+}
+            </code>
+        </pre>
+
+        <p>
+            Above is my Rust code to do that. It takes in the state, and also a
+            step size. I used a step size of 1e-5. It then numerically integrates
+            up to <code>TS</code>, which I set to be 0.01. If you change that,
+            expect to have to change the step size. We now have \(\bar{x}_k\)
+            and \(\bar{\dot{x}}_k). This is everything we need to solve the Riccati
+            equations.
+        </p>
+
+        \[ \tilde{x} = x^* - \bar{x}_k \]
+
+        \[ \hat{x}_k = \bar{x}_k + K_1 \tilde{x} \]
+
+        \[ \hat{\dot{x}} = \bar{\dot{x}}_k + K_2 \tilde{x} \]
+
+        \[ \hat{\omega} = \hat{\omega}_{k-1} + K_3 \tilde{x} \]
+
+        <p>
+            The results are give as follows, which clearly show that this is a
+            really interesting filter. It gets okay results, while not being super
+            smooth, but it has quite a significant warm up time with respect to
+            some of the other filters.
+        </p>
+
+        {% include "courses/kalman-filters/sin_wave/full-plot-alternative-non-linear" %}
+        {% include "courses/kalman-filters/sin_wave/residual-alternative-non-linear" %}
 
         <h2>Footnote</h2>
 
