@@ -192,7 +192,7 @@ fn get_data() -> Data {
         </p>
 
         <ul>
-            <li><code>INIT_VELOCITY: f64 = 915.0</code> (m/s))</li>
+            <li><code>INIT_VELOCITY: f64 = 915.0</code> (m/s)</li>
             <li><code>INIT_ANGLE: f64 = 45.0</code> (degrees)</li>
             <li><code>THETA_ERROR: f64 = 0.01</code> (radians)</li>
             <li><code>R_ERROR: f64 = 30_500.0</code> (m)</li>

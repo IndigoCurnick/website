@@ -73,6 +73,7 @@
                     </li>
                     <li><a href="/courses/kalman-filters/falling-control">Falling with Control Term</a></li>
                     <li><a href="/courses/kalman-filters/cannon-ball">Tracking a Cannon Ball</a></li>
+                    <li><a href="/courses/kalman-filters/sin-wave">Tracking a Sin Wave</a></li>
                     <li><a href="/courses/kalman-filters/notation">Unravelling Kalman Filter Notation</a></li>
                 </ol>
             </div>
