@@ -103,7 +103,7 @@ pub async fn sin_wave() -> Template {
         .await;
     });
     let context = rocket_dyn_templates::tera::Context::new();
-    Template::render("courses/kalman-filters/04-sin-wave", context.into_json())
+    Template::render("courses/kalman-filters/06-sin-wave", context.into_json())
 }
 
 pub fn get_kalman_courses() -> Vec<Route> {
@@ -113,6 +113,7 @@ pub fn get_kalman_courses() -> Vec<Route> {
         falling,
         constant_velocity,
         falling_control,
-        cannon_ball
+        cannon_ball,
+        sin_wave
     ];
 }
