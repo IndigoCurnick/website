@@ -922,7 +922,7 @@ pub struct Data {
         \begin{bmatrix}
         \dot{x} \\
         \ddot{x} \\
-        \dot{omega}
+        \dot{\omega}
         \end{bmatrix}
 
         =
