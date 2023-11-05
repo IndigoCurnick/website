@@ -19,6 +19,7 @@ use rocket::Request;
 use routes::courses::kalman::kalman::get_kalman_courses;
 use routes::courses::mathematics::get_mathematics_courses_routes;
 use routes::courses::science::get_science_courses;
+use routes::toolbox::get_toolbox_routes;
 
 mod context;
 mod database;
@@ -168,12 +169,15 @@ fn get_all_routes() -> Vec<Route> {
     let kalman_courses = get_kalman_courses();
     let util_routes = routes![ping];
 
+    let toolbox_routes = get_toolbox_routes();
+
     let all_routes = vec![
         index_route,
         maths_courses,
         science_courses,
         kalman_courses,
         util_routes,
+        toolbox_routes,
     ];
 
     let flattened_routes = all_routes.concat();

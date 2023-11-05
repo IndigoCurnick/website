@@ -1,0 +1,35 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.position-pair-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.geodesic-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.geodesic-label {}
+
+.geodesic-input {}
+
+.results-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.result-type-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.result-title {
+    font-weight: bold;
+}
