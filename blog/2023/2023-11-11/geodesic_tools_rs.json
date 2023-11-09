@@ -1,0 +1,18 @@
+{
+    "title": "Introducing Geodesic Tools",
+    "date": "2023-11-11",
+    "desc": "Preview of some geodesic tools, available as Rust, WASM or on the website",
+    "slug": "introducing-geodesic-tools",
+    "tags": [
+        "rustlang",
+        "wasm",
+        "geodesics"
+    ],
+    "keywords": [
+        "rust",
+        "wasm",
+        "geodesics"
+    ],
+    "author_name": "Nathaniel Curnick",
+    "author_website": "https://nathanielcurnick.xyz"
+}

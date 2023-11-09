@@ -21,6 +21,10 @@
             Perform geodesic calculations, comparing the Haversine, Vincenty and Karney methods
         </p>
 
+        <p>
+            Confused? See <a href="/blog/introducing-geodesic-tools">Introducing Geodesic Tools</a>
+        </p>
+
         <h2>Distance and Final Bearing Between Two Points</h2>
 
         <div class="input-container">
