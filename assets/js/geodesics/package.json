@@ -1,0 +1,14 @@
+{
+  "name": "geodesic_coordinates_rs",
+  "version": "0.1.0",
+  "files": [
+    "geodesic_coordinates_rs_bg.wasm",
+    "geodesic_coordinates_rs.js",
+    "geodesic_coordinates_rs.d.ts"
+  ],
+  "module": "geodesic_coordinates_rs.js",
+  "types": "geodesic_coordinates_rs.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

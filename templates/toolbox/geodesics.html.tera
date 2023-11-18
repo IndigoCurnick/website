@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Geodesic Conversions</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/toolbox.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    {% include "utils/nav" %}
+    <main>
+
+        <p>
+            Perform geodesic calculations, comparing the Haversine, Vincenty and Karney methods
+        </p>
+
+        <p>
+            Confused? See <a href="/blog/introducing-geodesic-tools">Introducing Geodesic Tools</a>
+        </p>
+
+        <h2>Distance and Final Bearing Between Two Points</h2>
+
+        <div class="input-container">
+            <div class="position-pair-container">
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Starting Latitude</div>
+                    <input type="number" id="lat_one" step="0.0001" placeholder="Enter a number">
+                </div>
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Starting Longitude</div>
+                    <input type="number" id="lon_one" step="0.0001" placeholder="Enter a number">
+                </div>
+            </div>
+            <div class="position-pair-container">
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Ending Latitude</div>
+                    <input class="geodesic-input" type="number" id="lat_two" step="0.0001" placeholder="Enter a number">
+                </div>
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Ending Longitude</div>
+                    <input type="number" id="lon_two" step="0.0001" placeholder="Enter a number">
+                </div>
+            </div>
+        </div>
+
+        <div class="results-wrapper">
+            <div class="result-type-wrapper">
+                <div class="result-title">Haversine</div>
+                <div id="haversine-distance">Distance: </div>
+                <div id="haversine-bearing">Bearing: </div>
+            </div>
+            <div class="result-type-wrapper">
+                <div class="result-title">Vincenty</div>
+                <div id="vincenty-distance">Distance: </div>
+                <div id="vincenty-bearing">Bearing: </div>
+            </div>
+            <div class="result-type-wrapper">
+                <div class="result-title">Karney</div>
+                <div id="karney-distance">Distance: </div>
+                <div id="karney-bearing">Bearing: </div>
+            </div>
+        </div>
+
+        <h2>Position After Travelling a Distance and Bearing</h2>
+
+        <div class="input-container">
+            <div class="position-pair-container">
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Starting Latitude</div>
+                    <input type="number" id="start_lat" step="0.0001" placeholder="Enter a number">
+                </div>
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Starting Longitude</div>
+                    <input type="number" id="start_lon" step="0.0001" placeholder="Enter a number">
+                </div>
+            </div>
+            <div class="position-pair-container">
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Distance (metres)</div>
+                    <input class="geodesic-input" type="number" id="distance" step="0.0001"
+                        placeholder="Enter a number">
+                </div>
+                <div class="geodesic-container">
+                    <div class="geodesic-label">Bearing (°)</div>
+                    <input type="number" id="bearing" step="0.0001" placeholder="Enter a number">
+                </div>
+            </div>
+        </div>
+
+        <div class="results-wrapper">
+            <div class="result-type-wrapper">
+                <div class="result-title">Haversine</div>
+                <div id="haversine-lat">Latitude: </div>
+                <div id="haversine-lon">Longitude: </div>
+            </div>
+            <div class="result-type-wrapper">
+                <div class="result-title">Vincenty</div>
+                <div id="vincenty-lat">Latitude: </div>
+                <div id="vincenty-lon">Longitude: </div>
+            </div>
+            <div class="result-type-wrapper">
+                <div class="result-title">Karney</div>
+                <div id="karney-lat">Latitude: </div>
+                <div id="karney-lon">Longitude: </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script type="module">
+        import init, { haversine_distance_and_bearing, vincenty_distance_and_bearing, karney_distance_and_bearing } from "/js/geodesics/geodesic_coordinates_rs.js";
+
+        const latOneNumber = document.getElementById('lat_one');
+        const lonOneNumber = document.getElementById('lon_one');
+        const latTwoNumber = document.getElementById('lat_two');
+        const lonTwoNumber = document.getElementById('lon_two');
+        const haversineDistanceDisplay = document.getElementById('haversine-distance');
+        const haversineBearingDisplay = document.getElementById('haversine-bearing');
+        const vincentyDistanceDisplay = document.getElementById('vincenty-distance');
+        const vincentyBearingDisplay = document.getElementById('vincenty-bearing');
+        const karneyDistanceDisplay = document.getElementById('karney-distance');
+        const karneyBearingDisplay = document.getElementById('karney-bearing');
+
+        const inputs = [latOneNumber, lonOneNumber, latTwoNumber, lonTwoNumber];
+
+        const DEG_TO_RAD = Math.PI / 180.0;
+
+        await init();
+
+        for (const input of inputs) {
+            input.addEventListener("input", update)
+        }
+
+        function update() {
+            const latOne = parseFloat(latOneNumber.value);
+            const lonOne = parseFloat(lonOneNumber.value);
+            const latTwo = parseFloat(latTwoNumber.value);
+            const lonTwo = parseFloat(lonTwoNumber.value);
+
+            updateNumbers(latOne, lonOne, latTwo, lonTwo, haversineDistanceDisplay, haversineBearingDisplay, haversine_distance_and_bearing);
+            updateNumbers(latOne, lonOne, latTwo, lonTwo, vincentyDistanceDisplay, vincentyBearingDisplay, vincenty_distance_and_bearing);
+            updateNumbers(latOne, lonOne, latTwo, lonTwo, karneyDistanceDisplay, karneyBearingDisplay, karney_distance_and_bearing);
+        }
+
+        function updateNumbers(latOne, lonOne, latTwo, lonTwo, distanceDisplay, bearingDisplay, func) {
+
+            if (isFinite(latOne) && isFinite(lonOne) && isFinite(latTwo) && isFinite(lonTwo)) {
+                const geodesic = func(latOne * DEG_TO_RAD, lonOne * DEG_TO_RAD, latTwo * DEG_TO_RAD, lonTwo * DEG_TO_RAD);
+                distanceDisplay.textContent = `Distance: ${geodesic.distance.toLocaleString()} metres`;
+                bearingDisplay.textContent = `Bearing: ${(geodesic.bearing / DEG_TO_RAD).toFixed(2)}°`;
+            } else {
+                bearingDisplay.textContent = "Bearing: ";
+                distanceDisplay.textContent = "Distance: ";
+            }
+        }
+
+        update();
+
+    </script>
+
+    <script type="module">
+        import init, { haversine_location_and_bearing, vincenty_location_and_bearing, karney_location_and_bearing } from "/js/geodesics/geodesic_coordinates_rs.js";
+
+        const startLatNumber = document.getElementById('start_lat');
+        const startLonNumber = document.getElementById('start_lon');
+        const distanceNumber = document.getElementById('distance');
+        const bearingNumber = document.getElementById('bearing');
+        const haversineLatDisplay = document.getElementById('haversine-lat');
+        const haversineLonDisplay = document.getElementById('haversine-lon');
+        const vincentyLatDisplay = document.getElementById('vincenty-lat');
+        const vincentyLonDisplay = document.getElementById('vincenty-lon');
+        const karneyLatDisplay = document.getElementById('karney-lat');
+        const karneyLonDisplay = document.getElementById('karney-lon');
+
+        const secondInputs = [startLatNumber, startLonNumber, distanceNumber, bearingNumber];
+        const DEG_TO_RAD2 = Math.PI / 180.0;
+        await init();
+
+
+        for (const input of secondInputs) {
+            input.addEventListener("input", secondUpdate)
+        }
+
+        function secondUpdate() {
+            const startLat = parseFloat(startLatNumber.value);
+            const startLon = parseFloat(startLonNumber.value);
+            const distance = parseFloat(distanceNumber.value);
+            const bearing = parseFloat(bearingNumber.value);
+
+            secondUpdateNumbers(startLat, startLon, distance, bearing, haversineLatDisplay, haversineLonDisplay, haversine_location_and_bearing);
+            secondUpdateNumbers(startLat, startLon, distance, bearing, vincentyLatDisplay, vincentyLonDisplay, vincenty_location_and_bearing);
+            secondUpdateNumbers(startLat, startLon, distance, bearing, karneyLatDisplay, karneyLonDisplay, karney_location_and_bearing);
+        }
+
+        function secondUpdateNumbers(startLat, startLon, distance, bearing, latDisplay, lonDisplay, func) {
+
+            if (isFinite(startLat) && isFinite(startLon) && isFinite(distance) && isFinite(bearing)) {
+                const geodesic = func(startLat * DEG_TO_RAD2, startLon * DEG_TO_RAD2, bearing * DEG_TO_RAD2, distance);
+                latDisplay.textContent = `Latitude: ${(geodesic.lat / DEG_TO_RAD2).toFixed(6)}`;
+                lonDisplay.textContent = `Longitude: ${(geodesic.lon / DEG_TO_RAD2).toFixed(6)}`;
+            } else {
+                latDisplay.textContent = "Latitude: ";
+                lonDisplay.textContent = "Longitude: ";
+            }
+        }
+
+        secondUpdate();
+
+    </script>
+
+
+
+</body>
+
+</html>

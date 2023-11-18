@@ -29,6 +29,8 @@
             <dd>My blog, with everything I have written (so far)</dd>
             <dt><a href="/courses">📔 Courses</a></dt>
             <dd>Follow along courses</dd>
+            <dt><a href="/toolbox">🧰 Toolbox</a></dt>
+            <dd>WASM Tools</dd>
             <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
             <dd> Polymath discord server I run. Come say hi!</a></dd>
