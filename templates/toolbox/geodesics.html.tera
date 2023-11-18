@@ -161,8 +161,8 @@
                 distanceDisplay.textContent = `Distance: ${geodesic.distance.toLocaleString()} metres`;
                 bearingDisplay.textContent = `Bearing: ${(geodesic.bearing / DEG_TO_RAD).toFixed(2)}°`;
             } else {
-                bearingDisplay.textContent = "Bearing: ERROR";
-                distanceDisplay.textContent = "Distance: ERROR";
+                bearingDisplay.textContent = "Bearing: ";
+                distanceDisplay.textContent = "Distance: ";
             }
         }
 
@@ -185,7 +185,7 @@
         const karneyLonDisplay = document.getElementById('karney-lon');
 
         const secondInputs = [startLatNumber, startLonNumber, distanceNumber, bearingNumber];
-        const DEG_TO_RAD = Math.PI / 180.0;
+        const DEG_TO_RAD2 = Math.PI / 180.0;
         await init();
 
 
@@ -207,12 +207,12 @@
         function secondUpdateNumbers(startLat, startLon, distance, bearing, latDisplay, lonDisplay, func) {
 
             if (isFinite(startLat) && isFinite(startLon) && isFinite(distance) && isFinite(bearing)) {
-                const geodesic = func(startLat * DEG_TO_RAD, startLon * DEG_TO_RAD, bearing * DEG_TO_RAD, distance);
-                latDisplay.textContent = `Latitude: ${(geodesic.lat / DEG_TO_RAD).toFixed(6)}`;
-                lonDisplay.textContent = `Longitude: ${(geodesic.lon / DEG_TO_RAD).toFixed(6)}`;
+                const geodesic = func(startLat * DEG_TO_RAD2, startLon * DEG_TO_RAD2, bearing * DEG_TO_RAD2, distance);
+                latDisplay.textContent = `Latitude: ${(geodesic.lat / DEG_TO_RAD2).toFixed(6)}`;
+                lonDisplay.textContent = `Longitude: ${(geodesic.lon / DEG_TO_RAD2).toFixed(6)}`;
             } else {
-                latDisplay.textContent = "Latitude: ERROR";
-                lonDisplay.textContent = "Longitude: ERROR";
+                latDisplay.textContent = "Latitude: ";
+                lonDisplay.textContent = "Longitude: ";
             }
         }
 

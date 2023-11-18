@@ -9,6 +9,9 @@
         <a href="/courses">
             <li>📔 Courses</li>
         </a>
+        <a href="/toolbox">
+            <li>🧰 Toolbox</li>
+        </a>
         <a href="https://discord.com/invite/uVK4BJT">
             <li><img src="/images/logos/discord.svg" alt="Discord logo"> Discord</li>
         </a>
@@ -16,7 +19,8 @@
             <li><img src="/images/logos/git.svg" alt="Github logo"> Github</li>
         </a>
         </a>
-        <a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><li><img src="/images/logos/linkedin.svg"
-                alt="LinkedIn Logo"> LinkedIn</li></a>
+        <a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/">
+            <li><img src="/images/logos/linkedin.svg" alt="LinkedIn Logo"> LinkedIn</li>
+        </a>
     </ul>
 </nav>
