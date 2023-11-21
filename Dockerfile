@@ -12,9 +12,6 @@ RUN apt-get install -y --no-install-recommends \
     libssl-dev \
     cmake
 
-RUN rustup toolchain install nightly; \
-    rustup override set nightly
-
 WORKDIR /app
 
 COPY . .
