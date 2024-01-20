@@ -1,0 +1,17 @@
+{
+    "title": "SICP Chapter 1 Part 1",
+    "date": "2024-01-20",
+    "desc": "The wordy problems of Structure and Interpretation of Computer Programs chapter 1",
+    "slug": "sicp1-1",
+    "tags": [
+        "rustlang",
+        "programming"
+    ],
+    "keywords": [
+        "programming",
+        "rust",
+        "Structure and Interpretation of Computer Programs"
+    ],
+    "author_name": "Nathaniel Curnick",
+    "author_website": "https://nathanielcurnick.xyz"
+}

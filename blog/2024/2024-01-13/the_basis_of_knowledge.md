@@ -10,7 +10,7 @@ First, I wish to complete a more general framework of talking about logic. Secon
 
 The core idea of this article is epistemic justification. Epistemic justification is the capacity to provide some reason to believe a proposition is true. The concern is whether pure reason provides sufficient epistemic justification in some cases.
 
-Bonjour in his A Defense of Pure Reason begins by differentiating between two meanings of a priori
+Bonjour in his _A Defense of Pure Reason_ begins by differentiating between two meanings of a priori
 
 1. independent of appeal to experience
 2. with appeal to reason or pure thought
@@ -19,21 +19,21 @@ At this stage of our analysis, there is no reason to suppose these are the same 
 
 This links to the idea of acquisition. Consider one of the popular a priori examples "nothing can be red and green all over at the same time" (now called the red-green thesis). In the red-green thesis there is the issue that unless someone had some experience of "redness" and "greeness" there seems little reason for them to believe the proposition, or even to grasp it. One could limit the definition of the a priori to include only that which contains no reference to anything experiential at all. This is Kant's idea of "pure a priori knowledge". This also misses the point and conflates the ideas of acquisition and epistemic justification. The rationalist position is that no experience is necessary to draw conclusions from the premises, once the premises have been understood. We allow for the possibility that experience was needed to understand the propositions. Consider the favourite example "everything in the universe is or is not a forklift". To grasp this statement, one must have experienced the forklift, but no appeal to experience is necessary to understand the truth of the statement.
 
-Kripke in Naming and Necessity points out a simple fact about a priori reasoning which will be important to keep in mind later, especially when we critique the empiricist-positivist position. Kripke mentions that "a priori" and "necessary" are not the same thing (sometimes "certain" is also used). The concept of the a priori is an epistemological issue dealing with epistemic justification of some proposition. But necessary is a metaphysical concept dealing with existence. As Kripke explains
+Kripke in _Naming and Necessity_ points out a simple fact about a priori reasoning which will be important to keep in mind later, especially when we critique the empiricist-positivist position. Kripke mentions that "a priori" and "necessary" are not the same thing (sometimes "certain" is also used). The concept of the a priori is an epistemological issue dealing with epistemic justification of some proposition. But necessary is a metaphysical concept dealing with existence. As Kripke explains
 
 >We ask whether something might have been true, or might have been false. Well, if something is false, it's obviously not necessarily true. If it is true, might it have been otherwise? Is it possible that, in this respect, the world should have been different from the way it is ? If the answer is 'no', then this fact about the world is a necessary one. If the answer is 'yes', then this fact about the world is a contingent one. This in and of itself has nothing to do with anyone's knowledge of anything. It's certainly a philosophical thesis, and not a matter of obvious definitional equivalence, either that everything a priori is necessary or that everything necessary is a priori.
 
 ## Kant the Empiricist
 
-Before continuing on, I want to delve into more specifics of Kant. In my previous essay [_Introduction to Economics_](/blog/introduction-to-economics) I used the conception of Kantian philosophy as presented by Hoppe in Economic Science and the Austrian Method. While for that essay the "basic" presentation would suffice, here I want to dig into a deeper issue. The issue concerns Kant's original understanding of the synthetic a priori. As we will see, while Kant is typically considered to be the rationalist of history, his views are actually significantly closer to that of a moderate empiricism.
+Before continuing on, I want to delve into more specifics of Kant. In my previous essay [_Introduction to Economics_](/blog/introduction-to-economics) I used the conception of Kantian philosophy as presented by Hoppe in _Economic Science and the Austrian Method_. While for that essay the "basic" presentation would suffice, here I want to dig into a deeper issue. The issue concerns Kant's original understanding of the synthetic a priori. As we will see, while Kant is typically considered to be the rationalist of history, his views are actually significantly closer to that of a moderate empiricism.
 
-Kant's original definition of analytic is "the predicate B belongs to the subject A, as something which is (covertly) contained in this concept A". Such a judgement "as adding nothing through the predicate to the concept of the subject, but merely breaking it up into those constituent concepts that have all along been thought in it, though confusedly". In contrast a synthetic (or "ampliative") if "the predicate concept lies outside the subject concept and thus adds something to it". Thus, for example, "all bachelors are unmarried men" is analytic because "unmarried man" is contained within the concept of "bachelor" (or, rather, in this instance, they're the same concept). However, the phrase "all bachelors are lazy" is synthetic, since "lazy" is not contained within the idea of "bachelor" (this is the case whether the proposition is true or not). While this might seem to be rationalist in nature, Bonjour points out this is actually an admission for the empiricist. This, for instance, mirrors the understanding of "analytic" as given by Ayer in Language, Truth, Logic. We will return later to whether this account is in fact as unproblematic as it first seems.
+Kant's original definition of analytic is "the predicate B belongs to the subject A, as something which is (covertly) contained in this concept A". Such a judgement "as adding nothing through the predicate to the concept of the subject, but merely breaking it up into those constituent concepts that have all along been thought in it, though confusedly". In contrast a synthetic (or "ampliative") if "the predicate concept lies outside the subject concept and thus adds something to it". Thus, for example, "all bachelors are unmarried men" is analytic because "unmarried man" is contained within the concept of "bachelor" (or, rather, in this instance, they're the same concept). However, the phrase "all bachelors are lazy" is synthetic, since "lazy" is not contained within the idea of "bachelor" (this is the case whether the proposition is true or not). While this might seem to be rationalist in nature, Bonjour points out this is actually an admission for the empiricist. This, for instance, mirrors the understanding of "analytic" as given by Ayer in _Language, Truth, Logic_. We will return later to whether this account is in fact as unproblematic as it first seems.
 
 Kant focuses on synthetic a priori knowlede. Now, to the empiricist, such knowledge can not exist. Kant never doubts it. He offers putative examples of the phenomena though. For instance, the most common, 7+5=12. So if anything is a priori, this would be. However, how is this synthetic, not analytic? Kant says that the concept of "12" is not contained within the concept of "5+7". In other words, there's nothing about this union which immediately brings about the concept of "12". Bonjour says this must be true, but offers that a more clear example would be much more complex arithmetic operations. Ones where the concept of the arithmetic problem itself would be obvious, but not the solution. For example, one can grasp the concept of 36,000,145 / 4,987,234 without understanding the concept of "7.218459169952723" (which you can't really even grasp properly due to that not being a complete decimal representation).
 
 Bonjour goes on to argue that Kant's rationalist position is quite undermined by himself. Kant's idea is that synthetic a priori knowledge would not be possible if the "objects that such knowledge purports to describe were independent objects external to the knower, things-in-themselves that are part of independent, an sich reality" In other words, the mind so shapes or structures experience as to make the synthetic a priori propositions in question invariably come out true within the experiential realm. Thus, synthetic a priori knowledge, according to Kant, pertains only to the realm of appearances or phenomena, not to an sich reality.
 
-This mirrors an important distinction raised by Barry Smith in In Defense of Extreme (Fallibilistic) Apriorism. Smith makes a clear distinction between Mises and Rothbard in the understanding of the laws of human action, as Rothbard says
+This mirrors an important distinction raised by Barry Smith in _In Defense of Extreme (Fallibilistic) Apriorism_. Smith makes a clear distinction between Mises and Rothbard in the understanding of the laws of human action, as Rothbard says
 
 >Professor Mises, in the neo-Kantian tradition, considers [the law of human action] a law of thought and therefore a categorical truth a priori to all experience. My own epistemological position rests on Aristotle and St. Thomas rather than Kant, and hence I would interpret the proposition differently. I would consider the axiom a law of reality, rather than a law of thought
 
@@ -45,7 +45,7 @@ What is the alternative, given by Rothbard? As Smith explains
 
 >How is synthetic a priori knowledge possible? For the members of the Reinach group, as also for Aristotle, Aquinas and Rothbard, there exists an ontological a priori, an a priori in reality. The a priori status of judgments, propositions, beliefs or 'laws of thought' that is so central to the Kantian approach then proves to be derivative of this more deep-lying a priori dimension on the side of the things themselves.
 
-However, I have personally never read the works of Mises as anything but the more rationalist position as presented by Rothbard. It seems evident to me that the laws of human action are laws of reality, not merely laws of thought. Certainly, a deeper delve into the actual intended position of Mises in Human Action would be worthwhile, but digging into the exegetical questions here is beyond the scope of the current essay.
+However, I have personally never read the works of Mises as anything but the more rationalist position as presented by Rothbard. It seems evident to me that the laws of human action are laws of reality, not merely laws of thought. Certainly, a deeper delve into the actual intended position of Mises in _Human Action_ would be worthwhile, but digging into the exegetical questions here is beyond the scope of the current essay.
 
 In conclusion, the conceptions of a distinction between a priori, a posteriori, synthetic and analytic as given by Kant are useful conceptions, it is important to keep in mind that a full acceptance of the originary Kantian view would actually be an empirical position, not a rationalist one.
 
@@ -53,10 +53,9 @@ In conclusion, the conceptions of a distinction between a priori, a posteriori, 
 
 In this section we will be refuting the moderate empiricist position, the ones held by the likes of Ayer. The fundamental issue we will have to deal with in the empiricist-positivist position is how vague they can be with defining terms like "a priori" and "analytic". Furthermore, we aren't critiquing a single position, but rather a broad array of different positions, each of which define "analytic" in some different way.
 
-We will consider "analytic" in the reductive form as given by Gottlob Frege (developed across his whole body of working including e.g. Foundations of Arithmetric) , or Ayer in Language, Logic, Truth. The general conception is something like defining analytic as
+We will consider "analytic" in the reductive form as given by Gottlob Frege (developed across his whole body of working including e.g. _Foundations of Arithmetric_) , or Ayer in _Language, Truth, Logic_. The general conception is something like defining analytic as
 
 1. a substitution instance of a logically true statement or
-
 2. transformable into such a substitution instance by substituting synonyms for synonyms
 
 Ayer proposes something similar, that a priori truths are mere tautologies. To Ayer, this means they hold no substance, he says
@@ -129,7 +128,7 @@ Without some appeal to rational insight, it seems impossible to justify the move
 
 ## Is Logic Itself Empirical?
 
-Putnam raises several arguments that logic is in fact empirical in Philosophy of Logic and Is Logic Empirical. Let's summarise them first.
+Putnam raises several arguments that logic is in fact empirical in _Philosophy of Logic_ and _Is Logic Empirical_. Let's summarise them first.
 
 We generally think of logical truths as a special case of necessary truths, but Putnam points out that we now reject certain claims which were once thought necessary. Claims about straight parallel lines in geometry are now not only considered maybe false in some circumstances, but that they are in fact false. We note again that Kripke points out that a priori truths and necessary truths are often conflated - they are not even of the same "kind" of truth.
 
@@ -198,7 +197,7 @@ In classical physics you might do the cannon ball problem. It would go something
 
 Another way to think about this is in logic we might say something like "nobody can be both married and a bachelor". The definitions of married and bachelor are mutually exclusive. Now imagine John: I have no idea if John is married or not. It's a totally reasonable thing to say "John is either a bachelor or he is not a bachelor". I don't know which, but one of those options must be true. To suggest that I might need to adjust logic because I don't know enough information about John here would be absurd. The issue lies not in the logic, but in our capacity to gather enough information about the real world to apply that logic. Truly, everything in the universe is either a forklift or not a forklift.
 
-Looking at Kripke's second point now on the impossibility of adopting a logic. Allen Stairs in Could Logic be Empirical? The Putnam-Kripke Debate found in Logic and Algebraic Structures in Quantum Computing says
+Looking at Kripke's second point now on the impossibility of adopting a logic. Allen Stairs in _Could Logic be Empirical? The Putnam-Kripke Debate_ found in _Logic and Algebraic Structures in Quantum Computing_ says
 
 >Kripke’s larger point is that there is a problem at the core of Putnam’s view. Putnam, he thinks, believes that we could somehow decide to “adopt” a logic; Kripke insists that this is incoherent. We misunderstand logic if we think there are “logics” among which we could somehow choose. There is reasoning. Speciﬁc formal systems may or may not adequately capture aspects of correct reasoning. But there is no neutral place outside logic from which to decide what “logic” to adopt.
 
@@ -248,7 +247,7 @@ All of this is to simply say this: the fact that humans can continually discover
 
 ## Could Knowledge be Hermeneutical in Nature?
 
-Hoppe deals with this question in In Defence of Extreme Rationalism: Thoughts on Donald McCloskey's "The Rhetoric of Economics". In this essay, Hoppe critiques McCloskey's[1] work which proposes a hermeneutical interpretation of economics.
+Hoppe deals with this question in _In Defence of Extreme Rationalism: Thoughts on Donald McCloskey's "The Rhetoric of Economics"_. In this essay, Hoppe critiques McCloskey's[1] work which proposes a hermeneutical interpretation of economics.
 
 The hermeneutical position is that epistemologies are frameworks proposed to facilitate social cohesion rather than there being a "truth" to which they appeal. In other words, epistemology is a mere arbitrary social game rather than some scientific inquiry. As McCloskey says
 
@@ -313,8 +312,12 @@ Curnick, N. (2023) _Introduction to Economics_. Available online at [www.nathani
 
 Smith, B. (1996) _In Defence of Extreme (Fallibalistic) A Priorism_. Journal of Libertarian Studies, vol 12, no 1
 
-Hoppe, H.H. (1995) *Economic Science and the Austrian Method*. Ludwig von Mises Institute.
+Hoppe, H.H. (1995) _Economic Science and the Austrian Method_. Ludwig von Mises Institute.
 
-Kant, E. (1781) *The Critique of Pure Reason*
+Kant, E. (1781) _The Critique of Pure Reason_
 
-von Mises, L. (1949) *Human Action*. Ludwig von Mises Institute.
+von Mises, L. (1949) _Human Action_. Ludwig von Mises Institute.
+
+Ayer, A (1936) _Language, Truth, Logic_. Victor Gollancz Ltd.
+
+Bonjor, L (1998) _In Defense of Pure Reason_. Cambridge University Press.
