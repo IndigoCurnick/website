@@ -7,21 +7,10 @@ use plotly::{
 use rocket::Route;
 use rocket_dyn_templates::Template;
 
-use crate::{
-    database::insert_to_database,
-    utils::plotting::{add_trace, create_layout, LayoutOptions},
-    DOMAIN,
-};
+use crate::utils::plotting::{add_trace, create_layout, LayoutOptions};
 
 #[get("/courses/mathematics/basic-maths/numbers")]
 async fn numbers() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/numbers".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "courses/mathematics/basic_maths/1numbers",
@@ -31,13 +20,6 @@ async fn numbers() -> Template {
 
 #[get("/courses/mathematics/basic-maths/linear-equations")]
 async fn linear_equations() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/linear-equations".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("y3x2", &y3x2());
     context.insert("ym4xm6", &ym4xm6());
@@ -50,13 +32,6 @@ async fn linear_equations() -> Template {
 
 #[get("/courses/mathematics/basic-maths/quadratic-equations")]
 async fn quadratic_equations() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/quadratic-equations".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("basic_quadratic", &basic_quadratic());
     context.insert("negative_quadratic", &negative_quadratic());
@@ -73,13 +48,6 @@ async fn quadratic_equations() -> Template {
 
 #[get("/courses/mathematics/basic-maths/distances-and-angles")]
 async fn distance_angles() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/distances-and-angles".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("sin", &sing());
     context.insert("cos", &cosg());
@@ -95,13 +63,6 @@ async fn distance_angles() -> Template {
 
 #[get("/courses/mathematics/basic-maths/angles-parallel")]
 async fn angles_parallel() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/angles-parallel".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
 
     Template::render(
@@ -112,26 +73,12 @@ async fn angles_parallel() -> Template {
 
 #[get("/courses/mathematics/basic-maths/area")]
 async fn area() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/area".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("courses/mathematics/basic_maths/6area", context.into_json())
 }
 
 #[get("/courses/mathematics/basic-maths/coordinates")]
 async fn coordinates() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/coordinates".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("circle_graph", &cirlce_graph());
     context.insert("x_cubed", &x_cube_coord());
@@ -144,13 +91,6 @@ async fn coordinates() -> Template {
 
 #[get("/courses/mathematics/basic-maths/trigonometry")]
 async fn trigonometry() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/trigonometry".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("sin", &sing());
     context.insert("cos", &cosg());
@@ -165,13 +105,6 @@ async fn trigonometry() -> Template {
 
 #[get("/courses/mathematics/basic-maths/complex-numbers")]
 async fn complex_numbers() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/mathematics/basic-maths/complex-numbers".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "courses/mathematics/basic_maths/9complex_numbers",

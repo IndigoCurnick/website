@@ -5,7 +5,7 @@ use std::env;
 
 use blog_tools::{Blog, BlogEntry};
 use context::STATIC_BLOG_ENTRIES;
-use database::{insert_to_database, pg_init};
+
 use rocket::fs::{relative, FileServer};
 use rocket::response::Redirect;
 use rocket::routes;
@@ -20,7 +20,6 @@ use routes::courses::science::get_science_courses;
 use routes::toolbox::get_toolbox_routes;
 
 mod context;
-mod database;
 mod routes;
 mod utils;
 
@@ -42,9 +41,6 @@ async fn error(req: &Request<'_>) -> Redirect {
 
 #[get("/index")]
 async fn index() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), "/index".to_string()).await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
 
     let blog_context = get_blog_context();
@@ -55,9 +51,6 @@ async fn index() -> Template {
 
 #[get("/blog")]
 async fn blog_index() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), "/blog".to_string()).await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("blog", get_blog_context());
     Template::render("blog_index", context.into_json())
@@ -65,9 +58,6 @@ async fn blog_index() -> Template {
 
 #[get("/courses")]
 async fn courses_hub() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), "/courses".to_string()).await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("courses/courses", context.into_json())
 }
@@ -79,10 +69,7 @@ fn get_blog_context() -> &'static Blog {
 #[get("/blog/<slug>")]
 fn blog_article(slug: String) -> Option<Template> {
     let async_slug = slug.clone();
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), format!("/blog/{}", async_slug)).await;
-    });
-    // TODO: database entries in here
+
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
     let this_blog = match all_blogs.hash.get(&slug) {
@@ -96,9 +83,6 @@ fn blog_article(slug: String) -> Option<Template> {
 #[get("/blog/tag/<slug>")]
 fn tag_page(slug: String) -> Option<Template> {
     let async_slug = slug.clone();
-    tokio::spawn(async move {
-        insert_to_database(DOMAIN.to_string(), format!("/blog/tag/{}", async_slug)).await;
-    });
 
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
@@ -128,12 +112,6 @@ fn ping() -> RawOkText {
 #[rocket::main]
 async fn main() {
     println!("Booting up");
-    if !cfg!(debug_assertions) {
-        match pg_init().await {
-            Ok(()) => {}
-            Err(()) => panic!("Could not connect to the database"),
-        };
-    }
 
     let port = std::env::var("PORT")
         .ok()

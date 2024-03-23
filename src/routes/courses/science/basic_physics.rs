@@ -10,17 +10,8 @@ use plotly::{
     Layout, Plot, Scatter,
 };
 
-use crate::{database::insert_to_database, DOMAIN};
-
 #[get("/courses/science/basic-physics/kinematics")]
 pub async fn kinematics() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/kinematics".to_string(),
-        )
-        .await;
-    });
     let mut context = rocket_dyn_templates::tera::Context::new();
     let average_speed = average_speed_graph();
     let projectile = projectile_graph();
@@ -102,13 +93,6 @@ fn displacement(u: f64, a: f64, t: &f64) -> f64 {
 
 #[get("/courses/science/basic-physics/dynamics")]
 pub async fn dynamics() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/dynamics".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "courses/science/basic_physics/dynamics",
@@ -118,26 +102,12 @@ pub async fn dynamics() -> Template {
 
 #[get("/courses/science/basic-physics/fields")]
 pub async fn fields() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/fields".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("courses/science/basic_physics/fields", context.into_json())
 }
 
 #[get("/courses/science/basic-physics/rotation")]
 pub async fn rotation() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/rotation".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "courses/science/basic_physics/rotation",
@@ -147,13 +117,6 @@ pub async fn rotation() -> Template {
 
 #[get("/courses/science/basic-physics/oscillations")]
 pub async fn oscillations() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/oscillations".to_string(),
-        )
-        .await;
-    });
     let wave_graph = basic_wave();
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("basic_wave", &wave_graph);
@@ -165,13 +128,6 @@ pub async fn oscillations() -> Template {
 
 #[get("/courses/science/basic-physics/circuits")]
 pub async fn circuits() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/circuits".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render(
         "courses/science/basic_physics/circuits",
@@ -206,13 +162,6 @@ fn basic_wave() -> String {
 
 #[get("/courses/science/basic-physics/thermal")]
 pub async fn thermal() -> Template {
-    tokio::spawn(async move {
-        insert_to_database(
-            DOMAIN.to_string(),
-            "/courses/science/basic-physics/thermal".to_string(),
-        )
-        .await;
-    });
     let context = rocket_dyn_templates::tera::Context::new();
     Template::render("courses/science/basic_physics/thermal", context.into_json())
 }
