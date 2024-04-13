@@ -339,8 +339,8 @@ For instance, here's the JSON file for one of the blogs
         "paper",
         "rock"
     ],
-    "author_name": "Nathaniel Curnick",
-    "author_website": "https://nathanielcurnick.xyz"
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
 }
 ```
 
@@ -411,7 +411,7 @@ Now we have a way to take an incoming request, and process the correct template 
 
 If you run again and go to `localhost:8080/blog` you should see a nice blog, all templated out with cards. 
 
-If you'd like to see the full code for this tutorial, it's inside the [blog-tools repo](https://github.com/NathanielCurnick/blog-tools). You can also run it from the repo using 
+If you'd like to see the full code for this tutorial, it's inside the [blog-tools repo](https://github.com/IndigoCurnick/blog-tools). You can also run it from the repo using 
 
 ```
 cargo +nightly run --example blog  

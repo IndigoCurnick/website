@@ -1,7 +1,7 @@
 # Introducing Geodesic Tools
 
 As part of my job, I work with a lot of earth data. To make my life easier,
-I made a [small Rust library](https://github.com/NathanielCurnick/geodesic_coordinates_rs).
+I made a [small Rust library](https://github.com/IndigoCurnick/geodesic_coordinates_rs).
 I haven't put it on crates.io yet, because right now it feels like a hodgepodge 
 of different things useful to me, rather than a cohesive package. Plus, it 
 has little documentation or tests. Therefore, if you want to include it in your 
@@ -9,7 +9,7 @@ Rust project, add the following to your `Cargo.toml`
 
 ```
 [dependencies]
-geodesic_coordinates_rs = { git = "https://github.com/NathanielCurnick/geodesic_coordinates_rs", branch = "master" }
+geodesic_coordinates_rs = { git = "https://github.com/IndigoCurnick/geodesic_coordinates_rs", branch = "master" }
 ```
 
 In this article I'm just going to show you the distance and bearing calculators.

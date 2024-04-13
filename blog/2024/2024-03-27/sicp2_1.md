@@ -257,7 +257,7 @@ In general, it takes 1 bit to encode the most frequent symbol and _n-1_ bits to 
 
 ## Exercise 2.72
 
-In this question we're asked to consider the function we designed in 2.68 ([see the repo](https://github.com/NathanielCurnick/structure_interpretation_computer_programs)). Consider the special case of the frequencies described in 2.71 - what is the order of growth? 
+In this question we're asked to consider the function we designed in 2.68 ([see the repo](https://github.com/IndigoCurnick/structure_interpretation_computer_programs)). Consider the special case of the frequencies described in 2.71 - what is the order of growth? 
 
 <p>The order is \(O(n^2)\)</p>
 

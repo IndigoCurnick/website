@@ -344,7 +344,7 @@ for i in 0..data.t.len() {
         <p>
             For brevity, I took out the code that collects the values for plotting.
             Don't forget to check the
-            <a href="https://github.com/NathanielCurnick/kalman-filtering-rs">companion repository</a>
+            <a href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion repository</a>
             for everything.
         </p>
 

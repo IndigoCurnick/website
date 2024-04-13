@@ -34,7 +34,7 @@ rocket = "0.5.0-rc.1"
 rocket_codegen = "0.4.4"
 rocket_dyn_templates = { version = "0.1.0-rc.1", features = ["tera"] }
 lazy_static = "1.4.0"
-markdown = { git = "https://github.com/NathanielCurnick/markdown.rs", rev = "83a9c180f95fbfd7a688ad142263a8453d11c502" }
+markdown = { git = "https://github.com/IndigoCurnick/markdown.rs", rev = "83a9c180f95fbfd7a688ad142263a8453d11c502" }
 walkdir = "2.3.2"
 chrono = { version = "0.4.23", features = ["serde"] }
 ```
@@ -469,7 +469,7 @@ Finally, that leaves the main index page. I'll just use a stripped down version 
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Nathaniel Curnick's Webpage</title>
+    <title>Indigo Curnick's Webpage</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -477,7 +477,7 @@ Finally, that leaves the main index page. I'll just use a stripped down version 
 
 <body>
     <header>
-        <h1>Nathaniel Curnick's Webpage</h1>
+        <h1>Indigo Curnick's Webpage</h1>
     </header>
 
     {% include "utils/nav" %}

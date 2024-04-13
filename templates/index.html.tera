@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Nathaniel Curnick's Webpage</title>
+    <title>Indigo Curnick's Webpage</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,15 +11,15 @@
 
 <body>
     <header>
-        <h1>Nathaniel Curnick's Webpage</h1>
+        <h1>Indigo Curnick's Webpage</h1>
     </header>
 
     {% include "utils/nav" %}
 
     <main>
-        <img class="resright" src="/images/portrait_tiny.png" alt="Nathaniel" title="Nathaniel">
+        <img class="resright" src="/images/portrait_tiny.jpg" alt="Indigo" title="Indigo">
 
-        <p>Personal website for Nathaniel Curnick - software developer,
+        <p>Personal website for Indigo Curnick - software developer,
             physicist, and polymath
         </p>
 
@@ -34,10 +34,10 @@
             <dt><a href="https://discord.com/invite/uVK4BJT"><img src="/images/logos/discord.svg" alt="Discord logo">
                     Polymath Discord Server</a></dt>
             <dd> Polymath discord server I run. Come say hi!</a></dd>
-            <dt><a href="https://github.com/NathanielCurnick"><img src="/images/logos/git.svg" alt="git logo">
+            <dt><a href="https://github.com/IndigoCurnick"><img src="/images/logos/git.svg" alt="git logo">
                     Github</a></dt>
             <dd> My Github, where I maintain textbook solutions and programs for public use.</dd>
-            <dt><a href="https://www.linkedin.com/in/nathaniel-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
+            <dt><a href="https://www.linkedin.com/in/indigo-curnick-94680b151/"><img src="/images/logos/linkedin.svg"
                         alt="LinkedIn Logo"> LinkedIn</a></dt>
             <dd> My LinkedIn profile</dd>
 
@@ -67,13 +67,13 @@
             <div class="column">
                 <h3>Public Repositories</h3>
                 <ul style="padding:0">
-                    <li><a href="https://github.com/NathanielCurnick/kalman-filtering-rs">Kalman Filtering in Rust</a>
+                    <li><a href="https://github.com/IndigoCurnick/kalman-filtering-rs">Kalman Filtering in Rust</a>
                     </li>
-                    <li><a href="https://github.com/NathanielCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
-                    <li><a href="https://github.com/NathanielCurnick/geodesic_coordinates_rs">Navigating on or close to
+                    <li><a href="https://github.com/IndigoCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
+                    <li><a href="https://github.com/IndigoCurnick/geodesic_coordinates_rs">Navigating on or close to
                             the earth?</a></li>
-                    <li><a href="https://github.com/NathanielCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
-                    <li><a href="https://github.com/NathanielCurnick/TLAP_solutions">Think Like a Programmer
+                    <li><a href="https://github.com/IndigoCurnick/cpp_forums">C++ Forums Practice Problems</a></li>
+                    <li><a href="https://github.com/IndigoCurnick/TLAP_solutions">Think Like a Programmer
                             Solutions</a></li>
 
                 </ul>

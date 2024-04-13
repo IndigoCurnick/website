@@ -308,7 +308,7 @@ Putnam, H. (1972) _Philosophy of Logic_. Routledge.
 
 Hoppe, HH. (1989) _In Defence of Extreme Rationalism_. The Review of Austrian Economics, vol 3.
 
-Curnick, N. (2023) _Introduction to Economics_. Available online at [www.nathanielcurnick.xyz/blog/introduction-to-economics](www.nathanielcurnick.xyz/blog/introduction-to-economics)
+Curnick, N. (2023) _Introduction to Economics_. Available online at [www.indigocurnick.xyz/blog/introduction-to-economics](www.indigocurnick.xyz/blog/introduction-to-economics)
 
 Smith, B. (1996) _In Defence of Extreme (Fallibalistic) A Priorism_. Journal of Libertarian Studies, vol 12, no 1
 

@@ -23,8 +23,6 @@ mod context;
 mod routes;
 mod utils;
 
-pub static DOMAIN: &str = "nathanielcurnick.xyz";
-
 #[catch(404)]
 async fn not_found(req: &Request<'_>) -> Redirect {
     let mut context = rocket_dyn_templates::tera::Context::new();
@@ -68,8 +66,6 @@ fn get_blog_context() -> &'static Blog {
 
 #[get("/blog/<slug>")]
 fn blog_article(slug: String) -> Option<Template> {
-    let async_slug = slug.clone();
-
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
     let this_blog = match all_blogs.hash.get(&slug) {
@@ -82,8 +78,6 @@ fn blog_article(slug: String) -> Option<Template> {
 
 #[get("/blog/tag/<slug>")]
 fn tag_page(slug: String) -> Option<Template> {
-    let async_slug = slug.clone();
-
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
 

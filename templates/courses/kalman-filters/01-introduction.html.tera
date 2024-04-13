@@ -31,7 +31,7 @@
 
         <h2>Summary</h2>
         <ul>
-            <li>Check out the <a href="https://github.com/NathanielCurnick/kalman-filtering-rs">companion repository</a>
+            <li>Check out the <a href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion repository</a>
             </li>
             <li>The course is focused on practical Kalman filter use</li>
             <li>The course is not focused on explaining Kalman filter basics</li>
