@@ -3,7 +3,7 @@ extern crate rocket;
 
 use std::env;
 
-use blog_tools::{Blog, BlogEntry};
+use blog_tools::high::{HighBlog, HighBlogEntry};
 use context::STATIC_BLOG_ENTRIES;
 
 use rocket::fs::{relative, FileServer};
@@ -60,15 +60,16 @@ async fn courses_hub() -> Template {
     Template::render("courses/courses", context.into_json())
 }
 
-fn get_blog_context() -> &'static Blog {
+fn get_blog_context() -> &'static HighBlog {
     return &STATIC_BLOG_ENTRIES;
 }
 
-#[get("/blog/<slug>")]
-fn blog_article(slug: String) -> Option<Template> {
+#[get("/blog/<date>/<slug>", rank = 2)]
+fn blog_article(date: String, slug: String) -> Option<Template> {
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
-    let this_blog = match all_blogs.hash.get(&slug) {
+    let this_slug = format!("{}/{}", date, slug);
+    let this_blog = match all_blogs.hash.get(&this_slug) {
         Some(x) => x,
         None => return None,
     };
@@ -81,7 +82,7 @@ fn tag_page(slug: String) -> Option<Template> {
     let mut context = rocket_dyn_templates::tera::Context::new();
     let all_blogs = get_blog_context();
 
-    let mut these_blogs: Vec<&BlogEntry> = vec![];
+    let mut these_blogs: Vec<&HighBlogEntry> = vec![];
 
     for blog in &all_blogs.entries {
         if blog.tags.contains(&slug) {

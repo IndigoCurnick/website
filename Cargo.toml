@@ -21,7 +21,7 @@ chrono = { version = "0.4.23", features = ["serde"] }
 lazy_static = "1.4.0"
 markdown = "1.0.0-alpha.11"
 walkdir = "2.3.2"
-blog-tools = "0.0.2"
+blog-tools = "0.0.3"
 
 [profile.release]
 lto = true
