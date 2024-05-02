@@ -27,6 +27,9 @@
             <div class="blog-card">
                 <a href="/blog/{{ entry.slug }}" class="no-underline black-links">
                     <div class="card-body">
+                        <h2>
+                            <span>{{ entry.title }}</span>
+                        </h2>
                         <h5>
                             <span>{{ entry.date }}</span>
                         </h5>

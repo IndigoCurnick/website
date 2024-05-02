@@ -1,0 +1,17 @@
+{
+    "title": "Blog Tools 0.1.2",
+    "date": "2024-05-02",
+    "desc": "An update about blog-tools!",
+    "slug": "blog-tools-0-1-2",
+    "tags": [
+        "rustlang",
+        "programming"
+    ],
+    "keywords": [
+        "programming",
+        "rust",
+        "blog"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}

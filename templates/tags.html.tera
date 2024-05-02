@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,9 @@
             <div class="blog-card">
                 <a href="/blog/{{ entry.slug }}" class="no-underline black-links">
                     <div class="card-body">
+                        <h2>
+                            <span>{{ entry.title }}</span>
+                        </h2>
                         <h5>
                             <span>{{ entry.date }}</span>
                         </h5>
