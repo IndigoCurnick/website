@@ -1,8 +1,8 @@
 # Blog Tools Version 0.1.2
 
-Since the last time I wrote about `blog-tools` the crate has had quite a bit of development, so I thought now would be a good time to shout out about it.
+[Since the last time I wrote](/blog/2023-08-26/using-blog-tools) about `blog-tools` the crate has had quite a bit of development, so I thought now would be a good time to shout out about it.
 
-First, the create now comes with three working examples of a blog you can run right away. Simply clone the repo at https://github.com/IndigoCurnick/blog-tools and run
+First, the create now comes with three working examples of a blog you can run right away. Simply [clone the repo](https://github.com/IndigoCurnick/blog-tools) and run
 
 ```
 cargo run --example high

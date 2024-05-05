@@ -1,0 +1,17 @@
+{
+    "title": "SICP Chapter 3 Part 1",
+    "date": "2024-05-05",
+    "desc": "Some of the wordy problems of Structure and Interpretation of Computer Programs chapter 3",
+    "slug": "sicp3-1",
+    "tags": [
+        "rustlang",
+        "programming"
+    ],
+    "keywords": [
+        "programming",
+        "rust",
+        "Structure and Interpretation of Computer Programs"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
