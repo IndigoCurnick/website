@@ -1,12 +1,14 @@
 #[macro_use]
 extern crate rocket;
 
-use std::env;
+use std::{env, fs};
 
 use blog_tools::high::{HighBlog, HighBlogEntry};
+use blog_tools::Blog;
 use context::STATIC_BLOG_ENTRIES;
 
 use rocket::fs::{relative, FileServer};
+use rocket::response::content::RawXml;
 use rocket::response::Redirect;
 use rocket::routes;
 use rocket::{catchers, Route};
@@ -35,6 +37,13 @@ async fn error(req: &Request<'_>) -> Redirect {
     let mut context = rocket_dyn_templates::tera::Context::new();
     context.insert("url", req.uri());
     Redirect::to(uri!(index))
+}
+
+#[get("/sitemap.xml")]
+async fn sitemap() -> RawXml<String> {
+    let blog = get_blog_context();
+
+    return RawXml(blog.sitemap.clone());
 }
 
 #[get("/index")]
@@ -85,7 +94,7 @@ fn tag_page(slug: String) -> Option<Template> {
     let mut these_blogs: Vec<&HighBlogEntry> = vec![];
 
     for blog in &all_blogs.entries {
-        if blog.tags.contains(&slug) {
+        if blog.get_tags().contains(&slug) {
             these_blogs.push(&blog);
         }
     }
@@ -134,7 +143,14 @@ async fn main() {
 }
 
 fn get_all_routes() -> Vec<Route> {
-    let index_route = routes![index, blog_index, blog_article, tag_page, courses_hub];
+    let index_route = routes![
+        index,
+        blog_index,
+        blog_article,
+        tag_page,
+        courses_hub,
+        sitemap
+    ];
     let maths_courses = get_mathematics_courses_routes();
     let science_courses = get_science_courses();
     let kalman_courses = get_kalman_courses();

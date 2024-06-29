@@ -53,7 +53,8 @@
                 <ul style="padding:0">
                     {% if blog.entries %}
                     {% for i in [0,1,2,3] %}
-                    <li>{{ blog.entries[i].date }} <a href="/blog/{{blog.entries[i].slug}}">{{ blog.entries[i].title
+                    <li>{{ blog.entries[i].date }} <a href="/blog/{{blog.entries[i].date}}/{{blog.entries[i].slug}}">{{
+                            blog.entries[i].title
                             }}</a> </li>
                     {% endfor %}
                     {% else %}
