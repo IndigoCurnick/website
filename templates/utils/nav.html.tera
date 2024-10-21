@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <a href="/index">
+        <a href="/">
             <li>🏠 Home</li>
         </a>
         <a href="/blog">

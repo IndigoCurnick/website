@@ -7,11 +7,16 @@ use blog_tools::high::{HighBlog, HighBlogEntry};
 use blog_tools::Blog;
 use context::STATIC_BLOG_ENTRIES;
 
+use rocket::fairing::{Fairing, Info, Kind};
 use rocket::fs::{relative, FileServer};
+use rocket::http::uri::Origin;
+use rocket::http::Status;
 use rocket::response::content::RawXml;
 use rocket::response::Redirect;
-use rocket::routes;
+use rocket::shield::{Hsts, Shield};
+use rocket::time::Duration;
 use rocket::{catchers, Route};
+use rocket::{routes, Response};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
@@ -46,7 +51,7 @@ async fn sitemap() -> RawXml<String> {
     return RawXml(blog.sitemap.clone());
 }
 
-#[get("/index")]
+#[get("/")]
 async fn index() -> Template {
     let mut context = rocket_dyn_templates::tera::Context::new();
 
@@ -128,13 +133,17 @@ async fn main() {
         .merge(("address", "0.0.0.0"));
     // .merge(("secret_key", secret_key));
 
+    let hsts = Hsts::Enable(Duration::weeks(1));
+    let shield = Shield::default().enable(hsts);
+
     if let Err(e) = rocket::custom(figment)
         .mount("/", FileServer::from(relative!("assets/")))
         .register("/", catchers![not_found, error])
         .attach(Template::fairing())
-        // .attach(config)
+        .attach(shield)
+        .attach(SubdomainHandler)
+        .attach(www_redirect())
         .mount("/", get_all_routes())
-        // .manage(bucket_info)
         .launch()
         .await
     {
@@ -169,4 +178,67 @@ fn get_all_routes() -> Vec<Route> {
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;
+}
+
+/// Fairing to handle subdomain routing
+struct SubdomainHandler;
+
+#[rocket::async_trait]
+impl Fairing for SubdomainHandler {
+    fn info(&self) -> Info {
+        Info {
+            name: "Subdomain Router",
+            kind: Kind::Request,
+        }
+    }
+
+    async fn on_request(&self, request: &mut Request<'_>, _: &mut rocket::Data<'_>) {
+        if let Some(host) = request.headers().get_one("Host") {
+            if host.starts_with("subdomain1.") {
+                request.set_uri(Origin::parse("/subdomain").unwrap());
+            }
+        }
+    }
+}
+
+/// Fairing to handle www. to non-www redirection
+fn www_redirect() -> impl Fairing {
+    struct WwwRedirectFairing;
+
+    #[rocket::async_trait]
+    impl Fairing for WwwRedirectFairing {
+        fn info(&self) -> Info {
+            Info {
+                name: "WWW Redirect",
+                kind: Kind::Response,
+            }
+        }
+
+        // async fn on_request(&self, request: &mut Request<'_>, _: &mut rocket::Data<'_>) {
+        //     if let Some(host) = request.headers().get_one("Host") {
+        //         if host.starts_with("www.") {
+        //             // Strip the "www." from the host and redirect to the non-www version
+        //             let new_host = &host[4..]; // Remove the "www."
+        //             let uri = request.uri().to_string(); // Keep the rest of the URI path/query
+        //             let redirect_url = format!("https://{}{}", new_host, uri);
+        //             request.local_cache(|| Some(redirect_url)); // Cache the redirection URL
+        //         }
+        //     }
+        // }
+
+        async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
+            if let Some(host) = request.headers().get_one("Host") {
+                if host.starts_with("www.") {
+                    // Strip the "www." from the host and redirect to the non-www version
+                    let new_host = &host[4..]; // Remove the "www."
+                    let uri = request.uri().to_string(); // Keep the rest of the URI path/query
+                    let redirect_url = format!("https://{}{}", new_host, uri);
+                    response.set_status(Status::MovedPermanently);
+                    response.set_header(rocket::http::Header::new("Location", redirect_url));
+                }
+            }
+        }
+    }
+
+    WwwRedirectFairing
 }
