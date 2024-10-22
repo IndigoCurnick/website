@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Angles on Parallel Lines</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Angles on Parallel Lines</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
-    <header>
-        <h1>Angles on Parallel Lines</h1>
-    </header>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    {% include "utils/nav" %}
+    <body>
+        <header>
+            <h1>Angles on Parallel Lines</h1>
+        </header>
 
-    <main>
+        {% include "utils/nav" %}
 
-        <p>We've seen angles crop up a few times now. Let's look at some common 
-            properties of angles on lines that intersect parallel lines
-        </p>
+        <main>
 
-        <div class="aligncenter">
-            <img src="/images/180.png" alt="Angle on straight line" title="Angle on straight line">
-        </div>
+            <p>We've seen angles crop up a few times now. Let's look at some
+                common
+                properties of angles on lines that intersect parallel lines
+            </p>
 
-        <p>First, remember that an angle on a straight line, like in the image 
-            above, can be considered to be \(180^\circ\).
-        </p>
+            <div class="aligncenter">
+                <img src="/images/180.png" alt="Angle on straight line"
+                    title="Angle on straight line">
+            </div>
 
-        <p>And when two lines cross, there are pairs of equal angles, as in the 
-            image bellow
-        </p>
+            <p>First, remember that an angle on a straight line, like in the
+                image
+                above, can be considered to be \(180^\circ\).
+            </p>
 
-        <div class="aligncenter">
-            <img src="/images/cross.png" alt="Cross angles" title="Cross angles">
-        </div>
+            <p>And when two lines cross, there are pairs of equal angles, as in
+                the
+                image bellow
+            </p>
 
-        <p>So angles \(a\) and \(c\) are the same and angles \(b\) and \(d\) 
-            are the same. All four add up to \(360^\circ\).
-        </p>
+            <div class="aligncenter">
+                <img src="/images/cross.png" alt="Cross angles"
+                    title="Cross angles">
+            </div>
 
-        <p>When a line crosses through parallel lines, we get interesting 
-            properties. Look at the following diagram
-        </p>
+            <p>So angles \(a\) and \(c\) are the same and angles \(b\) and \(d\)
+                are the same. All four add up to \(360^\circ\).
+            </p>
 
-        <div class="aligncenter">
-            <img src="/images/parallel.png" alt="Angles on parallel lines" title="Angles on parallel lines">
-        </div>
+            <p>When a line crosses through parallel lines, we get interesting
+                properties. Look at the following diagram
+            </p>
 
-        <p>Alternate interior angles, sometimes called Z-angles, are equal. 
-            In this image \(c\) and \(f\) are an equal pair of alternate 
-            interior angles. Can you find another pair?
-        </p>
+            <div class="aligncenter">
+                <img src="/images/parallel.png" alt="Angles on parallel lines"
+                    title="Angles on parallel lines">
+            </div>
 
-        <p>Same side interior angles are supplementary - they add up to 
-            \(180^\circ\). In the image, \(c\) and \(e\) are a supplementary 
-            pair of same side interior angles. Can you find another pair?
-        </p>
+            <p>Alternate interior angles, sometimes called Z-angles, are equal.
+                In this image \(c\) and \(f\) are an equal pair of alternate
+                interior angles. Can you find another pair?
+            </p>
 
-        <p>Alternate exterior angles are equal. In the image, \(b\) and \(g\) 
-            are and equal pair of alternate exterior angles. Can you find 
-            another pair?
-        </p>
+            <p>Same side interior angles are supplementary - they add up to
+                \(180^\circ\). In the image, \(c\) and \(e\) are a supplementary
+                pair of same side interior angles. Can you find another pair?
+            </p>
 
-        <p>Same side exterior angles are supplementary. An example of same side 
-            exterior angles in the image are \(a\) and \(g\). Can you find 
-            another pair of same side exterior angles?
-        </p>
+            <p>Alternate exterior angles are equal. In the image, \(b\) and
+                \(g\)
+                are and equal pair of alternate exterior angles. Can you find
+                another pair?
+            </p>
 
-        <p>Corresponding angles are equal. An example of corresponding angles 
-            in the image are \(b\) and \(f\). Can you find another example of 
-            corresponding angles?
-        </p>
+            <p>Same side exterior angles are supplementary. An example of same
+                side
+                exterior angles in the image are \(a\) and \(g\). Can you find
+                another pair of same side exterior angles?
+            </p>
 
+            <p>Corresponding angles are equal. An example of corresponding
+                angles
+                in the image are \(b\) and \(f\). Can you find another example
+                of
+                corresponding angles?
+            </p>
 
-    </main>
+        </main>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-</body>
+    </body>
 
 </html>

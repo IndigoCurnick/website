@@ -1,226 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Thermal Physics</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Thermal Physics</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
-    <header>
-        <h1>Thermal Physics</h1>
-    </header>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    {% include "utils/nav" %}
+    <body>
+        <header>
+            <h1>Thermal Physics</h1>
+        </header>
 
-    <main>
-        <p style="display:none">
-            \(
-            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
-            \)
-        </p>
+        {% include "utils/nav" %}
 
-        <p>Thermal physics is the study of things like heat, temperature and 
-            the statistics of particles. Sometimes students struggle with this 
-            topic since sometimes the scientific understanding of temperature 
-            or heat is different to our intuition and day-to-day usage of those 
-            terms. So, this article will cover a definition of some of these 
-            basics concepts. This section will also not be very mathematically 
-            rigorous, since a full mathematical treatment of the subject is 
-            beyond the scope of this course.
-        </p>
+        <main>
+            <p style="display:none">
+                \(
+                \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+                \)
+            </p>
 
-        <p>Our first definition, heat. Heat is thermal energy in transit. 
-            This may seem simple but let's pause on this for a moment. We've 
-            used energy a lot so far in this course, but we never thought about 
-            what energy is as such. In some ways that's quite hard to answer, so 
-            we'll try to draw some analogies with kinetic energy. What is 
-            <i>thermal energy?</i> Well, thermal energy on a very micro-scale is 
-            actually just the movement of atoms. The physics of atoms are always 
-            very complex, and in this section we will make a very significant 
-            simplification. We will assume that atoms are just tiny hard spheres 
-            that move around. In reality, atoms are much more complex than this,
-            but this will suffice for now.
-        </p>
+            <p>Thermal physics is the study of things like heat, temperature and
+                the statistics of particles. Sometimes students struggle with
+                this
+                topic since sometimes the scientific understanding of
+                temperature
+                or heat is different to our intuition and day-to-day usage of
+                those
+                terms. So, this article will cover a definition of some of these
+                basics concepts. This section will also not be very
+                mathematically
+                rigorous, since a full mathematical treatment of the subject is
+                beyond the scope of this course.
+            </p>
 
-        <p>The <i>in transit</i> part of the definition of heat is very 
-            important, too. If you have some object, it makes no sense to 
-            discuss how much heat it has. Heat only "exists" when thermal energy 
-            moves from one material to another. Another point here is that 
-            heat has a tendency to flow in a particular direction naturally. 
-            That is, heat moves from hotter objects to cooler objects, naturally.
-            If we want heat to move from cooler objects into hotter objects, we 
-            need to spend energy in some way.  
-        </p>
+            <p>Our first definition, heat. Heat is thermal energy in transit.
+                This may seem simple but let's pause on this for a moment. We've
+                used energy a lot so far in this course, but we never thought
+                about
+                what energy is as such. In some ways that's quite hard to
+                answer, so
+                we'll try to draw some analogies with kinetic energy. What is
+                <i>thermal energy?</i> Well, thermal energy on a very
+                micro-scale is
+                actually just the movement of atoms. The physics of atoms are
+                always
+                very complex, and in this section we will make a very
+                significant
+                simplification. We will assume that atoms are just tiny hard
+                spheres
+                that move around. In reality, atoms are much more complex than
+                this,
+                but this will suffice for now.
+            </p>
 
-        <p>We've already alluded to another concept in physics - 
-            <i>temperature</i>. However, we used it in a very loose manner. We
-            would like to now be more rigorous. Temperature is defined as the 
-            average kinetic energy per molecule in a substance. We apply a 
-            scale to this. Some people use the Celsius scale and some use the 
-            Fahrenheit scale. However in physics we always use the Kelvin scale.
-            The Kelvin scale is 0K at absolute 0. This is the temperature at 
-            which an atom will no longer have any kinetic energy. Temperatures 
-            below this point are not possible. The steps in Kelvin are the same 
-            size as in the Celsius scale. In fact, the Celsius scale is simply 
-            offset from the Kelvin scale by approximately 273.15 degrees. In 
-            other words \(0^\circ C = 273.15K\)
-        </p>
+            <p>The <i>in transit</i> part of the definition of heat is very
+                important, too. If you have some object, it makes no sense to
+                discuss how much heat it has. Heat only "exists" when thermal
+                energy
+                moves from one material to another. Another point here is that
+                heat has a tendency to flow in a particular direction naturally.
+                That is, heat moves from hotter objects to cooler objects,
+                naturally.
+                If we want heat to move from cooler objects into hotter objects,
+                we
+                need to spend energy in some way.
+            </p>
 
-        <p>Why do we say <i>average</i> kinetic energy in the definition of 
-            temperature? This is because if we have a large number of molecules,
-            they won't all have the same kinetic energy. In fact, the kinetic 
-            energy will vary significantly between different molecules. Some 
-            will be moving very fast, and some much slower. So, we take the 
-            mean of that distribution, and that defines the temperature. We 
-            already talked of thermal energy, but now that concept should be 
-            easier to follow. Since temperature is the average kinetic energy 
-            per molecule, we can elaborate that thermal energy is the total 
-            kinetic energy of all molecules. 
-        </p>
+            <p>We've already alluded to another concept in physics -
+                <i>temperature</i>. However, we used it in a very loose manner.
+                We
+                would like to now be more rigorous. Temperature is defined as
+                the
+                average kinetic energy per molecule in a substance. We apply a
+                scale to this. Some people use the Celsius scale and some use
+                the
+                Fahrenheit scale. However in physics we always use the Kelvin
+                scale.
+                The Kelvin scale is 0K at absolute 0. This is the temperature at
+                which an atom will no longer have any kinetic energy.
+                Temperatures
+                below this point are not possible. The steps in Kelvin are the
+                same
+                size as in the Celsius scale. In fact, the Celsius scale is
+                simply
+                offset from the Kelvin scale by approximately 273.15 degrees. In
+                other words \(0^\circ C = 273.15K\)
+            </p>
 
-        <p>To really drive the point home, imagine two blocks of the same metal 
-            in thermal equilibrium. Block A weights 1kg and block B weights 10kg.
-            They will not exchange any heat, and their temperatures at the same.
-            Yet, block B has 10 times as much thermal energy as block A.
-        </p>
+            <p>Why do we say <i>average</i> kinetic energy in the definition of
+                temperature? This is because if we have a large number of
+                molecules,
+                they won't all have the same kinetic energy. In fact, the
+                kinetic
+                energy will vary significantly between different molecules. Some
+                will be moving very fast, and some much slower. So, we take the
+                mean of that distribution, and that defines the temperature. We
+                already talked of thermal energy, but now that concept should be
+                easier to follow. Since temperature is the average kinetic
+                energy
+                per molecule, we can elaborate that thermal energy is the total
+                kinetic energy of all molecules.
+            </p>
 
-        <p>So, why does heat tend to flow from higher temperature materials into 
-            lower temperature materials? This is a simple application of 
-            statistics. When two materials come into contact and they are not in
-            thermal equilibrium, it is more likely for fast moving molecules 
-            from the hot material to collide with slow moving molecules from the 
-            cold material than the other way around. This is simply a numbers 
-            game. When two molecules collide, on a micro-scale, kinetic energy 
-            will always be transferred from the faster moving molecule to the 
-            slower moving molecule. Occasionally, the colder object will 
-            transfer some heat to the hotter object, but on bulk heat will 
-            flow from the hotter object to the colder one.
-        </p>
+            <p>To really drive the point home, imagine two blocks of the same
+                metal
+                in thermal equilibrium. Block A weights 1kg and block B weights
+                10kg.
+                They will not exchange any heat, and their temperatures at the
+                same.
+                Yet, block B has 10 times as much thermal energy as block A.
+            </p>
 
-        <p>Since we have thought so much about energy, let's apply the law of
-            conservation of energy. Our first equation is
-        </p>
+            <p>So, why does heat tend to flow from higher temperature materials
+                into
+                lower temperature materials? This is a simple application of
+                statistics. When two materials come into contact and they are
+                not in
+                thermal equilibrium, it is more likely for fast moving molecules
+                from the hot material to collide with slow moving molecules from
+                the
+                cold material than the other way around. This is simply a
+                numbers
+                game. When two molecules collide, on a micro-scale, kinetic
+                energy
+                will always be transferred from the faster moving molecule to
+                the
+                slower moving molecule. Occasionally, the colder object will
+                transfer some heat to the hotter object, but on bulk heat will
+                flow from the hotter object to the colder one.
+            </p>
 
-        <p>\[\Delta Q + \Delta W = \Delta U\]</p>
+            <p>Since we have thought so much about energy, let's apply the law
+                of
+                conservation of energy. Our first equation is
+            </p>
 
-        <p>\(\Delta Q\) is the heat entering an object, \(\Delta W\) is the 
-            work done on an object and \(\Delta U\) is the change in internal 
-            energy of an object.
-        </p>
+            <p>\[\Delta Q + \Delta W = \Delta U\]</p>
 
-        <p>In a basic study of thermal physics, we often deal with the ideal 
-            gas. The equation for the internal energy of the idea gas is given 
-            by
-        </p>
+            <p>\(\Delta Q\) is the heat entering an object, \(\Delta W\) is the
+                work done on an object and \(\Delta U\) is the change in
+                internal
+                energy of an object.
+            </p>
 
-        <p>\[U = \sum_i \frac{1}{2} mv_i^2 = \frac{3}{2}NkT\]</p>
+            <p>In a basic study of thermal physics, we often deal with the ideal
+                gas. The equation for the internal energy of the idea gas is
+                given
+                by
+            </p>
 
-        <p>Where \(N\) is the number of molecules, \(k\) is the Boltzmann 
-            constant, \(T\) is the temperature, \(m\) is the mass of each 
-            molecule (assumed here to be the same) and \(v_i\) is the 
-            velocity of each molecule.
-        </p>
+            <p>\[U = \sum_i \frac{1}{2} mv_i^2 = \frac{3}{2}NkT\]</p>
 
-        <p>There are a few thermal processes:</p>
+            <p>Where \(N\) is the number of molecules, \(k\) is the Boltzmann
+                constant, \(T\) is the temperature, \(m\) is the mass of each
+                molecule (assumed here to be the same) and \(v_i\) is the
+                velocity of each molecule.
+            </p>
 
-        <p><i>Adiabatic</i>: this is a process in which \(\Delta Q = 0\). 
-            This is a process where no heat is transferred. While this isn't
-            necessarily possible in real life, it can be approximated with 
-            processes that occur so quickly that there is insufficient time for 
-            heat transfer.
-        </p>
+            <p>There are a few thermal processes:</p>
 
-        <p><i>Isothermal</i>: This is a process where there is no change in 
-            temperature, so \(\Delta U = 0\). 
-        </p>
+            <p><i>Adiabatic</i>: this is a process in which \(\Delta Q = 0\).
+                This is a process where no heat is transferred. While this isn't
+                necessarily possible in real life, it can be approximated with
+                processes that occur so quickly that there is insufficient time
+                for
+                heat transfer.
+            </p>
 
-        <p><i>Isochoric</i>: This process means there is no work done, so 
-            \(\Delta W = 0\). This would be achieved by not allowing the system
-            to expand or contract.
-        </p>
+            <p><i>Isothermal</i>: This is a process where there is no change in
+                temperature, so \(\Delta U = 0\).
+            </p>
 
-        <p>Let's now take a closer look at the ideal gasses we've talked about 
-            so far. Consider an ideal gas that undergoes some thermal process.
-            It will follow these three laws
-        </p>
+            <p><i>Isochoric</i>: This process means there is no work done, so
+                \(\Delta W = 0\). This would be achieved by not allowing the
+                system
+                to expand or contract.
+            </p>
 
-        <p><b>Boyles law</b>: When the temperature is held constant, the volume 
-            is inversely proportional to the pressure. For a thermal process, 
-            the below holds. The pressure times volume before the thermal 
-            process is the same as the pressure times volume after the thermal 
-            process.
-        </p>
+            <p>Let's now take a closer look at the ideal gasses we've talked
+                about
+                so far. Consider an ideal gas that undergoes some thermal
+                process.
+                It will follow these three laws
+            </p>
 
-        <p>\[p_1 V_1 = p_2 V_2\]</p>
+            <p><b>Boyles law</b>: When the temperature is held constant, the
+                volume
+                is inversely proportional to the pressure. For a thermal
+                process,
+                the below holds. The pressure times volume before the thermal
+                process is the same as the pressure times volume after the
+                thermal
+                process.
+            </p>
 
-        <p><b>Charle's Law</b>: When the pressure is held constant, the volume 
-            is proportional to the temperature. For a thermal process, we can 
-            write the following.
-        </p>
+            <p>\[p_1 V_1 = p_2 V_2\]</p>
 
-        <p>\[\frac{V_1}{T_1} = \frac{V_2}{T_2}\]</p>
+            <p><b>Charle's Law</b>: When the pressure is held constant, the
+                volume
+                is proportional to the temperature. For a thermal process, we
+                can
+                write the following.
+            </p>
 
-        <p><b>Gay-Lussac's Law</b>: Given a constant volume, the pressure is 
-            proportional to the temperature. For a thermal process, we can write 
-            the following.
-        </p>
+            <p>\[\frac{V_1}{T_1} = \frac{V_2}{T_2}\]</p>
 
-        <p>\[\frac{p_1}{T_1} = \frac{p_2}{T_2}\]</p>
+            <p><b>Gay-Lussac's Law</b>: Given a constant volume, the pressure is
+                proportional to the temperature. For a thermal process, we can
+                write
+                the following.
+            </p>
 
-        <p>If we combine these three laws into one constant equation for a 
-            general thermal process on an ideal gas we find
-        </p>
+            <p>\[\frac{p_1}{T_1} = \frac{p_2}{T_2}\]</p>
 
-        <p>\[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2}\]</p>
+            <p>If we combine these three laws into one constant equation for a
+                general thermal process on an ideal gas we find
+            </p>
 
-        <p>How does the mass of each gas molecule impact the variables? 
-            Empirically, we find that
-        </p>
+            <p>\[\frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2}\]</p>
 
-        <p>\[pV = AmT\]</p>
+            <p>How does the mass of each gas molecule impact the variables?
+                Empirically, we find that
+            </p>
 
-        <p>Where \(A\) is some constant, that varies from gas to gas. It would 
-            be more helpful if this were put in terms of more general constants.
-            If we use the number of moles of gas we have instead of mass, we 
-            will have
-        </p>
+            <p>\[pV = AmT\]</p>
 
-        <p>\[pV = nRT\]</p>
+            <p>Where \(A\) is some constant, that varies from gas to gas. It
+                would
+                be more helpful if this were put in terms of more general
+                constants.
+                If we use the number of moles of gas we have instead of mass, we
+                will have
+            </p>
 
-        <p>Where \(n\) is the number of moles of gas and \(R\) is the molar gas 
-            constant. This is the same constant for all ideal gasses. Another 
-            form is given by
-        </p>
+            <p>\[pV = nRT\]</p>
 
-        <p>\[pV = NkT\]</p>
+            <p>Where \(n\) is the number of moles of gas and \(R\) is the molar
+                gas
+                constant. This is the same constant for all ideal gasses.
+                Another
+                form is given by
+            </p>
 
-        <p>Where \(N\) is the total number of molecules, and \(k\) is the 
-            Boltzmann constant. \(R\) and \(k\) are related by
-        </p>
+            <p>\[pV = NkT\]</p>
 
-        <p>\[k = \frac{R}{N_A}\]</p>
+            <p>Where \(N\) is the total number of molecules, and \(k\) is the
+                Boltzmann constant. \(R\) and \(k\) are related by
+            </p>
 
-        <p>Where \(N_A\) is Avogadro's constant</p>
+            <p>\[k = \frac{R}{N_A}\]</p>
 
-        <p>An ideal gas is defined by these equations. Specifically, if a gas 
-            obeys \(pV = nRT\) at all pressures, volumes and temperatures, then 
-            it is an ideal gas. Practically, gasses tend to approximate ideal 
-            gasses quite well as long as the temperature is far above the 
-            boiling point but the pressure is not high.
-        </p>
+            <p>Where \(N_A\) is Avogadro's constant</p>
 
-    </main>
+            <p>An ideal gas is defined by these equations. Specifically, if a
+                gas
+                obeys \(pV = nRT\) at all pressures, volumes and temperatures,
+                then
+                it is an ideal gas. Practically, gasses tend to approximate
+                ideal
+                gasses quite well as long as the temperature is far above the
+                boiling point but the pressure is not high.
+            </p>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        </main>
 
-</body>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+    </body>
 
 </html>

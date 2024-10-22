@@ -1,266 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Quadratic Equations</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Quadratic Equations</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
-    <header>
-        <h1>Quadratic Equations</h1>
-    </header>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    {% include "utils/nav" %}
+    <body>
+        <header>
+            <h1>Quadratic Equations</h1>
+        </header>
 
-    <main>
+        {% include "utils/nav" %}
 
+        <main>
 
-        <p>So far we have only looked at linear equations. What this means in
-            this context is none of the variables have had an exponent (other
-            than, technically, 1). We will now start to look at equations that
-            have a power of 2 in them.
-        </p>
-        
-        <p>Let's start by graphing a basic quadratic equation. What we will
-            consider is the most basic equation possible \(y = x^2\)
-        </p>
-        
-        <div>{{basic_quadratic | safe}}</div>
-        
-        <p>The important thing to note about this graph is that it is
-            symmetrical. Consider drawing a horizontal line anywhere above the
-            x-axis. Other than at 0, we can easily see that this line will pass
-            through two points. This is really significant - this means that for
-            any solution that is not 0, this simple equation has <i>two</i>
-            solutions. Consider \(x^2 = 4\). Obviously, the solution is
-            \(x = \sqrt{4}\). But what is \(\sqrt{4}\)? There are two possible
-            values: both 2 and -2. <i>Generally, quadratic equations have
-                two solutions, a positive one and a negative one
-            </i>
-        </p>
-        
-        <p>Let's look at the more general quadratic equation</p>
-        
-        <p>\[y = ax^2 + bx + c\]</p>
-        
-        <p>\(a\) is the scaling factor. The larger \(a\) the steeper the rise of
-            the curve. If \(a\) is negative then the graph will be mirrored in
-            the x-axis. Below is a plot of \(y = -x^2\).
-        </p>
-        
-        <div>{{negative_quadratic | safe}}</div>
-        
-        <p>\(b\) moves the graph from left to right and down. If \(b\) is
-            positive then the graph will overall shift to the left, and the
-            lowest point will shift down if \(a\) is positive. If \(a\) is
-            negative a positive \(b\) will shift the graph to the left and up.
-            These statements are all reversed for a negative \(a\). The next
-            graph shows \(y = x^2 + 2x\) and \(y = -x^2 - 4x\).
-        </p>
-        
-        <div>{{showing_linear_term | safe}}</div>
-        
-        <p>Finally \(c\) is totally analogous to the c we met before in the
-            linear section - it simply shifts the graph up and down. The next
-            graph shows \(y = x^2 + 5\) and \(y = -x^2 - 3x - 2\).
-        </p>
-        
-        <div>{{showing_constant_term | safe}}</div>
-        
-        <p>Now that we have an understanding of how a quadratic equation behaves
-            let's explore methods of solving it. First, let's work on expanding
-            and factorising brackets. Consider the following
-        </p>
-        
-        <p>\[y = (x + a)(x + b)\]</p>
-        
-        <p>Expanded this becomes</p>
-        
-        <p>\[y = x^2 + ax + bx + ab\]</p>
-        
-        <p>Notice how after expanding this bracket we have a quadratic equation.
-            Expanding the brackets is very easy and mechanical, and in general
-        </p>
-        
-        <p>\[(a+b)(c+d) = ac + bc + ad + bd\]</p>
-        
-        <p>Some people remember this with the acronym FOIL. You need to multiply
-            the First, then the Inside, then the Outside, then the Last.
-            However, if the brackets have more than two terms each then this
-            breaks down, so I try to think about multiplying every term in the
-            left bracket with every term in the right bracket.
-        </p>
-        
-        <p>Expand the following brackets</p>
+            <p>So far we have only looked at linear equations. What this means
+                in
+                this context is none of the variables have had an exponent
+                (other
+                than, technically, 1). We will now start to look at equations
+                that
+                have a power of 2 in them.
+            </p>
 
-        <ol id="two-columns">
-            <li>\((x + 2)(x - 3)\)</li>
-            <li>\((x+1)(x-1)\)</li>
-            <li>\((x+1)(x+1)\)</li>
-            <li>\((2x+3)(x+2)\)</li>
-        </ol>
-        
-        <details style="text-decoration:none;">
-            <summary>Solutions</summary>
+            <p>Let's start by graphing a basic quadratic equation. What we will
+                consider is the most basic equation possible \(y = x^2\)
+            </p>
+
+            <div>{{basic_quadratic | safe}}</div>
+
+            <p>The important thing to note about this graph is that it is
+                symmetrical. Consider drawing a horizontal line anywhere above
+                the
+                x-axis. Other than at 0, we can easily see that this line will
+                pass
+                through two points. This is really significant - this means that
+                for
+                any solution that is not 0, this simple equation has <i>two</i>
+                solutions. Consider \(x^2 = 4\). Obviously, the solution is
+                \(x = \sqrt{4}\). But what is \(\sqrt{4}\)? There are two
+                possible
+                values: both 2 and -2. <i>Generally, quadratic equations have
+                    two solutions, a positive one and a negative one
+                </i>
+            </p>
+
+            <p>Let's look at the more general quadratic equation</p>
+
+            <p>\[y = ax^2 + bx + c\]</p>
+
+            <p>\(a\) is the scaling factor. The larger \(a\) the steeper the
+                rise of
+                the curve. If \(a\) is negative then the graph will be mirrored
+                in
+                the x-axis. Below is a plot of \(y = -x^2\).
+            </p>
+
+            <div>{{negative_quadratic | safe}}</div>
+
+            <p>\(b\) moves the graph from left to right and down. If \(b\) is
+                positive then the graph will overall shift to the left, and the
+                lowest point will shift down if \(a\) is positive. If \(a\) is
+                negative a positive \(b\) will shift the graph to the left and
+                up.
+                These statements are all reversed for a negative \(a\). The next
+                graph shows \(y = x^2 + 2x\) and \(y = -x^2 - 4x\).
+            </p>
+
+            <div>{{showing_linear_term | safe}}</div>
+
+            <p>Finally \(c\) is totally analogous to the c we met before in the
+                linear section - it simply shifts the graph up and down. The
+                next
+                graph shows \(y = x^2 + 5\) and \(y = -x^2 - 3x - 2\).
+            </p>
+
+            <div>{{showing_constant_term | safe}}</div>
+
+            <p>Now that we have an understanding of how a quadratic equation
+                behaves
+                let's explore methods of solving it. First, let's work on
+                expanding
+                and factorising brackets. Consider the following
+            </p>
+
+            <p>\[y = (x + a)(x + b)\]</p>
+
+            <p>Expanded this becomes</p>
+
+            <p>\[y = x^2 + ax + bx + ab\]</p>
+
+            <p>Notice how after expanding this bracket we have a quadratic
+                equation.
+                Expanding the brackets is very easy and mechanical, and in
+                general
+            </p>
+
+            <p>\[(a+b)(c+d) = ac + bc + ad + bd\]</p>
+
+            <p>Some people remember this with the acronym FOIL. You need to
+                multiply
+                the First, then the Inside, then the Outside, then the Last.
+                However, if the brackets have more than two terms each then this
+                breaks down, so I try to think about multiplying every term in
+                the
+                left bracket with every term in the right bracket.
+            </p>
+
+            <p>Expand the following brackets</p>
+
             <ol id="two-columns">
-                <li>\(x^2 - x - 6\)</li>
-                <li>\(x^2 - 1\)</li>
-                <li>\(x^2 + 2x + 1\)</li>
-                <li>\(2x^2 + 7x + 6\)</li>
+                <li>\((x + 2)(x - 3)\)</li>
+                <li>\((x+1)(x-1)\)</li>
+                <li>\((x+1)(x+1)\)</li>
+                <li>\((2x+3)(x+2)\)</li>
             </ol>
-        </details>
-        
-        <p>Factorising brackets is the reverse of expanding them. This is much,
-            much harder than expanding brackets. Unfortunately there is no
-            systematic technique to factorise every quadratic equation. Some of
-            it comes down to intuition. Let's look at an example. We'll try and
-            factorise \(x^2 + 2x - 8\). Let's think about our goal here. We are
-            looking for two numbers the multiply to give -8 but add to give 2. I
-            often start by writing down all the candidate numbers that multiply
-            to give -8. There's 1 and -8, -1 and 8, 2 and -4, -2 and 4. Do any
-            of these pairs sum to 2? Yes! -2 and 4 sum to 2. So we can conclude
-            that the factorisation is \((x - 2)(x + 4)\). It's easy to make a
-            mistake when factorising equations, so <i>always</i> expand them
-            again to check you have the right result. Remember, <i>expanding</i>
-            brackets is easy, <i>factorising</i> equations is hard (this
-            fact is used in computer science to help with security).
-        </p>
 
-        <p>Factorise the following expressions</p>
+            <details style="text-decoration:none;">
+                <summary>Solutions</summary>
+                <ol id="two-columns">
+                    <li>\(x^2 - x - 6\)</li>
+                    <li>\(x^2 - 1\)</li>
+                    <li>\(x^2 + 2x + 1\)</li>
+                    <li>\(2x^2 + 7x + 6\)</li>
+                </ol>
+            </details>
 
-        <ol id="two-columns">
-            <li>\(x^2 + 17x + 60\)</li>
-            <li>\(x^2 -5x - 36\)</li>
-            <li>\(x^2 - 14x + 48\)</li>
-            <li>\(x^2 + 2x - 24\)</li>
-        </ol>
-        
-        <details style="text-decoration:none;">
-            <summary>Solutions</summary>
+            <p>Factorising brackets is the reverse of expanding them. This is
+                much,
+                much harder than expanding brackets. Unfortunately there is no
+                systematic technique to factorise every quadratic equation. Some
+                of
+                it comes down to intuition. Let's look at an example. We'll try
+                and
+                factorise \(x^2 + 2x - 8\). Let's think about our goal here. We
+                are
+                looking for two numbers the multiply to give -8 but add to give
+                2. I
+                often start by writing down all the candidate numbers that
+                multiply
+                to give -8. There's 1 and -8, -1 and 8, 2 and -4, -2 and 4. Do
+                any
+                of these pairs sum to 2? Yes! -2 and 4 sum to 2. So we can
+                conclude
+                that the factorisation is \((x - 2)(x + 4)\). It's easy to make
+                a
+                mistake when factorising equations, so <i>always</i> expand them
+                again to check you have the right result. Remember,
+                <i>expanding</i>
+                brackets is easy, <i>factorising</i> equations is hard (this
+                fact is used in computer science to help with security).
+            </p>
+
+            <p>Factorise the following expressions</p>
+
             <ol id="two-columns">
-                <li>\((x+5)(x+12)\)</li>
-                <li>\((x-9)(x+4)\)</li>
-                <li>\((x-6)(x-8)\)</li>
-                <li>\((x+6)(x-4)\)</li>
+                <li>\(x^2 + 17x + 60\)</li>
+                <li>\(x^2 -5x - 36\)</li>
+                <li>\(x^2 - 14x + 48\)</li>
+                <li>\(x^2 + 2x - 24\)</li>
             </ol>
-        </details>
-        
-        <p>What is the significance of factorising equations? Typically, with
-            and equation we want to know its root, that is, where it crosses the
-            x-axis. It's very easy to find the roots of a factorised equation.
-            Consider our solution above - \((x - 2)(x + 4)\). Let's set it
-            to 0, which will let us find the roots. In order to be 0, either of
-            the two brackets can be 0. So we set <i>them</i> to 0. This gives
-            us the equations \(x - 2 = 0\) and \(x + 4 = 0\) to solve, which
-            should be very easy by now. The roots are \(x = 2, -4\). The graph
-            is shown below.
-        </p>
-        
-        
-        
-        <div>{{first_solution | safe}}</div>
-        
-        {# TODO: Workshop for equations with a =/= 1 #}
-        
-        <p>Try the following on your own. Factorise the equation, and find the
-            roots.
-        </p>
-        
-        {# TODO: practice problems #}
-        
-        <p>Sometimes, it's quite hard to factorise equations. Consider the
-            following equation.
-        </p>
-        
-        <p>\[x^2 + 5x + 1 = 0\]</p>
-        
-        <p>If you tried to solve it using the techniques you know so far, it
-            could be quite frustrating, especially since the solutions are
-            \(x = -\frac{5}{2} - \frac{\sqrt{21}}{2},
-            \frac{\sqrt{21}}{2} - \frac{5}{2}\). Not easy. Fortunately, there is
-            a better way to solve this. We use the quadratic formula
-        </p>
-        
-        <p>\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</p>
-        
-        <p>Where the \(a, b, c\) refer to equations in this form</p>
-        
-        <p>\[ax^2 + bx + c = 0\]</p>
-        
-        <p>This is one of the most important equations, so please commit it to
-            memory. Notice that there is a \(\pm\) in the equation. This means
-            it needs to be done twice, once for the positive and once for the
-            negative. This reflects how quadratic equations generally have two
-            solutions.
-        </p>
-        
-        <p>Let's try and solve \(x^2 + 5x + 1 = 0\) using the formula.
-            We can see that \(a = 1\), \(b = 5\) and \(c = 1\). Plugging these
-            in we get
-        </p>
-        
-        <p>\[x = \frac{-5 + \sqrt{25 - 4}}{2} =
-            \frac{\sqrt{21}}{2} - \frac{5}{2}\]</p>
-        
-        <p>\[x = \frac{-5 - \sqrt{25 - 4}}{2} =
-            -\frac{\sqrt{21}}{2} - \frac{5}{2}\]</p>
 
-        <p>The graph for this equation looks like</p>
+            <details style="text-decoration:none;">
+                <summary>Solutions</summary>
+                <ol id="two-columns">
+                    <li>\((x+5)(x+12)\)</li>
+                    <li>\((x-9)(x+4)\)</li>
+                    <li>\((x-6)(x-8)\)</li>
+                    <li>\((x+6)(x-4)\)</li>
+                </ol>
+            </details>
 
-        <div>{{quadratic_formula | safe}}</div>
-        
-        {# TODO: Pratice problems here #}
-        
-        <p>There's one more thing to consider for now when it comes to quadratic
-            equations. Consider the equation \(-x^2 + x - 1 = 0\). Let's plug it
-            into the quadratic formula.
-        </p>
-        
-        <p>\[x = \frac{-1 \pm \sqrt{1 - 4}}{-2} = \frac{-1 \pm \sqrt{-3}}{-2}\]
-        </p>
-        
-        <p>Notice the square root? It's \(\sqrt{-3}\). The square root of a
-            negative number doesn't exist. We would say this equation has no
-            real roots, and the graph below of the equation should show you why.
-            There are ways to handle these kinds of equations, but we will come
-            back to them much later on.
-        </p>
-        
-        <div>{{no_roots | safe}}</div>
+            <p>What is the significance of factorising equations? Typically,
+                with
+                and equation we want to know its root, that is, where it crosses
+                the
+                x-axis. It's very easy to find the roots of a factorised
+                equation.
+                Consider our solution above - \((x - 2)(x + 4)\). Let's set it
+                to 0, which will let us find the roots. In order to be 0, either
+                of
+                the two brackets can be 0. So we set <i>them</i> to 0. This
+                gives
+                us the equations \(x - 2 = 0\) and \(x + 4 = 0\) to solve, which
+                should be very easy by now. The roots are \(x = 2, -4\). The
+                graph
+                is shown below.
+            </p>
 
-        <p>Use the quadratic formula to find the roots of the following 
-            equations
-        </p>
+            <div>{{first_solution | safe}}</div>
 
-        <ol id="two-columns">
-            <li>\(x^2 + 3x - 2 = 0\)</li>
-            <li>\(2x^2 - 5x + 7 = 0\)</li>
-            <li>\(3x^2 - 4x + 1 = 0\)</li>
-            <li>\(4x^2 + 5x - 6 = 0\)</li>
-        </ol>
-        
-        <details style="text-decoration:none;">
-            <summary>Solutions</summary>
+            {# TODO: Workshop for equations with a =/= 1 #}
+
+            <p>Try the following on your own. Factorise the equation, and find
+                the
+                roots.
+            </p>
+
+            {# TODO: practice problems #}
+
+            <p>Sometimes, it's quite hard to factorise equations. Consider the
+                following equation.
+            </p>
+
+            <p>\[x^2 + 5x + 1 = 0\]</p>
+
+            <p>If you tried to solve it using the techniques you know so far, it
+                could be quite frustrating, especially since the solutions are
+                \(x = -\frac{5}{2} - \frac{\sqrt{21}}{2},
+                \frac{\sqrt{21}}{2} - \frac{5}{2}\). Not easy. Fortunately,
+                there is
+                a better way to solve this. We use the quadratic formula
+            </p>
+
+            <p>\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</p>
+
+            <p>Where the \(a, b, c\) refer to equations in this form</p>
+
+            <p>\[ax^2 + bx + c = 0\]</p>
+
+            <p>This is one of the most important equations, so please commit it
+                to
+                memory. Notice that there is a \(\pm\) in the equation. This
+                means
+                it needs to be done twice, once for the positive and once for
+                the
+                negative. This reflects how quadratic equations generally have
+                two
+                solutions.
+            </p>
+
+            <p>Let's try and solve \(x^2 + 5x + 1 = 0\) using the formula.
+                We can see that \(a = 1\), \(b = 5\) and \(c = 1\). Plugging
+                these
+                in we get
+            </p>
+
+            <p>\[x = \frac{-5 + \sqrt{25 - 4}}{2} =
+                \frac{\sqrt{21}}{2} - \frac{5}{2}\]</p>
+
+            <p>\[x = \frac{-5 - \sqrt{25 - 4}}{2} =
+                -\frac{\sqrt{21}}{2} - \frac{5}{2}\]</p>
+
+            <p>The graph for this equation looks like</p>
+
+            <div>{{quadratic_formula | safe}}</div>
+
+            {# TODO: Pratice problems here #}
+
+            <p>There's one more thing to consider for now when it comes to
+                quadratic
+                equations. Consider the equation \(-x^2 + x - 1 = 0\). Let's
+                plug it
+                into the quadratic formula.
+            </p>
+
+            <p>\[x = \frac{-1 \pm \sqrt{1 - 4}}{-2} = \frac{-1 \pm
+                \sqrt{-3}}{-2}\]
+            </p>
+
+            <p>Notice the square root? It's \(\sqrt{-3}\). The square root of a
+                negative number doesn't exist. We would say this equation has no
+                real roots, and the graph below of the equation should show you
+                why.
+                There are ways to handle these kinds of equations, but we will
+                come
+                back to them much later on.
+            </p>
+
+            <div>{{no_roots | safe}}</div>
+
+            <p>Use the quadratic formula to find the roots of the following
+                equations
+            </p>
+
             <ol id="two-columns">
-                <li>\(x = -\frac{3}{2} \pm \frac{\sqrt{17}}{2}\)</li>
-                <li>\(x = -3.5, x = 1\)</li>
-                <li>\(x=1, x = \frac{1}{3}\)</li>
-                <li>\(x = 0.75, x = -2\)</li>
+                <li>\(x^2 + 3x - 2 = 0\)</li>
+                <li>\(2x^2 - 5x + 7 = 0\)</li>
+                <li>\(3x^2 - 4x + 1 = 0\)</li>
+                <li>\(4x^2 + 5x - 6 = 0\)</li>
             </ol>
-        </details>
 
-    </main>
+            <details style="text-decoration:none;">
+                <summary>Solutions</summary>
+                <ol id="two-columns">
+                    <li>\(x = -\frac{3}{2} \pm \frac{\sqrt{17}}{2}\)</li>
+                    <li>\(x = -3.5, x = 1\)</li>
+                    <li>\(x=1, x = \frac{1}{3}\)</li>
+                    <li>\(x = 0.75, x = -2\)</li>
+                </ol>
+            </details>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        </main>
 
-</body>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+    </body>
 
 </html>

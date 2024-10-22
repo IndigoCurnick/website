@@ -1,125 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Geodesic Conversions</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/toolbox.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Geodesic Conversions</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/toolbox.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-<body>
-    {% include "utils/nav" %}
-    <main>
+    <body>
+        {% include "utils/nav" %}
+        <main>
 
-        <p>
-            Perform geodesic calculations, comparing the Haversine, Vincenty and Karney methods
-        </p>
+            <p>
+                Perform geodesic calculations, comparing the Haversine, Vincenty
+                and Karney methods
+            </p>
 
-        <p>
-            Confused? See <a href="/blog/introducing-geodesic-tools">Introducing Geodesic Tools</a>
-        </p>
+            <p>
+                Confused? See <a
+                    href="/blog/introducing-geodesic-tools">Introducing Geodesic
+                    Tools</a>
+            </p>
 
-        <h2>Distance and Final Bearing Between Two Points</h2>
+            <h2>Distance and Final Bearing Between Two Points</h2>
 
-        <div class="input-container">
-            <div class="position-pair-container">
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Starting Latitude</div>
-                    <input type="number" id="lat_one" step="0.0001" placeholder="Enter a number">
+            <div class="input-container">
+                <div class="position-pair-container">
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Starting Latitude</div>
+                        <input type="number" id="lat_one" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Starting Longitude</div>
+                        <input type="number" id="lon_one" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
                 </div>
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Starting Longitude</div>
-                    <input type="number" id="lon_one" step="0.0001" placeholder="Enter a number">
-                </div>
-            </div>
-            <div class="position-pair-container">
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Ending Latitude</div>
-                    <input class="geodesic-input" type="number" id="lat_two" step="0.0001" placeholder="Enter a number">
-                </div>
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Ending Longitude</div>
-                    <input type="number" id="lon_two" step="0.0001" placeholder="Enter a number">
-                </div>
-            </div>
-        </div>
-
-        <div class="results-wrapper">
-            <div class="result-type-wrapper">
-                <div class="result-title">Haversine</div>
-                <div id="haversine-distance">Distance: </div>
-                <div id="haversine-bearing">Bearing: </div>
-            </div>
-            <div class="result-type-wrapper">
-                <div class="result-title">Vincenty</div>
-                <div id="vincenty-distance">Distance: </div>
-                <div id="vincenty-bearing">Bearing: </div>
-            </div>
-            <div class="result-type-wrapper">
-                <div class="result-title">Karney</div>
-                <div id="karney-distance">Distance: </div>
-                <div id="karney-bearing">Bearing: </div>
-            </div>
-        </div>
-
-        <h2>Position After Travelling a Distance and Bearing</h2>
-
-        <div class="input-container">
-            <div class="position-pair-container">
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Starting Latitude</div>
-                    <input type="number" id="start_lat" step="0.0001" placeholder="Enter a number">
-                </div>
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Starting Longitude</div>
-                    <input type="number" id="start_lon" step="0.0001" placeholder="Enter a number">
+                <div class="position-pair-container">
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Ending Latitude</div>
+                        <input class="geodesic-input" type="number" id="lat_two"
+                            step="0.0001" placeholder="Enter a number">
+                    </div>
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Ending Longitude</div>
+                        <input type="number" id="lon_two" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
                 </div>
             </div>
-            <div class="position-pair-container">
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Distance (metres)</div>
-                    <input class="geodesic-input" type="number" id="distance" step="0.0001"
-                        placeholder="Enter a number">
+
+            <div class="results-wrapper">
+                <div class="result-type-wrapper">
+                    <div class="result-title">Haversine</div>
+                    <div id="haversine-distance">Distance: </div>
+                    <div id="haversine-bearing">Bearing: </div>
                 </div>
-                <div class="geodesic-container">
-                    <div class="geodesic-label">Bearing (°)</div>
-                    <input type="number" id="bearing" step="0.0001" placeholder="Enter a number">
+                <div class="result-type-wrapper">
+                    <div class="result-title">Vincenty</div>
+                    <div id="vincenty-distance">Distance: </div>
+                    <div id="vincenty-bearing">Bearing: </div>
+                </div>
+                <div class="result-type-wrapper">
+                    <div class="result-title">Karney</div>
+                    <div id="karney-distance">Distance: </div>
+                    <div id="karney-bearing">Bearing: </div>
                 </div>
             </div>
-        </div>
 
-        <div class="results-wrapper">
-            <div class="result-type-wrapper">
-                <div class="result-title">Haversine</div>
-                <div id="haversine-lat">Latitude: </div>
-                <div id="haversine-lon">Longitude: </div>
+            <h2>Position After Travelling a Distance and Bearing</h2>
+
+            <div class="input-container">
+                <div class="position-pair-container">
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Starting Latitude</div>
+                        <input type="number" id="start_lat" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Starting Longitude</div>
+                        <input type="number" id="start_lon" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
+                </div>
+                <div class="position-pair-container">
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Distance (metres)</div>
+                        <input class="geodesic-input" type="number"
+                            id="distance" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
+                    <div class="geodesic-container">
+                        <div class="geodesic-label">Bearing (°)</div>
+                        <input type="number" id="bearing" step="0.0001"
+                            placeholder="Enter a number">
+                    </div>
+                </div>
             </div>
-            <div class="result-type-wrapper">
-                <div class="result-title">Vincenty</div>
-                <div id="vincenty-lat">Latitude: </div>
-                <div id="vincenty-lon">Longitude: </div>
+
+            <div class="results-wrapper">
+                <div class="result-type-wrapper">
+                    <div class="result-title">Haversine</div>
+                    <div id="haversine-lat">Latitude: </div>
+                    <div id="haversine-lon">Longitude: </div>
+                </div>
+                <div class="result-type-wrapper">
+                    <div class="result-title">Vincenty</div>
+                    <div id="vincenty-lat">Latitude: </div>
+                    <div id="vincenty-lon">Longitude: </div>
+                </div>
+                <div class="result-type-wrapper">
+                    <div class="result-title">Karney</div>
+                    <div id="karney-lat">Latitude: </div>
+                    <div id="karney-lon">Longitude: </div>
+                </div>
             </div>
-            <div class="result-type-wrapper">
-                <div class="result-title">Karney</div>
-                <div id="karney-lat">Latitude: </div>
-                <div id="karney-lon">Longitude: </div>
-            </div>
-        </div>
 
+        </main>
 
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-    </main>
-
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-    <script type="module">
+        <script type="module">
         import init, { haversine_distance_and_bearing, vincenty_distance_and_bearing, karney_distance_and_bearing } from "/js/geodesics/geodesic_coordinates_rs.js";
 
         const latOneNumber = document.getElementById('lat_one');
@@ -170,7 +179,7 @@
 
     </script>
 
-    <script type="module">
+        <script type="module">
         import init, { haversine_location_and_bearing, vincenty_location_and_bearing, karney_location_and_bearing } from "/js/geodesics/geodesic_coordinates_rs.js";
 
         const startLatNumber = document.getElementById('start_lat');
@@ -220,8 +229,6 @@
 
     </script>
 
-
-
-</body>
+    </body>
 
 </html>

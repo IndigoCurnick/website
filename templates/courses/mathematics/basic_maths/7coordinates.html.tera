@@ -1,123 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Coordinates</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Coordinates</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
-    <header>
-        <h1>Coordinates</h1>
-    </header>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    {% include "utils/nav" %}
+    <body>
+        <header>
+            <h1>Coordinates</h1>
+        </header>
 
-    <main>
-       
-        <p>This article is about coordinate systems. We have already seen 
-            coordinates in other contexts, but I want to go over them just a 
-            little more here.
-        </p>
+        {% include "utils/nav" %}
 
-        <p>We can construct a coordinate system in any number of dimensions we 
-            like. For this course, we will only touch one, two and three 
-            dimensional systems. 
-        </p>
+        <main>
 
-        <p>A one dimensional coordinate system is very simple. A simple number 
-            line can be considered a kind of coordinate system. To give a real 
-            life example, imagine a car on a straight rail. We can call the 
-            start position \(x=0\). If the car has constant velocity \(v=10\),
-            we can ask where it will be at time \(t\). For example, at \(t=1\), 
-            the car will be at \(x=10\) and so on. 
-        </p>
+            <p>This article is about coordinate systems. We have already seen
+                coordinates in other contexts, but I want to go over them just a
+                little more here.
+            </p>
 
-        <p>Two dimensional coordinate systems present something much more 
-            interesting though. The first thing we can do with these coordinate 
-            systems is plot them, and we can plot functions, lines and curves. 
-            We've already seen this, so here's a brief recap. Below is a graph
-            of \(y = x^3 + 2x^2 - x + 4\)
-        </p>
+            <p>We can construct a coordinate system in any number of dimensions
+                we
+                like. For this course, we will only touch one, two and three
+                dimensional systems.
+            </p>
 
-        <div>{{x_cubed | safe}}</div>
+            <p>A one dimensional coordinate system is very simple. A simple
+                number
+                line can be considered a kind of coordinate system. To give a
+                real
+                life example, imagine a car on a straight rail. We can call the
+                start position \(x=0\). If the car has constant velocity
+                \(v=10\),
+                we can ask where it will be at time \(t\). For example, at
+                \(t=1\),
+                the car will be at \(x=10\) and so on.
+            </p>
 
-        <p>Writing specific coordinates, we usually use the \((x, y)\) notation.
-            We can take a single coordinate and transform it by multiplying 
-            by a number. If we have coordinate \(P = (x, y)\), then multiplying 
-            by \(a\) would be \(aP = a(x, y) = (ax, ay)\). If \(a>1\) then the 
-            coordinate will move further from the origin (the origin 
-            is \((0,0)\)), if \(a>1\) the point will be closer to the origin. 
-            If \(a=-1\), then a reflection will be seen. The graph below shows 
-            a variety of different transformations on the point \((1,1)\).
-        </p>
+            <p>Two dimensional coordinate systems present something much more
+                interesting though. The first thing we can do with these
+                coordinate
+                systems is plot them, and we can plot functions, lines and
+                curves.
+                We've already seen this, so here's a brief recap. Below is a
+                graph
+                of \(y = x^3 + 2x^2 - x + 4\)
+            </p>
 
-        <div>{{multiply_points | safe}}</div>
+            <div>{{x_cubed | safe}}</div>
 
-        <p>If we have two points, we can calculate the distance between them 
-            very simply. If we have point \((x_1, y_1)\) and point 
-            \((x_2, y_2)\) then the distance between them is simply
-        </p>
+            <p>Writing specific coordinates, we usually use the \((x, y)\)
+                notation.
+                We can take a single coordinate and transform it by multiplying
+                by a number. If we have coordinate \(P = (x, y)\), then
+                multiplying
+                by \(a\) would be \(aP = a(x, y) = (ax, ay)\). If \(a>1\) then
+                the
+                coordinate will move further from the origin (the origin
+                is \((0,0)\)), if \(a>1\) the point will be closer to the
+                origin.
+                If \(a=-1\), then a reflection will be seen. The graph below
+                shows
+                a variety of different transformations on the point \((1,1)\).
+            </p>
 
-        <p>\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]</p>
+            <div>{{multiply_points | safe}}</div>
 
-        <p>Which you may notice is actually the Pythagorean theorem in disguise.
-        </p>
+            <p>If we have two points, we can calculate the distance between them
+                very simply. If we have point \((x_1, y_1)\) and point
+                \((x_2, y_2)\) then the distance between them is simply
+            </p>
 
-        <p>Finally, I want to talk about circles. A circle on a two dimensional 
-            coordinate system has an equation. Maybe people think of this as a 
-            function, but that isn't strictly true. The difference is that a 
-            function gives you a particular output for a particular input value.
-            To quickly tell if you have a function or an equation, if you can 
-            draw a vertical line on the graph which anywhere passes through two
-            points of the line, you have a equation.
-        </p>
+            <p>\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]</p>
 
-        <p>The equation of a circle is given by</p>
+            <p>Which you may notice is actually the Pythagorean theorem in
+                disguise.
+            </p>
 
-        <p>\[(x-a)^2 + (y-b)^2 = r^2\]</p>
+            <p>Finally, I want to talk about circles. A circle on a two
+                dimensional
+                coordinate system has an equation. Maybe people think of this as
+                a
+                function, but that isn't strictly true. The difference is that a
+                function gives you a particular output for a particular input
+                value.
+                To quickly tell if you have a function or an equation, if you
+                can
+                draw a vertical line on the graph which anywhere passes through
+                two
+                points of the line, you have a equation.
+            </p>
 
-        <p>Which is centred on \((a,b)\) and has radius \(r\).</p>
+            <p>The equation of a circle is given by</p>
 
-        <p>To drum home the point that this is an equation and not a function, I
-            made the following graph. What I have done here is checked points 
-            on the coordinate plane to see if they satisfy the condition
-            \(x^2 + y^2 < 1\). I have presented the <code>Rust</code> code 
-            in the appendix for those interested.
-        </p>
+            <p>\[(x-a)^2 + (y-b)^2 = r^2\]</p>
 
-        <div>{{circle_graph | safe}}</div>
+            <p>Which is centred on \((a,b)\) and has radius \(r\).</p>
 
-        <p>The three dimensional case has many similarities. To find the 
-            distance between two points in three dimensional space we simply use 
-        </p>
+            <p>To drum home the point that this is an equation and not a
+                function, I
+                made the following graph. What I have done here is checked
+                points
+                on the coordinate plane to see if they satisfy the condition
+                \(x^2 + y^2 < 1\). I have presented the <code>Rust</code> code
+                in the appendix for those interested.
+            </p>
 
-        <p>\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}\]</p>
+            <div>{{circle_graph | safe}}</div>
 
-        <p>The equation for a sphere in three dimensional space is </p>
+            <p>The three dimensional case has many similarities. To find the
+                distance between two points in three dimensional space we simply
+                use
+            </p>
 
-        <p>\[(x-a)^2 + (y-b)^2 + (z-c)^2 = r^2\]</p>
+            <p>\[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}\]</p>
 
-        <p>Many people are tempted to use cubes and cube roots when moving the
-            equations from 2D to 3D space - that isn't how it works!
-        </p>
+            <p>The equation for a sphere in three dimensional space is </p>
 
-        
+            <p>\[(x-a)^2 + (y-b)^2 + (z-c)^2 = r^2\]</p>
 
-        <hr>
-        <h2>Appendix</h2>
+            <p>Many people are tempted to use cubes and cube roots when moving
+                the
+                equations from 2D to 3D space - that isn't how it works!
+            </p>
 
-        <p><code>Rust</code> to check what colour to make a point, whether it is 
-            outside, inside or on the perimeter of the circle.
-        </p>
+            <hr>
+            <h2>Appendix</h2>
 
-        <pre class="wp-block-code"><code>
+            <p><code>Rust</code> to check what colour to make a point, whether
+                it is
+                outside, inside or on the perimeter of the circle.
+            </p>
+
+            <pre class="wp-block-code"><code>
             struct Coordinates {
                 pub x: Vec&lt;f64>,
                 pub y: Vec&lt;f64>,
@@ -198,11 +221,11 @@
             }
 
         </code></pre>
-    </main>
+        </main>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-</body>
+    </body>
 
 </html>

@@ -1,419 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Oscillations and Waves</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<body>
-    <header>
-        <h1>Oscillations and Waves</h1>
-    </header>
-
-    {% include "utils/nav" %}
-
-    <main>
-        <p style="display:none">
-            \(
-            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
-            \)
-        </p>
-
-        <p>Some objects in nature exhibit a repetitive nature. A pendulum swings
-            back and forth. A spinning top rotates over and over. Watch hands
-            rotate too, but at a much slower pace. Planets orbit stars, and 
-            stars orbit in galaxies. Technically speaking, we need no new 
-            concepts to describe and understand this phenomena. We already have
-            kinematics, dynamics, rotation and fields from the previous four
-            articles. However, physicists are particularly lazy people and would
-            like a more elegant and shorter form to describe repetitive motion.
-            Two particularly helpful schemes will be covered here
-        </p>
-
-        <div>{{basic_wave | safe}}</div>
-
-        <p>The oscillation in the above graph repeats twice every second. 
-            Therefore we say its <i>frequency</i> is 2Hz and its <i>period</i>
-            0.5s. The frequency and period are the inverse of each other. 
-            The angular frequency is related to the frequency and period by
-        </p>
-
-        <p>\[\omega = 2 \pi f = \frac{2 \pi}{T}\]</p>
-
-        <p>And the wave above can be described by the following sin equation</p>
-
-        <p>\[y = A \sin(\omega t)\]</p>
-
-        <p>Where \(A\) is the amplitude, or largest peak. Here the amplitude is
-            1. Since the frequency is 2Hz, \(4 \pi\). Thus this wave is 
-            perfectly described by \(y = \sin(4 \pi t)\)
-        </p>
-
-        <p>However, consider that sin and cosine are related to one another.
-            Specifically they are just shifted with respect to one another.
-            Therefore, a more general solution to the wave shown in the graph
-            could be given by
-        </p>
-
-        <p>\[y = A \cos(\omega t + \phi)\]</p>
-        
-        <p>Which, using trig relations, is the same as</p>
-
-        <p>\[y = A \cos(\omega t) \cos(\phi) - A \sin(\omega t) \sin(\phi)\]</p>
-
-        <p>If you have a free choice of \(A\) and \(\phi\) you can always find
-            a solution of the following form (remember that \(\phi\) is just a 
-            constant)
-        </p>
-
-        <p>\[y = C \cos(\omega t) + D \sin(\omega t)\]</p>
-
-        <p>This the following equations relate \(A\), \(C\), \(D\) and \(\phi\)
-        </p>
-
-        <p>\[C = A \cos(\phi)\]</p>
-        <p>\[D = -A \sin(\phi)\]</p>
-        <p>\[A = \sqrt{C^2 + D^2}\]</p>
-        <p>\[\phi = \tan^{-1}\left(\frac{-D}{C}\right)\]</p>
-
-        <p>Now that we know the position of an object let us calculate the 
-            velocity and acceleration.
-        </p>
-
-        <p>\[u = \frac{dy}{dt} = - \omega A \sin(\omega t + \phi)\]</p>
-        <p>\[a = \frac{d^2y}{dt^2} = -\omega^2 A \cos(\omega t + \phi) = - 
-            \omega^2 y\]</p>
-
-        <p>Notice how the acceleration is proportional to the displacement but in
-            the opposite direction? This could be said to be <i>the</i> defining 
-            feature of an oscillation.
-        </p>
-
-        <p>Also consider then that this means</p>
-
-        <p>\[u^2 + \omega^2 y^2 = \omega^2 A^2\]</p>
-
-        <p>If we multiplied this through by \(\frac{1}{2}m\) the first term 
-            would be the kinetic energy, the second term the potential energy 
-            and the final term the total energy. The total energy of an oscillation
-            related to its angular frequency and amplitude. This makes sense 
-            intuitively. Imagine a rotating watch hand again. The faster it 
-            rotates the more energy we expect it to have. The heavier it is, the
-            more energy we expect it to have.
-        </p>
-
-        <p>Let's suppose that some object of mass 0.2kg is free to move in one 
-            direction and that movement is given by \(y(t)\). If the force on 
-            this object is in the same direction as the movement, it will 
-            continue to accelerate away from the start location and never be 
-            seen again. However, if the force always points towards some 
-            equilibrium point it will oscillate. Let's suppose this force is 
-            given by \(F = -ky\) and that \(k = 1.2 \frac{N}{m}\).
-        </p>
-
-        <p>Let's do some analysis of this. First, let's look at the momentum</p>
-
-        <p>\[\mathbf{F} = \frac{d \mathbf{p}}{dt} = \frac{d (mu)}{dt} = 
-            m \frac{d^2 y}{dt^2}\]</p>
-
-        <p>\[m \frac{d^2 y}{dt^2} = -ky\]</p>
-        <p>\[\frac{d^2 y}{dt^2} = -\frac{k}{m}y\]</p>
-
-        <p>Compare this with \(\frac{d^2 y}{dt^2} = -\omega^2 y\), therefore</p>
-
-        <p>\[\omega^2 = \frac{k}{m}\]</p>
-
-        <p>\[\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{1.2}{0.3}} = 2Hz\]</p>
-
-        <p>Let's do a unit analysis. If you have never seen this notation before
-            , square brackets are used to mean "units of". So \([\omega]\) means
-            "units of \(\omega\)". By convention, \([M]\) is mass units,
-            \([L]\) is length units and \([T]\) is time units. Thus, these units
-            could be anything, obviously we would prefer they be in SI! Newtons,
-            \(N\), has units \([N] = [M][L][T]^{-2}\)
-        </p>
-
-        <p>\[[k] = \frac{[M][L][T]^{-2}}{[L]} = [M][T]^{-2}\]</p>
-
-        <p>\[\left[ \frac{k}{m} \right] = \frac{[M]}{[M][T]^{2}} = [\omega^2] = \frac{1}{[T]^2}
-            \]           
-        </p>
-
-        <p>So, the units of angular frequency are "per second", which we call
-            a Hertz or Hz. Since \(a = - \omega^2 y\)
-        </p>
-
-        <p>\[[a] = [T]^{-2}[L]\]</p>
-
-        <p>Which length per time squared, the correct units of acceleration. 
-            Consider frequently doing unit analysis on your answers, it will 
-            help you know you have got the right answer. I can't count how many
-            times a unit analysis helped me spot a mistake in a long derivation!
-        </p>
-
-        <p>Let's assume that this object is at \(y=2m\) at time \(t=0s\) and 
-            stationary. Let's calculate the \(C\) and \(D\) coefficients as 
-            well as the amplitude.
-            We can use \(u^2 + \omega^2 y^2 = \omega^2 A^2\) but use \(u=0\)
-            so \(y=A\), \(A = 2m\). Now, we can use 
-            \(y = C \cos(\omega t) + D \sin(\omega t)\) but our boundary
-            conditions means it becomes \(2 = C\). Finally, 
-            \(A = \sqrt{C^2 + D^2}\), so \(D=0\).
-        </p>
-
-        <p>We've so far covered the trigonometric representation of an 
-            oscillation. Let's cover the other form now: the complex number.
-            \(y = A \cos(\omega t + \phi)\) is exactly equal to
-        </p>
-
-        <p>\[y = \Re A e^{i(\omega t + \phi)} \]</p>
-
-        <p>Where \(\Re\) means "the real part of"</p>
-
-        <p>Let's suppose we have some oscillator that is described by the 
-            differential equation
-        </p>
-
-        <p>\[m \ddot{x} + r \dot{x} + kx = 0\]</p>
-
-        <p>Let's assume a solution to this equation takes the form 
-            \(x = \Re (z)\), where \(z\) is some complex number \(Ae^{\alpha t}\)
-            and \(A\) and \(\alpha\) are complex constants. Let's show that this
-            solution holds if 
-        </p>
-
-        <p>\[(m \alpha^2 + r \alpha + k)z = 0\]</p>
-
-        <p>We start with derivatives</p>
-
-        <p>\[x = \Re{z} = \Re{A e^{\alpha t}}\]</p>
-        <p>\[\dot{x} = \Re{A \alpha e^{\alpha t}}\]</p>
-        <p>\[\ddot{x} = \Re{A \alpha^2 e^{\alpha t}}\]</p>
-        
-        <p>So,</p>
-
-        <p>\[-kx - r \dot{x} = m \ddot{x}\]</p>
-
-        <p>\[-k \Re(A e^{\alpha t}) - r \Re(A \alpha e^{\alpha t})
-            = m \Re(A \alpha^2 e^{\alpha t})\]
-        </p>
-
-        <p>Which rearranges to</p>
-
-        <p>\[\Re((k + r \alpha + m \alpha ^2)z) = 0\]</p>
-
-        <p>And our solution will suffice if \((m \alpha^2 + r \alpha + k)z = 0\)
-            is enforced.
-        </p>
-
-        <p>A trivial solution is obviously \(z=0\), but we want to find the 
-            more interesting solutions (that's just the kind of people 
-            physicists are. At any rate, \(z=0\) indicates that nothing is
-            happening i.e. no movement, no oscillations). So, we need to find 
-            the values of \(\alpha\) for which the bracket is 0.
-        </p>
-
-        <p>\[m \alpha^2 + r \alpha + k = 0\]</p>
-
-        <p>We can use the simple quadratic equation here to help us solve this
-        </p>
-
-        <p>\[\alpha = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</p>
-
-        <p>\[a=m, b=r, c=k\]</p>
-
-        <p>\[\alpha_1 = \frac{-r + \sqrt{r^2 - 4mk}}{2m}\]</p>
-        <p>\[\alpha_2 = \frac{-r - \sqrt{r^2 - 4mk}}{2m}\]</p>
-
-            
-
-        <p>If \(r^2 = 4mk\) then the system is critically 
-            damped and the solution can be written in the form
-        </p>
-
-        <p>\[z = e^\frac{-rt}{2m} (A_1 + A_2 t)\]</p>
-
-        <p>Let's show that this solution satisfies the differential 
-            equation.
-        </p>
-
-        <p>\[Z = A_1 e^{-rt/2m} + A_2 t e^{-rt/2m}\]</p>
-
-        <p>This section will get quite messy, so I will redefine 
-            \(e^{-rt/2m} = E\). You're always allowed to group certain symbols 
-            together and define them as some new symbol, but remember that this 
-            new \(E\) stands for something else! This is especially important 
-            in the differentiations we are about to do
-        </p>
-
-        <p>\[Z = A_1 E + A_2 t E\]</p>
-        <p>\[\dot{Z} = -A_1 \frac{r}{2m} E + A_2 E - A_2 \frac{r}{2m} t E\]</p>
-
-        <p>\[\ddot{Z} = A_1 \frac{r^2}{4m^2}E - A_2 \frac{r}{2m}E - 
-            A_2 \frac{r}{2m}E + A_2 \frac{r^2}{4m^2} t E\]</p>
-
-        <p>Now we need to substitute these three equations into 
-            \(m \alpha^2 + r \alpha + k = 0\) and check that everything cancels 
-        </p>
-
-        <p>
-            \[
-            A_1 \frac{r^2}{4m} E - A_2 \frac{r}{2} E - A_2 \frac{r}{2} E +
-            A_2 \frac{r^2}{4m} t E - A_1 \frac{r^2}{2m} E + A_2 r E -
-            A_2 \frac{r^2}{4m} t E + A_1 E k + A_2 ktE = 0    
-            \]
-        </p>
-
-        <p>
-            \[
-            -A_1 \frac{r^2}{4m}E - A_2 \frac{r^2}{4m} t E + A_1 E k + 
-            A_2 ktE = 0    
-            \]
-        </p>
-
-        <p>But \(r^2 = 4mk\)</p>
-
-        <p>
-            \[
-            -A_1 k E + A_1 k E - A_2 r E + A_2 r E - A_2 k t E + A_2 ktE = 0    
-            \]
-        </p>
-
-        <p>Which does indeed totally cancel out.</p>
-
-        <p>If \(r^2 - 4mk > 0\), then the system is overdamped.
-            Both \(\alpha_1\) and \(\alpha_2\) are real and negative and the
-            solution can be written in the form
-        </p>
-
-        <p>\[z = A_1 e^{\alpha_1 t} + A_2 e^{alpha_2 t}\]</p>
-
-        <p>Try demonstrating that this solution works, in the same way I did for
-            the critically damped solution.
-        </p>
-        
-
-        <p>If \(r^2 - 4mk < 0\) then we have an underdamped situation.</p>
-
-        <p>Try showing that the solutions are now</p>
-
-        <p>
-            \[
-            -\frac{r}{2m} \pm i \sqrt{\frac{k}{m} - \frac{r^2}{4m^2}}   
-            \]
-        </p>
-
-        <p>Let's dig a little more into how waves work - we'll go over the wave 
-            equation itself. Let's start with a wave in the form
-        </p>
-
-        <p>
-            \[
-            y = A \cos(\omega t - kx + \phi) = 
-            \Re A e^{i\phi} e^{i(\omega t - kx)}
-            \]
-        </p>
-
-        <p>Let's first consider \(\frac{\partial y}{\partial x}\)</p>
-
-        <p>\[
-            \frac{\partial y}{\partial x} = Ak \sin(\omega t - kx + \phi) = 
-            - \Re i k A e^{i\phi} e^{i(\omega t - kx)}
-            \]
-        </p>
-
-        <p>In this section I will do every operation twice, once for the 
-            trig representation and another for the imaginary representation
-        </p>
-
-        <p>So this is telling us about the behaviour of the wave when we move 
-            along its length. Imagine a wave on a string, and you freeze time. 
-            Then you move along the x axis, \(\frac{dy}{dx}\) is telling you 
-            about this. In other words, you're getting the momentum of each 
-            tiny piece of rope.
-        </p>
-        
-        <p>Now let's take the second derivative with respect to \(x\)</p>
-
-        <p>
-            \[
-            \frac{\partial^2 y}{\partial x^2} = -k^2 A \cos(\omega t -kx + \phi)
-            =
-            -k^2 y        
-            \]
-        </p>
-
-        <p>
-            \[
-            \frac{\partial^2 y}{\partial x^2} = 
-            -k^2 \Re Ae^{i\phi} e^{i(\omega t -kx)} = -k^2 y
-            \]
-        </p>
-
-        <p>So the force acting on each little piece of the rope is inversely 
-            proportional to its height. This makes sense, when a part of the 
-            rope goes above \(y=0\) it needs a restoring force back to \(y=0\) 
-            and vice versa. We've come across \(k\) before, in springs. In many 
-            ways this constant is analogous. It certainly is a constant that 
-            describes the same kind of restoring force.
-        </p>
-
-        <p>Now, let's do another partial differentiation - this time 
-            \(\frac{\partial y}{\partial t}\)
-        </p>
-
-        <p>
-            \[
-            \frac{\partial y}{\partial t} 
-            =
-            - \omega A \sin(\omega t - kx + \phi)
-            = 
-            \omega i \Re A e^{i\phi} e^{i(\omega t - kx)}
-            \]
-        </p>
-
-        <p>Now, this situation is like taking a tiny piece of the rope, ignoring 
-            the rest of the rope, and then watching it move up and down in time.
-            So, \(\frac{\partial y}{\partial t}\) is telling you about the 
-            velocity of each tiny piece of rope.
-        </p>
-
-        <p>Consider now the second derivative with respect to time</p>
-
-        <p>
-            \[
-            \frac{\partial^2 y}{\partial t^2}
-            = 
-            -\omega^2 A \cos(\omega t - kx + \phi) = -\omega^2 y
-            \]
-        </p>
-
-        <p>
-            \[
-            \frac{\partial^2 y}{\partial t^2}
-            =
-            -\omega^2 \Re A e^{i\phi} e^{i(\omega t -kx)}
-            = 
-            -\omega^2 y
-            \]
-        </p>
-
-        <p>So this is telling us about the acceleration of each tiny piece of
-            rope. Again, this shouldn't be a surprise to us by now - we've come 
-            across acceleration as related to the angular frequency.
-        </p>
-    </main>
-
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Oscillations and Waves</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Oscillations and Waves</h1>
+        </header>
+
+        {% include "utils/nav" %}
+
+        <main>
+            <p style="display:none">
+                \(
+                \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+                \)
+            </p>
+
+            <p>Some objects in nature exhibit a repetitive nature. A pendulum
+                swings
+                back and forth. A spinning top rotates over and over. Watch
+                hands
+                rotate too, but at a much slower pace. Planets orbit stars, and
+                stars orbit in galaxies. Technically speaking, we need no new
+                concepts to describe and understand this phenomena. We already
+                have
+                kinematics, dynamics, rotation and fields from the previous four
+                articles. However, physicists are particularly lazy people and
+                would
+                like a more elegant and shorter form to describe repetitive
+                motion.
+                Two particularly helpful schemes will be covered here
+            </p>
+
+            <div>{{basic_wave | safe}}</div>
+
+            <p>The oscillation in the above graph repeats twice every second.
+                Therefore we say its <i>frequency</i> is 2Hz and its
+                <i>period</i>
+                0.5s. The frequency and period are the inverse of each other.
+                The angular frequency is related to the frequency and period by
+            </p>
+
+            <p>\[\omega = 2 \pi f = \frac{2 \pi}{T}\]</p>
+
+            <p>And the wave above can be described by the following sin
+                equation</p>
+
+            <p>\[y = A \sin(\omega t)\]</p>
+
+            <p>Where \(A\) is the amplitude, or largest peak. Here the amplitude
+                is
+                1. Since the frequency is 2Hz, \(4 \pi\). Thus this wave is
+                perfectly described by \(y = \sin(4 \pi t)\)
+            </p>
+
+            <p>However, consider that sin and cosine are related to one another.
+                Specifically they are just shifted with respect to one another.
+                Therefore, a more general solution to the wave shown in the
+                graph
+                could be given by
+            </p>
+
+            <p>\[y = A \cos(\omega t + \phi)\]</p>
+
+            <p>Which, using trig relations, is the same as</p>
+
+            <p>\[y = A \cos(\omega t) \cos(\phi) - A \sin(\omega t)
+                \sin(\phi)\]</p>
+
+            <p>If you have a free choice of \(A\) and \(\phi\) you can always
+                find
+                a solution of the following form (remember that \(\phi\) is just
+                a
+                constant)
+            </p>
+
+            <p>\[y = C \cos(\omega t) + D \sin(\omega t)\]</p>
+
+            <p>This the following equations relate \(A\), \(C\), \(D\) and
+                \(\phi\)
+            </p>
+
+            <p>\[C = A \cos(\phi)\]</p>
+            <p>\[D = -A \sin(\phi)\]</p>
+            <p>\[A = \sqrt{C^2 + D^2}\]</p>
+            <p>\[\phi = \tan^{-1}\left(\frac{-D}{C}\right)\]</p>
+
+            <p>Now that we know the position of an object let us calculate the
+                velocity and acceleration.
+            </p>
+
+            <p>\[u = \frac{dy}{dt} = - \omega A \sin(\omega t + \phi)\]</p>
+            <p>\[a = \frac{d^2y}{dt^2} = -\omega^2 A \cos(\omega t + \phi) = -
+                \omega^2 y\]</p>
+
+            <p>Notice how the acceleration is proportional to the displacement
+                but in
+                the opposite direction? This could be said to be <i>the</i>
+                defining
+                feature of an oscillation.
+            </p>
+
+            <p>Also consider then that this means</p>
+
+            <p>\[u^2 + \omega^2 y^2 = \omega^2 A^2\]</p>
+
+            <p>If we multiplied this through by \(\frac{1}{2}m\) the first term
+                would be the kinetic energy, the second term the potential
+                energy
+                and the final term the total energy. The total energy of an
+                oscillation
+                related to its angular frequency and amplitude. This makes sense
+                intuitively. Imagine a rotating watch hand again. The faster it
+                rotates the more energy we expect it to have. The heavier it is,
+                the
+                more energy we expect it to have.
+            </p>
+
+            <p>Let's suppose that some object of mass 0.2kg is free to move in
+                one
+                direction and that movement is given by \(y(t)\). If the force
+                on
+                this object is in the same direction as the movement, it will
+                continue to accelerate away from the start location and never be
+                seen again. However, if the force always points towards some
+                equilibrium point it will oscillate. Let's suppose this force is
+                given by \(F = -ky\) and that \(k = 1.2 \frac{N}{m}\).
+            </p>
+
+            <p>Let's do some analysis of this. First, let's look at the
+                momentum</p>
+
+            <p>\[\mathbf{F} = \frac{d \mathbf{p}}{dt} = \frac{d (mu)}{dt} =
+                m \frac{d^2 y}{dt^2}\]</p>
+
+            <p>\[m \frac{d^2 y}{dt^2} = -ky\]</p>
+            <p>\[\frac{d^2 y}{dt^2} = -\frac{k}{m}y\]</p>
+
+            <p>Compare this with \(\frac{d^2 y}{dt^2} = -\omega^2 y\),
+                therefore</p>
+
+            <p>\[\omega^2 = \frac{k}{m}\]</p>
+
+            <p>\[\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{1.2}{0.3}} =
+                2Hz\]</p>
+
+            <p>Let's do a unit analysis. If you have never seen this notation
+                before
+                , square brackets are used to mean "units of". So \([\omega]\)
+                means
+                "units of \(\omega\)". By convention, \([M]\) is mass units,
+                \([L]\) is length units and \([T]\) is time units. Thus, these
+                units
+                could be anything, obviously we would prefer they be in SI!
+                Newtons,
+                \(N\), has units \([N] = [M][L][T]^{-2}\)
+            </p>
+
+            <p>\[[k] = \frac{[M][L][T]^{-2}}{[L]} = [M][T]^{-2}\]</p>
+
+            <p>\[\left[ \frac{k}{m} \right] = \frac{[M]}{[M][T]^{2}} =
+                [\omega^2] = \frac{1}{[T]^2}
+                \]
+            </p>
+
+            <p>So, the units of angular frequency are "per second", which we
+                call
+                a Hertz or Hz. Since \(a = - \omega^2 y\)
+            </p>
+
+            <p>\[[a] = [T]^{-2}[L]\]</p>
+
+            <p>Which length per time squared, the correct units of acceleration.
+                Consider frequently doing unit analysis on your answers, it will
+                help you know you have got the right answer. I can't count how
+                many
+                times a unit analysis helped me spot a mistake in a long
+                derivation!
+            </p>
+
+            <p>Let's assume that this object is at \(y=2m\) at time \(t=0s\) and
+                stationary. Let's calculate the \(C\) and \(D\) coefficients as
+                well as the amplitude.
+                We can use \(u^2 + \omega^2 y^2 = \omega^2 A^2\) but use \(u=0\)
+                so \(y=A\), \(A = 2m\). Now, we can use
+                \(y = C \cos(\omega t) + D \sin(\omega t)\) but our boundary
+                conditions means it becomes \(2 = C\). Finally,
+                \(A = \sqrt{C^2 + D^2}\), so \(D=0\).
+            </p>
+
+            <p>We've so far covered the trigonometric representation of an
+                oscillation. Let's cover the other form now: the complex number.
+                \(y = A \cos(\omega t + \phi)\) is exactly equal to
+            </p>
+
+            <p>\[y = \Re A e^{i(\omega t + \phi)} \]</p>
+
+            <p>Where \(\Re\) means "the real part of"</p>
+
+            <p>Let's suppose we have some oscillator that is described by the
+                differential equation
+            </p>
+
+            <p>\[m \ddot{x} + r \dot{x} + kx = 0\]</p>
+
+            <p>Let's assume a solution to this equation takes the form
+                \(x = \Re (z)\), where \(z\) is some complex number \(Ae^{\alpha
+                t}\)
+                and \(A\) and \(\alpha\) are complex constants. Let's show that
+                this
+                solution holds if
+            </p>
+
+            <p>\[(m \alpha^2 + r \alpha + k)z = 0\]</p>
+
+            <p>We start with derivatives</p>
+
+            <p>\[x = \Re{z} = \Re{A e^{\alpha t}}\]</p>
+            <p>\[\dot{x} = \Re{A \alpha e^{\alpha t}}\]</p>
+            <p>\[\ddot{x} = \Re{A \alpha^2 e^{\alpha t}}\]</p>
+
+            <p>So,</p>
+
+            <p>\[-kx - r \dot{x} = m \ddot{x}\]</p>
+
+            <p>\[-k \Re(A e^{\alpha t}) - r \Re(A \alpha e^{\alpha t})
+                = m \Re(A \alpha^2 e^{\alpha t})\]
+            </p>
+
+            <p>Which rearranges to</p>
+
+            <p>\[\Re((k + r \alpha + m \alpha ^2)z) = 0\]</p>
+
+            <p>And our solution will suffice if \((m \alpha^2 + r \alpha + k)z =
+                0\)
+                is enforced.
+            </p>
+
+            <p>A trivial solution is obviously \(z=0\), but we want to find the
+                more interesting solutions (that's just the kind of people
+                physicists are. At any rate, \(z=0\) indicates that nothing is
+                happening i.e. no movement, no oscillations). So, we need to
+                find
+                the values of \(\alpha\) for which the bracket is 0.
+            </p>
+
+            <p>\[m \alpha^2 + r \alpha + k = 0\]</p>
+
+            <p>We can use the simple quadratic equation here to help us solve
+                this
+            </p>
+
+            <p>\[\alpha = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</p>
+
+            <p>\[a=m, b=r, c=k\]</p>
+
+            <p>\[\alpha_1 = \frac{-r + \sqrt{r^2 - 4mk}}{2m}\]</p>
+            <p>\[\alpha_2 = \frac{-r - \sqrt{r^2 - 4mk}}{2m}\]</p>
+
+            <p>If \(r^2 = 4mk\) then the system is critically
+                damped and the solution can be written in the form
+            </p>
+
+            <p>\[z = e^\frac{-rt}{2m} (A_1 + A_2 t)\]</p>
+
+            <p>Let's show that this solution satisfies the differential
+                equation.
+            </p>
+
+            <p>\[Z = A_1 e^{-rt/2m} + A_2 t e^{-rt/2m}\]</p>
+
+            <p>This section will get quite messy, so I will redefine
+                \(e^{-rt/2m} = E\). You're always allowed to group certain
+                symbols
+                together and define them as some new symbol, but remember that
+                this
+                new \(E\) stands for something else! This is especially
+                important
+                in the differentiations we are about to do
+            </p>
+
+            <p>\[Z = A_1 E + A_2 t E\]</p>
+            <p>\[\dot{Z} = -A_1 \frac{r}{2m} E + A_2 E - A_2 \frac{r}{2m} t
+                E\]</p>
+
+            <p>\[\ddot{Z} = A_1 \frac{r^2}{4m^2}E - A_2 \frac{r}{2m}E -
+                A_2 \frac{r}{2m}E + A_2 \frac{r^2}{4m^2} t E\]</p>
+
+            <p>Now we need to substitute these three equations into
+                \(m \alpha^2 + r \alpha + k = 0\) and check that everything
+                cancels
+            </p>
+
+            <p>
+                \[
+                A_1 \frac{r^2}{4m} E - A_2 \frac{r}{2} E - A_2 \frac{r}{2} E +
+                A_2 \frac{r^2}{4m} t E - A_1 \frac{r^2}{2m} E + A_2 r E -
+                A_2 \frac{r^2}{4m} t E + A_1 E k + A_2 ktE = 0
+                \]
+            </p>
+
+            <p>
+                \[
+                -A_1 \frac{r^2}{4m}E - A_2 \frac{r^2}{4m} t E + A_1 E k +
+                A_2 ktE = 0
+                \]
+            </p>
+
+            <p>But \(r^2 = 4mk\)</p>
+
+            <p>
+                \[
+                -A_1 k E + A_1 k E - A_2 r E + A_2 r E - A_2 k t E + A_2 ktE = 0
+                \]
+            </p>
+
+            <p>Which does indeed totally cancel out.</p>
+
+            <p>If \(r^2 - 4mk > 0\), then the system is overdamped.
+                Both \(\alpha_1\) and \(\alpha_2\) are real and negative and the
+                solution can be written in the form
+            </p>
+
+            <p>\[z = A_1 e^{\alpha_1 t} + A_2 e^{alpha_2 t}\]</p>
+
+            <p>Try demonstrating that this solution works, in the same way I did
+                for
+                the critically damped solution.
+            </p>
+
+            <p>If \(r^2 - 4mk < 0\) then we have an underdamped situation.</p>
+
+            <p>Try showing that the solutions are now</p>
+
+            <p>
+                \[
+                -\frac{r}{2m} \pm i \sqrt{\frac{k}{m} - \frac{r^2}{4m^2}}
+                \]
+            </p>
+
+            <p>Let's dig a little more into how waves work - we'll go over the
+                wave
+                equation itself. Let's start with a wave in the form
+            </p>
+
+            <p>
+                \[
+                y = A \cos(\omega t - kx + \phi) =
+                \Re A e^{i\phi} e^{i(\omega t - kx)}
+                \]
+            </p>
+
+            <p>Let's first consider \(\frac{\partial y}{\partial x}\)</p>
+
+            <p>\[
+                \frac{\partial y}{\partial x} = Ak \sin(\omega t - kx + \phi) =
+                - \Re i k A e^{i\phi} e^{i(\omega t - kx)}
+                \]
+            </p>
+
+            <p>In this section I will do every operation twice, once for the
+                trig representation and another for the imaginary representation
+            </p>
+
+            <p>So this is telling us about the behaviour of the wave when we
+                move
+                along its length. Imagine a wave on a string, and you freeze
+                time.
+                Then you move along the x axis, \(\frac{dy}{dx}\) is telling you
+                about this. In other words, you're getting the momentum of each
+                tiny piece of rope.
+            </p>
+
+            <p>Now let's take the second derivative with respect to \(x\)</p>
+
+            <p>
+                \[
+                \frac{\partial^2 y}{\partial x^2} = -k^2 A \cos(\omega t -kx +
+                \phi)
+                =
+                -k^2 y
+                \]
+            </p>
+
+            <p>
+                \[
+                \frac{\partial^2 y}{\partial x^2} =
+                -k^2 \Re Ae^{i\phi} e^{i(\omega t -kx)} = -k^2 y
+                \]
+            </p>
+
+            <p>So the force acting on each little piece of the rope is inversely
+                proportional to its height. This makes sense, when a part of the
+                rope goes above \(y=0\) it needs a restoring force back to
+                \(y=0\)
+                and vice versa. We've come across \(k\) before, in springs. In
+                many
+                ways this constant is analogous. It certainly is a constant that
+                describes the same kind of restoring force.
+            </p>
+
+            <p>Now, let's do another partial differentiation - this time
+                \(\frac{\partial y}{\partial t}\)
+            </p>
+
+            <p>
+                \[
+                \frac{\partial y}{\partial t}
+                =
+                - \omega A \sin(\omega t - kx + \phi)
+                =
+                \omega i \Re A e^{i\phi} e^{i(\omega t - kx)}
+                \]
+            </p>
+
+            <p>Now, this situation is like taking a tiny piece of the rope,
+                ignoring
+                the rest of the rope, and then watching it move up and down in
+                time.
+                So, \(\frac{\partial y}{\partial t}\) is telling you about the
+                velocity of each tiny piece of rope.
+            </p>
+
+            <p>Consider now the second derivative with respect to time</p>
+
+            <p>
+                \[
+                \frac{\partial^2 y}{\partial t^2}
+                =
+                -\omega^2 A \cos(\omega t - kx + \phi) = -\omega^2 y
+                \]
+            </p>
+
+            <p>
+                \[
+                \frac{\partial^2 y}{\partial t^2}
+                =
+                -\omega^2 \Re A e^{i\phi} e^{i(\omega t -kx)}
+                =
+                -\omega^2 y
+                \]
+            </p>
+
+            <p>So this is telling us about the acceleration of each tiny piece
+                of
+                rope. Again, this shouldn't be a surprise to us by now - we've
+                come
+                across acceleration as related to the angular frequency.
+            </p>
+        </main>
+
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+    </body>
 
 </html>

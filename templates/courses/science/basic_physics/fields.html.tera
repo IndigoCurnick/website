@@ -1,383 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Fields</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<body>
-    <header>
-        <h1>Fields</h1>
-    </header>
-
-    {% include "utils/nav" %}
-
-    <main>
-        <p style="display:none">
-            \(
-            \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
-            \)
-        </p>
-
-        <p>Up until now we have discussed how objects move due to forces, 
-            but we have not discussed how forces are generated nor discussed 
-            energy at all. 
-        </p>
-
-        <p>Everyone knows that positive charges attract negative charges and 
-            repel positive ones. However, let's look more into understanding
-            how much force this attraction and repulsion generates. What we
-            won't be covering here is the specifics of what a field actually is.
-            For our purposes a field is anything which affects a space and 
-            generates forces on other objects in that space. 
-        </p>
-
-        <p>The formula of the magnitude of a force in an electrostatic field 
-            is given by
-        </p>
-
-        <p>\[F = \frac{Qq}{4 \pi \epsilon d^2} \]</p>
-
-        <p>Where \(F\) is the force, \(Q\) is the charge of on particle,
-            \(q\) is the charge of the other particle, \(\epsilon\) is the 
-            permittivity of the medium and \(d\) is the distance between the 
-            charges
-        </p>
-
-        <p>We can abstract this by defining an electric field strength</p>
-
-        <p>\[E = \frac{Q}{4 \pi \epsilon d^2}\]</p>
-
-        <p>Thus a small test charge \(q\) placed inside this field will 
-            experience force 
-        </p>
-
-        <p>\[F = qE\]</p>
-
-        <p>However, this analysis is a little thin. It has the flaw of not
-            working for non-uniform fields. It also isn't a vector, and really
-            we should try and put all relationships into 3 dimensional space.
-            Therefore, let's bring this equation into the third dimension.
-        </p>
-
-        <p>\[\mathbf{F}(\mathbf{r}) = q \mathbf{E}(\mathbf{r})\]</p>
-
-        <p>The equation has been given an upgrade! Now force and electric
-            field are vectors, and we introduce \(r\), a vector for the position
-            of the test charge within the electric field.
-        </p>
-        
-        <p>We can actually do a very similar thing for gravity</p>
-
-        <p>\[\mathbf{F}(\mathbf{r}) = m \mathbf{g}(\mathbf{r})\]</p>
-
-        <p>The fields behave more or less the same. The only difference of 
-            course being that gravity acts upon mass rather than charge.
-        </p>
-
-        <p>We are also now prepared to make a definition of a new concept:
-            energy. We define the work done as the distance travelled when a 
-            force is applied. As an equation we can simply write this as
-        </p>
-
-        <p>\[W = F \times s\]</p>
-
-        {# Save this for later - work done can be derived from the example #}
-
-        <p>But this form has some flaws. For one, it is only a scalar, and we
-            prefer vectors where possible. Also, it doesn't allow us to work
-            with non-uniform fields. To fix this, as usual, we introduce an 
-            integral.
-        </p>
-
-        <p>\[\Delta W = \int \mathbf{F} d\mathbf{s}\]</p>
-
-        {# Might need to segwey into this section #}
-
-        <p>Let's consider a falling object again. This is an object falling
-            due to gravity, starting at rest. Earlier chapters have shown us
-            that the velocity will be given by \(y = at = gt\) and 
-            \(y = \frac{1}{2} g t^2\). Let's begin by eliminating \(t\) from 
-            these equations.
-        </p>
-
-        <p>If we rearrange \(y = gt\) into \(t = \frac{y}{g}\) and substitute
-            into \(y = \frac{1}{2} g t^2\) we get
-        </p>
-
-        <p>\[y = \frac{1}{2} g \frac{v^2}{g^2} = \frac{1}{2} \frac{v^2}{g}\]</p>
-
-        <p>Now, let's try and think about this in another way. Consider this
-            problem in terms of average velocity. Since the object starts from 
-            rest, \(u = 0\). Therefore, if the distance travelled is the average
-            velocity times time, then \(y = \frac{1}{2} (v - 0) t = 
-            \frac{1}{2}vt\). Also consider that velocity is given by \(v = gt\),
-            since we are starting from rest. A simple substitution will give us
-        </p>
-
-        <p>\[y = \frac{1}{2} v \frac{v}{g} = \frac{1}{2} \frac{v^2}{g}\]</p>
-
-        <p>which is the same result from a moment ago.</p>
-
-        <p>Now consider if this object had an initial downward velocity, \(u\).
-            Let's repeat the same analysis. Well, now the distance will be given
-            by \(y = \frac{1}{2} (v + u)t \), still simply the average velocity
-            times time. The final velocity will now be given by 
-            \(v = u + gt\). Now if we rearrange for \(t\) we find
-            \(t = \frac{v - u}{g}\). Now let's try substituting for \(t\) to 
-            find
-        </p>
-
-        <p>\[y = \frac{1}{2} \frac{(v - u)(v+u)}{g} = 
-            \frac{1}{2} \frac{v^2 - u^2}{g}\]</p>
-
-        <p>Now, let's find an expression for the product of the force 
-            (\(mg\)) with distance.
-        </p>
-
-        <p>\[mgy = \frac{1}{2} mg \frac{(v - u)(v+u)}{g} 
-            = \frac{1}{2} m v^2 - \frac{1}{2} m u^2\]</p>
-
-        <p>I will very suggestively not cancel the \(m\).</p>
-
-        <p>Finally, let's plug some "numbers" in. Consider the object falls from
-            \(h_1\) to \(h_2\) such that \(y = h_1 - h_2\). 
-        </p>
-
-        <p>\[mg (h_1 - h_2) = \frac{1}{2} m v^2 - \frac{1}{2} m u^2\]</p>
-
-        <p>And then let's group together the start terms and end terms</p>
-
-        <p>\[mgh_1 + \frac{1}{2} m u^2 = mgh_2 + \frac{1}{2} m v^2\]</p>
-
-        <p>What we have made here is an equation that is independent of time,
-            showing some values that are conserved. We call these conserved 
-            values energy. Total energy in a system, much like with momentum, is
-            always conserved. It can change between different "kinds" though.
-            In this instance there are two "kinds" of energy - potential 
-            (represented by the \(mgh\) terms) and kinetic (represented by the
-            \(\frac{1}{2} mv^2\) terms). We will be exploring potential and 
-            kinetic energy more in future, but for now I want to quickly 
-            introduce a new concept - work done. Work done represents this 
-            conversion from one kind of energy to other by a force.
-        </p>
-
-        <p>Work done can crudely be described as the force times the distance
-            travelled. This holds for uniform forces in one dimension - we will
-            explore three dimension and non-uniform forces soon.
-        </p>
-
-        <h2>Fields in Three Dimensions</h2>
-
-        <p>Let's consider the three dimensional version of these problems. 
-            If we consider that in three dimensions acceleration due to gravity
-            for a falling object is given by 
-        </p>
-
-        <p>\[\mathbf{g} = \frac{\mathbf{v} - \mathbf{u}}{t}\]</p>
-
-        <p>and the displacement given by</p>
-
-        <p>\[\frac{1}{2} (\mathbf{v} + \mathbf{u}) t\]</p>
-
-        <p>We can eliminate \(t\) from these equations by taking the scalar 
-            product. Earlier I was not quite candid on why we would want to
-            eliminate \(t\) so badly. Remember, by eliminating the time-evolving
-            part of a system we arrive at the time-invariant parts.
-        </p>
-
-        <p>\[\mathbf{g} \cdot \mathbf{s} = \frac{1}{2} (\mathbf{v} + \mathbf{u})
-            (\mathbf{v} - \mathbf{u}) = \frac{1}{2} (v^2 - u^2)\]
-        </p>
-
-        <p>Remembering our definition of work done as the force applied over a 
-            distance, it maps easily into three dimensions by
-        </p>
-
-        <p>\[W = \mathbf{F} \cdot \mathbf{s}\]</p>
-
-        <p>And let's use our result to figure out what the work done is in this
-            instance.
-        </p>
-
-        <p>\[W = m \mathbf{g} \cdot \mathbf{s} = \frac{1}{2} m v^2 - 
-            \frac{1}{2} m u^2\]
-        </p>
-
-        <p>By definition, \(\frac{1}{2} m v^2 - \frac{1}{2} m u^2\) is the 
-            change in kinetic energy, so again, the work done by the 
-            gravitational field is equal to the change in kinetic energy.
-        </p>
-
-        <p>In short, uniform fields in three dimensions pose little difficulty.
-            For symmetry reasons, we can always rotate our coordinate system,
-            and the laws of physics hold. In other words, we can replace all of 
-            the variables in our equations with vectors and follow the maths 
-            through without much difficulty.
-        </p>
-
-        <h2>Non-uniform Fields</h2>
-
-        <p>As you might have guessed, moving from uniform to non-uniform 
-            solutions generally requires us to use integrals. Writing the
-            equations we already have as integrals we find
-        </p>
-
-        <p>\[\Delta W = \int \mathbf{F} \cdot d \mathbf{s}\]</p>
-
-        <p>\[\Delta \phi = - \int \mathbf{g} \cdot d \mathbf{s}\]</p>
-
-        <p>\[\Delta \phi = - \int \mathbf{E} \cdot d \mathbf{s}\]</p>
-
-        <p>These are very special kinds of integrals called line integrals - 
-            we really do add up every value along the path \(\mathbf{s}\). Let's
-            do some example problems using line integrals to see how to work
-            with them.
-        </p>
-
-        <p>Consider the following field</p>
-
-        <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{yz\\xz\\xy}\]</p>
-
-        <p>Let's evaluate the line integral to find the change in potential when
-            moving from the point (0,0,0) to (1,1,1) in a straight line in two 
-            ways. First we will use a substitution \(\mathbf{s}\), and then we 
-            will do it in three stages.
-        </p>
-
-        <p>Using a substitution, since \(x=y=z\) at all points along the line,
-            we can rewrite this field as
-        </p>
-
-        <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{x^2\\x^2\\x^2}\]</p>
-
-        <p>So, the line integral is</p>
-
-        <p>\[\Delta \phi = - \int \mathbf{E} ds 
-            =
-            -\int^1_0 E_x dx 
-            -\int^1_0 E_y dy
-            -\int^1_0 E_z dz
-            \]
-        </p>
-
-        <p>But since \(E_x = E_y = E_z\) at all points, we can write</p>
-
-        <p>\[\Delta \phi = -3 \int^1_0 \frac{F}{a^2} x^2 dx = -\frac{F}{a^2}\]
-        </p>
-
-        <p>Now, let's try in stages. First from (0,0,0) to (1,0,0)</p>
-
-        <p>\[\Delta \phi_1 = -\int^1_0 \frac{F}{a^2} yz dx = 0\]</p>
-
-        <p>Since \(y=z=0\). Now from (1,0,0) to (1,1,0)</p>
-
-        <p>\[\Delta \phi_2 = -\int^1_0 \frac{F}{a^2} xz dy = 0\]</p>
-
-        <p>Since \(z=0\). Now from (1,1,0) to (1,1,1)</p>
-
-        <p>\[\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz = -\frac{F}{a^2}\]</p>
-
-        <p>Field Due to a Ring</p>
-
-        <p>Consider a thin ring of radius \(R\). It has an even linear charge 
-            density of \(\lambda C/m\) (Coulombs per metre). We want to
-            calculate the electric field at a particular point \(P\) along the z
-            axis.
-        </p>
-
-        <p>The first step is to split the ring into many small parts, such that 
-            for each of the smaller parts any curvature is irrelevant. This 
-            straight length of ring will be \(ds\), so that the small amount of 
-            charge on that ring segment is 
-        </p>
-
-        <p>\[dq = \lambda ds\]</p>
-
-        <p>Now, let's consider the electric field from this one element. The 
-            vector from \(ds\) to \(P\) we will call \(\mathbf{r}\), so the 
-            magnitude of the small electric field is given by
-        </p>
-
-        <p>\[
-            dE = 
-            \frac{1}{4 \pi \epsilon_0} \frac{dq}{r^2} = 
-            \frac{1}{4 \pi \epsilon_0 \frac{\lambda ds}{r^2}}
-            \]
-        </p>
-
-        <p>\(r\) is the hypotenuse of a triangle between \(P\), \(ds\) and the
-            centre of the ring though, so we can rewrite this as
-        </p>
-
-        <p>\[dE = \frac{1}{4 \pi \epsilon_0} \frac{\lambda ds}{z^2 + R^2}\]</p>
-
-        <p>Since every \(ds\) is the same \(r\) (but different \(\mathbf{r}\))
-            from \(P\), consider breaking the electric field strength into two 
-            components. There will be one component pointing up, and each 
-            of these vertical components from all the \(ds\) will point in the 
-            same direction i.e. sum. However, the horizontal components will not 
-            sum up. In fact, for each \(ds\) there is another component 
-            exactly \(180^\circ\) away which has an equal magnitude and opposite 
-            direction horizontal component. In other words, before any kind of 
-            integration is done, a symmetry argument is used to eliminate the 
-            horizontal components. 
-        </p>
-
-        <p>So, each component \(ds\) can be thought of as contributing a scalar 
-            electric field of strength \(dE \cos(\theta)\) in the z direction. 
-            \(\theta\) is the angle made by \(ds P O\) (\(O\) being the centre).
-        </p>
-
-        <p>\(\theta\) can be rewritten in terms of symbols we already have 
-            though, like so
-        </p>
-
-        <p>
-            \[
-            \cos(\theta)
-            =
-            \frac{z}{r}
-            = 
-            \frac{z}{\sqrt{z^2 + R^2}}    
-            \]
-        </p>
-
-        <p>Now we need to sum up each of these \(ds\) to get the total electric 
-            field. We already have an expression for \(dE\), and we have 
-            reasoned that the sum of all \(dE \cos(\theta)\) is \(E\). There's
-            nothing left to do now but integrate.
-        </p>
-
-        <p>
-            \[
-            E = \int dE \cos(\theta) 
-            =
-            \frac{z \lambda}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}} 
-            \int_0^{2 \pi R} ds
-            =
-            \frac{z \lambda (2 \pi R)}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}
-            \]
-        </p>
-
-        <p>Optionally, we can replace the charge per unit length with the total 
-            charge \(q = \lambda 2 \pi R\)
-        </p>
-
-        <p>\[E = \frac{qz}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}\]</p>
-
-    </main>
-
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Fields</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Fields</h1>
+        </header>
+
+        {% include "utils/nav" %}
+
+        <main>
+            <p style="display:none">
+                \(
+                \newcommand{\colvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+                \)
+            </p>
+
+            <p>Up until now we have discussed how objects move due to forces,
+                but we have not discussed how forces are generated nor discussed
+                energy at all.
+            </p>
+
+            <p>Everyone knows that positive charges attract negative charges and
+                repel positive ones. However, let's look more into understanding
+                how much force this attraction and repulsion generates. What we
+                won't be covering here is the specifics of what a field actually
+                is.
+                For our purposes a field is anything which affects a space and
+                generates forces on other objects in that space.
+            </p>
+
+            <p>The formula of the magnitude of a force in an electrostatic field
+                is given by
+            </p>
+
+            <p>\[F = \frac{Qq}{4 \pi \epsilon d^2} \]</p>
+
+            <p>Where \(F\) is the force, \(Q\) is the charge of on particle,
+                \(q\) is the charge of the other particle, \(\epsilon\) is the
+                permittivity of the medium and \(d\) is the distance between the
+                charges
+            </p>
+
+            <p>We can abstract this by defining an electric field strength</p>
+
+            <p>\[E = \frac{Q}{4 \pi \epsilon d^2}\]</p>
+
+            <p>Thus a small test charge \(q\) placed inside this field will
+                experience force
+            </p>
+
+            <p>\[F = qE\]</p>
+
+            <p>However, this analysis is a little thin. It has the flaw of not
+                working for non-uniform fields. It also isn't a vector, and
+                really
+                we should try and put all relationships into 3 dimensional
+                space.
+                Therefore, let's bring this equation into the third dimension.
+            </p>
+
+            <p>\[\mathbf{F}(\mathbf{r}) = q \mathbf{E}(\mathbf{r})\]</p>
+
+            <p>The equation has been given an upgrade! Now force and electric
+                field are vectors, and we introduce \(r\), a vector for the
+                position
+                of the test charge within the electric field.
+            </p>
+
+            <p>We can actually do a very similar thing for gravity</p>
+
+            <p>\[\mathbf{F}(\mathbf{r}) = m \mathbf{g}(\mathbf{r})\]</p>
+
+            <p>The fields behave more or less the same. The only difference of
+                course being that gravity acts upon mass rather than charge.
+            </p>
+
+            <p>We are also now prepared to make a definition of a new concept:
+                energy. We define the work done as the distance travelled when a
+                force is applied. As an equation we can simply write this as
+            </p>
+
+            <p>\[W = F \times s\]</p>
+
+            {# Save this for later - work done can be derived from the example
+            #}
+
+            <p>But this form has some flaws. For one, it is only a scalar, and
+                we
+                prefer vectors where possible. Also, it doesn't allow us to work
+                with non-uniform fields. To fix this, as usual, we introduce an
+                integral.
+            </p>
+
+            <p>\[\Delta W = \int \mathbf{F} d\mathbf{s}\]</p>
+
+            {# Might need to segwey into this section #}
+
+            <p>Let's consider a falling object again. This is an object falling
+                due to gravity, starting at rest. Earlier chapters have shown us
+                that the velocity will be given by \(y = at = gt\) and
+                \(y = \frac{1}{2} g t^2\). Let's begin by eliminating \(t\) from
+                these equations.
+            </p>
+
+            <p>If we rearrange \(y = gt\) into \(t = \frac{y}{g}\) and
+                substitute
+                into \(y = \frac{1}{2} g t^2\) we get
+            </p>
+
+            <p>\[y = \frac{1}{2} g \frac{v^2}{g^2} = \frac{1}{2}
+                \frac{v^2}{g}\]</p>
+
+            <p>Now, let's try and think about this in another way. Consider this
+                problem in terms of average velocity. Since the object starts
+                from
+                rest, \(u = 0\). Therefore, if the distance travelled is the
+                average
+                velocity times time, then \(y = \frac{1}{2} (v - 0) t =
+                \frac{1}{2}vt\). Also consider that velocity is given by \(v =
+                gt\),
+                since we are starting from rest. A simple substitution will give
+                us
+            </p>
+
+            <p>\[y = \frac{1}{2} v \frac{v}{g} = \frac{1}{2} \frac{v^2}{g}\]</p>
+
+            <p>which is the same result from a moment ago.</p>
+
+            <p>Now consider if this object had an initial downward velocity,
+                \(u\).
+                Let's repeat the same analysis. Well, now the distance will be
+                given
+                by \(y = \frac{1}{2} (v + u)t \), still simply the average
+                velocity
+                times time. The final velocity will now be given by
+                \(v = u + gt\). Now if we rearrange for \(t\) we find
+                \(t = \frac{v - u}{g}\). Now let's try substituting for \(t\) to
+                find
+            </p>
+
+            <p>\[y = \frac{1}{2} \frac{(v - u)(v+u)}{g} =
+                \frac{1}{2} \frac{v^2 - u^2}{g}\]</p>
+
+            <p>Now, let's find an expression for the product of the force
+                (\(mg\)) with distance.
+            </p>
+
+            <p>\[mgy = \frac{1}{2} mg \frac{(v - u)(v+u)}{g}
+                = \frac{1}{2} m v^2 - \frac{1}{2} m u^2\]</p>
+
+            <p>I will very suggestively not cancel the \(m\).</p>
+
+            <p>Finally, let's plug some "numbers" in. Consider the object falls
+                from
+                \(h_1\) to \(h_2\) such that \(y = h_1 - h_2\).
+            </p>
+
+            <p>\[mg (h_1 - h_2) = \frac{1}{2} m v^2 - \frac{1}{2} m u^2\]</p>
+
+            <p>And then let's group together the start terms and end terms</p>
+
+            <p>\[mgh_1 + \frac{1}{2} m u^2 = mgh_2 + \frac{1}{2} m v^2\]</p>
+
+            <p>What we have made here is an equation that is independent of
+                time,
+                showing some values that are conserved. We call these conserved
+                values energy. Total energy in a system, much like with
+                momentum, is
+                always conserved. It can change between different "kinds"
+                though.
+                In this instance there are two "kinds" of energy - potential
+                (represented by the \(mgh\) terms) and kinetic (represented by
+                the
+                \(\frac{1}{2} mv^2\) terms). We will be exploring potential and
+                kinetic energy more in future, but for now I want to quickly
+                introduce a new concept - work done. Work done represents this
+                conversion from one kind of energy to other by a force.
+            </p>
+
+            <p>Work done can crudely be described as the force times the
+                distance
+                travelled. This holds for uniform forces in one dimension - we
+                will
+                explore three dimension and non-uniform forces soon.
+            </p>
+
+            <h2>Fields in Three Dimensions</h2>
+
+            <p>Let's consider the three dimensional version of these problems.
+                If we consider that in three dimensions acceleration due to
+                gravity
+                for a falling object is given by
+            </p>
+
+            <p>\[\mathbf{g} = \frac{\mathbf{v} - \mathbf{u}}{t}\]</p>
+
+            <p>and the displacement given by</p>
+
+            <p>\[\frac{1}{2} (\mathbf{v} + \mathbf{u}) t\]</p>
+
+            <p>We can eliminate \(t\) from these equations by taking the scalar
+                product. Earlier I was not quite candid on why we would want to
+                eliminate \(t\) so badly. Remember, by eliminating the
+                time-evolving
+                part of a system we arrive at the time-invariant parts.
+            </p>
+
+            <p>\[\mathbf{g} \cdot \mathbf{s} = \frac{1}{2} (\mathbf{v} +
+                \mathbf{u})
+                (\mathbf{v} - \mathbf{u}) = \frac{1}{2} (v^2 - u^2)\]
+            </p>
+
+            <p>Remembering our definition of work done as the force applied over
+                a
+                distance, it maps easily into three dimensions by
+            </p>
+
+            <p>\[W = \mathbf{F} \cdot \mathbf{s}\]</p>
+
+            <p>And let's use our result to figure out what the work done is in
+                this
+                instance.
+            </p>
+
+            <p>\[W = m \mathbf{g} \cdot \mathbf{s} = \frac{1}{2} m v^2 -
+                \frac{1}{2} m u^2\]
+            </p>
+
+            <p>By definition, \(\frac{1}{2} m v^2 - \frac{1}{2} m u^2\) is the
+                change in kinetic energy, so again, the work done by the
+                gravitational field is equal to the change in kinetic energy.
+            </p>
+
+            <p>In short, uniform fields in three dimensions pose little
+                difficulty.
+                For symmetry reasons, we can always rotate our coordinate
+                system,
+                and the laws of physics hold. In other words, we can replace all
+                of
+                the variables in our equations with vectors and follow the maths
+                through without much difficulty.
+            </p>
+
+            <h2>Non-uniform Fields</h2>
+
+            <p>As you might have guessed, moving from uniform to non-uniform
+                solutions generally requires us to use integrals. Writing the
+                equations we already have as integrals we find
+            </p>
+
+            <p>\[\Delta W = \int \mathbf{F} \cdot d \mathbf{s}\]</p>
+
+            <p>\[\Delta \phi = - \int \mathbf{g} \cdot d \mathbf{s}\]</p>
+
+            <p>\[\Delta \phi = - \int \mathbf{E} \cdot d \mathbf{s}\]</p>
+
+            <p>These are very special kinds of integrals called line integrals -
+                we really do add up every value along the path \(\mathbf{s}\).
+                Let's
+                do some example problems using line integrals to see how to work
+                with them.
+            </p>
+
+            <p>Consider the following field</p>
+
+            <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{yz\\xz\\xy}\]</p>
+
+            <p>Let's evaluate the line integral to find the change in potential
+                when
+                moving from the point (0,0,0) to (1,1,1) in a straight line in
+                two
+                ways. First we will use a substitution \(\mathbf{s}\), and then
+                we
+                will do it in three stages.
+            </p>
+
+            <p>Using a substitution, since \(x=y=z\) at all points along the
+                line,
+                we can rewrite this field as
+            </p>
+
+            <p>\[\mathbf{E} = \frac{F}{a^2} \colvec{x^2\\x^2\\x^2}\]</p>
+
+            <p>So, the line integral is</p>
+
+            <p>\[\Delta \phi = - \int \mathbf{E} ds
+                =
+                -\int^1_0 E_x dx
+                -\int^1_0 E_y dy
+                -\int^1_0 E_z dz
+                \]
+            </p>
+
+            <p>But since \(E_x = E_y = E_z\) at all points, we can write</p>
+
+            <p>\[\Delta \phi = -3 \int^1_0 \frac{F}{a^2} x^2 dx =
+                -\frac{F}{a^2}\]
+            </p>
+
+            <p>Now, let's try in stages. First from (0,0,0) to (1,0,0)</p>
+
+            <p>\[\Delta \phi_1 = -\int^1_0 \frac{F}{a^2} yz dx = 0\]</p>
+
+            <p>Since \(y=z=0\). Now from (1,0,0) to (1,1,0)</p>
+
+            <p>\[\Delta \phi_2 = -\int^1_0 \frac{F}{a^2} xz dy = 0\]</p>
+
+            <p>Since \(z=0\). Now from (1,1,0) to (1,1,1)</p>
+
+            <p>\[\Delta \phi_3 = -\int^1_0 \frac{F}{a^2} xy dz =
+                -\frac{F}{a^2}\]</p>
+
+            <p>Field Due to a Ring</p>
+
+            <p>Consider a thin ring of radius \(R\). It has an even linear
+                charge
+                density of \(\lambda C/m\) (Coulombs per metre). We want to
+                calculate the electric field at a particular point \(P\) along
+                the z
+                axis.
+            </p>
+
+            <p>The first step is to split the ring into many small parts, such
+                that
+                for each of the smaller parts any curvature is irrelevant. This
+                straight length of ring will be \(ds\), so that the small amount
+                of
+                charge on that ring segment is
+            </p>
+
+            <p>\[dq = \lambda ds\]</p>
+
+            <p>Now, let's consider the electric field from this one element. The
+                vector from \(ds\) to \(P\) we will call \(\mathbf{r}\), so the
+                magnitude of the small electric field is given by
+            </p>
+
+            <p>\[
+                dE =
+                \frac{1}{4 \pi \epsilon_0} \frac{dq}{r^2} =
+                \frac{1}{4 \pi \epsilon_0 \frac{\lambda ds}{r^2}}
+                \]
+            </p>
+
+            <p>\(r\) is the hypotenuse of a triangle between \(P\), \(ds\) and
+                the
+                centre of the ring though, so we can rewrite this as
+            </p>
+
+            <p>\[dE = \frac{1}{4 \pi \epsilon_0} \frac{\lambda ds}{z^2 +
+                R^2}\]</p>
+
+            <p>Since every \(ds\) is the same \(r\) (but different
+                \(\mathbf{r}\))
+                from \(P\), consider breaking the electric field strength into
+                two
+                components. There will be one component pointing up, and each
+                of these vertical components from all the \(ds\) will point in
+                the
+                same direction i.e. sum. However, the horizontal components will
+                not
+                sum up. In fact, for each \(ds\) there is another component
+                exactly \(180^\circ\) away which has an equal magnitude and
+                opposite
+                direction horizontal component. In other words, before any kind
+                of
+                integration is done, a symmetry argument is used to eliminate
+                the
+                horizontal components.
+            </p>
+
+            <p>So, each component \(ds\) can be thought of as contributing a
+                scalar
+                electric field of strength \(dE \cos(\theta)\) in the z
+                direction.
+                \(\theta\) is the angle made by \(ds P O\) (\(O\) being the
+                centre).
+            </p>
+
+            <p>\(\theta\) can be rewritten in terms of symbols we already have
+                though, like so
+            </p>
+
+            <p>
+                \[
+                \cos(\theta)
+                =
+                \frac{z}{r}
+                =
+                \frac{z}{\sqrt{z^2 + R^2}}
+                \]
+            </p>
+
+            <p>Now we need to sum up each of these \(ds\) to get the total
+                electric
+                field. We already have an expression for \(dE\), and we have
+                reasoned that the sum of all \(dE \cos(\theta)\) is \(E\).
+                There's
+                nothing left to do now but integrate.
+            </p>
+
+            <p>
+                \[
+                E = \int dE \cos(\theta)
+                =
+                \frac{z \lambda}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}
+                \int_0^{2 \pi R} ds
+                =
+                \frac{z \lambda (2 \pi R)}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}
+                \]
+            </p>
+
+            <p>Optionally, we can replace the charge per unit length with the
+                total
+                charge \(q = \lambda 2 \pi R\)
+            </p>
+
+            <p>\[E = \frac{qz}{4 \pi \epsilon_0 (z^2 + R^2)^{3/2}}\]</p>
+
+        </main>
+
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+    </body>
 
 </html>

@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Kalman Filter of Falling Object</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Kalman Filter of Falling Object</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    <header>
-        <h1>Tracking a Falling Object with a Kalman Filter</h1>
-    </header>
+    <body>
 
-    {% include "utils/nav" %}
+        <header>
+            <h1>Tracking a Falling Object with a Kalman Filter</h1>
+        </header>
 
-    <main>
+        {% include "utils/nav" %}
 
-        <p>
-            For this problem, we will be tracking an object dropped from a
-            height. Whenever I make Kalman filters I always like to think about
-            two things - what will be in the state, and what measurements do I
-            have access to?
-        </p>
+        <main>
 
-        <p>
-            In this problem we will be modelling the problem as constant
-            acceleration. We will only have access to distance measurements.
-            We can think of the measurement device as being a radar which gives
-            us the distance the object is from the ground. The standard deviation
-            of these measurements is \(300m\) (so, quite large). Let's also
-            say that the object drops from an initial height of
-            \(130,000m\) with an initial velocity of \(-2,000\frac{m}{s}\).
-            Acceleration is a constant \(-9.81\frac{m}{s^2}\).
-        </p>
+            <p>
+                For this problem, we will be tracking an object dropped from a
+                height. Whenever I make Kalman filters I always like to think
+                about
+                two things - what will be in the state, and what measurements do
+                I
+                have access to?
+            </p>
 
-        <p>
-            While acceleration is constant, and we know it, just for fun in this
-            problem we're going to make the Kalman filter attempt to estimate
-            the acceleration.
-        </p>
+            <p>
+                In this problem we will be modelling the problem as constant
+                acceleration. We will only have access to distance measurements.
+                We can think of the measurement device as being a radar which
+                gives
+                us the distance the object is from the ground. The standard
+                deviation
+                of these measurements is \(300m\) (so, quite large). Let's also
+                say that the object drops from an initial height of
+                \(130,000m\) with an initial velocity of \(-2,000\frac{m}{s}\).
+                Acceleration is a constant \(-9.81\frac{m}{s^2}\).
+            </p>
 
-        <p>
-            First, we will produce our simulation. For this, we start with the
-            initial conditions and propagate the system forward. This will be the
-            ideal case. For every ideal step, we will also make a measurement
-            by applying some Gaussian noise to the real position. The goal of the
-            exercise is ultimately to extract the original positions from the
-            noisy positions.
-        </p>
+            <p>
+                While acceleration is constant, and we know it, just for fun in
+                this
+                problem we're going to make the Kalman filter attempt to
+                estimate
+                the acceleration.
+            </p>
 
-        <p>
-            For this problem I will make the time step \(0.1s\). At each time
-            step we can work out the new velocity as
-        </p>
+            <p>
+                First, we will produce our simulation. For this, we start with
+                the
+                initial conditions and propagate the system forward. This will
+                be the
+                ideal case. For every ideal step, we will also make a
+                measurement
+                by applying some Gaussian noise to the real position. The goal
+                of the
+                exercise is ultimately to extract the original positions from
+                the
+                noisy positions.
+            </p>
 
-        \[v = u + g \cdot dt\]
+            <p>
+                For this problem I will make the time step \(0.1s\). At each
+                time
+                step we can work out the new velocity as
+            </p>
 
-        <p>
-            where \(u\) was the velocity at the last time step, \(g\) is the
-            acceleration and \(dt\) is the time step.
-        </p>
+            \[v = u + g \cdot dt\]
 
-        <p>
-            We can then get the change in distance as
-        </p>
+            <p>
+                where \(u\) was the velocity at the last time step, \(g\) is the
+                acceleration and \(dt\) is the time step.
+            </p>
 
-        \[\Delta s = 0.5 (u + v) dt\]
+            <p>
+                We can then get the change in distance as
+            </p>
 
-        <p>
-            This is all the physics we need to produce the simulation! It's
-            quite simple.
-        </p>
+            \[\Delta s = 0.5 (u + v) dt\]
 
-        <pre><code>
+            <p>
+                This is all the physics we need to produce the simulation! It's
+                quite simple.
+            </p>
+
+            <pre><code>
 const SIGNOISE: f64 = 300.0;
 const PHIS: f64 = 0.001;
 const TS: f64 = 0.1;
@@ -136,168 +149,179 @@ fn get_data() -> Data {
 }
         </code></pre>
 
-        <p>
-            I make use of the <code>rand</code> and <code>rand_distr</code>
-            crates to produce the random numbers.
-        </p>
+            <p>
+                I make use of the <code>rand</code> and <code>rand_distr</code>
+                crates to produce the random numbers.
+            </p>
 
-        <p>
-            Now that we have the data, let's try making the Kalman filter proper.
-            First, the state is going to be
-        </p>
+            <p>
+                Now that we have the data, let's try making the Kalman filter
+                proper.
+                First, the state is going to be
+            </p>
 
-        \[\mathbf{x} = [x, \dot{x}, \ddot{x}]^T \]
+            \[\mathbf{x} = [x, \dot{x}, \ddot{x}]^T \]
 
-        <p>
-            So that's position above ground, velocity, and acceleration.
-            And our measurement will be
-        </p>
+            <p>
+                So that's position above ground, velocity, and acceleration.
+                And our measurement will be
+            </p>
 
-        \[\mathbf{z} = [x^*] \]
+            \[\mathbf{z} = [x^*] \]
 
-        <p>
-            In other words, we will only be measuring the position. Thus,
-            the filter will be expected to infer both the velocity and the
-            acceleration.
-        </p>
+            <p>
+                In other words, we will only be measuring the position. Thus,
+                the filter will be expected to infer both the velocity and the
+                acceleration.
+            </p>
 
-        <p>
-            There are many ways to think about the transition between states.
-            Later in the course we will look at ways of systematically
-            deriving \(\Phi_k\) which will become essential when we come to
-            trickier problems. However, in this case it is better to build up
-            our intuition. What matrix would transform our state to the next
-            iteration? We've almost already written it down from the SUVAT
-            equations!
-        </p>
+            <p>
+                There are many ways to think about the transition between
+                states.
+                Later in the course we will look at ways of systematically
+                deriving \(\Phi_k\) which will become essential when we come to
+                trickier problems. However, in this case it is better to build
+                up
+                our intuition. What matrix would transform our state to the next
+                iteration? We've almost already written it down from the SUVAT
+                equations!
+            </p>
 
-        \[ \Phi_k =
-        \begin{bmatrix}
-        1 & dt & \frac{1}{2} (dt)^2 \\
-        0 & 1 & dt \\
-        0 & 0 & 1
-        \end{bmatrix}
-        \]
+            \[ \Phi_k =
+            \begin{bmatrix}
+            1 & dt & \frac{1}{2} (dt)^2 \\
+            0 & 1 & dt \\
+            0 & 0 & 1
+            \end{bmatrix}
+            \]
 
-        <p>
-            When in doubt, expand.
-        </p>
+            <p>
+                When in doubt, expand.
+            </p>
 
-        \[
-        \begin{bmatrix}
-        x_k \\
-        \dot{x}_k \\
-        \ddot{x}_k
-        \end{bmatrix}
+            \[
+            \begin{bmatrix}
+            x_k \\
+            \dot{x}_k \\
+            \ddot{x}_k
+            \end{bmatrix}
 
-        =
+            =
 
-        \begin{bmatrix}
-        x_{k-1} + dt \dot{x}_{k-1} + \frac{1}{2} (dt)^2 \ddot{x}_{k-1} \\
-        \dot{x}_{k-1} + dt \ddot{x}_{k-1} \\
-        \ddot{x}_{k-1}
-        \end{bmatrix}
+            \begin{bmatrix}
+            x_{k-1} + dt \dot{x}_{k-1} + \frac{1}{2} (dt)^2 \ddot{x}_{k-1} \\
+            \dot{x}_{k-1} + dt \ddot{x}_{k-1} \\
+            \ddot{x}_{k-1}
+            \end{bmatrix}
 
-        =
+            =
 
-        \begin{bmatrix}
-        1 & dt & \frac{1}{2} (dt)^2 \\
-        0 & 1 & dt \\
-        0 & 0 & 1
-        \end{bmatrix}
+            \begin{bmatrix}
+            1 & dt & \frac{1}{2} (dt)^2 \\
+            0 & 1 & dt \\
+            0 & 0 & 1
+            \end{bmatrix}
 
-        \begin{bmatrix}
-        x_{k-1} \\
-        \dot{x}_{k-1} \\
-        \ddot{x}_{k-1}
-        \end{bmatrix}
+            \begin{bmatrix}
+            x_{k-1} \\
+            \dot{x}_{k-1} \\
+            \ddot{x}_{k-1}
+            \end{bmatrix}
 
-        \]
+            \]
 
-        <p>
-            Now, thinking about \(H\) - I try to think of this as how we can
-            extract a measurement from our state. In this case our measurement
-            is \(x\) and our state contains an \(x\) in the first row, so \(H\)
-            is
-        </p>
+            <p>
+                Now, thinking about \(H\) - I try to think of this as how we can
+                extract a measurement from our state. In this case our
+                measurement
+                is \(x\) and our state contains an \(x\) in the first row, so
+                \(H\)
+                is
+            </p>
 
-        \[H = [1, 0, 0]\]
+            \[H = [1, 0, 0]\]
 
-        <p>
-            Now to consider \(\mathbf{Q}_k\). The continuous noise matrix looks like
-        </p>
+            <p>
+                Now to consider \(\mathbf{Q}_k\). The continuous noise matrix
+                looks like
+            </p>
 
-        \[\mathbf{Q} =
-        \begin{bmatrix}
-        0 & 0 & 0 \\
-        0 & 0 & 0 \\
-        0 & 0 & \Phi_s
-        \end{bmatrix}
+            \[\mathbf{Q} =
+            \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & \Phi_s
+            \end{bmatrix}
 
-        =
+            =
 
-        \Phi_s
-        \begin{bmatrix}
-        0 & 0 & 0 \\
-        0 & 0 & 0 \\
-        0 & 0 & 1
-        \end{bmatrix}
-        \]
+            \Phi_s
+            \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 1
+            \end{bmatrix}
+            \]
 
-        <p>
-            Where \(\Phi_s\) is the white noise parameter. Part of the art of the
-            Kalman filter is picking this value.
-            Later on, we will study deriving this in more serious detail,
-            but for now, build intuition. In our model, the noise is all in the
-            acceleration, which is then propagated up to the higher order terms.
-            The discrete noise model is always given by
-        </p>
+            <p>
+                Where \(\Phi_s\) is the white noise parameter. Part of the art
+                of the
+                Kalman filter is picking this value.
+                Later on, we will study deriving this in more serious detail,
+                but for now, build intuition. In our model, the noise is all in
+                the
+                acceleration, which is then propagated up to the higher order
+                terms.
+                The discrete noise model is always given by
+            </p>
 
-        \[\mathbf{Q}_k = \int^{dt}_0 \Phi_k \mathbf{Q} \Phi_k^T dt^\prime \]
+            \[\mathbf{Q}_k = \int^{dt}_0 \Phi_k \mathbf{Q} \Phi_k^T dt^\prime \]
 
-        <p>
-            In this case, \(\mathbf{Q}_k\) is given by
-        </p>
+            <p>
+                In this case, \(\mathbf{Q}_k\) is given by
+            </p>
 
-        \[\mathbf{Q}_k =
-        \Phi_s
+            \[\mathbf{Q}_k =
+            \Phi_s
 
-        \begin{bmatrix}
-        \frac{(dt)^5}{20} & \frac{(dt)^4}{8} & \frac{(dt)^3}{3} \\
-        \frac{(dt)^4}{8} & \frac{(dt)^3}{3} & \frac{(dt)^2}{2} \\
-        \frac{(dt)^3}{6} & \frac{(dt)^2}{2} & dt
-        \end{bmatrix}
-        \]
+            \begin{bmatrix}
+            \frac{(dt)^5}{20} & \frac{(dt)^4}{8} & \frac{(dt)^3}{3} \\
+            \frac{(dt)^4}{8} & \frac{(dt)^3}{3} & \frac{(dt)^2}{2} \\
+            \frac{(dt)^3}{6} & \frac{(dt)^2}{2} & dt
+            \end{bmatrix}
+            \]
 
-        <p>
-            Now, we have everything we need to start filtering! We now simply
-            solve the Riccati equations.
-        </p>
+            <p>
+                Now, we have everything we need to start filtering! We now
+                simply
+                solve the Riccati equations.
+            </p>
 
-        \[ \bar{\ddot{x}} = \hat{\ddot{x}}_{k-1} \]
-        \[ \bar{\dot{x}} = \hat{\dot{x}}_{k-1} + dt \bar{\ddot{x}} \]
-        \[ \bar{x} = \hat{x}_{k-1} + dt \bar{\dot{x}} + 0.5 (dt)^2 \bar{\ddot{x}} \]
+            \[ \bar{\ddot{x}} = \hat{\ddot{x}}_{k-1} \]
+            \[ \bar{\dot{x}} = \hat{\dot{x}}_{k-1} + dt \bar{\ddot{x}} \]
+            \[ \bar{x} = \hat{x}_{k-1} + dt \bar{\dot{x}} + 0.5 (dt)^2
+            \bar{\ddot{x}} \]
 
-        <p>Remember that</p>
+            <p>Remember that</p>
 
-        \[ M_k = \Phi_k P_{k-1} \Phi^T_k + \mathbf{Q}_k \]
-        \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
+            \[ M_k = \Phi_k P_{k-1} \Phi^T_k + \mathbf{Q}_k \]
+            \[ K_k = M_k H^T [H M_k H^T + R_k]^{-1} \]
 
-        <p>We also define</p>
+            <p>We also define</p>
 
-        \[ \tilde{x} = x^* - \bar{x} \]
+            \[ \tilde{x} = x^* - \bar{x} \]
 
-        <p>And so</p>
+            <p>And so</p>
 
-        \[ \hat{x}_k = \bar{x}_k + K_1 \tilde{x} \]
-        \[ \hat{\dot{x}}_k = \bar{\dot{x}}_k + K_2 \tilde{x} \]
-        \[ \hat{\ddot{x}}_k = \bar{\ddot{x}}_k + K_3 \tilde{x} \]
+            \[ \hat{x}_k = \bar{x}_k + K_1 \tilde{x} \]
+            \[ \hat{\dot{x}}_k = \bar{\dot{x}}_k + K_2 \tilde{x} \]
+            \[ \hat{\ddot{x}}_k = \bar{\ddot{x}}_k + K_3 \tilde{x} \]
 
-        <p>
-            So, now to put this into code
-        </p>
+            <p>
+                So, now to put this into code
+            </p>
 
-        <pre><code>
+            <pre><code>
 let data = get_data();
 
 let mut state = matrix(vec![0.0, 0.0, 0.0], 3, 1, Row);
@@ -341,72 +365,89 @@ for i in 0..data.t.len() {
 }
         </code></pre>
 
-        <p>
-            For brevity, I took out the code that collects the values for plotting.
-            Don't forget to check the
-            <a href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion repository</a>
-            for everything.
-        </p>
+            <p>
+                For brevity, I took out the code that collects the values for
+                plotting.
+                Don't forget to check the
+                <a
+                    href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion
+                    repository</a>
+                for everything.
+            </p>
 
-        {% include "courses/kalman-filters/falling/position-plot" %}
+            {% include "courses/kalman-filters/falling/position-plot" %}
 
-        {% include "courses/kalman-filters/falling/velocity-plot" %}
+            {% include "courses/kalman-filters/falling/velocity-plot" %}
 
-        {% include "courses/kalman-filters/falling/acceleration-plot" %}
+            {% include "courses/kalman-filters/falling/acceleration-plot" %}
 
-        <p>
-            And these results are pretty great! The position, especially is
-            a phenomenal improvement over the noist measurements.
-            The velocity and acceleration parameters could be better, but for
-            states which are inferred and are never updated directly, there is a
-            limit to how good you can have them be.
-        </p>
+            <p>
+                And these results are pretty great! The position, especially is
+                a phenomenal improvement over the noist measurements.
+                The velocity and acceleration parameters could be better, but
+                for
+                states which are inferred and are never updated directly, there
+                is a
+                limit to how good you can have them be.
+            </p>
 
-        <p>
-            The velocity and acceleration parameters take a very long time to
-            converge and stabalise. This is because of initial conditions. We
-            give the filter no helpful starting conditions.
-            Better starting conditions and a corresponding lower starting
-            covariance matrix will help a faster convergence. Whether you can
-            practically seed the Kalman filter appropriately will depend a lot
-            on the specific application. Sometimes you will have some kind of
-            decent starting estimate, sometimes not.
-        </p>
+            <p>
+                The velocity and acceleration parameters take a very long time
+                to
+                converge and stabalise. This is because of initial conditions.
+                We
+                give the filter no helpful starting conditions.
+                Better starting conditions and a corresponding lower starting
+                covariance matrix will help a faster convergence. Whether you
+                can
+                practically seed the Kalman filter appropriately will depend a
+                lot
+                on the specific application. Sometimes you will have some kind
+                of
+                decent starting estimate, sometimes not.
+            </p>
 
-        <p>
-            Another plot that can really help us understand what is happening
-            is the residual plot. This is where we take the difference between
-            the estimated value and the true value - obviously we want to
-            minimise this as much as possible. For the position, since I also
-            have a measurement, I include the residual between the measurement
-            and the true value.
-        </p>
+            <p>
+                Another plot that can really help us understand what is
+                happening
+                is the residual plot. This is where we take the difference
+                between
+                the estimated value and the true value - obviously we want to
+                minimise this as much as possible. For the position, since I
+                also
+                have a measurement, I include the residual between the
+                measurement
+                and the true value.
+            </p>
 
-        {% include "courses/kalman-filters/falling/position-residual" %}
+            {% include "courses/kalman-filters/falling/position-residual" %}
 
-        {% include "courses/kalman-filters/falling/velocity-residual" %}
+            {% include "courses/kalman-filters/falling/velocity-residual" %}
 
-        {% include "courses/kalman-filters/falling/acceleration-residual" %}
+            {% include "courses/kalman-filters/falling/acceleration-residual" %}
 
-        <p>
-            I think the position residual is particularly impressive. After about
-            \(10s\) of warm up, we reduce the noise from something like
-            \(300m\) to something like \(100m\).
-        </p>
+            <p>
+                I think the position residual is particularly impressive. After
+                about
+                \(10s\) of warm up, we reduce the noise from something like
+                \(300m\) to something like \(100m\).
+            </p>
 
-        <p>
-            The keen eyed among you will have noticed that there's nothing
-            about this filter which exactly requires us to have a falling
-            object. Any object under constant acceleration will be tracked just
-            fine by this filter. Try changing values in the simulation to see
-            how it performs!
-        </p>
+            <p>
+                The keen eyed among you will have noticed that there's nothing
+                about this filter which exactly requires us to have a falling
+                object. Any object under constant acceleration will be tracked
+                just
+                fine by this filter. Try changing values in the simulation to
+                see
+                how it performs!
+            </p>
 
-    </main>
+        </main>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-</body>
+    </body>
 
 </html>

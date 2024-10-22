@@ -141,8 +141,8 @@ async fn main() {
         .register("/", catchers![not_found, error])
         .attach(Template::fairing())
         .attach(shield)
-        .attach(SubdomainHandler)
         .attach(www_redirect())
+        .attach(CacheControl)
         .mount("/", get_all_routes())
         .launch()
         .await
@@ -180,27 +180,6 @@ fn get_all_routes() -> Vec<Route> {
     return flattened_routes;
 }
 
-/// Fairing to handle subdomain routing
-struct SubdomainHandler;
-
-#[rocket::async_trait]
-impl Fairing for SubdomainHandler {
-    fn info(&self) -> Info {
-        Info {
-            name: "Subdomain Router",
-            kind: Kind::Request,
-        }
-    }
-
-    async fn on_request(&self, request: &mut Request<'_>, _: &mut rocket::Data<'_>) {
-        if let Some(host) = request.headers().get_one("Host") {
-            if host.starts_with("subdomain1.") {
-                request.set_uri(Origin::parse("/subdomain").unwrap());
-            }
-        }
-    }
-}
-
 /// Fairing to handle www. to non-www redirection
 fn www_redirect() -> impl Fairing {
     struct WwwRedirectFairing;
@@ -213,18 +192,6 @@ fn www_redirect() -> impl Fairing {
                 kind: Kind::Response,
             }
         }
-
-        // async fn on_request(&self, request: &mut Request<'_>, _: &mut rocket::Data<'_>) {
-        //     if let Some(host) = request.headers().get_one("Host") {
-        //         if host.starts_with("www.") {
-        //             // Strip the "www." from the host and redirect to the non-www version
-        //             let new_host = &host[4..]; // Remove the "www."
-        //             let uri = request.uri().to_string(); // Keep the rest of the URI path/query
-        //             let redirect_url = format!("https://{}{}", new_host, uri);
-        //             request.local_cache(|| Some(redirect_url)); // Cache the redirection URL
-        //         }
-        //     }
-        // }
 
         async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
             if let Some(host) = request.headers().get_one("Host") {
@@ -241,4 +208,24 @@ fn www_redirect() -> impl Fairing {
     }
 
     WwwRedirectFairing
+}
+
+pub struct CacheControl;
+
+#[rocket::async_trait]
+impl Fairing for CacheControl {
+    fn info(&self) -> Info {
+        Info {
+            name: "Add Cache-Control headers for static files",
+            kind: Kind::Response,
+        }
+    }
+
+    async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
+        // Only apply the header to routes that serve static files (e.g., `/static`)
+        if request.uri().path().starts_with("/static") {
+            response.set_header(Header::new("Cache-Control", "public, max-age=86400"));
+            // 1 year
+        }
+    }
 }

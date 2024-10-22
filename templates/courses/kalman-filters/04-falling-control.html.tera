@@ -1,159 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Falling with Control Term</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Falling with Control Term</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    <header>
-        <h1>Using a Control Term in a Kalman Filter</h1>
-    </header>
+    <body>
 
-    {% include "utils/nav" %}
+        <header>
+            <h1>Using a Control Term in a Kalman Filter</h1>
+        </header>
 
-    <main>
+        {% include "utils/nav" %}
 
-        <p>In the previous articles, we looked at objects falling under gravity.
-            In those articles we asked the Kalman filter to try and estimate
-            the position, velocity and acceleration from the readings. However,
-            we know in advance what gravity is doing. So, why don't we instead
-            tell the Kalman filter that the object is accelerating? That way,
-            we can get an even more accurate filter.
-        </p>
+        <main>
 
-        <p>
-            We can actually use the exact same code to generate the data that
-            we've been using so far.
-        </p>
+            <p>In the previous articles, we looked at objects falling under
+                gravity.
+                In those articles we asked the Kalman filter to try and estimate
+                the position, velocity and acceleration from the readings.
+                However,
+                we know in advance what gravity is doing. So, why don't we
+                instead
+                tell the Kalman filter that the object is accelerating? That
+                way,
+                we can get an even more accurate filter.
+            </p>
 
-        <p>Remember that the full state propagation equation is given by</p>
+            <p>
+                We can actually use the exact same code to generate the data
+                that
+                we've been using so far.
+            </p>
 
-        \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
+            <p>Remember that the full state propagation equation is given by</p>
 
-        <p>So far, we've been ignoring \(G\), but this is our control term now.
-            So, let's construct the state-space equation for falling with a
-            control term.
-        </p>
+            \[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H
+            \Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \]
 
-        \[
-        \begin{bmatrix}
-        \dot{x} \\
-        \ddot{x}
-        \end{bmatrix}
+            <p>So far, we've been ignoring \(G\), but this is our control term
+                now.
+                So, let's construct the state-space equation for falling with a
+                control term.
+            </p>
 
-        =
+            \[
+            \begin{bmatrix}
+            \dot{x} \\
+            \ddot{x}
+            \end{bmatrix}
 
-        \begin{bmatrix}
-        0 & 1 \\
-        0 & 0
-        \end{bmatrix}
+            =
 
-        \begin{bmatrix}
-        x \\
-        \dot{x}
-        \end{bmatrix}
+            \begin{bmatrix}
+            0 & 1 \\
+            0 & 0
+            \end{bmatrix}
 
-        +
+            \begin{bmatrix}
+            x \\
+            \dot{x}
+            \end{bmatrix}
 
-        \begin{bmatrix}
-        0 \\
-        -1
-        \end{bmatrix}
-        g
-        \]
+            +
 
-        <p>We've already calculated for this system before that</p>
+            \begin{bmatrix}
+            0 \\
+            -1
+            \end{bmatrix}
+            g
+            \]
 
-        \[\Phi_k =
-        \begin{bmatrix}
-        1 & t \\
-        0 & 1
-        \end{bmatrix}
-        \]
+            <p>We've already calculated for this system before that</p>
 
-        <p>Now, it's trivial to see that \(u_{k-1}=g\) and that</p>
+            \[\Phi_k =
+            \begin{bmatrix}
+            1 & t \\
+            0 & 1
+            \end{bmatrix}
+            \]
 
-        \[
-        G = \begin{bmatrix}
-        0 \\
-        -1
-        \end{bmatrix}
-        \]
+            <p>Now, it's trivial to see that \(u_{k-1}=g\) and that</p>
 
-        <p>But, we need \(G_k\), which is given by</p>
+            \[
+            G = \begin{bmatrix}
+            0 \\
+            -1
+            \end{bmatrix}
+            \]
 
-        \[
-        G_k =
+            <p>But, we need \(G_k\), which is given by</p>
 
-        \int^t_0 \Phi(\tau) G d \tau =
+            \[
+            G_k =
 
-        \int^t_0
+            \int^t_0 \Phi(\tau) G d \tau =
 
-        \begin{bmatrix}
-        1 & \tau \\
-        0 & 1
-        \end{bmatrix}
+            \int^t_0
 
-        \begin{bmatrix}
-        0 \\
-        -1
-        \end{bmatrix}
+            \begin{bmatrix}
+            1 & \tau \\
+            0 & 1
+            \end{bmatrix}
 
-        d \tau =
+            \begin{bmatrix}
+            0 \\
+            -1
+            \end{bmatrix}
 
-        \begin{bmatrix}
-        -0.5 t^2 \\
-        -t
-        \end{bmatrix}
+            d \tau =
 
-        \]
+            \begin{bmatrix}
+            -0.5 t^2 \\
+            -t
+            \end{bmatrix}
 
-        <p>If you think about that term, you might have been able to derive it
-            from intuition alone - it is, after all, just SUVAT written out in a
-            funny way.
-        </p>
+            \]
 
-        <p>So, solving the equations is now really quite easy. For convenience,
-            we define
-        </p>
+            <p>If you think about that term, you might have been able to derive
+                it
+                from intuition alone - it is, after all, just SUVAT written out
+                in a
+                funny way.
+            </p>
 
-        \[ \tilde{x} = x^*_k - \hat{x}_{k-1} - \hat{\dot{x}}_{k-1} t + 0.5 g t^2 \]
+            <p>So, solving the equations is now really quite easy. For
+                convenience,
+                we define
+            </p>
 
-        <p>And so we have the solutions</p>
+            \[ \tilde{x} = x^*_k - \hat{x}_{k-1} - \hat{\dot{x}}_{k-1} t + 0.5 g
+            t^2 \]
 
-        \[\hat{x}_k = \hat{x}_{k-1} + \hat{\dot{x}}_{k-1} t - 0.5g t^2 + K_1 \tilde{x} \]
+            <p>And so we have the solutions</p>
 
-        \[ \hat{\dot{x}}_k = \hat{\dot{x}}_{k-1} - g t + K_2 \tilde{x} \]
+            \[\hat{x}_k = \hat{x}_{k-1} + \hat{\dot{x}}_{k-1} t - 0.5g t^2 + K_1
+            \tilde{x} \]
 
-        <p>And this produces the following results - which look great!
-            Don't forget to look at the
-            <a href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion repository</a>
-            for the full code!
-        </p>
+            \[ \hat{\dot{x}}_k = \hat{\dot{x}}_{k-1} - g t + K_2 \tilde{x} \]
 
-        {% include "courses/kalman-filters/falling_control/position-plot" %}
+            <p>And this produces the following results - which look great!
+                Don't forget to look at the
+                <a
+                    href="https://github.com/IndigoCurnick/kalman-filtering-rs">companion
+                    repository</a>
+                for the full code!
+            </p>
 
-        {% include "courses/kalman-filters/falling_control/velocity-plot" %}
+            {% include "courses/kalman-filters/falling_control/position-plot" %}
 
-        {% include "courses/kalman-filters/falling_control/position-residual" %}
+            {% include "courses/kalman-filters/falling_control/velocity-plot" %}
 
-        {% include "courses/kalman-filters/falling_control/velocity-residual" %}
+            {% include
+            "courses/kalman-filters/falling_control/position-residual" %}
 
+            {% include
+            "courses/kalman-filters/falling_control/velocity-residual" %}
 
-    </main>
+        </main>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-</body>
+    </body>
 
 </html>

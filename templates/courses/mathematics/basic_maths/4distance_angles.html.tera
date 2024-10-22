@@ -1,119 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Distance and Angles</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Distance and Angles</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-<body>
-    <header>
-        <h1>Distance and Angles</h1>
-    </header>
+        <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
 
-    {% include "utils/nav" %}
+    <body>
+        <header>
+            <h1>Distance and Angles</h1>
+        </header>
 
-    <main>
+        {% include "utils/nav" %}
 
-        <p>Distances are a foundational concept in geometry. It concerns the 
-            separation of two points in space, and we usually consider these 
-            points to have no expanse themselves. Let's begin with a few basic
-            facts about distances.
-        </p>
+        <main>
 
-        <p>We will denote the distance between points \(P, Q\) as \(d(P, Q)\)</p>
+            <p>Distances are a foundational concept in geometry. It concerns the
+                separation of two points in space, and we usually consider these
+                points to have no expanse themselves. Let's begin with a few
+                basic
+                facts about distances.
+            </p>
 
-        <p>For any points \(P, Q\) we have \(d(P, Q) \geq 0\). \(d(P, Q) = 0\)
-            if and only if \(P = Q\).    
-        </p>
+            <p>We will denote the distance between points \(P, Q\) as \(d(P,
+                Q)\)</p>
 
-        <p>For any points \(P, Q\) we have \(d(P, Q) = d(Q, P)\)</p>
+            <p>For any points \(P, Q\) we have \(d(P, Q) \geq 0\). \(d(P, Q) =
+                0\)
+                if and only if \(P = Q\).
+            </p>
 
-        <p>For points \(P, Q, M\) we have \(d(P, M) \leq d(P, Q) + d(Q, M)\)</p>
+            <p>For any points \(P, Q\) we have \(d(P, Q) = d(Q, P)\)</p>
 
-        <p>Expanding on the last one a little, we can introduce the concept of a
-            segment. A segment can be thought of as the straight line connecting 
-            any two points. Therefore, if \(Q\) sits on the segment between 
-            \(P\) and \(M\) i.e. it is somewhere in between them, then
-            \(d(P, M) = d(P, Q) + d(Q, M)\)
-        </p>
+            <p>For points \(P, Q, M\) we have \(d(P, M) \leq d(P, Q) + d(Q,
+                M)\)</p>
 
-        <p>We can now think about some shapes. The simplest shape is perhaps the 
-            circle. For point \(P\) the circle is a line where every point on
-            the line is distance \(r\) from \(P\). \(r\) is often called the
-            radius.
-        </p>
+            <p>Expanding on the last one a little, we can introduce the concept
+                of a
+                segment. A segment can be thought of as the straight line
+                connecting
+                any two points. Therefore, if \(Q\) sits on the segment between
+                \(P\) and \(M\) i.e. it is somewhere in between them, then
+                \(d(P, M) = d(P, Q) + d(Q, M)\)
+            </p>
 
-        <p>As a quick remark here, in order to talk about distances we need 
-            some kind of measurement system. In the real world, this will 
-            usually be something like metres. In geometry, the neat thing is 
-            that absolute distances often don't matter much but the 
-            <i>ratios</i> between them. It's common to see one distance defined
-            as "unit one", which can be taken to have length 1, with arbitrary 
-            distance units as such.
-        </p>
+            <p>We can now think about some shapes. The simplest shape is perhaps
+                the
+                circle. For point \(P\) the circle is a line where every point
+                on
+                the line is distance \(r\) from \(P\). \(r\) is often called the
+                radius.
+            </p>
 
-        <p>We can now define one of the most important concepts in geometry -
-            the angle. An angle forms when two lines meet. Angles are usually 
-            measured in degrees. If two lines make a perfectly square cross that 
-            is a \(90^{\circ}\) angle. Four \(90^{\circ}\) angles make up a 
-            full circle, or \(360^{\circ}\).
-        </p>
+            <p>As a quick remark here, in order to talk about distances we need
+                some kind of measurement system. In the real world, this will
+                usually be something like metres. In geometry, the neat thing is
+                that absolute distances often don't matter much but the
+                <i>ratios</i> between them. It's common to see one distance
+                defined
+                as "unit one", which can be taken to have length 1, with
+                arbitrary
+                distance units as such.
+            </p>
 
-        <div class="aligncenter">
-            <img src="/images/circle.png" alt="Circle" title="Circle">
-        </div>
+            <p>We can now define one of the most important concepts in geometry
+                -
+                the angle. An angle forms when two lines meet. Angles are
+                usually
+                measured in degrees. If two lines make a perfectly square cross
+                that
+                is a \(90^{\circ}\) angle. Four \(90^{\circ}\) angles make up a
+                full circle, or \(360^{\circ}\).
+            </p>
 
-        <p>The favourite shape of most mathematicians though is the triangle.
-            A triangle is a three sided shape. The sum of the internal angles 
-            where the three lines meet is always \(180^\circ\). To begin with,
-            we will look at a particular subclass of triangles called
-            right-angled triangles. These are triangles which have one of
-            their angles be \(90^\circ).
-        </p>
+            <div class="aligncenter">
+                <img src="/images/circle.png" alt="Circle" title="Circle">
+            </div>
 
-        <div class="aligncenter">
-            <img src="/images/basic_right_angle.png" alt="Right angle triangle" 
-            title="Right angle triangle">
-        </div>
+            <p>The favourite shape of most mathematicians though is the
+                triangle.
+                A triangle is a three sided shape. The sum of the internal
+                angles
+                where the three lines meet is always \(180^\circ\). To begin
+                with,
+                we will look at a particular subclass of triangles called
+                right-angled triangles. These are triangles which have one of
+                their angles be \(90^\circ).
+            </p>
 
-        <p>In this triangle, the two other internal angles are each \(45^\circ\)
-            since \(45^\circ + 45^\circ + 90^\circ = 180^\circ\).
-        </p>
+            <div class="aligncenter">
+                <img src="/images/basic_right_angle.png"
+                    alt="Right angle triangle"
+                    title="Right angle triangle">
+            </div>
 
-        <p>In this triangle, sides \(A\) and \(B\) are the same length. Let's 
-            call them length 1. What is the length of side \(C\)? This 
-            introduces the most important formula in all of geometry - the 
-            Pythagorean theorem 
-        </p>
+            <p>In this triangle, the two other internal angles are each
+                \(45^\circ\)
+                since \(45^\circ + 45^\circ + 90^\circ = 180^\circ\).
+            </p>
 
-        <p>\[A^2 + B^2 = C^2\]</p>
+            <p>In this triangle, sides \(A\) and \(B\) are the same length.
+                Let's
+                call them length 1. What is the length of side \(C\)? This
+                introduces the most important formula in all of geometry - the
+                Pythagorean theorem
+            </p>
 
-        <p>Where \(C\) is always referring to the hypotenuse of a right angle 
-            triangle. The hypotenuse is the longest side (which is also never
-            the side that helps form the right-angle itself). Please burn this 
-            formula into your memory - it will be one of the most used formulas 
-            going forward.
-        </p>
+            <p>\[A^2 + B^2 = C^2\]</p>
 
-        <p>So, using this formula to find the length of \(C\) is quite easy</p>
+            <p>Where \(C\) is always referring to the hypotenuse of a right
+                angle
+                triangle. The hypotenuse is the longest side (which is also
+                never
+                the side that helps form the right-angle itself). Please burn
+                this
+                formula into your memory - it will be one of the most used
+                formulas
+                going forward.
+            </p>
 
-        <p>\[\sqrt{1^2 + 1^2} = C = \sqrt{2}\]</p>
+            <p>So, using this formula to find the length of \(C\) is quite
+                easy</p>
 
-        
+            <p>\[\sqrt{1^2 + 1^2} = C = \sqrt{2}\]</p>
 
-        
-    </main>
+        </main>
 
-    <script src="/js/highlight/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+        <script src="/js/highlight/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
 
-</body>
+    </body>
 
 </html>
