@@ -10,7 +10,7 @@ use context::STATIC_BLOG_ENTRIES;
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::fs::{relative, FileServer};
 use rocket::http::uri::Origin;
-use rocket::http::Status;
+use rocket::http::{Header, Status};
 use rocket::response::content::RawXml;
 use rocket::response::Redirect;
 use rocket::shield::{Hsts, Shield};
@@ -222,10 +222,8 @@ impl Fairing for CacheControl {
     }
 
     async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
-        // Only apply the header to routes that serve static files (e.g., `/static`)
-        if request.uri().path().starts_with("/static") {
+        if request.uri().path().starts_with("/css") || request.uri().path().starts_with("/js") {
             response.set_header(Header::new("Cache-Control", "public, max-age=86400"));
-            // 1 year
         }
     }
 }
