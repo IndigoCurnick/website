@@ -216,7 +216,7 @@ impl Fairing for CacheControl {
 
     async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
         if request.uri().path().starts_with("/css") || request.uri().path().starts_with("/js") {
-            response.set_header(Header::new("Cache-Control", "public, max-age=86400"));
+            response.set_header(Header::new("Cache-Control", "public, max-age=3600"));
         }
     }
 }
