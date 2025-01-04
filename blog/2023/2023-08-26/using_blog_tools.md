@@ -1,5 +1,3 @@
-# Using blog-tools
-
 A few months ago, I wrote an article on making a blog in Rust. Since then, this idea has had quite a bit of development. I needed to make blogs at work too. This was a good opportunity to improve the code. One thing lead to another and eventually I published the [blog library on crates.io](https://crates.io/crates/blog-tools). You can install this like you would any other Rust crate with 
 
 ```

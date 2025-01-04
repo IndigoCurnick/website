@@ -1,5 +1,3 @@
-# SICP Chapter 1 Part 1
-
 I'm currently attempting to do every problem in _Structure and Interpretation of Computer Programs_. This post will give solutions to the wordy problems in the firt chapter. You can find the repo where I'm solving the problems [https://github.com/IndigoCurnick/structure_interpretation_computer_programs](https://github.com/IndigoCurnick/structure_interpretation_computer_programs)
 
 ## Exercise 1.5

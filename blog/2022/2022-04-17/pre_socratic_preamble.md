@@ -1,5 +1,3 @@
-# Preamble to the Pre-Socratics
-
 The pre-Socratics are a collection of philosophers that came quite literally before Socrates. This is a period of history from around 635BC to around 440BC, although quite a number of the later pre-Socratics were actually contemporaries of Socrates himself. After Socrates' death, and with the rising of Plato and Aristotle, philosophy took a fundamentally different course. These early philosophers are of great interest to me because they represent some of the earliest serious thinkers that we have records of.
 
 On Sources
@@ -21,4 +19,4 @@ On Socrates
 
 While this is a series on the pre-Socratics, I have elected to include Socrates. I originally wrote the article on Socrates not in relation to this series, but will add it to the end as I think a summary of Socrates is a good way to round off the study of the pre-Socratics. After reading about the earlier philosophers you will immediately understand why Socrates is the break point; it is not some mistake, convention, arbitrary choice or accident of history – there is a real, genuine difference before and after his influence.
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

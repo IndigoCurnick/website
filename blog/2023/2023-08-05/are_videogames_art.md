@@ -1,5 +1,3 @@
-# Are Videogames Art?
-
 *Philo has gone to Brad's house to play the latest video game – "Postmodern Warfare"*
 
 Brad: Haha – take that Philo. I'm the best *Postmodern Warfare* player there is. You stand no chance of winning!

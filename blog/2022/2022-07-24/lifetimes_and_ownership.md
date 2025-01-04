@@ -1,5 +1,3 @@
-# Lifetimes and Ownership in Rust
-
 Lifetimes and ownership in Rust are some of the aspects of the language users coming from other languages struggle to
 understand. Few languages have concepts similar to these, so they can be unfamiliar. However, they are by far the
 most powerful aspects of the language that give Rust its appeal. Through lifetimes and ownership, we can write code

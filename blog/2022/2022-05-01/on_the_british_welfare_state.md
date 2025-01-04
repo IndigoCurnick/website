@@ -1,5 +1,3 @@
-# On the British Welfare State
-
 ## Introduction
 
 Since 1945 the British state is a welfare state. It is one of the largest welfare states in the world. Despite Mrs.

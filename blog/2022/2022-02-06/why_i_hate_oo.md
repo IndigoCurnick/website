@@ -1,6 +1,3 @@
-Why I Hate Object Orientated Programming And What to Use Instead
-================================================================
-
 Anyone who has began programming over the last few decades has probably been extensively exposed to the concept of "object orientated programming" (I'll refer to it as OO from now on). In fact, most courses in programming or programming textbooks say that OO programming is the correct way to program.
 
 Indeed, let's look at a few examples…

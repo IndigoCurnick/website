@@ -1,5 +1,3 @@
-# How to Read a Book
-
 *How to Read a Book* by Mortimer J. Adler and Charles Van Doren is a classic text. I have emphasised many times how important reading is to the Polymath, and no source is better than this book for how to read a book. I will start with the summary for those who want a top line overview or those seeking a quick refresher
 
 Stage 1: What is the book about?

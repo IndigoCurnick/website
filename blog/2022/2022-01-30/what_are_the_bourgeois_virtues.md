@@ -1,6 +1,3 @@
-What are the Bourgeois Virtues?
-===============================
-
 I recently read _The Bourgeois Virtues_ by Deirdre McCloskey. This is the first work of her Bourgeois series, that I hope to read and write about over the coming year. The scope of her work is vast and I certainly can not do the work full justice here. I will say that it was an excellent read and I strongly suggest it. Thankfully, despite being such a huge book, copies are quite cheap online.
 
 McCloskey begins with a lengthy introduction in which she describes the reactions to her wanting to write a book about bourgeois virtues. People would laugh. After all – a bourgeois is nothing but a capitalist, and capitalism is nothing but greed, so they say.

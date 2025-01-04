@@ -1,5 +1,3 @@
-# The Pre-Socratic Philosophers Part 1: The Milesian School
-
 Pre-Socratic philosophy essentially refers to a group of philosophers that came before Socrates (or were his contemporaries). These philosophers are grouped by two qualities, I think. The first is that they unfortunately have very little in the way of sources left (indeed, most of what we know about them is from what other philosophers wrote about them). The second is they only dealt with questions of metaphysics - that is, questioning what is really real, how did the universe come to be, what is it made of. Socrates revolutionised philosophy by discussing the two other branches of philosophy, that is ethics and epistemology (questions related to knowledge).
 
 The goal of this blog is twofold. First, I wish to introduce you, dear reader, to the pre-Socratics. Secondly, I wish to delve into the thought and analyse it in some degree. I think many texts that deal with the pre-Socratics basically copy off one another and only cover one or two big takeaways from each philosopher. I think this is a mistake, and as I hope to show, there is great depth and room for philosophic analysis in pre-Socratic thought and I hope to shed some light on this.
@@ -70,4 +68,4 @@ _De Primo Frigido_ by Plutarch
 
 _The Suda_
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

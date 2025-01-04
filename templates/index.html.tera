@@ -15,14 +15,10 @@
         <h1>Indigo Curnick's Webpage</h1>
     </header>
 
-    {% include "utils/nav" %}
-
     <main>
         <img class="resright" src="/images/portrait_tiny.jpg" alt="Indigo" title="Indigo">
 
-        <p>Personal website for Indigo Curnick - software developer,
-            physicist, and polymath
-        </p>
+        <p>Personal website for Indigo Curnick - software developer, physicist, and polymath</p>
 
         <h2>In My Network</h2>
         <dl style="font-size:large">
@@ -37,11 +33,9 @@
                         alt="LinkedIn Logo"> LinkedIn</a></dt>
             <dd> My LinkedIn profile</dd>
             <dt><a href="mailto:indigocurnick@gmail.com">📧 Email me!</a></dt>
-
-
         </dl>
 
-        <h2 style="clear:both;">Writings</h2>
+        <h2>Writings</h2>
 
         <div class="row">
             <div class="column">
@@ -61,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-
+    
             <div class="column">
                 <h3>Public Repositories</h3>
                 <ul style="padding:0">
@@ -73,22 +67,19 @@
                     <li><a href="https://github.com/IndigoCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
                     <li><a href="https://github.com/IndigoCurnick/geodesic_coordinates_rs">Navigating on or close to
                             the earth?</a></li>
-
-
                 </ul>
             </div>
         </div>
+        
 
-
-        <h3>Tags</h3>
-        <p align="center"></p>
-        {% if tags %}
-        {% for tag in tags %}
-        <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>
-        {% endfor %}
-        {% endif %}
-        </p>
-
+        <div class="column">
+            <h3>Tags</h3>
+            <div class="row" style="flex-wrap: wrap;">
+                {% for tag in tags %}
+            <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>&nbsp;&nbsp;
+            {% endfor %}
+            </div>  
+        </div>
 
     </main>
 

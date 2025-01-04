@@ -1,6 +1,4 @@
-# Pass Me a Message
-
-Some time ago I wrote an [article on object orientated programming](/blog/i-hate-oo) which I am now not particularly proud of. I think that article was poorly researched, and didn't work adequately to define what "object orientation" is. In this article I want to deeply explore what an "object" is, and what it means to program in an "object orientated" style, rather than functional or imperative.
+Some time ago I wrote an [article on object orientated programming](/blog/2022-02-06/i-hate-oo) which I am now not particularly proud of. I think that article was poorly researched, and didn't work adequately to define what "object orientation" is. In this article I want to deeply explore what an "object" is, and what it means to program in an "object orientated" style, rather than functional or imperative.
 
 First, why do we need to go through the effort of defining "object orientation"? Unfortunately, it's a term that's gone through quite a lot of semantic broadening. Semantic broadening is the process by which a term accumulates new meanings as times goes on. The issue with this is it makes debates on these subjects rather challenging - I might say "object orientation" and mean one thing, while you say "object orientation" and mean another.
 
@@ -176,7 +174,7 @@ Dr. Alan Kay was the inventor of the term, let's look at how [he defines it](htt
 
 It's still somewhat unclear what Dr Alan is actually trying to get at here. This idea of communicating by messages just seems messy, unless he has some other idea other than string matching. I think Smalltalk has some idea like this which is alleged to be different to just calling methods of classes, but in what substantial way it is escapes me.
 
-This really leaves us in a tough spot when it comes to object orientation. What even is it? In a [different article of mine](/blog/object-orientation-is-religion), I make the case that object orientation is essentially akin to a religion. Thankfully, Casey Muratori of Molly Rocket agrees with me [in this video](https://www.youtube.com/watch?v=7YpFGkG-u1w). 
+This really leaves us in a tough spot when it comes to object orientation. What even is it? In a [different article of mine](/blog/2024-01-07/object-orientation-is-religion), I make the case that object orientation is essentially akin to a religion. Thankfully, Casey Muratori of Molly Rocket agrees with me [in this video](https://www.youtube.com/watch?v=7YpFGkG-u1w). 
 
 So, what's the conclusion here? Am I ever going to use the string message passing style of coding in production? No. Never. It's cute and useful, and I do suggest doing the problems from SICP. Will I ever make code "object orientated"? Not if I can avoid it. 
 

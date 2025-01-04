@@ -1,5 +1,3 @@
-# Is Empiricism All We Have as the Basis of Knowledge?
-
 ## Introduction
 
 This essay is in some ways a follow up to a previous blog post about economics. In other ways, it is stand alone. Allow me to explain. You don't have to read that post to understand this one, and this post won't be about economics. A lot of the same ideas are going to crop up and we'll be putting them into a larger epistemological framework.
@@ -25,7 +23,7 @@ Kripke in _Naming and Necessity_ points out a simple fact about a priori reasoni
 
 ## Kant the Empiricist
 
-Before continuing on, I want to delve into more specifics of Kant. In my previous essay [_Introduction to Economics_](/blog/introduction-to-economics) I used the conception of Kantian philosophy as presented by Hoppe in _Economic Science and the Austrian Method_. While for that essay the "basic" presentation would suffice, here I want to dig into a deeper issue. The issue concerns Kant's original understanding of the synthetic a priori. As we will see, while Kant is typically considered to be the rationalist of history, his views are actually significantly closer to that of a moderate empiricism.
+Before continuing on, I want to delve into more specifics of Kant. In my previous essay [_Introduction to Economics_](/blog/2023-10-01/introduction-to-economics) I used the conception of Kantian philosophy as presented by Hoppe in _Economic Science and the Austrian Method_. While for that essay the "basic" presentation would suffice, here I want to dig into a deeper issue. The issue concerns Kant's original understanding of the synthetic a priori. As we will see, while Kant is typically considered to be the rationalist of history, his views are actually significantly closer to that of a moderate empiricism.
 
 Kant's original definition of analytic is "the predicate B belongs to the subject A, as something which is (covertly) contained in this concept A". Such a judgement "as adding nothing through the predicate to the concept of the subject, but merely breaking it up into those constituent concepts that have all along been thought in it, though confusedly". In contrast a synthetic (or "ampliative") if "the predicate concept lies outside the subject concept and thus adds something to it". Thus, for example, "all bachelors are unmarried men" is analytic because "unmarried man" is contained within the concept of "bachelor" (or, rather, in this instance, they're the same concept). However, the phrase "all bachelors are lazy" is synthetic, since "lazy" is not contained within the idea of "bachelor" (this is the case whether the proposition is true or not). While this might seem to be rationalist in nature, Bonjour points out this is actually an admission for the empiricist. This, for instance, mirrors the understanding of "analytic" as given by Ayer in _Language, Truth, Logic_. We will return later to whether this account is in fact as unproblematic as it first seems.
 
@@ -205,7 +203,7 @@ Which is, I think, perfectly put. If one was to empirically assess some logical 
 
 However, the keen eyed might notice that in some way Kripke and I have introduced a potential flaw into the rationalist approach. How do we justify our reasoning? Kripke does vaguely imply the solution - he talks of a difference of some formal logic system and reasoning, which is somehow more fundamental. Reasoning plays the part of the "neutral" system with which we can evaluate formal logical systems. With which system of reasoning do we assess this reasoning?
 
-We're already discussed quite extensively the solution to that problem - we invoke the capacity for rational insight. We also can, through praxeology, offer the existence of the synthetic a priori proposition, of which more details can be found in [_Introduction to Economics_](/blog/introduction-to-economics).
+We're already discussed quite extensively the solution to that problem - we invoke the capacity for rational insight. We also can, through praxeology, offer the existence of the synthetic a priori proposition, of which more details can be found in [_Introduction to Economics_](/blog/2023-10-01/introduction-to-economics).
 
 As such, broadly, human reasoning is done through the method of synthetic a priori statements. Sometimes, we can use good old analytic a priori statements i.e. "You can not be married and a bachelor" (given that bachelor means not married). Much of classical formal logic actually proceeds via analytic a priori systems, but it is the human capacity for synthetic a priori statements to evaluate meta-logic, and meta-meta-logic, and meta-meta-meta-logic, and meta-....
 
@@ -308,7 +306,7 @@ Putnam, H. (1972) _Philosophy of Logic_. Routledge.
 
 Hoppe, HH. (1989) _In Defence of Extreme Rationalism_. The Review of Austrian Economics, vol 3.
 
-Curnick, N. (2023) _Introduction to Economics_. Available online at [www.indigocurnick.xyz/blog/introduction-to-economics](www.indigocurnick.xyz/blog/introduction-to-economics)
+Curnick, N. (2023) _Introduction to Economics_. Available online at [https://indigocurnick.xyz/blog/2023-10-01/introduction-to-economics](https://indigocurnick.xyz/blog/2023-10-01/introduction-to-economics)
 
 Smith, B. (1996) _In Defence of Extreme (Fallibalistic) A Priorism_. Journal of Libertarian Studies, vol 12, no 1
 

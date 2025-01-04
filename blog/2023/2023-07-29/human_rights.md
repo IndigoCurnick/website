@@ -1,7 +1,3 @@
- 
-
-# Human Rights and Its Malcontents
-
 **I am not a lawyer. I have not been to law school. This blog is not legal advice**
 
 *The Rule of Law* by Tom Bingham is a wonderful exploration of what the rule of law is, and why it is necessary. In this post I want to dig into some of the theoretical aspects of what human rights are, and how they apply to the rule of law.

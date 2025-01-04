@@ -1,7 +1,3 @@
-# The Pre-Socratics Part 3: The Eleatic School
-
-
-
 This school, as Diogenes Laertius tell us in his _Lives of the Eminent Philosophers_ is an Italian school influenced by Pythagoras. The common theme across this school is that motion is an illusion, everything is one, and the senses are unreliable. The Eleatics are rationalists, and would be the foundation of much of rationalist thought for thousands of years to come.
 
 Xenophanes
@@ -20,7 +16,7 @@ Parmenides
 
 A student of Xenophanes but taking a slightly different course in some aspects. Again, Parmenides wrote in poems, which are difficult to decipher, and even basic aspects of his philosophy are debated.
 
-Parmenides has a central argument that is well remembered today - he thought that everything was one and change is impossible. Our experience is an illusion. He is perhaps the most influential of the pre-Socratics. Part of the reason for this significance is how he proved his points: he appears to be the first to use deductive arguments to prove his points. Avid readers of the blog will know what a [fan I am](/blog/what-can-we-know) of [deductive logic](/blog/a-very-short-intro-logic).
+Parmenides has a central argument that is well remembered today - he thought that everything was one and change is impossible. Our experience is an illusion. He is perhaps the most influential of the pre-Socratics. Part of the reason for this significance is how he proved his points: he appears to be the first to use deductive arguments to prove his points. Avid readers of the blog will know what a [fan I am](/blog/2021-08-28/what-can-we-know) of [deductive logic](/blog/2022-01-23/a-very-short-intro-logic).
 
 Fortunately for us, a rather large section of Parmenides' work survives, thanks to Simplicus, who managed to preserve some 150 lines of his poem. This is perhaps the largest body of originally surviving work from any pre-Socratic we have. Unfortunately, the style of poetry means interpretation is indeed challenging.
 
@@ -71,4 +67,4 @@ _The Presocratic Philsophers_ by Jonathan Barnes
 
 _Rhetoric_ by Aristotle
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

@@ -1,6 +1,3 @@
-The Joy of Programming
-======================
-
 I program for most of the day at work. Not everyone in the office knows how to program, and to them it could just be magic. Granted, for the most part, they do advertising, marketing and sales, and I don't think I would succeed in those domains at all. Nevertheless, this is about the joy of programming rather than the joy of marketing.
 
 What I've been asked before is how I go about solving a problem. In the moment I couldn't really give a good answer - at least an answer that wouldn't make me sound like a snob. "I just know and then I do" would make me sound like an ass.

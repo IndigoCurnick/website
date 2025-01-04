@@ -1,5 +1,3 @@
-# Introduction To Economics
-
 This article aims to provide a general introduction to Austrian economics. We will focus the majority of our attention on the epistemological foundations of the science. We will also look at some specific key ideas that will allow you actually start performing real world analysis. 
 
 Unfortunately, I simply can not cover every topic of interest. The references provided at the end of the article are all excellent places for further reading. This article is adapted from two primary sources - *Human Action* by Ludwig von Mises and *Economic Science and the Austrian Method* by Hans-Hermann Hoppe. I consider these two texts the most essential further reading. Beyond there, I make reference to several other works covered in the references.
@@ -376,7 +374,7 @@ Monetary inflation can also occur naturally. For instance, if the currency is ba
 
 In the modern day, governments often use central bank interest rates to induce monetary inflation. Contrary to popular belief, the Bank of England is not the only bank which can produce new currency in the UK. In fact, any commercial bank can. 
 
-When interest rates are low, it encourages borrowing. Businesses can get good deals on loans. Buyers can purchase houses more easily due to cheaper mortgages. This is often called "easy money" - the commercial banks are creating new money. I previously wrote an article on the 2008 financial crash which covers some of this which you can read [here](/blog/after-the-welfare-state).
+When interest rates are low, it encourages borrowing. Businesses can get good deals on loans. Buyers can purchase houses more easily due to cheaper mortgages. This is often called "easy money" - the commercial banks are creating new money. I previously wrote an article on the 2008 financial crash which covers some of this which you can read [here](/blog/2022-07-10/after-the-welfare-state).
 
 Conversely, as interest rates rise fewer and fewer people can afford loans and mortgages. Borrowing slows. House purchasing slows also. Debtors are also encouraged to pay back loans faster than they may otherwise have done so. This depends on the loan contract - many mortgages have a variable interest rate which changes with the Bank of England's interest rate. The consequences of this might be individuals priced out of a home they thought they could afford. Bank creation of new currency is slowing, meanwhile, loans are being recuperated which has the opposite effect of money creation - it is removed. This is why in recent times the Bank of England has been raising interest rates - as a response to high inflation. 
 

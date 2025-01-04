@@ -1,6 +1,3 @@
-A Defence of Machiavelli
-========================
-
 Several weeks ago I discussed an article by Sebastian Purcell in which he critiques Machiavelli as a teacher of evil. In that essay, I provided a brief defence of him, but here I shall go into more detail on why Machiavelli was not, in fact, a teacher of evil, but rather an almost tragic anti-hero of Medieval Italy.
 
 I think a good place to begin here is to relay the state of Italy before Machiavelli was writing. Machiavelli was born in 1469, only a few generations before, in 1392, did the conflict between the Guelphs and the Ghibellines come to a close. The Guelphs were forces supporting the Pope and the Ghibellines were supporting the Holy Roman Emperor. The conflict was over the balance of power within the Holy Roman Empire. What was the result? No matter who won, the smaller and relatively weaker states of Italy always lost to stronger states.

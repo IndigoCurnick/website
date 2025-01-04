@@ -1,5 +1,3 @@
-# Introducing Geodesic Tools
-
 As part of my job, I work with a lot of earth data. To make my life easier,
 I made a [small Rust library](https://github.com/IndigoCurnick/geodesic_coordinates_rs).
 I haven't put it on crates.io yet, because right now it feels like a hodgepodge 

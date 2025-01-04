@@ -1,5 +1,3 @@
-# Making a blog in Rust
-
 In this piece you will learn how to:
 
 - Create a blog in Rust;

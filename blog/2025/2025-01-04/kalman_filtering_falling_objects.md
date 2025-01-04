@@ -1,5 +1,3 @@
-# Kalman Filtering Falling Objects
-
 In this blog we will track a falling object using a Kalman filter. Our goal will
 be to create a simulation of a falling object, and filter that with the Kalman
 filter. We'll plot the residuals and see how well we can reconstruct the original

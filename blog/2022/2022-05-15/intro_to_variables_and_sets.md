@@ -1,5 +1,3 @@
-# Introduction to Variables and Sets
-
 In the last article, we assigned truth values to statements. However, if these statements depend on variables, it can be less obvious what the truth value is. For example, it is very easy to assign a truth value to the statement "3 is a prime number", but what about the statement "x is a prime number"? In this instance, we might change the statement from \\(P\\) to \\(P(x)\\) to stress we are talking about a variable.
 
 The variables x do not have to be numbers - they could be anything. Mathematicians obviously use numbers the most, but since logic is totally universal, this could be countries, people, plants, animals and absolutely anything at all.

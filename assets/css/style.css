@@ -350,9 +350,18 @@ dt {
         max-width: var(--genwidth);
     }
 
+    
+}
+
+@media (min-width: 55em) {
     .column {
-        float: left;
-        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
     }
 }
 

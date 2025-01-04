@@ -1,6 +1,3 @@
-Handling Errors in Rust
-=======================
-
 Many people who come to Rust for the first time struggle with error handling. There is no concept of the try-catch block as there is in many other languages like Java or Python. How do you handle errors? This is done via four concepts – `Result`, `Option`, `Unwrap` and `Match`.
 
 Result
