@@ -1,6 +1,3 @@
-How to Refactor
-===============
-
 I recently read the book "Refactoring: Improving the Design of Existing Code" by Martin Fowler. I thought the book was ok, but a little outdated. Generally, the book was a product of its time – while there were some gems of advice present, a lot of the book was dedicated to refactoring procedural code into object orientated code. While that was certainly in vogue in 1999, in 2022 we generally want to go the other way. My hope in this article is to bring some condensed nuggets of wisdom with some more up-to-date advice in certain areas. So, what is refactoring? Refactoring is when we improve the design of existing code without changing any of its features or performance in order to make it easier to add new features, improve performance, maintain and fix bugs in the future.
 
 Fowler opens the book with a story that's familiar to me. He tells the tale of being a consultant in the software development business and strongly suggested to the management team of a large project to take some time and do a large scale refactor of their code-base. The managers assured him they would "get around to it at some point". Over the next few months he watched progress grind to a halt and the project collapse because "at some point" never came. They were always, this time, we're sure, so so close to delivery, let's just wait another week on this refactor. Soon, adding any new features or fixing bugs that had been bothering them for weeks or months became impossible. Already, the first key lesson is learned. With any major programming project you _will not_ get the design right the first time. Attempting to will lead to you analysis-paralysis. Most people understand this – the idea of planing out every single function or object in some giant code base from the top down is obviously never going to work. Therefore, it is better to simply start. However, people do not like the implication of this. The implication being they will need to, not "at some point", but early and often, improve the design of this code. Refactor early and refactor often to ensure that your project does not become some giant, buggy mess that nobody can work with.
@@ -47,7 +44,7 @@ So beyond when we want to add new features, when should we refactor? How do we k
 *   Large, complex data structures
 *   "Shotgun surgery" - every time you need to make a change you need to make lots of little changes in many places
 
-I'll note that Fowler's list is much longer than mine, but he is writing his book for object orientated software which just tends to be more problematic than functional. [Read more here about that](/blog/i-hate-oo). If you start to notice any of these things, it's a really good sign you need to do a general refactor.
+I'll note that Fowler's list is much longer than mine, but he is writing his book for object orientated software which just tends to be more problematic than functional. [Read more here about that](/blog/2022-02-06/i-hate-oo). If you start to notice any of these things, it's a really good sign you need to do a general refactor.
 
 Summary and Tips
 ----------------

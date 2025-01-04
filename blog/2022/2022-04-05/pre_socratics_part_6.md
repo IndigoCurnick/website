@@ -1,7 +1,3 @@
-# The Pre-Socratics Part 6: The Atomist Pluralists
-
-
-
 There are two members of the Atomist Pluralist school: Leucippus and Democritus, and we shall deal with them together as one. This is because they are very similar in thought, and apparently some of the works have been misattribute to each other (possibly explaining why they are so similar).
 
 Leucippus seems to be the older figure and was active possibly around 440BC. He was influenced by Parmenides and Zeno of Elea. Sadly, not much is known about him, and some of the ancient Greeks came to later deny his existence as myth, although modern scholars have reversed that theory.
@@ -25,4 +21,4 @@ _History of Philosophy_ by A. C. Grayling
 
 _The Presocratic Philosophers_ by Jonathan Barnes
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

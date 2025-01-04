@@ -1,6 +1,3 @@
-Beyond Left and Right
-=====================
-
 An antidote to political obfuscation
 ------------------------------------
 

@@ -1,7 +1,4 @@
-Towards a Definition of Art
-===========================
-
-In the [last post](/blog/what-can-we-know) we discussed some of the things we might be able to know. In this post we will begin to work towards a definition of art, which is something I have been personally struggling with for some time. This work is still in its early stages, so I hope you will forgive me if there are mistakes in my thought.
+In the [last post](/blog/2021-08-28/what-can-we-know) we discussed some of the things we might be able to know. In this post we will begin to work towards a definition of art, which is something I have been personally struggling with for some time. This work is still in its early stages, so I hope you will forgive me if there are mistakes in my thought.
 
 I recently read _Aesthetics: An Introduction to the Philosophy of Art_ by Anne Sheppard, which had the unfortunate (or maybe fortunate?) quality of leaving me with more questions than answers. Each of the ten chapters dealt with one possible interpretation of what it means to be art; in each one Sheppard ruins the theory. Darn. So can we begin to answer this question?
 

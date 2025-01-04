@@ -1,5 +1,3 @@
-# The Slip-Box
-
 Anyone coming to this website will be able to see that I love learning and studying. For me, there's something magical about discovering a whole new topic. Whole subject areas never before considered become thrust into view, usually from only a short text. Once the seed is planted, ideas sprout oh so easily.
 
 Yet, what's the long term plan? Once you have read around one topic, the polymath will always be wanting to move onto the next one. The problem with this is that you lose sight of what you have already read. It's so hard – impossible – to keep track of everything. The best way to learn also is to make the new material link back to what you already know. The other primary goal of reading, for me at least, is writing. I want to be able to write articles, and these generally fall into two kinds. Articles are either there to summarise the work of the author, or they are original articles which use many other sources.

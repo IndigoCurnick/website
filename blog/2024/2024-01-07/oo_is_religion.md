@@ -1,6 +1,3 @@
- 
-# Object Orientation is a Religion
-
 I'm currently working on a lengthy article on reason, which is coming along slowly. In the meantime, I thought I'd make a short video on a quip I often say - object orientation is a religion. Now, this might seem a little abstract so I wanted to break it down for a while. Thankfully, the perfect opportunity presented itself in the form of a one minute video on Instagram - which you can view here [https://www.instagram.com/reel/C1VFRAOtvDX](https://www.instagram.com/reel/C1VFRAOtvDX)
 
 If you don't want to go to Instagram (or it gets deleted in future) that's fine, I'll copy all the relevant code out below. 

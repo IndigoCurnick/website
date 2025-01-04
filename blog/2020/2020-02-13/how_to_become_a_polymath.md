@@ -1,5 +1,3 @@
-# How to Become a Polymath
-
 ## What is a polymath?
 
 As a blog dedicated to the discipline of polymath, I hope most of the readers have at least a basic knowledge of what a polymath is. If you do, you can skip this section. If not, keep reading on.

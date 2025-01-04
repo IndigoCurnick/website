@@ -1,6 +1,3 @@
-# The Pre-Socratics Part 4: The Pluralists
-
-
 Building off of the Eleatic school last week, the Pluralist school can be considered a kind of post-Parmenides reaction. While working inside Parmenides framework that all is one and that "becoming" and "ending" are not possible, they aimed to reconcile Parmenides' other views with an acceptance that the senses can indeed tell us something about the world.
 
 Anaxagoras
@@ -44,4 +41,4 @@ _Lives of the Eminent Philosophers_ by Diogenes Laertius
 
 _Metaphysics_ by Aristotle
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

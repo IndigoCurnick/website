@@ -1,5 +1,3 @@
-# That Man With the Champagne in His Glass is Happy
-
 The concept of "possible worlds" can be sensationalised into some kind of pseudo-scientific parallel universe nonsense. Instead, a more preferable term would be counterfactual scenarios. One such work of great interest which covers counterfactual scenarios is Saul Kripke's _Naming and Necessity_. Like all good works, _Naming and Necessity_ almost raises as many questions as it answers. Something lacking is a complete understanding of counterfactual scenarios and how they relate to human beings.
 
 Let's look at some simple examples to try and understand the meaning of a counterfactual. Imagine rolling a dice. We understand that the counterfactuals are all of the possible outcomes of the dice roll. There does not need to be "phantom worlds" in which the dice "really" rolled with different values. Another important point here is the "boiling off" of irrelevancies. This "boiling off" of irrelevancies is discussed quite extensively in *Human Action*. As Mises says

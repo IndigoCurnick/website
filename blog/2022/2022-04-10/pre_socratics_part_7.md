@@ -1,5 +1,3 @@
-# The Pre-Socratics Part 7: The Sophists
-
 The population density of Manhattan is 74,800 per square mile. We don't know exactly what the population density of Athens was, but we estimate maybe 120,000 people in a 0.68 square mile area – 176,500 people per square mile. I think it's no surprise that communication was essential in Athens of this time. Enter, the Sophists. "Sophist" originally meant something akin to a wise or educated person in more than one field, but by the time of Socrates and Fifth Century BC Athens this term came to mean something quite specific: someone who made a living by teaching others in the arts of rhetoric and oratory.
 
 Aristotle and Plato did not have a good opinion of the Sophists – the reason being they taught people how to _persuade_, not how to discover _truth_. I'm sure that you've been in an instance where you knew you were right about something, but someone else was more persuasive than you, thus misleading others around you. To a philosopher, who might not always be the best communicator (let's face it), this is eternally frustrating.
@@ -37,4 +35,4 @@ _History of Philosophy_ by A. C. Grayling
 
 _The Presocratic Philosophers_ by Jonathan Barnes
 
-[Preamble](/blog/pre-socratics-preamble) - [Part 1](/blog/pre-socratics-part1) - [Part 2](/blog/pre-socratics-part2) - [Part 3](/blog/pre-socratics-part3) - [Part 4](/blog/pre-socratics-part4) - [Part 5](/blog/pre-socratics-part5) - [Part 6](/blog/pre-socratics-part6) - [Part 7](/blog/pre-socratics-part7) - [Socrates](/blog/pre-socratics-socrates)
+[Preamble](/blog/2022-04-17/pre-socratics-preamble) - [Part 1](/blog/2021-02-11/pre-socratics-part1) - [Part 2](/blog/2021-02-28/pre-socratics-part2) - [Part 3](/blog/2022-02-27/pre-socratics-part3) - [Part 4](/blog/2022-03-14/pre-socratics-part4) - [Part 5](/blog/2022-03-20/pre-socratics-part5) - [Part 6](/blog/2022-04-05/pre-socratics-part6) - [Part 7](/blog/2022-04-10/pre-socratics-part7) - [Socrates](/blog/2022-02-20/pre-socratics-socrates)

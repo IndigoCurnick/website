@@ -3,14 +3,25 @@
         <a href="/">
             <li>🏠 Home</li>
         </a>
+
         <a href="/blog">
             <li>📜 Blog</li>
         </a>
-        <a href="/courses">
-            <li>📔 Courses</li>
-        </a>
+
         <a href="/toolbox">
             <li>🧰 Toolbox</li>
+        </a>
+
+        <a href="https://github.com/IndigoCurnick">
+            <li><img src="/images/logos/git.svg" alt="git logo">Github</li>
+        </a>
+
+        <a href="https://www.linkedin.com/in/indigo-curnick-94680b151/">
+            <li><img src="/images/logos/linkedin.svg" alt="LinkedIn Logo">LinkedIn</li>
+        </a>
+
+        <a href="mailto:indigocurnick@gmail.com">
+            <li>📧 Email me!</li>
         </a>
     </ul>
 </nav>

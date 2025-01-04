@@ -1,6 +1,3 @@
-Comments on _The War that Will End War_
-=======================================
-
 At the dawn of the First World War, H. G. Wells wrote this fascinating little work. The work is in some ways meant to be a description of the way in which the Great War would bring about an end to human desire for war. However, as political theory from James Burnham will tell us, we must never mistake the formal meaning of a text for its real meaning. The real meaning of _The War That Will End War_ is a plea from Wells to Woodrow Wilson.
 
 Wells begins by summarising the reasons Britain has gone to war. Wells states that the cause and object of the war are not necessarily the same; he asserts the cause is the invasion of Luxemburg and Belgium, countries to which Britain had a treaty to defend. Perhaps this is far too simple an analysis of the causes of the Great War. Wells leaves out details of the Triple Entent and the Triple Alliance, the situations in the Balkans (including, of course, the assassination of Archduke Franz Ferdinand), the Scramble for Africa and a general arms race. Nevertheless, written from a purely Anglo perspective, one could argue the invasion of the Low Countries was perhaps the only strictly relevant immediate factor for Britain entering the war.

@@ -1,6 +1,3 @@
-Commando: A Boer History of the Boer War
-========================================
-
 Commando tells the tale of the Boer war from the perspective of Denys Reitz. Reitz grew up in the Orange Free State in the 1880s and 90s, and was well prepared for war by the time it broke out in 1899. He grew up shooting, riding and living in the wilderness for times, while his father worked as a statesman for the Orange Free State government.
 
 After the events of the Jameson Raid by the British, war seemed inevitable. The British were amassing troops in the colony of Natal, and Reitz' father was one of the Boer to send the British an ultimatum: remove the troops or the two Boer republics (Orange Free State and Transvaal) would invade. The British refused to remove the troops and the Boer invaded the Natal.

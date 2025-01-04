@@ -1,6 +1,3 @@
-Introduction to Truth Tables
-============================
-
 The truth table is a useful introductory tool in the field of sentinel logic. It allows us to compute the status of a logical statement by simply considering each of the statements that comprise the logical statement. It is obvious how "and" and "not" impact statements. Let's explore this while constructing our first and most trivial truth tables
 
 <figure class="wp-block-table">

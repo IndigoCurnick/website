@@ -1,5 +1,3 @@
-# SICP Chapter 3 Part 1
-
 ## Exercise 8
 
 In this question we are asked to explore the consequences of assignment, and to write a function `f` such that evaluating `f(0) + f(1)` from 0 if evaluated from left to right and 1 if evaluated from right to left.

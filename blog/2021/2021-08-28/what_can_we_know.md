@@ -1,6 +1,3 @@
-What can we Know?
-=================
-
 This might not seem like a very hard question at all – I mean, you know that you are reading this post, you know where you are, and so on. And yet, the field of epistemology is huge, and no consensus has been reached yet. So, today we will try and begin to make an answer to the question, what exactly can we know?
 
 This post has been spun off a recent argument that has been going on for a long time in our Discord server. [Why don’t you come join us if you aren’t yet to get in on the conversation?](https://discord.gg/H7DMHnpa) Around June this year, Veritasium released a video called "Maths Has A Fatal Flaw", and it really got polymath talking – so much so the argument is still going on, here I attempt to deal with this.

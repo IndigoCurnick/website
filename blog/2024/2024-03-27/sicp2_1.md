@@ -1,5 +1,3 @@
-# SICP Chapter 2 Part 1
-
 ## Exercise 2.15
 
 In Exercise 14 we are asked to investigate that calculating resistances with the interval arithmatic package we wrote gives different results. We try 

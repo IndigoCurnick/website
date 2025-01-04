@@ -1,6 +1,3 @@
-Rousseau and the Social Contract
-================================
-
 Introduction
 ------------
 

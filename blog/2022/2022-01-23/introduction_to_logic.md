@@ -1,6 +1,3 @@
-A Very Short Introduction to Logic
-==================================
-
 Some people in the modern world will boldly declare that we do not need logic. Logic is, after all, to them, nothing more than a convenient side effect of biology that helps us survive in a jungle or a conspiratorial system created to make sure mathematics and sciences remain inaccessible to certain groups of people. Neither of these framings of logic are true. In fact, logic can be framed in a third way - the way I will consider logic.
 
 I consider logic to be almost below natural phenomena - describing exactly what are the boundaries of what is possible. I consider logic to be so fundamental that if other universes exist that are totally different to our own the exact same laws of logic will apply. After all, in what universe can some object be at once containing all properties of A and no properties of A?
@@ -9,17 +6,23 @@ Recently I have been studying logic via using the seminal text "How to Prove It"
 
 I'll give you a flavour of the system of logic, and I trust you will see the potential uses of it. Consider the following three arguments
 
-*   It will either rain or snow tomorrow
-*   It is too warm for snow
-*   Therefore, it will rain
+_Argument 1_
 
-*   Either the butler is guilty or the maid is guilty
-*   Either the main is guilty or the cook is guilty
-*   Therefor, either the butler is guilty or the cook is guilty
+- It will either rain or snow tomorrow
+- It is too warm for snow
+- Therefore, it will rain
 
-*   All scramjammers are examples of flangerumblers
-*   The losipolisy is a scramjammer
-*   Therefore, the losipolisy is a flangerumbler
+_Argument 2_
+
+- Either the butler is guilty or the maid is guilty
+- Either the main is guilty or the cook is guilty
+- Therefor, either the butler is guilty or the cook is guilty
+
+_Argument 3_
+
+- All scramjammers are examples of flangerumblers
+- The losipolisy is a scramjammer
+- Therefore, the losipolisy is a flangerumbler
 
 What can we say about these arguments? Each of them has three lines, that is, two _propositions_ and one _conclusion_. There are many more complex forms, but today let's just focus on this simple _syllogism_.
 

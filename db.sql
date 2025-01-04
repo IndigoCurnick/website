@@ -1,6 +1,0 @@
-CREATE TABLE if not exists visits(
-    id SERIAL NOT NULL PRIMARY KEY,
-    domain TEXT NOT NULL,
-    webpage TEXT NOT NULL,
-    date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);

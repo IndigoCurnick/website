@@ -1,5 +1,3 @@
-# Tár is (Mostly) Innocent 
-
 __Note: this article contains *major* spoilers for the film *Tár*__
 
 Those who watched *Tár* and found Lydia Tár guilty fell into the trap carefully laid by the film.
