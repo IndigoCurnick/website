@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate rocket;
 
-use std::{env, fs};
+use std::{env};
 
 use blog_tools::high::{HighBlog, HighBlogEntry};
 use blog_tools::Blog;
@@ -9,7 +9,7 @@ use context::STATIC_BLOG_ENTRIES;
 
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::fs::{relative, FileServer};
-use rocket::http::uri::Origin;
+
 use rocket::http::{Header, Status};
 use rocket::response::content::RawXml;
 use rocket::response::Redirect;
@@ -21,9 +21,7 @@ use rocket_dyn_templates::Template;
 
 use rocket::Request;
 
-use routes::courses::kalman::kalman::get_kalman_courses;
-use routes::courses::mathematics::get_mathematics_courses_routes;
-use routes::courses::science::get_science_courses;
+
 use routes::toolbox::get_toolbox_routes;
 
 mod context;
@@ -160,18 +158,13 @@ fn get_all_routes() -> Vec<Route> {
         courses_hub,
         sitemap
     ];
-    let maths_courses = get_mathematics_courses_routes();
-    let science_courses = get_science_courses();
-    let kalman_courses = get_kalman_courses();
+
     let util_routes = routes![ping];
 
     let toolbox_routes = get_toolbox_routes();
 
     let all_routes = vec![
         index_route,
-        maths_courses,
-        science_courses,
-        kalman_courses,
         util_routes,
         toolbox_routes,
     ];

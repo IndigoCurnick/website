@@ -1,0 +1,20 @@
+{
+    "title": "Kalman Filtering Falling Objects",
+    "date": "2025-01-04",
+    "desc": "Using Rust to track a falling object using a Kalman filter",
+    "slug": "kalman-filtering-falling-object",
+    "tags": [
+        "programming",
+        "science",
+        "mathematics",
+        "kalman-filtering",
+        "signal-processing"
+    ],
+    "keywords": [
+        "rust",
+        "kalman filter",
+        "signal processing"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
