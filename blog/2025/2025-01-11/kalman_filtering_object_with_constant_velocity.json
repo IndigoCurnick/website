@@ -1,0 +1,20 @@
+{
+    "title": "Kalman Filtering Object with Constant Velocity",
+    "date": "2025-01-04",
+    "desc": "Using Rust to track an object with constant velocity using a Kalman filter",
+    "slug": "kalman-filtering-constant-velocity",
+    "tags": [
+        "programming",
+        "science",
+        "mathematics",
+        "kalman-filtering",
+        "signal-processing"
+    ],
+    "keywords": [
+        "rust",
+        "kalman filter",
+        "signal processing"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
