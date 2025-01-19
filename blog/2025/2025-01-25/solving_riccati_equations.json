@@ -1,0 +1,19 @@
+{
+    "title": "Kalman Filter: How to Solve the Riccati Equations",
+    "date": "2025-01-25",
+    "desc": "Mathematical Details of Solving the Riccati Equations in a Kalman Filter",
+    "slug": "solving-riccati-equations",
+    "tags": [
+        "kalman-filtering",
+        "mathematics",
+        "signal-processing",
+        "science"
+    ],
+    "keywords": [
+        "Kalman Filter",
+        "State Estimation",
+        "Mathematics"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}

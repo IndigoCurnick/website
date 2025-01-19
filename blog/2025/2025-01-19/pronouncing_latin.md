@@ -19,6 +19,7 @@ If you need help typing these characters I know of two good ways. On Linux syste
 - compose + " + a = ä
 
 A web version which works for everyone can be found at [Lexilogos](https://www.lexilogos.com/keyboard/latin.htm)
+
 ## How to Pronounce Classical Latin
 
 **Vowels**
@@ -447,7 +448,7 @@ Collar, W. C., Daniell, M. G., Jenkins, T. (1918) *Collar and Daniel's First Yea
 
 Bullions, P. (1856) *The Principles of Latin Grammar (62nd Ed.)*. Pratt, Woodford, Farmer & Brace
 
-Wheelock, F. M. (2005) *Wheelock's Latin 6th ed*. HarperResource
+Wheelock, F. M. (2005) *Wheelock's Latin (6th ed)*. HarperResource
 
 CanticaNOVA Publications, *Ecclesiastical Latin Pronunciation*. Available from https://www.canticanova.com/latin_pron.htm
 

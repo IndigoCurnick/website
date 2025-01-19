@@ -310,3 +310,11 @@ acceleration will be tracked just fine by this filter. Try changing values in
 the simulation to see how it performs!
 
 <script id="KalmanFilterScripts" src="/blog-assets/2025-01-04-kalman-filter-falling/plots.js"></script>
+
+## References 
+
+Zarchan, P., Musoff, H. (2009) *Fundamentals of Kalman Filtering: A Practical Approach (3rd Ed.)*. 
+American Institude of Aeronautics and Astronautics
+
+Tziallas, G., Adam, M., Assimakis, N., Polyzos, A. (2021) *Position, Velocity and Acceleration Tracking Using Kalman Filter*.
+B P International

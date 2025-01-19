@@ -195,7 +195,7 @@ produce the final Kalman filter
 
 \\[\hat{\dot{x}} = \bar{\dot{x}} + K_2 x^*\\]
 
-\\[\hat{x} = \hat{x} + K_1 x^*\\]
+\\[\hat{x} = \bar{x} + K_1 x^*\\]
 
 \\[ P_k = (\mathbf{I} - K_k \mathbf{H}) M_k \\]
 
@@ -217,3 +217,11 @@ good!
 <div id="velocity-residual" class="plotly-graph-div" style="height:100%; width:100%;"></div>
 
 <script id="KalmanFilterScripts" src="/blog-assets/2025-01-11-kalman-filter-constant-velocity/plots.js"></script>
+
+## References 
+
+Zarchan, P., Musoff, H. (2009) *Fundamentals of Kalman Filtering: A Practical Approach (3rd Ed.)*. 
+American Institude of Aeronautics and Astronautics
+
+Tziallas, G., Adam, M., Assimakis, N., Polyzos, A. (2021) *Position, Velocity and Acceleration Tracking Using Kalman Filter*.
+B P International
