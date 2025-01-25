@@ -56,7 +56,7 @@ I won't detail deriving the fundamental matricies, but as a result here they are
 So, now we are ready to solve the Riccati equations. Start by recalling the
 Kalman filter equation
 
-\\[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + G_k u_{k-1} + K_k [z_k - H\Phi_k \hat{x}_{k-1} - H G_k u_{k-1}] \\]
+\\[ \hat{x}\_k = \Phi\_k \hat{x}\_{k-1} + G\_k u\_{k-1} + K\_k [z_k - H\Phi\_k \hat{x}\_{k-1} - H G\_k u\_{k-1}] \\]
 
 We do need to also derive
 
@@ -70,10 +70,10 @@ can do that easily enough.
 Now, in this problem we have no \\(G_k\\) term as there is no control to this
 process, so the Kalman filter equation just becomes
 
-\\[ \hat{x}_k = \Phi_k \hat{x}_{k-1} + K_k [z_k - H\Phi_k \hat{x}_{k-1}] \\]
+\\[ \hat{x}\_k = \Phi\_k \hat{x}\_{k-1} + K\_k [z\_k - H\Phi\_k \hat{x}\_{k-1}] \\]
 
-So this equation essentially comes in two parts. \\( \Phi_k \hat{x}_{k-1} \\) is
-the prediction, and \\( K_k [z_k - H\Phi_k \hat{x}_{k-1}] \\) is the measurement.
+So this equation essentially comes in two parts. \\( \Phi\_k \hat{x}\_{k-1} \\) is
+the prediction, and \\( K\_k [z\_k - H\Phi\_k \hat{x}\_{k-1}] \\) is the measurement.
 So, we can solve these seperately. I use a bar notation (\\( \bar{x} \\)) to 
 indicate a predicted value. So, the prediction part becomes these three equations
 
