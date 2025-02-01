@@ -1,0 +1,19 @@
+{
+    "title": "Kalman Filter: Falling with Control Term",
+    "date": "2025-02-08",
+    "desc": "Using a Kalman filter with a control term to track a falling object",
+    "slug": "kalman-filter-falling-with-control",
+    "tags": [
+        "kalman-filtering",
+        "mathematics",
+        "signal-processing",
+        "science"
+    ],
+    "keywords": [
+        "Kalman Filter",
+        "State Estimation",
+        "Mathematics"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
