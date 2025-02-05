@@ -3,7 +3,7 @@
 
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>{{ blog.title }}</title>
+        <title>Blog: {{ blog.title }}</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,6 +44,19 @@
 
         <main>
 
+            <p>Author: {{blog.author_name}}</p>
+
+            <p>Date: {{blog.date}} {% if blog.last_modified %} | Last Updated: {{ blog.last_modified }} {% endif %}</p>
+
+            <div class="blog-tag-container">
+                {% for tag in blog.tags %}
+                <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
+                    }}</a>&nbsp;&nbsp;
+                {% endfor %}
+            </div>
+            <br>
+            <hr>
+            <br>
             {{ blog.html | safe }}
 
         </main>

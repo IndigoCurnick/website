@@ -189,13 +189,13 @@ produce the final Kalman filter
 
 \\[\bar{\dot{x}} = \hat{\dot{x}}_{k-1}\\]
 
-\\[\bar{x} = \hat{x}_{k-1} + \bar{\dot{x}} dt\\]
+\\[\bar{x} = \hat{x}_{k-1} + \hat{\dot{x}}\_{k-1} dt\\]
 
 \\[\tilde{x} = x^* - \bar{x}\\]
 
-\\[\hat{\dot{x}} = \bar{\dot{x}} + K_2 x^*\\]
+\\[\hat{\dot{x}} = \bar{\dot{x}} + K_2 \tilde{x}\\]
 
-\\[\hat{x} = \bar{x} + K_1 x^*\\]
+\\[\hat{x} = \bar{x} + K_1 \tilde{x}\\]
 
 \\[ P_k = (\mathbf{I} - K_k \mathbf{H}) M_k \\]
 

@@ -166,7 +166,7 @@ Again, observe that the final *e* of the stem is sometimes long and sometimes sh
 
 Consider
 
-- *ducō, -cere, -xī, ductum* - to lead
+- *dūcō, -cere, -xī, ductum* - to lead
 - *mittō, -ere, mīsi, missum* - to send
 - *legō, -ere, lēgī, lēctum* - to choose, to read
 - *scrībō, -bere, -psī, -ptum* - to write, to draw
@@ -176,7 +176,7 @@ Consider
 <table>
     <tr>
         <td>Person</td>
-        <td>ducō</td>
+        <td>dūcō</td>
         <td>mittō</td>
         <td>legō</td>
         <td>scribō</td>
@@ -241,7 +241,7 @@ Consider
 - *veniō, -īre, vēnī, ventum* - to come
 - *sciō, -īre, -īvī, -ītum* - to know
 - *sentiō, -īre, sēnsī, sēnsum* - to feel
-- *aperiō, -īre, -uī, -tum*
+- *aperiō, -īre, -uī, -tum* - to open
 
 
 <table>

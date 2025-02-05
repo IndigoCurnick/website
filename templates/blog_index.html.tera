@@ -43,7 +43,7 @@
                     <div class="blog-tag-container">
                         {% for tag in entry.tags %}
                         <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
-                            }}</a>
+                            }}</a>&nbsp;&nbsp;
                         {% endfor %}
                     </div>
 

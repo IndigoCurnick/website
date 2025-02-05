@@ -454,7 +454,7 @@ ol#two-columns {
     padding: .25em .75em;
     border-radius: 1em;
     font-size: 1rem;
-    background: linear-gradient(135deg, var(--americansilver), var(--spanishgrey));
+    background: var(--spanishgrey);
     color: #ffffff;
 }
 

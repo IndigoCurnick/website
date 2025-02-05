@@ -200,8 +200,8 @@ Now, we have everything we need to start filtering! We now simply solve the
 Riccati equations.
 
 \\[ \bar{\ddot{x}} = \hat{\ddot{x}}\_{k-1} \\]
-\\[ \bar{\dot{x}} = \hat{\dot{x}}\_{k-1} + dt \bar{\ddot{x}} \\]
-\\[ \bar{x} = \hat{x}\_{k-1} + dt \bar{\dot{x}} + 0.5 (dt)^2 \bar{\ddot{x}} \\]
+\\[ \bar{\dot{x}} = \hat{\dot{x}}\_{k-1} + dt \hat{\ddot{x}}\_{k-1} \\]
+\\[ \bar{x} = \hat{x}\_{k-1} + dt \hat{\dot{x}}\_{k-1} + 0.5 (dt)^2 \hat{\ddot{x}}\_{k-1} \\]
 
 Remember that
 
@@ -233,6 +233,16 @@ cov[(2, 2)] = 99999999.0;
 let h = matrix(vec![1.0, 0.0, 0.0], 1, 3, Row);
 let r = matrix(vec![SIGNOISE], 1, 1, Row);
 
+let mut x_history = vec![];
+let mut v_history = vec![];
+let mut a_history = vec![];
+
+let mut x_residual = vec![];
+let mut v_residual = vec![];
+let mut a_residual = vec![];
+
+let mut x_measurement_residual = vec![];
+
 for i in 0..data.t.len() {
     let x_star = data.x[i];
 
@@ -241,8 +251,8 @@ for i in 0..data.t.len() {
     let xdotdotkminus1 = state.data[2];
 
     let xdotdot_bar = xdotdotkminus1;
-    let xdot_bar = xdotkminus1 + xdotdot_bar * TS;
-    let x_bar = xkminus1 + xdot_bar * TS + 0.5 * xdotdot_bar * TS.powf(2.0);
+    let xdot_bar = xdotkminus1 + xdotdotkminus1 * TS;
+    let x_bar = xkminus1 + xdotkminus1 * TS + 0.5 * xdotdotkminus1 * TS.powf(2.0);
 
     let phi = phi(TS);
     let q = q(TS);

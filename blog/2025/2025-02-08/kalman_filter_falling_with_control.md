@@ -132,8 +132,8 @@ Now if we move onto the update step we can write
 
 \\[
 \begin{bmatrix}
-\bar{x}\_k^\prime \\\\
-\bar{\dot{x}}\_k^\prime \\\\
+x\_k^\prime \\\\
+\dot{x}\_k^\prime \\\\
 \end{bmatrix} =
 \begin{bmatrix}
 {K\_1}\_k \\\\
@@ -161,11 +161,11 @@ g
 Expanding this will get us 
 
 \\[
-\bar{x}\_k^\prime = {K\_1}\_k [ x^*\_k - \hat{x}\_{k-1} - \hat{\dot{x}}\_{k-1} t + 0.5g t^2 ]
+x\_k^\prime = {K\_1}\_k [ x^*\_k - \hat{x}\_{k-1} - \hat{\dot{x}}\_{k-1} t + 0.5g t^2 ]
 \\]
 
 \\[
-\bar{\dot{x}}\_k^\prime = {K\_2}\_k [ x^*\_k - \hat{x}\_{k-1} - \hat{\dot{x}}\_{k-1} t + 0.5g t^2 ]
+\dot{x}\_k^\prime = {K\_2}\_k [ x^*\_k - \hat{x}\_{k-1} - \hat{\dot{x}}\_{k-1} t + 0.5g t^2 ]
 \\]
 
 The astute will notice that the residual term is the same in both cases, so here 

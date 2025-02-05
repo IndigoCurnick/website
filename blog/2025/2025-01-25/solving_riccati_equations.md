@@ -75,22 +75,74 @@ process, so the Kalman filter equation just becomes
 So this equation essentially comes in two parts. \\( \Phi\_k \hat{x}\_{k-1} \\) is
 the prediction, and \\( K\_k [z\_k - H\Phi\_k \hat{x}\_{k-1}] \\) is the measurement.
 So, we can solve these seperately. I use a bar notation (\\( \bar{x} \\)) to 
-indicate a predicted value. So, the prediction part becomes these three equations
+indicate a predicted value. We can begin by expanding the matrix form
 
-\\[ \bar{\ddot{x}} = \hat{\ddot{x}}\_{k-1} \\]
-\\[ \bar{\dot{x}} = \hat{\dot{x}}\_{k-1} + dt \bar{\ddot{x}} \\]
-\\[ \bar{x} = \hat{x}\_{k-1} + dt \bar{\dot{x}} + 0.5 (dt)^2 \bar{\ddot{x}} \\]
+\\[
+\begin{bmatrix}
+\bar{x}\_k \\\\
+\bar{\dot{x}}\_k \\\\
+\bar{\ddot{x}}\_k
+\end{bmatrix} =
+\begin{bmatrix}
+1 & dt & \frac{1}{2} (dt)^2 \\\\
+0 & 1 & dt \\\\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+\hat{x}\_{k-1} \\\\
+\hat{\dot{x}}\_{k-1} \\\\
+\hat{\ddot{x}}\_{k-1}
+\end{bmatrix}
+\\]
 
-Now we want to deal with the measurement part. What's helpful is to define a 
-residual - I use a tilde for this purpose (\\( \tilde{x} \\))
+Which gives the following linear equations
 
-\\[ \tilde{x} = x^* - \bar{x} \\]
+\\[ \bar{x}\_k = \hat{x}\_{k-1} + dt \hat{\dot{x}}\_{k-1} + 0.5 (dt)^2 \hat{\ddot{x}}\_{k-1} \\]
+\\[ \bar{\dot{x}}\_k = \hat{\dot{x}}\_{k-1} + dt \hat{\ddot{x}}\_{k-1} \\]
+\\[ \bar{\ddot{x}}\_k = \hat{\ddot{x}}\_{k-1} \\]
 
-Now for this problem, because we only have one measurement, we also only have 
-one residual.
 
-Next, the gain matrix \\( K_k \\) is actually a column matrix with three 
-rows. So we denote the value from each row with \\(K_1, K_2, K_3\\).
+Now we want to deal with the measurement part. Again, writing out in the matrix 
+form gives us (I use a prime - \\(x^\prime\\) - to indicate a measurement update)
+
+\\[
+\begin{bmatrix}
+x^\prime\_k \\\\
+\dot{x}^\prime\_k \\\\
+\ddot{x}^\prime\_k
+\end{bmatrix} =
+\begin{bmatrix}
+{K\_1}\_k \\\\
+{K\_2}\_k \\\\
+{K\_3}\_k \\\\
+\end{bmatrix}
+\left[
+x^*\_k - \begin{bmatrix} 1 & 0 & 0 \end{bmatrix}
+\begin{bmatrix}
+1 & dt & \frac{1}{2} (dt)^2 \\\\
+0 & 1 & dt \\\\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+\hat{x}\_{k-1} \\\\
+\hat{\dot{x}}\_{k-1} \\\\
+\hat{\ddot{x}}\_{k-1}
+\end{bmatrix}
+\right]
+\\]
+
+Which we can expand into
+
+\\[x^\prime_k = {K\_1}\_k (x^*_k - (\hat{x}\_{k-1} + dt \hat{\dot{x}}\_{k-1} + 0.5 (dt)^2 \hat{\ddot{x}}\_{k-1})) \\]
+\\[\dot{x}^\prime_k = {K\_2}\_k (x^*_k - (\hat{x}\_{k-1} + dt \hat{\dot{x}}\_{k-1} + 0.5 (dt)^2 \hat{\ddot{x}}\_{k-1})) \\]
+\\[\ddot{x}^\prime_k = {K\_3}\_k (x^*_k - (\hat{x}\_{k-1} + dt \hat{\dot{x}}\_{k-1} + 0.5 (dt)^2 \hat{\ddot{x}}\_{k-1})) \\]
+
+The astute will notice that the residual is the same in each case, and furthermore,
+the negative term is actually just \\(\bar{x}\_k\\), which we have already 
+calculated. This only works because we have only one measurement, this isn't true 
+in the general case. Therefore, we can define a residual term
+
+\\[ \tilde{x} = x^* - \bar{x}\_k \\]
 
 And so, to complete the Kalman filter equation (i.e. the Riccati equation) we
 can now say
@@ -122,7 +174,7 @@ The important matricies are
 \\[
 \Phi(t) =
 \begin{bmatrix}
-1 & t \\
+1 & t \\\\
 0 & 1
 \end{bmatrix}    
 \\]
@@ -150,9 +202,10 @@ Remember to use
 
 So we start with the predictions
 
-\\[ \bar{\dot{x}} = \hat{\dot{x}}_{k-1} \\]
+\\[ \bar{x}\_k = \hat{x}\_{k-1} + \hat{\dot{x}} dt \\]
+\\[ \bar{\dot{x}}\_k = \hat{\dot{x}}\_{k-1} \\]
 
-\\[ \bar{x} = \hat{x}_{k-1} + \bar{\dot{x}} dt \\]
+
 
 Now the residual
 
@@ -160,9 +213,9 @@ Now the residual
 
 and finally the predictions
 
-\\[ \hat{\dot{x}} = \bar{\dot{x}} + K_2 x^* \\]
+\\[ \hat{\dot{x}} = \bar{\dot{x}} + K\_2 \tilde{x} \\]
 
-\\[ \hat{x} = \bar{x} + K_1 x^* \\]
+\\[ \hat{x} = \bar{x} + K\_1 \tilde{x} \\]
 
 Don't forget to update the covariance!
 
