@@ -1,0 +1,19 @@
+{
+    "title": "Kalman Filter: Tracking a Cannon Ball",
+    "date": "2025-02-08",
+    "desc": "Using a Kalman filter to track a cannon ball",
+    "slug": "kalman-filter-cannon-ball",
+    "tags": [
+        "kalman-filtering",
+        "mathematics",
+        "signal-processing",
+        "science"
+    ],
+    "keywords": [
+        "Kalman Filter",
+        "State Estimation",
+        "Mathematics"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
