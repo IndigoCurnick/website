@@ -1,0 +1,19 @@
+{
+    "title": "Kalman Filter: Filtering a Sin Wave",
+    "date": "2025-02-08",
+    "desc": "Comparing different Kalman filters on the sin wave",
+    "slug": "kalman-filter-sin-wave",
+    "tags": [
+        "kalman-filtering",
+        "mathematics",
+        "signal-processing",
+        "science"
+    ],
+    "keywords": [
+        "Kalman Filter",
+        "State Estimation",
+        "Mathematics"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
