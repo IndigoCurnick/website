@@ -1,6 +1,6 @@
 {
     "title": "Kalman Filter: Tracking a Cannon Ball",
-    "date": "2025-02-08",
+    "date": "2025-02-15",
     "desc": "Using a Kalman filter to track a cannon ball",
     "slug": "kalman-filter-cannon-ball",
     "tags": [
