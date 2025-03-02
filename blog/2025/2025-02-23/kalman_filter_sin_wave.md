@@ -850,4 +850,7 @@ filters.
 
 <script id="AlternativeKalmanFilterScripts" src="/blog-assets/2025-02-22-kalman-filter-sin-wave/alternative.js"></script>
 
-            
+## References 
+
+Zarchan, P., Musoff, H. (2009) *Fundamentals of Kalman Filtering: A Practical Approach (3rd Ed.)*. 
+American Institude of Aeronautics and Astronautics

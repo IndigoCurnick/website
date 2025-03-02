@@ -5,7 +5,7 @@ use std::{env};
 
 use blog_tools::high::{HighBlog, HighBlogEntry};
 use blog_tools::Blog;
-use context::STATIC_BLOG_ENTRIES;
+use context::{generate_blog, STATIC_BLOG_ENTRIES};
 
 use rocket::fairing::{Fairing, Info, Kind};
 use rocket::fs::{relative, FileServer};
@@ -73,7 +73,7 @@ async fn courses_hub() -> Template {
 }
 
 fn get_blog_context() -> &'static HighBlog {
-    return &STATIC_BLOG_ENTRIES;
+    return &STATIC_BLOG_ENTRIES;    
 }
 
 #[get("/blog/<date>/<slug>", rank = 2)]

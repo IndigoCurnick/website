@@ -9,8 +9,8 @@ use lazy_static::lazy_static;
 pub static BLOG_ROOT: &str = "blog";
 pub static BLOG_URL: &str = "https://indigocurnick.xyz";
 
-lazy_static! {
-    pub static ref STATIC_BLOG_ENTRIES: HighBlog = get_high_blog(
+pub fn generate_blog() -> HighBlog {
+    get_high_blog(
         PathBuf::from(BLOG_ROOT),
         None,
         None,
@@ -22,5 +22,9 @@ lazy_static! {
             ..Default::default()
         }
     )
-    .unwrap();
+    .unwrap()
+}
+
+lazy_static! {
+    pub static ref STATIC_BLOG_ENTRIES: HighBlog = generate_blog();
 }
