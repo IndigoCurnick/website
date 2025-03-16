@@ -175,8 +175,8 @@ The following is a list of all the verb forms. Again, as time goes on I will mak
 
 - Indicative Mood
 	- Indicative Active
-		- [Present Indicative Active](/blog/2025-02-01/latin-indicative-active-verbs)
-		- Imperfect Indicative Active
+		- [Present Indicative Active](/blog/2025-02-01/latin-present-indicative-active-verbs)
+		- [Imperfect Indicative Active](/blog/2025-03-16/latin-imperfect-indicative-active-verbs)
 		- Future Indicative Active
 		- Perfect Indicative Active
 		- Pluperfect Indicative Active
