@@ -387,3 +387,11 @@ fake, or made-up or indeed imaginary in any way! It has genuine, real connection
 to very real and physical phenomena: it is just as real in that sense as any 
 natural number. It's really just a quirk of history that it was given this
 unfortunate name.
+
+## References
+
+Cullerne, J., Machacek, A. (2008). *The Language of Physics: A Foundation for University Study*. Oxford University Press
+
+Riley, K., F. (1974). *Mathematical Methods for the Physical Sciences: An Informal Treatment for Students of Physics and Engineering*. Cambridge University Press
+
+Boas, M., L. (2005). *Mathematical Methods in the Physical Sciences (3rd ed.)*. Wiley
