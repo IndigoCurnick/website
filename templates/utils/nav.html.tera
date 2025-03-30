@@ -1,27 +1,33 @@
-<nav>
-    <ul>
+<nav class="navbar navbar-fixed-top">
+
+    <div class="navbar-left">
+
         <a href="/">
-            <li>🏠 Home</li>
+            Indigo Curnick 💜
         </a>
 
         <a href="/blog">
-            <li>📜 Blog</li>
+            📜 Blog
         </a>
 
         <a href="/toolbox">
-            <li>🧰 Toolbox</li>
+            🧰 Toolbox
         </a>
+    </div>
 
+    <div class="navbar-right">
         <a href="https://github.com/IndigoCurnick">
-            <li><img src="/images/logos/git.svg" alt="git logo">Github</li>
+            <img class="small-img" src="/images/logos/git.svg" alt="git logo">Github
         </a>
 
         <a href="https://www.linkedin.com/in/indigo-curnick-94680b151/">
-            <li><img src="/images/logos/linkedin.svg" alt="LinkedIn Logo">LinkedIn</li>
+            <img class="small-img" src="/images/logos/linkedin.svg" alt="LinkedIn Logo">LinkedIn
         </a>
 
         <a href="mailto:indigocurnick@gmail.com">
-            <li>📧 Email me!</li>
+            📧 Email me!
         </a>
-    </ul>
+
+    </div>
+
 </nav>
