@@ -37,3 +37,7 @@
     background: var(--spanishgrey);
     color: #ffffff;
 }
+
+.spaced-li {
+    margin-bottom: 10px;
+}

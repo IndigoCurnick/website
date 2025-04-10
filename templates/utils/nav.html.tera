@@ -2,8 +2,10 @@
 
     <div class="navbar-left">
 
-        <a href="/">
-            Indigo Curnick 💜
+        <a class="logo" href="/">
+            <div class="logo">
+                💜 Indigo Curnick
+            </div>
         </a>
 
         <a href="/blog">
@@ -17,11 +19,11 @@
 
     <div class="navbar-right">
         <a href="https://github.com/IndigoCurnick">
-            <img class="small-img" src="/images/logos/git.svg" alt="git logo">Github
+            <img class="small-img" src="/images/logos/git.svg" alt="git logo"> Github
         </a>
 
         <a href="https://www.linkedin.com/in/indigo-curnick-94680b151/">
-            <img class="small-img" src="/images/logos/linkedin.svg" alt="LinkedIn Logo">LinkedIn
+            <img class="small-img" src="/images/logos/linkedin.svg" alt="LinkedIn Logo"> LinkedIn
         </a>
 
         <a href="mailto:indigocurnick@gmail.com">

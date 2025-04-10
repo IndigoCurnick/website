@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Blog</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Indigo Curnick's blog">
-        <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    </head>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Blog</title>
 
-    <body>
-        <header>
-            <h1>Blog</h1>
-        </header>
-        {% include "utils/nav" %}
-        <main>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/nav.css">
+    <link rel="stylesheet" type="text/css" href="/css/blog.css">
 
-            {% if blog.entries %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Indigo Curnick's blog">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
 
-            <div class="blog-container">
-                {% for entry in blog.entries %}
+<body>
 
-                <div class="blog-card">
-                    <a href="/blog/{{ entry.date }}/{{ entry.slug }}"
-                        class="no-underline black-links">
-                        <div class="card-body">
-                            <h2>
-                                <span>{{ entry.title }}</span>
-                            </h2>
-                            <h5>
-                                <span>{{ entry.date }}</span>
-                            </h5>
-                            <div>
-                                {{entry.preview | safe}}
-                            </div>
-                        </div>
-                    </a>
 
-                    <div class="blog-tag-container">
-                        {% for tag in entry.tags %}
+    {% include "utils/nav" %}
+    <main>
+
+        <h1>Blog</h1>
+
+        <div class="content">
+            <div class="left-bar">
+                <h3>Tags</h3>
+                {% for tag in blog.tags %}
+                <ul>
+                    <li class="spaced-li">
                         <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
-                            }}</a>&nbsp;&nbsp;
-                        {% endfor %}
-                    </div>
-
-                </div>
-
+                            }}</a>
+                    </li>
+                </ul>
                 {% endfor %}
             </div>
-            {% else %}
-            <p>No blog found</p>
 
-            {% endif %}
-        </main>
+            <div class="centre-content">
+                <div class="blog-container">
+                    {% for entry in blog.entries %}
 
-        <script src="/js/highlight/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
+                    <div class="blog-card">
+                        <a href="/blog/{{ entry.date }}/{{ entry.slug }}" class="no-underline black-links">
+                            <div class="card-body">
+                                <h2>
+                                    <span>{{ entry.title }}</span>
+                                </h2>
+                                <h5>
+                                    <span>{{ entry.date }}</span>
+                                </h5>
+                                <div>
+                                    {{entry.preview | safe}}
+                                </div>
+                            </div>
+                        </a>
 
-    </body>
+                        <div class="blog-tag-container">
+                            {% for tag in entry.tags %}
+                            <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
+                                }}</a>&nbsp;&nbsp;
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>

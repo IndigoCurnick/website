@@ -1,7 +1,7 @@
 #[macro_use]
 extern crate rocket;
 
-use std::{env};
+use std::env;
 
 use blog_tools::high::{HighBlog, HighBlogEntry};
 use blog_tools::Blog;
@@ -20,7 +20,6 @@ use rocket::{routes, Response};
 use rocket_dyn_templates::Template;
 
 use rocket::Request;
-
 
 use routes::toolbox::get_toolbox_routes;
 
@@ -73,7 +72,7 @@ async fn courses_hub() -> Template {
 }
 
 fn get_blog_context() -> &'static HighBlog {
-    return &STATIC_BLOG_ENTRIES;    
+    return &STATIC_BLOG_ENTRIES;
 }
 
 #[get("/blog/<date>/<slug>", rank = 2)]
@@ -163,11 +162,7 @@ fn get_all_routes() -> Vec<Route> {
 
     let toolbox_routes = get_toolbox_routes();
 
-    let all_routes = vec![
-        index_route,
-        util_routes,
-        toolbox_routes,
-    ];
+    let all_routes = vec![index_route, util_routes, toolbox_routes];
 
     let flattened_routes = all_routes.concat();
     return flattened_routes;
@@ -216,7 +211,7 @@ impl Fairing for CacheControl {
 
     async fn on_response<'r>(&self, request: &'r Request<'_>, response: &mut Response<'r>) {
         if request.uri().path().starts_with("/css") || request.uri().path().starts_with("/js") {
-            response.set_header(Header::new("Cache-Control", "public, max-age=3600"));
+            response.set_header(Header::new("Cache-Control", "public, max-age=0"));
         }
     }
 }
