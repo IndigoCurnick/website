@@ -151,3 +151,7 @@ And so the whole track can be covered.
 So, what's the trick? Zeno's mistake (or rhetorical trick) was to equate the idea of "infinitely many steps" with the idea of "impossible to complete". Our intuition is that an infinite number of steps for some process *will* never complete, but as we've seen in quite a number of examples, that's not true. 
 
 The next place to go from here to even further deepen this intuition that an infinite number of something can sum to a finite quantity is calculus, which is a bit beyond the scope of this blog.
+
+Riley, K., F. (1974). *Mathematical Methods for the Physical Sciences: An Informal Treatment for Students of Physics and Engineering*. Cambridge University Press
+
+Boas, M., L. (2005). *Mathematical Methods in the Physical Sciences (3rd ed.)*. Wiley
