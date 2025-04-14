@@ -152,6 +152,8 @@ So, what's the trick? Zeno's mistake (or rhetorical trick) was to equate the ide
 
 The next place to go from here to even further deepen this intuition that an infinite number of something can sum to a finite quantity is calculus, which is a bit beyond the scope of this blog.
 
+## References
+
 Riley, K., F. (1974). *Mathematical Methods for the Physical Sciences: An Informal Treatment for Students of Physics and Engineering*. Cambridge University Press
 
 Boas, M., L. (2005). *Mathematical Methods in the Physical Sciences (3rd ed.)*. Wiley
