@@ -304,3 +304,9 @@ So
 	4. \\((P \wedge R) \vee (\neg R \wedge (P \vee Q))\\)
 
 You can find solutions [here](/blog/2025-04-19/introduction-sentential-logic-2-solutions), but try all the problems first!
+
+## References
+
+Velleman, D. J. (2019) _How to Prove It: A Structured Approach (3rd ed)_. Cambridge University Press
+
+Stoll, R., R. (1968) _Set Theory and Logic_ Dover Publications
