@@ -242,3 +242,9 @@ You can go ahead and prove this diverges by the ratio test, but I won't include 
 \\[\lim_{n \rightarrow \infty} \left( \frac{3^n - n^3}{n^5 - 2n^2} \div \frac{3^n}{n^5} \right) = \lim_{n \rightarrow \infty} \frac{1 - \frac{n^3}{3^n}}{1 - \frac{5}{n^3}} = 1\\]
 
 which is indeed greater than 0, so this series diverges.
+
+## References
+
+Riley, K., F. (1974). *Mathematical Methods for the Physical Sciences: An Informal Treatment for Students of Physics and Engineering*. Cambridge University Press
+
+Boas, M., L. (2005). *Mathematical Methods in the Physical Sciences (3rd ed.)*. Wiley
