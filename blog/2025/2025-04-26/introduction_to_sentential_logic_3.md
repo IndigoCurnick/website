@@ -285,3 +285,9 @@ Change these!
 
 You can find the solutions [here](/blog/2025-04-26/introduction-sentential-logic-3-solutions), 
 but try all the problems first!
+
+## References
+
+Velleman, D. J. (2019) _How to Prove It: A Structured Approach (3rd ed)_. Cambridge University Press
+
+Stoll, R., R. (1968) _Set Theory and Logic_ Dover Publications
