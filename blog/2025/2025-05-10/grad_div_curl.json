@@ -1,0 +1,20 @@
+{
+    "title": "Grad, Div, Curl",
+    "date": "2025-05-10",
+    "desc": "Gradient, Divergence and Curl Vector Calculus",
+    "slug": "grad-div-curl",
+    "tags": [
+        "mathematics"
+    ],
+    "keywords": [
+        "mathematics",
+        "vector calculus",
+        "grad",
+        "gradient",
+        "div",
+        "divergence",
+        "curl"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
