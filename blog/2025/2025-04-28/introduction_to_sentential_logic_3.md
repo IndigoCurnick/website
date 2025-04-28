@@ -283,7 +283,7 @@ Change these!
 	3. \\((P \vee Q) \vee (\neg P \vee \neg Q)\\)
 	4. \\((P \wedge (Q \vee \neg R)) \vee (\neg P \vee R)\\)
 
-You can find the solutions [here](/blog/2025-04-26/introduction-sentential-logic-3-solutions), 
+You can find the solutions [here](/blog/2025-04-28/introduction-sentential-logic-3-solutions), 
 but try all the problems first!
 
 ## References

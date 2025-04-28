@@ -1,4 +1,4 @@
-These are the solutions for [this blog](/blog/2025-04-26/introduction-sentential-logic-3).
+These are the solutions for [this blog](/blog/2025-04-28/introduction-sentential-logic-3).
 You should try all the problems yourself first!
 
 1)
