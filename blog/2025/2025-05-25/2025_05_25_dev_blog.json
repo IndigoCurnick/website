@@ -1,0 +1,19 @@
+{
+    "title": "2025-05-25 Dev Blog - Introducing GeoFox, Heloid and More",
+    "date": "2025-05-25",
+    "desc": "Starting my latest projects - a Proj rewrite into Rust",
+    "slug": "2025-05-25-dev-blog",
+    "tags": [
+        "dev-blog",
+        "rustlang",
+        "geodesics",
+        "programming"
+    ],
+    "keywords": [
+        "proj",
+        "crs",
+        "wkt"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}
