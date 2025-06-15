@@ -81,7 +81,7 @@ was cheap credit from Brussels. After joining the EU and then adopting the Euro,
 amounts of credit very cheaply. It amassed a public debt of €350 billion, and this was in the early 2000s. Consider
 that now the GDP of Greece is still only €222 billion and you start to see the scale of the issue. What's the
 problem with all this cheap credit? Why can't people just "print money"? After all, in this period per capita income
-in Greece was on average $31,700 – the 25th highest in the world. Higher than 95% of the EU average even.
+in Greece was on average \\$31,700 – the 25th highest in the world. Higher than 95% of the EU average even.
 Private spending was also 12% higher than the EU average, giving Greece the twenty-second highest human development
 index and quality of life indexes in the world. So what's the issue? Well, all of this is in fact illusory. As we
 all know with hindsight, this spending was all going into malinvestments. In other words, spending which was not and
@@ -166,11 +166,11 @@ on the part of Fannie and Freddie are needed so they can keep up with their home
 call a bubble.
 
 Fannie and Freddie were also not themselves clean. They became embroiled in numerous accounting scandals. Freddie had
-stashed away $6.9 billion (which was not on their annual reports) and Fannie actually overstated their own profits
+stashed away \\$6.9 billion (which was not on their annual reports) and Fannie actually overstated their own profits
 so the bosses could still get bonuses. In other words, they were both cooking the books. In fairness to the Bush
 administration and Republicans, at this point, they became suspicious of Freddie and Fannie and wanted to tighten
 controls on the enterprises. This had two effects though: Fannie and Freddie needed to create a huge lobbying
-campaign and cosy up to congress Democrats. The lobbying campaign was beyond impressive and sinister. Well over $170
+campaign and cosy up to congress Democrats. The lobbying campaign was beyond impressive and sinister. Well over \\$170
 million was spent on political lobbying by the enterprises. If you lived in a state with a Fannie/Freddie critical
 politician, you could expect a phone call which went something like "Your congressman is trying to make mortgages
 more expensive. Ask him why he opposes the American dream of homeownership". Of course, the congressman would
@@ -193,10 +193,10 @@ the figure was 22%. Between 2005 and 2007 40% of mortgages purchases by Fannie a
 By 2008, Fannie and Freddie had huge exposure to the housing market. The sum of liabilities and mortgages they had
 guaranteed and issued equalled the US national debt. In other words, these enterprises could, theoretically, be
 expected to make good on something equivalent to the US national debt at a moment's notice (it goes without saying
-they could never fulfil such a promise). To put that in perspective, for every $100 they had guaranteed or lent
-through securities, they only had $1.20 of equity. What this means in effect is they have given out massive amounts
+they could never fulfil such a promise). To put that in perspective, for every \\$100 they had guaranteed or lent
+through securities, they only had \\$1.20 of equity. What this means in effect is they have given out massive amounts
 of cash that does not yet exist, with very little ways to actually back that. Finally, their combined mortgage
-portfolio was over $5 trillion (yes, trillion), while around $1 trillion of that was junk loans (yes, one fifth).
+portfolio was over \\$5 trillion (yes, trillion), while around \\$1 trillion of that was junk loans (yes, one fifth).
 
 As the saying goes, all bubbles must burst, and with an eventual drop in house prices, that bubble did burst. To
 understand why a drop in house prices popped this bubble, we need to understand why mortgage backed securities were
@@ -220,7 +220,7 @@ through, and were saved by massive bail outs from the US central government, dri
 debt. The rest, as they say, is history. I'm sure most readers are at least aware of some of what happened but the
 end result was over 2 million US job losses, millions of people losing their homes, and countless businesses both
 large and small going bankrupt. In fact, the largest bankruptcy in American history came from this – the Lehman
-Brothers. An investment bank with over $600 billion in assets and some 26,000 employees.
+Brothers. An investment bank with over \\$600 billion in assets and some 26,000 employees.
 
 The big conclusion I think everyone needs to take away from this is that one can blame "bankers" as much as they
 like, but ultimately, without the availability of very cheap credit from the US government, none of this would have
@@ -252,9 +252,9 @@ pragmatically is very few malinvestments will be made, or at least, the time pre
 not be artificially higher than they otherwise would have been. Finally, they are sustainable due to locality. Local
 leaders of these societies would seek out, for example, young doctors who wanted to build a practice or older
 doctors who were semi-retired and wanted only part time work and negotiate very favourable prices. The book recounts
-how in some places in America societies were purchasing healthcare for members at the rate of $1 per capita per
-year. The US inflation calculator only goes back to 1913, but $1 from 1913 is worth around $30 today. Where can
-anyone these days get healthcare for $30 a year? (Note, I personally pay around £2353 in taxes per year which
+how in some places in America societies were purchasing healthcare for members at the rate of \\$1 per capita per
+year. The US inflation calculator only goes back to 1913, but \\$1 from 1913 is worth around \\$30 today. Where can
+anyone these days get healthcare for \\$30 a year? (Note, I personally pay around £2353 in taxes per year which
 directly go to the NHS – not including the rest of my tax!).
 
 The book strongly recommends a return to exactly this kind of system. Doing away with the wasteful and unsustainable

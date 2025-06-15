@@ -1,0 +1,19 @@
+{
+    "title": "2025-06-15 Dev Blog",
+    "date": "2025-06-15",
+    "desc": "Starting my latest projects - a Proj rewrite into Rust",
+    "slug": "2025-06-15-dev-blog",
+    "tags": [
+        "dev-blog",
+        "rustlang",
+        "geodesics",
+        "programming"
+    ],
+    "keywords": [
+        "proj",
+        "crs",
+        "wkt"
+    ],
+    "author_name": "Indigo Curnick",
+    "author_website": "https://indigocurnick.xyz"
+}

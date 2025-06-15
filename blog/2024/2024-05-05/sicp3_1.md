@@ -250,7 +250,7 @@ function cv(x) {
 
 ## Exercise 38
 
-In this question Peter, Paul and Mary share a joint bank account that initially contains $100. Concurrently, Peter deposits $10, Paul withdraws $20 and Mary withdraws half of the money in the account. In other words, they execute the following commands
+In this question Peter, Paul and Mary share a joint bank account that initially contains \\$100. Concurrently, Peter deposits \\$10, Paul withdraws \\$20 and Mary withdraws half of the money in the account. In other words, they execute the following commands
 
 - Peter: `balance = balance + 10`
 - Paul: `balance = balance - 20`

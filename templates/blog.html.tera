@@ -1,69 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <title>Blog: {{ blog.title }}</title>
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Blog: {{ blog.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% if blog.author_name %}
-        <meta name="author" content="{{ blog.author_name }}">
-        {% endif %}
+    {% if blog.author_name %}
+    <meta name="author" content="{{ blog.author_name }}">
+    {% endif %}
 
-        {% if blog.author_webpage %}
-        <link rel="author" href="{{ blog.author_webpage }}">
-        {% endif %}
+    {% if blog.author_webpage %}
+    <link rel="author" href="{{ blog.author_webpage }}">
+    {% endif %}
 
-        {% if blog.keywords %}
-        <meta name="keywords" content="
+    {% if blog.keywords %}
+    <meta name="keywords" content="
     {% for word in blog.keywords %}
     {{word}},
     {% endfor %}
     ">
-        {% endif %}
+    {% endif %}
 
-        {% if blog.desc %}
-        <meta name="description" content="{{ blog.desc }}">
-        {% endif %}
+    {% if blog.desc %}
+    <meta name="description" content="{{ blog.desc }}">
+    {% endif %}
 
-        <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    </head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-    <body>
-        
-        <header>
-            <h1>{{ blog.title }}</h1>
-        </header>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [
+                    ['$$', '$$'],
+                    ['\\[', '\\]']
+                ]
+            }
+        };
 
-        {% include "utils/nav" %}
+    </script>
+</head>
 
-        <main>
+<body>
 
-            <p>Author: {{blog.author_name}}</p>
+    <header>
+        <h1>{{ blog.title }}</h1>
+    </header>
 
-            <p>Date: {{blog.date}} {% if blog.last_modified %} | Last Updated: {{ blog.last_modified }} {% endif %}</p>
+    {% include "utils/nav" %}
 
-            <div class="blog-tag-container">
-                {% for tag in blog.tags %}
-                <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
-                    }}</a>&nbsp;&nbsp;
-                {% endfor %}
-            </div>
-            <br>
-            <hr>
-            <br>
-            {{ blog.html | safe }}
+    <main>
 
-        </main>
+        <p>Author: {{blog.author_name}}</p>
 
-        <script src="/js/highlight/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
+        <p>Date: {{blog.date}} {% if blog.last_modified %} | Last Updated: {{ blog.last_modified }} {% endif %}</p>
 
-    </body>
+        <div class="blog-tag-container">
+            {% for tag in blog.tags %}
+            <a href="/blog/tag/{{ tag }}" class="blog-tag">#{{ tag
+                }}</a>&nbsp;&nbsp;
+            {% endfor %}
+        </div>
+        <br>
+        <hr>
+        <br>
+        {{ blog.html | safe }}
+
+    </main>
+
+    <script src="/js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+</body>
 
 </html>
