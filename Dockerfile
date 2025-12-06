@@ -1,4 +1,4 @@
-FROM rust:1.74-slim-buster AS builder
+FROM rust:1.91-slim-bookworm AS builder
 
 RUN apt-get update
 RUN apt-get install openssl -y
@@ -19,7 +19,7 @@ COPY . .
 RUN RUST_BACKTRACE=1 cargo build --release
 
 # ============= Final image =============
-FROM debian:buster-slim AS runtime
+FROM debian:bookworm-slim AS runtime
 
 RUN apt-get update
 WORKDIR /app
