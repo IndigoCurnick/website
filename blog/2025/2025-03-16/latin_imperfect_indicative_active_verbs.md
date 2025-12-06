@@ -88,11 +88,11 @@ We'll consider five verbs from each of the conjugations, as well as some irregul
 
 ## Second Conjugation
 
-1. *doceō, -ēre, -uī, -tum* - to teach
-2. *iubeō, -bēre, -ssī, -ssum* - to order
-3. *maneō, -āre, -āvī, -ātum* - to remain, to stay
-4. *respondeō, -ondēre, -ondī, -ōnsum* - to reply, to respond
-5. *dēbeō, -ēre, -uī, -itum* - to owe, to ought
+- *doceō, -ēre, -uī, -tum* - to teach
+- *iubeō, -bēre, -ssī, -ssum* - to order
+- *maneō, -āre, -āvī, -ātum* - to remain, to stay
+- *respondeō, -ondēre, -ondī, -ōnsum* - to reply, to respond
+- *dēbeō, -ēre, -uī, -itum* - to owe, to ought
 
 <table>
     <tr>
@@ -156,11 +156,11 @@ We'll consider five verbs from each of the conjugations, as well as some irregul
 
 ## Third Conjugation
 
-1. *pōnō, -ere, posuī, postium* - to place, to put
-2. *vīvō, -vere, -xī, -ctum* - to live, to be alive
-3. *agō, agere, ēgī, āctum* - to do, to drive
-4. *dīcō, -cere, -xī, dictum* - to say
-5. *petō, -ere, -īvi, -ītum* - to seek, to ask for
+- *pōnō, -ere, posuī, postium* - to place, to put
+- *vīvō, -vere, -xī, -ctum* - to live, to be alive
+- *agō, agere, ēgī, āctum* - to do, to drive
+- *dīcō, -cere, -xī, dictum* - to say
+- *petō, -ere, -īvi, -ītum* - to seek, to ask for
 
 <table>
     <tr>
@@ -223,11 +223,11 @@ We'll consider five verbs from each of the conjugations, as well as some irregul
 
 ## Fourth Conjugation
 
-1. *dormiō, -īre, -īvī, -ītum* - to sleep
-2. *serviō, -īre, -īvī, -ītum* - to serve
-3. *pūniō, -īre, -ior, -īrī* - to punish
-4. *fīnīo, -īre, -īvī, -ītum* - to finish
-5. *impediō, -īre, -īvī, -ītum* - to hinder
+- *dormiō, -īre, -īvī, -ītum* - to sleep
+- *serviō, -īre, -īvī, -ītum* - to serve
+- *pūniō, -īre, -ior, -īrī* - to punish
+- *fīnīo, -īre, -īvī, -ītum* - to finish
+- *impediō, -īre, -īvī, -ītum* - to hinder
 
 <table>
     <tr>
@@ -347,3 +347,13 @@ Consider
 ## Next Steps 
 
 Memorise all of the verb forms here before moving onto the next verb form. Place all of these into Anki - once you've memorised them all this should be enough examples to be able to recognise the verb form in written text.
+
+## References
+
+Collar, W. C., Daniell, M. G., Jenkins, T. (1918) *Collar and Daniel's First Year Latin (Revised Ed.)*. Ginn and Company
+
+Bullions, P. (1856) *The Principles of Latin Grammar (62nd Ed.)*. Pratt, Woodford, Farmer & Brace
+
+Wheelock, F. M. (2005) *Wheelock's Latin 6th ed*. HarperResource
+
+Kidd, D. A., Wade, M (1997) *Collins Latin Dictionary & Grammar*. Harper Collins

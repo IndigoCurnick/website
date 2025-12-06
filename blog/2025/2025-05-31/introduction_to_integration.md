@@ -120,11 +120,11 @@ We let
 - $u = x$
 - $du = 1$
 - $dv = \cos(x)$
-- $v = \sin(x)$
+- $v = -\sin(x)$
 
 So
 
-$$\int x \cos(x) dx = x \sin(x) - \int \sin(x) \cdot 1 dx$$
+$$\int x \cos(x) dx = x \sin(x) - \int -\sin(x) \cdot 1 dx$$
 
 Notice how the second integral is now very easy to solve!
 
@@ -276,7 +276,7 @@ $$(x+3) \sqrt{x+3} - 3 \sqrt{x+3} = \sqrt{x+3} (x + 3 - 3) = x \sqrt{x + 3}$$
 
 Spivak, M. (2008). *Calculus (4th ed.)*. Publish or Perish, Iuc.
 
-Apostol, T., M. (1967) *Calculus Volume 1 (2nd ed.)*. (John Wiley & Sons, Inc.)
+Apostol, T., M. (1967) *Calculus Volume 1 (2nd ed.)*. John Wiley & Sons, Inc.
 
 Gradshteyn, I., S. & Ryzhik, I., M. (2015) *Table of Integrals, Series and Products (8th ed.)*. Elsevier
 

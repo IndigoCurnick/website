@@ -394,3 +394,13 @@ Consider
 ## Next Steps 
 
 Memorise all of the verb forms here before moving onto the next verb form. Place all of these into Anki - once you've memorised them all this should be enough examples to be able to recognise the verb form in written text.
+
+## References
+
+Collar, W. C., Daniell, M. G., Jenkins, T. (1918) *Collar and Daniel's First Year Latin (Revised Ed.)*. Ginn and Company
+
+Bullions, P. (1856) *The Principles of Latin Grammar (62nd Ed.)*. Pratt, Woodford, Farmer & Brace
+
+Wheelock, F. M. (2005) *Wheelock's Latin 6th ed*. HarperResource
+
+Kidd, D. A., Wade, M (1997) *Collins Latin Dictionary & Grammar*. Harper Collins
