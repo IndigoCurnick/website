@@ -55,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-    
+
             <div class="column">
                 <h3>Public Repositories</h3>
                 <ul style="padding:0">
@@ -64,21 +64,20 @@
                     <li><a href="https://github.com/IndigoCurnick/blog-tools"><code>blog-tools</code></a></li>
                     <li><a href="https://github.com/IndigoCurnick/rust-cleanup"><code>Rust</code> taking up too much
                             space?</a></li>
-                    <li><a href="https://github.com/IndigoCurnick/odt_to_markdown">ODT to Markdown Converter</a></li>
-                    <li><a href="https://github.com/IndigoCurnick/geodesic_coordinates_rs">Navigating on or close to
-                            the earth?</a></li>
+                    <li><a href="https://crates.io/crates/postcode_extractor">Postcode extraction</a></li>
+                    <li><a href="https://crates.io/crates/simple-address-formatter">Address formatting</a></li>
                 </ul>
             </div>
         </div>
-        
+
 
         <div class="column">
             <h3>Tags</h3>
             <div class="row" style="flex-wrap: wrap;">
                 {% for tag in tags %}
-            <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>&nbsp;&nbsp;
-            {% endfor %}
-            </div>  
+                <a href="/blog/tag/{{ tag }}">#{{ tag }}</a>&nbsp;&nbsp;
+                {% endfor %}
+            </div>
         </div>
 
     </main>
