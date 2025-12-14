@@ -90,7 +90,7 @@ We'll consider five verbs from each of the conjugations, as well as some irregul
 
 - *doceō, -ēre, -uī, -tum* - to teach
 - *iubeō, -bēre, -ssī, -ssum* - to order
-- *maneō, -āre, -āvī, -ātum* - to remain, to stay
+- *maneō, -āre, mānsī, mānsum* - to remain, to stay
 - *respondeō, -ondēre, -ondī, -ōnsum* - to reply, to respond
 - *dēbeō, -ēre, -uī, -itum* - to owe, to ought
 

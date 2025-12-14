@@ -45,7 +45,8 @@ Just to reiterate here: our goal in this section is to compute a double integral
 
 Consider $R = [-2,2] \times [-1,3]$ where $f(x,y) =x$. Notice how exactly half of the plane lies above the $xy$-axis and the other half below. If we consider $\iint_R x dA$ as the net volume under the graph of $z=x$, then we can conclude that $\iint_R x dA$ must be zero, if it indeed exists. For another perspective, consider a Riemann sum corresponding to $\iint_R x dA$ obtained by partitioning $R = [-2,2] \times [-1,3]$ symmetrically with respect to the $y$-axis and by choosing the "test points" $\mathbf{c}_{ij}$ symmetrically also. It follows that
 
-$$S = \sum f(\mathbf{c}_{ij}) \Delta A_{ij} = \sum x_{ij} \Delta A_{ij}$$
+$$S = \sum f(\mathbf{c}\_{ij}) \Delta A\_{ij} = \sum x\_{ij} \Delta A\_{ij}$$
+
 is zero because the terms of the sum cancel in pairs. As we shrink the dimensions of the subrectangles to zero to get the integral, we preserve all the symmetry just described. Thus the limit, if it exists, must be zero.
 
 Notice how the phrase "if it exists" has been doing some heavy lifting here. We never proved if $\iint_R f dA$ really exists, and if so, under what conditions. Thankfully, there is the following result (presented without proof) for us to use:
