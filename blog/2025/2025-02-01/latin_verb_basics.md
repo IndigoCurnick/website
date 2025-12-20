@@ -177,7 +177,7 @@ The following is a list of all the verb forms. Again, as time goes on I will mak
 	- Indicative Active
 		- [Present Indicative Active](/blog/2025-02-01/latin-present-indicative-active-verbs)
 		- [Imperfect Indicative Active](/blog/2025-03-16/latin-imperfect-indicative-active-verbs)
-		- Future Indicative Active
+		- [Future Indicative Active](/blog/2025-12-20/latin-future-indicative-active-verbs)
 		- Perfect Indicative Active
 		- Pluperfect Indicative Active
 		- Future Perfect Indicative Active
