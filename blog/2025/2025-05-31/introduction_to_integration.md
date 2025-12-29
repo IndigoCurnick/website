@@ -282,20 +282,19 @@ Gradshteyn, I., S. & Ryzhik, I., M. (2015) *Table of Integrals, Series and Produ
 
 ## Appendix A: Basic Integration Laws
 
+### Power Law
 
+$$\int x^n dx = \frac{x^{n+1}}{n+1} + C$$
 
-Integration by parts
+### Integration by parts
 
 $$\int u dv = uv - \int v du$$
 
-Integration by substitution
+### Integration by substitution
 
 $$\int F^\prime (g(x)) g^\prime (x) dx = \int F^\prime (u) du = F(u) + C = F(g(x)) + C$$
 
-Most common integrals
-
-$$\int x^n dx = \frac{x^{n+1}}{n+1} + C$$
-Exponentials are as always the simplest
+### Most common integrals
 
 $$\int e^x dx = e^x + C$$
 $$\int \sin(x) dx = -\cos(x) + C$$
@@ -311,19 +310,42 @@ $$\DeclareMathOperator\arctanh{arctanh}$$
 $$\DeclareMathOperator\arcsinh{arcsinh}$$
 $$\DeclareMathOperator\arccosh{arccosh}$$
 $$\DeclareMathOperator\cosec{cosec}$$
+
+$$\int\frac{dx}{1 + x^2} = \arctan(x) + C$$
+$$\int \frac{dx}{1 - x^2} = \arctanh(x) + C$$
+$$\int \frac{dx}{\sqrt{1-x^2}} = \arcsin(x) + C = -\arccos(x) + C$$
+$$\int \frac{dx}{\sqrt{x^2 +1}} = \arcsinh(x) + C$$
+$$\int \frac{dx}{\sqrt{x^2 - 1}} = \arccosh(x)$$
+
+
+### Trigonometric Functions
+
+#### Power Reduction Laws
+
+$$\int \sin^n(x) dx = -\frac{1}{n} \sin^{n-1}(x) \cos(x) + \frac{n-1}{n} \int \sin^{n-2} dx$$
+$$\int \cos^n(x) dx = \frac{1}{n} \cos^{n-1}(x) \sin(x) + \frac{n-1}{n} \int \cos^{n-2} dx$$
+
+$$\int \sec^n(x) dx = \frac{1}{n-1} \sec^{n-1}(x) \sin(x) + \frac{n-2}{n-1} \int \sec^{n-2}(x) dx$$
+$$\int \csc^m(x) dx = -\frac{1}{n-1} \csc^{n-1}(x) \cos(x) + \frac{n-2}{n-1} \int \csc^{n-2}(x) dx$$
+
+$$\int \tan^n(x) dx = \frac{\tan^{n-1}(x)}{n-1} - \int \tan^{n-2}(x) dx$$
+$$\int \cot^n(x) dx = \frac{\cot^{n-1}(x)}{n-1} - \int \cot^{n-2}(x) dx$$
+
+#### Assorted Trigonometric Functions
+
+$$\int \sin^2(2x) = - \frac{\sin(4x) - 4x}{8} + C$$
+$$\int \cos^2(2x) = \frac{\sin(4x) + 4x}{8} + C$$
 $$\int \frac{\sin(x)}{\cos^2(x)} dx = \sec(x) + C $$
 $$\int \frac{\cos(x)}{\sin^2(x)} dx = -\cosec(x) + C$$
 $$\int \tan(x) dx = -\ln(\cos(x)) + C$$
 $$\int \cot(x) dx = \ln(\sin(x)) + C$$
 $$\int \frac{dx}{\sin(x)} = \ln(\tan(x/2)) + C$$
 $$\int \frac{dx}{\cos(x)} = \ln \left(\tan \left(\frac{\pi}{4} + \frac{x}{2}\right) \right) + C = \ln(\sec(x) + \tan(x)) + C$$
-$$\int\frac{dx}{1 + x^2} = \arctan(x) + C$$
 $$\int \frac{dx}{\sin^2 (x)} = -\cot(x) + C$$
 $$\int \frac{dx}{\cos^2(x)} = \tan(x) + C$$
-$$\int \frac{dx}{1 - x^2} = \arctanh(x) + C$$
-$$\int \frac{dx}{\sqrt{1-x^2}} = \arcsin(x) + C = -\arccos(x) + C$$
-$$\int \frac{dx}{\sqrt{x^2 +1}} = \arcsinh(x) + C$$
-$$\int \frac{dx}{\sqrt{x^2 - 1}} = \arccosh(x)$$
+
+### Hyperbolic Trigonometric Functions
+
 $$\int \sinh(x) dx = \cosh(x) + C$$
 $$\int \cosh(x) dx = \sinh(x) + C$$
 $$\int \frac{dx}{\sinh^2 (x)} = -\coth(x) + C$$
@@ -331,3 +353,8 @@ $$\int \frac{dx}{\cosh^2(x)} = \tanh(x) + C$$
 $$\int \tanh(x) dx = \ln(\cosh(x)) + C$$
 $$\int \coth(x) dx = \ln(\sinh(x)) + C$$
 $$\int \frac{dx}{\sinh(x)} = \ln(\tanh(x/2)) + C$$
+
+
+
+
+

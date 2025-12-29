@@ -100,13 +100,13 @@ $$R = \{(x,y) | 0 \leq x \leq a, 0 \leq y \leq b\}$$
 
 So we find that
 
-$$V = \int^a\_0 \int^b\_0 c \, dy \, dx = \int^a\_0 (cy |^{y=b}\_{y=0}) \, dx = \int^a\_0 cb \, dx = cbx|^{x=a}\_{x=0} = cba$$
+$$V = \int^a\_0 \int^b\_0 c \\, dy \\, dx = \int^a\_0 (cy |^{y=b}\_{y=0}) \\, dx = \int^a\_0 cb \\, dx = cbx|^{x=a}\_{x=0} = cba$$
 
 Which checks out with what we already know.
 
 A useful property of iterated integrals is that we can evaluate the integrals in whichever order we like.
 
-$$\iint_R f \, dA = \int_a^b \int_c^d f(x,y) \, dy \, dx = \int_c^d \int_a^b f(x,y) \, dx \, dy$$
+$$\iint_R f \\, dA = \int_a^b \int_c^d f(x,y) \\, dy \\, dx = \int_c^d \int_a^b f(x,y) \\, dx \\, dy$$
 
 In practicality, we'll choose an order which helps us actually do the integral the easiest. We'll see where that can come in handy in the next section.
 
@@ -151,50 +151,50 @@ Let $D$ be an elementary region in $\mathbb{R}^2$ and $f$ a continuous function 
 
 1. If $D$ is of type 1 then
 
-$$\iint_D f dA = \int^b_a \int^{\delta{x}}_{\gamma{x}} f(x,y) \, dy \, dx$$
+$$\iint_D f dA = \int^b_a \int^{\delta{x}}_{\gamma{x}} f(x,y) \\, dy \\, dx$$
 2. If $D$ is of type 2 then
 
-$$\iint_D f dA = \int^d_c \int^{\beta(y)}_{\alpha(y)} f(x,y) \, dx \, dy$$
+$$\iint_D f dA = \int^d_c \int^{\beta(y)}_{\alpha(y)} f(x,y) \\, dx \\, dy$$
 
 We may prove this theorem by taking $D$ to be described as
 
 $$D = \{ (x,y) | \gamma(x) \leq y \leq \delta(x), a \leq x \leq b \}$$
 We have that
 
-$$\iint_D f dA = \iint_R f^{ext} \, dA$$
+$$\iint_D f dA = \iint_R f^{ext} \\, dA$$
 
 where $R$ is any rectangle containing $D$. Let $R = [a^\prime, b^\prime] \times [c^\prime, d^\prime]$, where $a^\prime \leq a, b^\prime \leq b, c^\prime \leq \gamma(x), d^\prime \leq \delta(x)$ for all $x$ in $[a,b]$. Since $f^{ext}$ is zero outside the subrectangle then $R_2 = [a,b] \times [c^\prime, d^\prime]$ and so
 
-$$\iint_R f^{ext} \, dA \iint_R f^{ext} \, dA = \int^b_a \int^{d^\prime}\_{c^\prime} f^{ext} (x,y) \, dy \, dx$$
+$$\iint_R f^{ext} \\, dA \iint_R f^{ext} \\, dA = \int^b_a \int^{d^\prime}\_{c^\prime} f^{ext} (x,y) \\, dy \\, dx$$
 by Fubini's theorem. For a fixed value of $X$ between $a$ and $b$, consider the $y$-integral $\int^{d^\prime}\_{c^\prime} f^{ext}(x,y) dy$. Since $f^{ext}(x,y) = 0$ unless $\gamma(x) \leq y \leq \delta(x)$ (in which case $f^{ext} (x,y) = f(x,y)$)
 
-$$\iint^{d^\prime}\_{c^\prime} f^{ext} (x,y) \, dy = \int^{\delta(x)}\_{\gamma(x)} f(x,y) \, dy$$
+$$\iint^{d^\prime}\_{c^\prime} f^{ext} (x,y) \\, dy = \int^{\delta(x)}\_{\gamma(x)} f(x,y) \\, dy$$
 and so
 
-$$\iint\_D f(x,y) \, dA = \iint\_R f^{ext} \, dA = \int^b\_a \int^{d^\prime}\_{c^\prime} f^{ext} (x,y) \, dy \, dx = \int^b\_a \int^{\delta(x)}\_{\gamma(x)} f(x,y) \, dy \, dx$$
+$$\iint\_D f(x,y) \\, dA = \iint\_R f^{ext} \\, dA = \int^b\_a \int^{d^\prime}\_{c^\prime} f^{ext} (x,y) \\, dy \\, dx = \int^b\_a \int^{\delta(x)}\_{\gamma(x)} f(x,y) \\, dy \\, dx$$
 
 Let's see some examples. 
 
 Let $D$ be the region bounded by the parabolas $y=3x^2, y = 4-x^2$ and the $y$-axis. Since $D$ is a type 1 elementary region, we find that
 
-$$\iint_D x^2 y dA = \int_0^1 \int^{4-x^2}_{3x^2} x^2 y \, dy \, dx$$
+$$\iint_D x^2 y dA = \int_0^1 \int^{4-x^2}_{3x^2} x^2 y \\, dy \\, dx$$
 
 The limits for the inside integration come from the $y$-values of the top and bottom boundary curves of $D$. The limits for the outside integration are the constant $x$-values that correspond to the straight left and right sides of $D$. Once the set up has been done, the integration is quite mechanical so I will skip the steps. Suffice to say
 
-$$\int^1_0 \int^{4-x^2}_{3x^2} x^2 y \, dy \, dx = \frac{136}{105}$$
+$$\int^1_0 \int^{4-x^2}_{3x^2} x^2 y \\, dy \\, dx = \frac{136}{105}$$
 
 
 Generally it is useful to think about evaluating double integrals over elementary regions essentially as determining a good order. When the region we need to integrate is a rectangle, Fubini's theorem says that the order is of no significance. 
 
-$$\iint_R f dA = \int^b_a \int^d_c f(x,y) \, dy \, dx = \int^d_c \int^b_a f(x,y) \, dx \, dy$$
+$$\iint_R f dA = \int^b_a \int^d_c f(x,y) \\, dy \\, dx = \int^d_c \int^b_a f(x,y) \\, dx \\, dy$$
 
 When the region is of type 1 only, we must integrate first with respect to $y$. So
 
-$$\iint_D f \, dA = \int^b_a \int^{\delta(x)}_{\gamma(x)} f(x,y) \, dy \, dx$$
+$$\iint_D f \\, dA = \int^b_a \int^{\delta(x)}_{\gamma(x)} f(x,y) \\, dy \\, dx$$
 
 And if type 2 only then
 
-$$\iint_D f dA = \int^d_c \int^{\beta(y)}_{\alpha(y)} f(x,y) \, dx \, dy$$
+$$\iint_D f dA = \int^d_c \int^{\beta(y)}_{\alpha(y)} f(x,y) \\, dx \\, dy$$
 
 If it is type 3, then we can perform either first. Usually one will be easier than the other, but as many things in integration, it is pure intuition as to which it will be (or simply trying both till you get an answer).
 ## Properties of Double Integrals
@@ -203,18 +203,18 @@ Suppose that $f$ and $g$ are both integrable on the closed rectangle $R$. Then t
 
 1. $f+g$ is also integrable on $R$ and
 
-$$\iint_R (f+g) \, dA = \iint_R f \, dA + \iint_R g \, dA$$
+$$\iint_R (f+g) \\, dA = \iint_R f \\, dA + \iint_R g \\, dA$$
 2. $cf$ is also integrable on $R$ where $c \in \mathbb{R}$ is any constant and so
 
-$$\iint_R cf \, dA = c \iint_R f \, dA$$
+$$\iint_R cf \\, dA = c \iint_R f \\, dA$$
 
 3. If $f(x,y) \leq g(x,y)$ for all $(x,y) \in \mathbb{R}$ then
 
-$$\iint_R f(x,y) \, dA \leq \iint_R g(x,y) \, dA$$
+$$\iint_R f(x,y) \\, dA \leq \iint_R g(x,y) \\, dA$$
 
 4. $\vert f \vert$ is also integrable on $R$ and
 
-$$\left\lvert \iint_R f \, dA \right\rvert \leq \iint_R \vert f \vert  \, dA$$
+$$\left\lvert \iint_R f \\, dA \right\rvert \leq \iint_R \vert f \vert  \\, dA$$
 
 
 
@@ -226,7 +226,7 @@ Let's actually do some of these double integrals now to get a feel for how we ca
 
 Integrate 
 
-$$\iint_A (2x - 3y) \, dA$$
+$$\iint_A (2x - 3y) \\, dA$$
 Where $A$ is the triangle with the vertices $(0,0), (2,1), (2,0)$.
 
 First, $2x - 3y$ is a nice defined function we can integrate and a triangle is a nice defined area. We know that Fubini's theorem will apply here, so we can convert this into an iterated integral. 
@@ -237,7 +237,7 @@ So, we know the $y$ term will need to be integrated first, and the limits are go
 
 So the iterated integral is simply going to be
 
-$$\int_0^2 \int_0^{\frac{1}{2} x} (2x - 3y) \, dy \, dx$$
+$$\int_0^2 \int_0^{\frac{1}{2} x} (2x - 3y) \\, dy \\, dx$$
 The set up is done, the rest is just calculus - I'll run through the steps quickly:
 
 $$\int_0^{\frac{1}{2} x} (2x -3y)dy = \left[ 2xy - \frac{3y^2}{2} \right]_0^{\frac{1}{2}x} = \frac{5}{8}x^2$$
@@ -248,7 +248,7 @@ $$\int_0^2 \frac{5}{8} x^2 dx = \left[ \frac{5}{8} \frac{x^3}{3} \right]_0^2 = \
 
 In this example, we'll compute 
 
-$$\iint_A 6y^2 \cos(x) \, dA$$
+$$\iint_A 6y^2 \cos(x) \\, dA$$
 Where $A$ is the area enclosed by the curve $y = \sin(x)$, the $x$ axis and the line $x = \frac{\pi}{2}$.
 
 Once again, we can obviously apply Fubini's theorem here - the shape is nice and defined and so is the integral. We'll convert it into an iterated integral.
@@ -257,15 +257,15 @@ If you sketch out the shape, you'll once again see this is a type 1 shape, so we
 
 So the iterated integral is 
 
-$$\int_0^{\frac{\pi}{2}} \int_0^{\sin(x)} 6y^2 \cos(x) \, dy \, dx$$
+$$\int_0^{\frac{\pi}{2}} \int_0^{\sin(x)} 6y^2 \cos(x) \\, dy \\, dx$$
 The set up is done now - we really just need to solve this via calculus. I'll run through the steps below
 
-$$\int^{\sin(x)}_0 6y^2 \cos(x) \, dy = \left[\frac{6}{3} y^3 \cos(x)\right]_0^{\sin(x)} = 2 \sin^3(x) \cos(x)$$
+$$\int^{\sin(x)}_0 6y^2 \cos(x) \\, dy = \left[\frac{6}{3} y^3 \cos(x)\right]_0^{\sin(x)} = 2 \sin^3(x) \cos(x)$$
 
-$$\int^{\pi/2}_0 2 \sin^3(x) \cos(x) \, dx$$ 
+$$\int^{\pi/2}_0 2 \sin^3(x) \cos(x) \\, dx$$ 
 does need to be solved by substitution. We can use 
 
-$$u = \sin(x), du = \cos(x) \, dx$$
+$$u = \sin(x), du = \cos(x) \\, dx$$
 
 To make the integral
 
