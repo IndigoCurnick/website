@@ -274,7 +274,7 @@ $$(x+3) \sqrt{x+3} - 3 \sqrt{x+3} = \sqrt{x+3} (x + 3 - 3) = x \sqrt{x + 3}$$
 
 ## References
 
-Spivak, M. (2008). *Calculus (4th ed.)*. Publish or Perish, Iuc.
+Spivak, M. (2008). *Calculus (4th ed.)*. Publish or Perish, Inc.
 
 Apostol, T., M. (1967) *Calculus Volume 1 (2nd ed.)*. John Wiley & Sons, Inc.
 

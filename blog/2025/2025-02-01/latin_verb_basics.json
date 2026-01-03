@@ -1,7 +1,7 @@
 {
     "title": "Latin Verb Basics",
     "date": "2025-02-01",
-    "last_updates": "2025-12-20",
+    "last_modified": "2025-12-20",
     "desc": "Overview of how verbs work in Latin",
     "slug": "latin-verb-basics",
     "tags": [
@@ -11,6 +11,5 @@
         "Latin"
     ],
     "author_name": "Indigo Curnick",
-    "author_website": "https://indigocurnick.xyz",
-    "last_modified": "2025-03-16"
+    "author_website": "https://indigocurnick.xyz"
 }
