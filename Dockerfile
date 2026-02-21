@@ -1,4 +1,4 @@
-FROM rust:1.91-slim-bookworm AS builder
+FROM rust:1.93.1-slim-bookworm AS builder
 
 RUN apt-get update
 RUN apt-get install openssl -y
