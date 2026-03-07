@@ -1,8 +1,8 @@
 {
-    "title": "Introduction to Divergence Theorem",
-    "date": "2026-03-14",
-    "desc": "Introducing divergence theorem from vector calculus",
-    "slug": "introduction-to-divergence-theorem",
+    "title": "Introduction to Stoke's Theorem",
+    "date": "2026-03-21",
+    "desc": "Introducing Stoke's theorem from vector calculus",
+    "slug": "introduction-to-stokes-theorem",
     "tags": [
         "mathematics"
     ],
