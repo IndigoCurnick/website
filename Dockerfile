@@ -1,31 +1,31 @@
-FROM rust:1.93.1-slim-bookworm AS builder
-
-RUN apt-get update
-RUN apt-get install openssl -y
-
-RUN apt-get install -y --no-install-recommends \
-    pkg-config \
-    ca-certificates \
-    gcc \
-    libc6-dev \
-    wget \ 
-    libssl-dev \
-    cmake
-
+FROM rust:1.95.0-slim-bookworm AS chef
 WORKDIR /app
+RUN cargo install cargo-chef
 
+FROM chef AS planner
+COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
+
+
+FROM chef AS builder 
+COPY --from=planner /app/recipe.json recipe.json
+# Build dependencies - this is the caching Docker layer!
+RUN cargo chef cook --release --recipe-path recipe.json
+# Build application
 COPY . .
 
-RUN RUST_BACKTRACE=1 cargo build --release
+RUN cargo build --release
 
-# ============= Final image =============
-FROM debian:bookworm-slim AS runtime
+# We do not need the Rust toolchain to run the binary!
+FROM debian:bookworm-20260505-slim AS runtime
 
-RUN apt-get update
+RUN apt-get update 
+RUN apt-get install -y --no-install-recommends ca-certificates libc6 
+
 WORKDIR /app
-COPY . . 
+COPY . .
 COPY --from=builder /app/target/release/website /usr/local/bin
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/local/bin/website"]
+CMD ["/usr/local/bin/website"]
